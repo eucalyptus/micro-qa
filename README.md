@@ -5,6 +5,8 @@ Self Contained Automated Test Environment
 
 ## Installation
 
+Run a CentOS 6 image with the following user data https://gist.github.com/viglesiasce/5847752 or with an existing CentOS 6 installation follow the steps below.
+
 ### Install dependencies
 ```
 yum install python-devel python-setuptools gcc make python-virtualenv java-1.6.0-openjdk.x86_64 git ntp
