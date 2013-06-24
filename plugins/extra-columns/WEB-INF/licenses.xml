@@ -1,0 +1,5 @@
+<l:dependencies xmlns:l='licenses' groupId='org.jenkins-ci.plugins' artifactId='extra-columns' version='1.9'>
+  <l:dependency name='Extra Columns Plugin' groupId='org.jenkins-ci.plugins' artifactId='extra-columns' version='1.9' url='http://wiki.jenkins-ci.org/display/JENKINS/Extra+Columns+Plugin'>
+    <l:description />
+  </l:dependency>
+</l:dependencies>

@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson>
+  <disabledAdministrativeMonitors>
+    <string>jenkins.security.RekeySecretAdminMonitor</string>
+  </disabledAdministrativeMonitors>
+  <version>1.503</version>
+  <numExecutors>5</numExecutors>
+  <mode>NORMAL</mode>
+  <useSecurity>true</useSecurity>
+  <authorizationStrategy class="hudson.security.AuthorizationStrategy$Unsecured"/>
+  <securityRealm class="hudson.security.SecurityRealm$None"/>
+  <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
+  <workspaceDir>${ITEM_ROOTDIR}/workspace</workspaceDir>
+  <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
+  <jdks/>
+  <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
+  <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
+  <clouds/>
+  <slaves/>
+  <quietPeriod>5</quietPeriod>
+  <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
+  <views>
+    <hudson.model.AllView>
+      <owner class="hudson" reference="../../.."/>
+      <name>All</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+    </hudson.model.AllView>
+    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.6">
+      <owner class="hudson" reference="../../.."/>
+      <name>Testing</name>
+      <description>&lt;html&gt;&#xd;
+	&lt;head&gt;&#xd;
+		&lt;title&gt;HTML Online Editor Sample&lt;/title&gt;&#xd;
+	&lt;/head&gt;&#xd;
+	&lt;body&gt;&#xd;
+		&lt;h1&gt;&#xd;
+			Welcome to Micro-QA v2.2&lt;/h1&gt;&#xd;
+		&lt;p&gt;&#xd;
+			This Jenkins server is intended to provide an easy way to get going with both Eutester and Eutester4j&lt;br&gt;&#xd;
+                        in order to validate and debug cloud installations.&#xd;
+                &lt;/p&gt;&#xd;
+          &lt;h2&gt; Running a Test &lt;/h2&gt;&#xd;
+          &lt;p&gt;In order to run a test click the &quot;play&quot; button to the right of each job listed, then enter your eucarc file into&lt;br&gt;&#xd;
+             the field provided. At the bottom of the page you should see a &quot;Build&quot; button which will kick off the test.&lt;/p&gt;&#xd;
+	&lt;/body&gt;&#xd;
+&lt;/html&gt;&#xd;
+</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>Custom Eutester Script</string>
+        <string>EBS Suite</string>
+        <string>Eutester4j Suite</string>
+        <string>Instance Suite</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <jenkins.plugins.extracolumns.DescriptionColumn plugin="extra-columns@1.9">
+          <displayName>false</displayName>
+          <trim>false</trim>
+          <displayLength>1</displayLength>
+        </jenkins.plugins.extracolumns.DescriptionColumn>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <recurse>false</recurse>
+      <useCssStyle>false</useCssStyle>
+      <includeStdJobList>true</includeStdJobList>
+      <leftPortletWidth>50%</leftPortletWidth>
+      <rightPortletWidth>50%</rightPortletWidth>
+      <leftPortlets/>
+      <rightPortlets/>
+      <topPortlets/>
+      <bottomPortlets/>
+    </hudson.plugins.view.dashboard.Dashboard>
+    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.6">
+      <owner class="hudson" reference="../../.."/>
+      <name>Debugging</name>
+      <description>&lt;html&gt;&#xd;
+	&lt;head&gt;&#xd;
+		&lt;title&gt;HTML Online Editor Sample&lt;/title&gt;&#xd;
+	&lt;/head&gt;&#xd;
+	&lt;body&gt;&#xd;
+		&lt;h1&gt;&#xd;
+			Welcome to Micro-QA v2.1&lt;/h1&gt;&#xd;
+		&lt;p&gt;&#xd;
+			This Jenkins server is intended to provide an easy way to get going with both Eutester and Eutester4j&lt;br&gt;&#xd;
+                        in order to validate and debug their cloud installations.&#xd;
+                &lt;/p&gt;&#xd;
+          &lt;h2&gt; Running a Test &lt;/h2&gt;&#xd;
+          &lt;p&gt;In order to run a test click the &quot;play&quot; button to the right of each job listed, then enter your cloud topology&lt;br&gt;&#xd;
+             in the field provided as well as the root password for your cloud infrastructure machines.At the bottom of the&lt;br&gt;&#xd;
+             page you should see a &quot;Build&quot; button which will kick off the test.&lt;/p&gt;&#xd;
+	&lt;/body&gt;&#xd;
+&lt;/html&gt;&#xd;
+</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>Get Debug</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <jenkins.plugins.extracolumns.DescriptionColumn plugin="extra-columns@1.9">
+          <displayName>false</displayName>
+          <trim>false</trim>
+          <displayLength>1</displayLength>
+        </jenkins.plugins.extracolumns.DescriptionColumn>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <recurse>false</recurse>
+      <useCssStyle>false</useCssStyle>
+      <includeStdJobList>true</includeStdJobList>
+      <leftPortletWidth>50%</leftPortletWidth>
+      <rightPortletWidth>50%</rightPortletWidth>
+      <leftPortlets/>
+      <rightPortlets/>
+      <topPortlets/>
+      <bottomPortlets/>
+    </hudson.plugins.view.dashboard.Dashboard>
+  </views>
+  <primaryView>Testing</primaryView>
+  <slaveAgentPort>0</slaveAgentPort>
+  <label></label>
+  <nodeProperties/>
+  <globalNodeProperties/>
+</hudson>

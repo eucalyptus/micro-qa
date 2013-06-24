@@ -1,0 +1,37 @@
+<l:dependencies xmlns:l='licenses'>
+  <l:dependency name='Jenkins GIT plugin' groupId='org.jenkins-ci.plugins' artifactId='git' version='1.4.0' url='http://wiki.jenkins-ci.org/display/JENKINS/Git+Plugin'>
+    <l:description>Integrates Jenkins with GIT SCM</l:description>
+  </l:dependency>
+  <l:dependency name='annotation-indexer' groupId='org.jvnet.hudson' artifactId='annotation-indexer' version='1.2' url='https://hudson.dev.java.net/lib/annotation-indexer/'>
+    <l:description>Creates index of annotations.</l:description>
+  </l:dependency>
+  <l:dependency name='Joda time' groupId='joda-time' artifactId='joda-time' version='1.5.1' url='http://joda-time.sourceforge.net'>
+    <l:description>Date and time library to replace JDK date handling.</l:description>
+    <l:license name='Apache 2' url='http://www.apache.org/licenses/' />
+  </l:dependency>
+  <l:dependency name='JSch' groupId='com.jcraft' artifactId='jsch' version='0.1.44-1' url='http://www.jcraft.com/jsch/'>
+    <l:description>JSch is a pure Java implementation of SSH2</l:description>
+    <l:license name='Revised BSD' url='http://www.jcraft.com/jsch/LICENSE.txt' />
+  </l:dependency>
+  <l:dependency name='JGit - Core' groupId='org.eclipse.jgit' artifactId='org.eclipse.jgit' version='2.2.0.201212191850-r' url='http://www.eclipse.org/jgit//org.eclipse.jgit'>
+    <l:description>Repository access and algorithms</l:description>
+    <l:license name='Eclipse Distribution License (New BSD License)' />
+  </l:dependency>
+  <l:dependency name='Bridge method injection annotations' groupId='com.infradna.tool' artifactId='bridge-method-annotation' version='1.4'>
+    <l:description>Evolve your classes without breaking compatibility</l:description>
+    <l:license name='MIT License' url='http://www.opensource.org/licenses/mit-license.php' />
+  </l:dependency>
+  <l:dependency name='Guava (Google Common Libraries)' groupId='com.google.guava' artifactId='guava' version='r09' url='http://code.google.com/p/guava-libraries'>
+    <l:description>Guava is a suite of core and expanded libraries that include 
+    utility classes, google's collections, io classes, and much 
+    much more.
+    
+    This project is a complete packaging of all the Guava libraries
+    into a single jar.  Individual portions of Guava can be used
+    by downloading the appropriate module and its dependencies.
+    
+    Guava (complete) has only one code dependency - javax.annotation,
+    per the JSR-305 spec.</l:description>
+    <l:license name='The Apache Software License, Version 2.0' url='http://www.apache.org/licenses/LICENSE-2.0.txt' />
+  </l:dependency>
+</l:dependencies>

@@ -1,0 +1,5 @@
+<l:dependencies xmlns:l='licenses'>
+  <l:dependency name='Jenkins build timeout plugin' groupId='org.jenkins-ci.plugins' artifactId='build-timeout' version='1.11' url='http://wiki.jenkins-ci.org/display/JENKINS/Build-timeout+Plugin'>
+    <l:description>Aborts a build if it's taking too long</l:description>
+  </l:dependency>
+</l:dependencies>

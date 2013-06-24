@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <url>http://wiki.jenkins-ci.org/display/JENKINS/testng-plugin</url>
+    <parent>
+        <groupId>org.jenkins-ci.plugins</groupId>
+        <artifactId>plugin</artifactId>
+        <version>1.447</version>
+    </parent>
+
+    <artifactId>testng-plugin</artifactId>
+    <version>1.1</version>
+    <packaging>hpi</packaging>
+    <name>TestNG Results Plugin</name>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.jenkins-ci.main</groupId>
+            <artifactId>maven-plugin</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>1.8.5</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <issueManagement>
+      <system>JIRA</system>
+      <url>https://issues.jenkins-ci.org</url>
+    </issueManagement>
+
+    <developers>
+        <developer>
+            <id>nalin_makar</id>
+            <name>Nalin Makar</name>
+            <email>nalin.makar@gmail.com</email>
+        </developer>
+        <developer>
+            <id>farshidce</id>
+            <name>Farshid Ghods</name>
+            <email>farshid.ghods@gmail.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:https://github.com/jenkinsci/testng-plugin-plugin.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com/jenkinsci/testng-plugin-plugin.git</developerConnection>
+        <url>https://github.com/jenkinsci/testng-plugin-plugin</url>
+    </scm>
+
+    <properties>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <project.build.outputEncoding>UTF-8</project.build.outputEncoding>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+</project>

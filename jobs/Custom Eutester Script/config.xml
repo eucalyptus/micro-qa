@@ -1,0 +1,140 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>&lt;strong&gt;Create your own Eutester script.&lt;/strong&gt;</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>repo_url</name>
+          <description></description>
+          <defaultValue>ssh://viglesias@git.eucalyptus-systems.com/mnt/repos/viglesias/eutester</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>branch</name>
+          <description></description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>master</string>
+              <string>testing</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.TextParameterDefinition>
+          <name>eucarc</name>
+          <description>Text from eucarc file</description>
+          <defaultValue>EUCA_KEY_DIR=$(dirname $(readlink -f ${BASH_SOURCE}))
+export EC2_URL=http://10.111.1.2:8773/services/Eucalyptus
+export S3_URL=http://10.111.1.2:8773/services/Walrus
+export EUARE_URL=http://10.111.1.2:8773/services/Euare
+export TOKEN_URL=http://10.111.1.2:8773/services/Tokens
+export EUSTORE_URL=http://emis.eucalyptus.com/
+export EC2_PRIVATE_KEY=${EUCA_KEY_DIR}/euca2-admin-c0f5b42a-pk.pem
+export EC2_CERT=${EUCA_KEY_DIR}/euca2-admin-c0f5b42a-cert.pem
+export EC2_JVM_ARGS=-Djavax.net.ssl.trustStore=${EUCA_KEY_DIR}/jssecacerts
+export EUCALYPTUS_CERT=${EUCA_KEY_DIR}/cloud-cert.pem
+export EC2_ACCOUNT_NUMBER=&apos;287055380613&apos;
+export EC2_ACCESS_KEY=&apos;08QPCDJLMZLBIRZLCNYXY&apos;
+export EC2_SECRET_KEY=&apos;JFpnEA2mVmNRxohhg5GnkV9xjHBFsMENyzJTxARQ&apos;
+export AWS_CREDENTIAL_FILE=${EUCA_KEY_DIR}/iamrc
+export EC2_USER_ID=&apos;287055380613&apos;
+alias ec2-bundle-image=&quot;ec2-bundle-image --cert ${EC2_CERT} --privatekey ${EC2_PRIVATE_KEY} --user ${EC2_ACCOUNT_NUMBER} --ec2cert ${EUCALYPTUS_CERT}&quot;
+alias ec2-upload-bundle=&quot;ec2-upload-bundle -a ${EC2_ACCESS_KEY} -s ${EC2_SECRET_KEY} --url ${S3_URL}&quot;</defaultValue>
+        </hudson.model.TextParameterDefinition>
+        <hudson.model.TextParameterDefinition>
+          <name>script</name>
+          <description></description>
+          <defaultValue>#!/usr/bin/python
+
+import time
+from eucaops import Eucaops
+from eutester.eutestcase import EutesterTestCase
+import os
+
+class InstanceBasics(EutesterTestCase):
+    def __init__(self):
+        #### Pre-conditions
+        self.setuptestcase()
+        self.setup_parser()
+        self.get_args()
+        # Setup basic eutester object
+        self.tester = Eucaops( credpath=self.args.credpath)
+        self.reservation = None
+        ### Add and authorize a group for the instance
+        ### Generate a keypair for the instance
+        self.keypair_name = &quot;keypair-&quot; + str(time.time()).replace(&quot;.&quot;, &quot;&quot;) + self.tester.id_generator()
+        self.keypair = self.tester.add_keypair(self.keypair_name)
+        ### Get an image to work with
+        self.image = self.tester.get_emi(root_device_type=&apos;instance-store&apos;)
+
+    def clean_method(self):
+        &quot;&quot;&quot;
+        Description: Attempts to clean up resources created in this test
+        &quot;&quot;&quot;
+        self.tester.cleanup_artifacts()
+
+    def MyTest(self):
+        &quot;&quot;&quot;
+        Description: This test will simply run an instance and check that it is reachable via ssh.
+        &quot;&quot;&quot;
+        self.reservation = self.tester.run_instance(self.image,zone=self.zone, keypair=self.keypair_name, timeout=600)
+     
+if __name__ == &quot;__main__&quot;:
+    testcase = InstanceBasics()
+    ### Use the list of tests passed from config/command line to determine what subset of tests to run
+    ### or use a predefined list
+    list = testcase.args.tests or [ &quot;MyTest&quot;]
+
+    ### Convert test suite methods to EutesterUnitTest objects
+    unit_list = [ ]
+    for test in list:
+        unit_list.append( testcase.create_testunit_by_name(test) )
+
+    ### Run the EutesterUnitTest objects
+    result = testcase.run_test_case_list(unit_list,clean_on_exit=True)
+    exit(result)</defaultValue>
+        </hudson.model.TextParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <quietPeriod>0</quietPeriod>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers class="vector"/>
+  <concurrentBuild>true</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>CREDPATH=credentials
+if [ ! -d &quot;$CREDPATH&quot; ]; then
+    mkdir $CREDPATH
+fi
+cat &gt; credentials/eucarc &lt;&lt; EOF
+$eucarc
+EOF
+
+cat &gt; test_script &lt;&lt; EOF
+$script
+EOF
+/share/python_lib/stable/bin/python ./test_script --credpath credentials</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.plugins.parameterizedtrigger.BuildTrigger plugin="parameterized-trigger@2.17">
+      <configs>
+        <hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.CurrentBuildParameters/>
+          </configs>
+          <projects>Custom Eutester Script</projects>
+          <condition>ALWAYS</condition>
+          <triggerWithNoParameters>false</triggerWithNoParameters>
+        </hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
+      </configs>
+    </hudson.plugins.parameterizedtrigger.BuildTrigger>
+  </publishers>
+  <buildWrappers/>
+</project>

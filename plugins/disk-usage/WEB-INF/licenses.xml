@@ -1,0 +1,9 @@
+<l:dependencies xmlns:l='licenses'>
+  <l:dependency name='Jenkins disk-usage plugin' groupId='org.jenkins-ci.plugins' artifactId='disk-usage' version='0.20' url='http://wiki.jenkins-ci.org/display/JENKINS/Disk+Usage+Plugin'>
+    <l:description />
+  </l:dependency>
+  <l:dependency name='Plexus Common Utilities' groupId='org.codehaus.plexus' artifactId='plexus-utils' version='1.5.15' url='http://plexus.codehaus.org/plexus-utils'>
+    <l:description>A collection of various utility classes to ease working with strings, files, command lines, XML and more.</l:description>
+    <l:license name='The Apache Software License, Version 2.0' url='http://www.apache.org/licenses/LICENSE-2.0.txt' />
+  </l:dependency>
+</l:dependencies>

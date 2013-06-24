@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<l:dependencies xmlns:l='licenses' groupId='org.jenkins-ci.plugins' artifactId='git-client' version='1.0.7'><l:dependency name='Jenkins GIT client plugin' groupId='org.jenkins-ci.plugins' artifactId='git-client' version='1.0.7' url='http://wiki.jenkins-ci.org/display/JENKINS/Git+Client+Plugin'><l:description>Utility plugin for Git support in Jenkins</l:description></l:dependency><l:dependency name='JSch' groupId='com.jcraft' artifactId='jsch' version='0.1.44-1' url='http://www.jcraft.com/jsch/'><l:description>JSch is a pure Java implementation of SSH2</l:description><l:license name='Revised BSD' url='http://www.jcraft.com/jsch/LICENSE.txt'/></l:dependency><l:dependency name='JGit - Core' groupId='org.eclipse.jgit' artifactId='org.eclipse.jgit' version='2.2.0.201212191850-r' url='http://www.eclipse.org/jgit//org.eclipse.jgit'><l:description>Repository access and algorithms</l:description><l:license name='Eclipse Distribution License (New BSD License)' url=''/></l:dependency><l:dependency name='Guava (Google Common Libraries)' groupId='com.google.guava' artifactId='guava' version='r09' url='http://code.google.com/p/guava-libraries'><l:description>Guava is a suite of core and expanded libraries that include 
+    utility classes, google's collections, io classes, and much 
+    much more.
+    
+    This project is a complete packaging of all the Guava libraries
+    into a single jar.  Individual portions of Guava can be used
+    by downloading the appropriate module and its dependencies.
+    
+    Guava (complete) has only one code dependency - javax.annotation,
+    per the JSR-305 spec.</l:description><l:license name='The Apache Software License, Version 2.0' url='http://www.apache.org/licenses/LICENSE-2.0.txt'/></l:dependency></l:dependencies>

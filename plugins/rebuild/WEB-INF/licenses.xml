@@ -1,0 +1,6 @@
+<l:dependencies xmlns:l='licenses' groupId='com.sonyericsson.hudson.plugins.rebuild' artifactId='rebuild' version='1.19'>
+  <l:dependency name='Rebuilder' groupId='com.sonyericsson.hudson.plugins.rebuild' artifactId='rebuild' version='1.19' url='http://wiki.jenkins-ci.org/display/JENKINS/Rebuild+Plugin'>
+    <l:description />
+    <l:license name='MIT' url='http://www.opensource.org/licenses/mit-license.php' />
+  </l:dependency>
+</l:dependencies>
