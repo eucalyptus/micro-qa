@@ -9,7 +9,7 @@ Run a CentOS 6 image with the following user data https://gist.github.com/vigles
 
 ### Install dependencies
 ```
-yum install python-devel python-setuptools gcc make python-virtualenv java-1.6.0-openjdk.x86_64 git ntp
+yum install python-devel python-setuptools gcc make python-virtualenv java-1.6.0-openjdk.x86_64 git ntp wget unzip
 ```
 
 ### Install Jenkins
@@ -39,8 +39,8 @@ iptables-save > /etc/sysconfig/iptables
 ```
 pushd /var/lib
 wget https://github.com/eucalyptus/micro-qa/archive/master.zip
-unzip master.zip
-mv micro-qa jenkins
+unzip master
+rsync -va micro-qa-master/ jenkins/
 popd
 service jenkins start
 ```
