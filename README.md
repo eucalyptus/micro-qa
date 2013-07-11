@@ -10,7 +10,7 @@ Run a CentOS 6 image with the following user data https://gist.github.com/vigles
 ### Install dependencies
 ```
 rpm -ivh http://mirror.cogentco.com/pub/linux/epel/6/i386/epel-release-6-8.noarch.rpm
-yum install python-devel python-setuptools gcc make python-virtualenv java-1.6.0-openjdk.x86_64 git ntp wget unzip byobu
+yum install python-devel python-setuptools gcc make python-virtualenv java-1.7.0-openjdk-devel.x86_64 git ntp wget ant unzip byobu
 ```
 
 ### Install Jenkins
