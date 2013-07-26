@@ -135,6 +135,51 @@
       <topPortlets/>
       <bottomPortlets/>
     </hudson.plugins.view.dashboard.Dashboard>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Build</name>
+      <description>&lt;html&gt;&#xd;
+	&lt;head&gt;&#xd;
+		&lt;title&gt;HTML Online Editor Sample&lt;/title&gt;&#xd;
+	&lt;/head&gt;&#xd;
+	&lt;body&gt;&#xd;
+		&lt;h1&gt;&#xd;
+			Welcome to Micro-QA v2.2&lt;/h1&gt;&#xd;
+		&lt;p&gt;&#xd;
+			This Jenkins server is intended to provide an easy way to get going with both Eutester and Eutester4j&lt;br&gt;&#xd;
+                        in order to validate and debug cloud installations.&#xd;
+                &lt;/p&gt;&#xd;
+          &lt;h2&gt; Running a Test &lt;/h2&gt;&#xd;
+          &lt;p&gt;In order to run a test click the &quot;play&quot; button to the right of each job listed, then enter your eucarc file into&lt;br&gt;&#xd;
+             the field provided. At the bottom of the page you should see a &quot;Build&quot; button which will kick off the test.&lt;/p&gt;&#xd;
+	&lt;/body&gt;&#xd;
+&lt;/html&gt;&#xd;
+</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>Build Cloud from Packages</string>
+        <string>Build Cloud from Packages with Config</string>
+        <string>Build Cloud from Source</string>
+        <string>Build Cloud from Source with Config</string>
+        <string>Rebuild Hosts</string>
+        <string>Upload Cloud Configuration</string>
+        <string>Upload Host Keypair</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <recurse>false</recurse>
+    </listView>
   </views>
   <primaryView>Testing</primaryView>
   <slaveAgentPort>0</slaveAgentPort>
