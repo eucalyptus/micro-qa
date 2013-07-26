@@ -58,6 +58,8 @@ pushd ansible
 . hacking/env-setup
 popd
 
+cp -a /var/lib/jenkins/build-config/* .
+
 if [ -f /var/lib/jenkins/build-keys/buildkey ] ; then
     ansible-playbook -i cloud_hosts --private-key /var/lib/jenkins/build-keys/buildkey playbooks/package.yml
 else
