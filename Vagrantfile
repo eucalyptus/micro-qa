@@ -33,7 +33,7 @@ service jenkins start
 SYNC_COMMAND=/usr/bin/jenkins-sync
 cat > $SYNC_COMMAND <<EOF
 #!/bin/bash
-rsync -va /var/lib/jenkins/ /vagrant/jenkins --exclude workspace --exclude builds --exclude nextBuildNumber --exclude lastStable --exclude lastSuccessful --exclude .git
+rsync -va /var/lib/jenkins/ /vagrant/jenkins/ --exclude workspace --exclude builds --exclude nextBuildNumber --exclude lastStable --exclude lastSuccessful --exclude .git
 EOF
 chmod +x $SYNC_COMMAND
 DEPLOY
