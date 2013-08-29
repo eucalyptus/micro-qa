@@ -160,10 +160,10 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
-        <string>Build Cloud from Packages</string>
-        <string>Build Cloud from Packages with Config</string>
-        <string>Build Cloud from Source</string>
-        <string>Build Cloud from Source with Config</string>
+        <string>Deploy Cloud from Packages</string>
+        <string>Deploy Cloud from Packages with Config</string>
+        <string>Deploy Cloud from Source</string>
+        <string>Deploy Cloud from Source with Config</string>
         <string>Rebuild Hosts</string>
         <string>Upload Cloud Configuration</string>
         <string>Upload Host Keypair</string>
