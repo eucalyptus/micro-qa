@@ -9,7 +9,7 @@
         <hudson.model.StringParameterDefinition>
           <name>repo_url</name>
           <description></description>
-          <defaultValue>ssh://viglesias@git.eucalyptus-systems.com/mnt/repos/viglesias/eutester</defaultValue>
+          <defaultValue>git://github.com/eucalyptus/eutester.git</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.ChoiceParameterDefinition>
           <name>branch</name>

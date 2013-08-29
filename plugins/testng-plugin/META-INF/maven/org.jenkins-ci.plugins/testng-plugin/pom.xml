@@ -4,11 +4,11 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>1.447</version>
+        <version>1.526</version>
     </parent>
 
     <artifactId>testng-plugin</artifactId>
-    <version>1.1</version>
+    <version>1.5</version>
     <packaging>hpi</packaging>
     <name>TestNG Results Plugin</name>
 
@@ -32,14 +32,9 @@
 
     <developers>
         <developer>
-            <id>nalin_makar</id>
+            <id>nullin</id>
             <name>Nalin Makar</name>
-            <email>nalin.makar@gmail.com</email>
-        </developer>
-        <developer>
-            <id>farshidce</id>
-            <name>Farshid Ghods</name>
-            <email>farshid.ghods@gmail.com</email>
+            <email>nullin@nullin.com</email>
         </developer>
     </developers>
 

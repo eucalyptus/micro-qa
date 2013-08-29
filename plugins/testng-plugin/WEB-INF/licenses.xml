@@ -1,5 +1,2 @@
-<l:dependencies xmlns:l='licenses'>
-  <l:dependency name='TestNG Results Plugin' groupId='org.jenkins-ci.plugins' artifactId='testng-plugin' version='1.1' url='http://wiki.jenkins-ci.org/display/JENKINS/testng-plugin'>
-    <l:description />
-  </l:dependency>
-</l:dependencies>
+<?xml version="1.0" encoding="UTF-8"?>
+<l:dependencies xmlns:l='licenses' groupId='org.jenkins-ci.plugins' artifactId='testng-plugin' version='1.5'><l:dependency name='TestNG Results Plugin' groupId='org.jenkins-ci.plugins' artifactId='testng-plugin' version='1.5' url='http://wiki.jenkins-ci.org/display/JENKINS/testng-plugin'><l:description/></l:dependency></l:dependencies>
