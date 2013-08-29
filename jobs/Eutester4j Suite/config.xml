@@ -14,30 +14,12 @@
         <hudson.model.TextParameterDefinition>
           <name>eucarc</name>
           <description></description>
-          <defaultValue>EUCA_KEY_DIR=$(dirname $(readlink -f ${BASH_SOURCE}))
-export EC2_URL=http://10.111.1.52:8773/services/Eucalyptus
-export S3_URL=http://10.111.1.52:8773/services/Walrus
-export EUARE_URL=http://10.111.1.52:8773/services/Euare
-export TOKEN_URL=http://10.111.1.52:8773/services/Tokens
-export AWS_AUTO_SCALING_URL=http://10.111.1.52:8773/services/AutoScaling
-export AWS_CLOUDWATCH_URL=http://10.111.1.52:8773/services/CloudWatch
-export EUSTORE_URL=http://emis.eucalyptus.com/
-export EC2_PRIVATE_KEY=${EUCA_KEY_DIR}/euca2-admin-7d09dc1a-pk.pem
-export EC2_CERT=${EUCA_KEY_DIR}/euca2-admin-7d09dc1a-cert.pem
-export EC2_JVM_ARGS=-Djavax.net.ssl.trustStore=${EUCA_KEY_DIR}/jssecacerts
-export EUCALYPTUS_CERT=${EUCA_KEY_DIR}/cloud-cert.pem
-export EC2_ACCOUNT_NUMBER=&apos;575659681365&apos;
-export EC2_ACCESS_KEY=&apos;NFAQCLEW9SMS6EBNKJ1QP&apos;
-export EC2_SECRET_KEY=&apos;YT1xQgrkrbzP7mKlwnuC3D9L9ieccuJG3km0PzIk&apos;
-export AWS_CREDENTIAL_FILE=${EUCA_KEY_DIR}/iamrc
-export EC2_USER_ID=&apos;575659681365&apos;
-alias ec2-bundle-image=&quot;ec2-bundle-image --cert ${EC2_CERT} --privatekey ${EC2_PRIVATE_KEY} --user ${EC2_ACCOUNT_NUMBER} --ec2cert ${EUCALYPTUS_CERT}&quot;
-alias ec2-upload-bundle=&quot;ec2-upload-bundle -a ${EC2_ACCESS_KEY} -s ${EC2_SECRET_KEY} --url ${S3_URL}&quot;</defaultValue>
+          <defaultValue></defaultValue>
         </hudson.model.TextParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@1.2.0">
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@1.4.0">
     <configVersion>2</configVersion>
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
@@ -48,7 +30,7 @@ alias ec2-upload-bundle=&quot;ec2-upload-bundle -a ${EC2_ACCESS_KEY} -s ${EC2_SE
     </userRemoteConfigs>
     <branches>
       <hudson.plugins.git.BranchSpec>
-        <name>testing</name>
+        <name>master</name>
       </hudson.plugins.git.BranchSpec>
     </branches>
     <disableSubmodules>false</disableSubmodules>
@@ -78,7 +60,7 @@ alias ec2-upload-bundle=&quot;ec2-upload-bundle -a ${EC2_ACCESS_KEY} -s ${EC2_SE
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers class="vector"/>
+  <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
