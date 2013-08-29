@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: viglesias
+Build-Jdk: 1.7.0_15
+Extension-Name: jenkins-multijob-plugin
+Specification-Title: Enabling full hierarchy of Jenkins jobs
+Implementation-Title: jenkins-multijob-plugin
+Implementation-Version: 1.10-SNAPSHOT
+Plugin-Class: com.tikal.jenkins.plugins.multijob.Plugin
+Group-Id: org.jenkins-ci.plugins
+Short-Name: jenkins-multijob-plugin
+Long-Name: Jenkins Multijob plugin
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Multijob+Plugin
+Plugin-Version: 1.10-SNAPSHOT (private-08/06/2013 19:54-viglesias)
+Hudson-Version: 1.465
+Jenkins-Version: 1.465
+Plugin-Dependencies: envinject:1.83,parameterized-trigger:2.12,javadoc
+ :1.0,maven-plugin:1.465
+Plugin-Developers: Alex Nickolaevsky:alex-n:alex@tikalk.com,Roni Licht
+ :ronil:roni@tikalk.com,Itai Or:itaior:itai@tikalk.com
+

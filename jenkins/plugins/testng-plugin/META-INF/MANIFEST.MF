@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: nullin
+Build-Jdk: 1.6.0_51
+Extension-Name: testng-plugin
+Implementation-Title: testng-plugin
+Implementation-Version: 1.5
+Plugin-Class: hudson.plugins.testng.PluginImpl
+Group-Id: org.jenkins-ci.plugins
+Short-Name: testng-plugin
+Long-Name: TestNG Results Plugin
+Url: http://wiki.jenkins-ci.org/display/JENKINS/testng-plugin
+Plugin-Version: 1.5
+Hudson-Version: 1.526
+Jenkins-Version: 1.526
+Plugin-Dependencies: maven-plugin:1.526
+Plugin-Developers: Nalin Makar:nullin:nullin@nullin.com
+

@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: gregory
+Build-Jdk: 1.6.0_51
+Extension-Name: envinject
+Implementation-Title: envinject
+Implementation-Version: 1.88
+Group-Id: org.jenkins-ci.plugins
+Short-Name: envinject
+Long-Name: Environment Injector Plugin
+Url: https://wiki.jenkins-ci.org/display/JENKINS/EnvInject+Plugin
+Plugin-Version: 1.88
+Hudson-Version: 1.445
+Jenkins-Version: 1.445
+Plugin-Dependencies: ivy:1.21;resolution:=optional,javadoc:1.0,maven-p
+ lugin:1.445
+Plugin-Developers: Gregory Boissinot:gbois:gregory.boissinot@gmail.com
+

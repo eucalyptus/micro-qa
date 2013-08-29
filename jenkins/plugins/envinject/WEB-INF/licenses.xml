@@ -1,0 +1,10 @@
+<l:dependencies xmlns:l='licenses'>
+  <l:dependency name='Environment Injector Plugin' groupId='org.jenkins-ci.plugins' artifactId='envinject' version='1.88' url='https://wiki.jenkins-ci.org/display/JENKINS/EnvInject+Plugin'>
+    <l:description />
+    <l:license name='MIT license' />
+  </l:dependency>
+  <l:dependency name='Jenkins EnvInject Library' groupId='org.jenkins-ci.lib' artifactId='envinject-lib' version='1.18' url='https://wiki.jenkins-ci.org/display/JENKINS/EnvInject+Plugin'>
+    <l:description />
+    <l:license name='MIT license' />
+  </l:dependency>
+</l:dependencies>
