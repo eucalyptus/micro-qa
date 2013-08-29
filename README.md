@@ -3,7 +3,11 @@ micro-qa
 
 Self Contained Automated Test Environment
 
-## Installation
+## [Setting up](https://github.com/eucalyptus/micro-qa/wiki/Installing-MicroQA-Locally)
+
+## [Contributing](https://github.com/eucalyptus/micro-qa/wiki/Guidelines-for-Contributing-to-MicroQA)
+
+## Source Installation
 
 Run a CentOS 6 image with the following user data https://gist.github.com/viglesiasce/5847752 or with an existing CentOS 6 installation follow the steps below.
 
