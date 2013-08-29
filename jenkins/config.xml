@@ -36,7 +36,7 @@
 	&lt;/head&gt;&#xd;
 	&lt;body&gt;&#xd;
 		&lt;h1&gt;&#xd;
-			Welcome to Micro-QA v2.2&lt;/h1&gt;&#xd;
+			Welcome to Micro-QA v3.0.0&lt;/h1&gt;&#xd;
 		&lt;p&gt;&#xd;
 			This Jenkins server is intended to provide an easy way to get going with both Eutester and Eutester4j&lt;br&gt;&#xd;
                         in order to validate and debug cloud installations.&#xd;
@@ -52,10 +52,14 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
-        <string>Custom Eutester Script</string>
+        <string>Boot From EBS</string>
+        <string>CloudWatch</string>
         <string>EBS Suite</string>
         <string>Eutester4j Suite</string>
         <string>Instance Suite</string>
+        <string>Tagging+Filtering</string>
+        <string>Walrus Bucket Tests</string>
+        <string>Walrus Object Tests</string>
       </jobNames>
       <jobFilters/>
       <columns>
@@ -91,7 +95,7 @@
 	&lt;/head&gt;&#xd;
 	&lt;body&gt;&#xd;
 		&lt;h1&gt;&#xd;
-			Welcome to Micro-QA v2.1&lt;/h1&gt;&#xd;
+			Welcome to Micro-QA v3.0.0&lt;/h1&gt;&#xd;
 		&lt;p&gt;&#xd;
 			This Jenkins server is intended to provide an easy way to get going with both Eutester and Eutester4j&lt;br&gt;&#xd;
                         in order to validate and debug their cloud installations.&#xd;
@@ -144,7 +148,7 @@
 	&lt;/head&gt;&#xd;
 	&lt;body&gt;&#xd;
 		&lt;h1&gt;&#xd;
-			Welcome to Micro-QA v2.2&lt;/h1&gt;&#xd;
+			Welcome to Micro-QA v3.0.0&lt;/h1&gt;&#xd;
 		&lt;p&gt;&#xd;
 			This Jenkins server is intended to provide an easy way to get going with both Eutester and Eutester4j&lt;br&gt;&#xd;
                         in order to validate and debug cloud installations.&#xd;

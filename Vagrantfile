@@ -27,13 +27,13 @@ iptables -F
 iptables -F -t nat
 iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 8080
 iptables-save > /etc/sysconfig/iptables
-rsync -va /vagrant/jenkins/ /var/lib/jenkins/
+rsync -va /vagrant/ /var/lib/jenkins/
 chown -R jenkins:jenkins /var/lib/jenkins
 service jenkins start
 SYNC_COMMAND=/usr/bin/jenkins-sync
 cat > $SYNC_COMMAND <<EOF
 #!/bin/bash
-rsync -va /var/lib/jenkins/ /vagrant/ --exclude workspace --exclude builds --exclude nextBuildNumber --exclude lastStable --exclude lastSuccessful --exclude .git
+rsync -va /var/lib/jenkins/ /vagrant/jenkins --exclude workspace --exclude builds --exclude nextBuildNumber --exclude lastStable --exclude lastSuccessful --exclude .git
 EOF
 chmod +x $SYNC_COMMAND
 DEPLOY
