@@ -27,7 +27,7 @@
       <filterQueue>false</filterQueue>
       <properties class="hudson.model.View$PropertyList"/>
     </hudson.model.AllView>
-    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.6">
+    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.9.1">
       <owner class="hudson" reference="../../.."/>
       <name>Testing</name>
       <description>&lt;html&gt;&#xd;
@@ -62,7 +62,7 @@
         <hudson.views.StatusColumn/>
         <hudson.views.WeatherColumn/>
         <hudson.views.JobColumn/>
-        <jenkins.plugins.extracolumns.DescriptionColumn plugin="extra-columns@1.9">
+        <jenkins.plugins.extracolumns.DescriptionColumn plugin="extra-columns@1.11">
           <displayName>false</displayName>
           <trim>false</trim>
           <displayLength>1</displayLength>
@@ -82,7 +82,7 @@
       <topPortlets/>
       <bottomPortlets/>
     </hudson.plugins.view.dashboard.Dashboard>
-    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.6">
+    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.9.1">
       <owner class="hudson" reference="../../.."/>
       <name>Debugging</name>
       <description>&lt;html&gt;&#xd;
@@ -115,7 +115,7 @@
         <hudson.views.StatusColumn/>
         <hudson.views.WeatherColumn/>
         <hudson.views.JobColumn/>
-        <jenkins.plugins.extracolumns.DescriptionColumn plugin="extra-columns@1.9">
+        <jenkins.plugins.extracolumns.DescriptionColumn plugin="extra-columns@1.11">
           <displayName>false</displayName>
           <trim>false</trim>
           <displayLength>1</displayLength>
@@ -137,7 +137,7 @@
     </hudson.plugins.view.dashboard.Dashboard>
     <listView>
       <owner class="hudson" reference="../../.."/>
-      <name>Build</name>
+      <name>Deploy</name>
       <description>&lt;html&gt;&#xd;
 	&lt;head&gt;&#xd;
 		&lt;title&gt;HTML Online Editor Sample&lt;/title&gt;&#xd;
@@ -161,11 +161,8 @@
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
         <string>Deploy Cloud from Packages</string>
-        <string>Deploy Cloud from Packages with Config</string>
         <string>Deploy Cloud from Source</string>
-        <string>Deploy Cloud from Source with Config</string>
-        <string>Rebuild Hosts</string>
-        <string>Upload Cloud Configuration</string>
+        <string>Rebuild Hosts Using Cobbler</string>
         <string>Upload Host Keypair</string>
       </jobNames>
       <jobFilters/>
