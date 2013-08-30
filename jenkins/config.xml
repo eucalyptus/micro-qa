@@ -113,6 +113,7 @@
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
         <string>Get Debug</string>
+        <string>Run SOS Report</string>
       </jobNames>
       <jobFilters/>
       <columns>
