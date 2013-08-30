@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: jborghi
+Build-Jdk: 1.6.0_21
+Extension-Name: log-parser
+Implementation-Title: log-parser
+Implementation-Version: 1.0.8
+Plugin-Class: hudson.plugins.logparser.PluginImpl
+Short-Name: log-parser
+Long-Name: Log Parser Plugin
+Url: http://wiki.hudson-ci.org/display/HUDSON/Log+Parser+Plugin
+Plugin-Version: 1.0.8
+Hudson-Version: 1.350
+Plugin-Developers: Rinat Ailon:rgoren:rgoren@cisco.com,John Borghi:jbo
+ rghi:
+

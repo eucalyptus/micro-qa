@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<hudson.tasks.Mailer_-DescriptorImpl plugin="mailer@1.4">
+<hudson.tasks.Mailer_-DescriptorImpl plugin="mailer@1.5">
   <hudsonUrl>http://10.111.4.113:8080/</hudsonUrl>
   <adminAddress>address not configured yet &lt;nobody@nowhere&gt;</adminAddress>
   <useSsl>false</useSsl>

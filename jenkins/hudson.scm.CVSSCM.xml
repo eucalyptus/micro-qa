@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<hudson.scm.CVSSCM_-DescriptorImpl plugin="cvs@2.8">
+<hudson.scm.CVSSCM_-DescriptorImpl plugin="cvs@2.9">
   <generation>1</generation>
   <compressionLevel>3</compressionLevel>
   <privateKeyLocation>/var/lib/jenkins/.ssh/id_rsa</privateKeyLocation>
