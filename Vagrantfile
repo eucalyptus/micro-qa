@@ -19,6 +19,8 @@ rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
 yum install -y jenkins
 chkconfig jenkins on
 
+yum install -y http://mirror.ancl.hawaii.edu/linux/epel/6/i386/epel-release-6-8.noarch.rpm
+yum install -y PyYAML python-jinja2 python-paramiko
 git clone https://github.com/ansible/ansible.git /opt/ansible
 
 chkconfig ntpd on
