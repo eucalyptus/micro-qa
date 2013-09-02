@@ -19,6 +19,8 @@ rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
 yum install -y jenkins
 chkconfig jenkins on
 
+git clone https://github.com/ansible/ansible.git /opt/ansible
+
 chkconfig ntpd on
 service ntpd start
 ntpdate -u pool.ntp.org
