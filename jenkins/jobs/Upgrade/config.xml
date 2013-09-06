@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>&lt;strong&gt;Upgrade a system&lt;/strong&gt;&lt;br&gt;</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>repo_url</name>
+          <description></description>
+          <defaultValue>git://github.com/eucalyptus/eutester.git</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>script</name>
+          <description></description>
+          <defaultValue>testcases/cloud_admin/upgrade_euca.py</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>branch</name>
+          <description></description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>master</string>
+              <string>testing</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.TextParameterDefinition>
+          <name>config</name>
+          <description>Text from the config file ie. config.lst
+
+example:
+
+TEST_NAME	tony-setup-3_3_1
+UNIQUE_ID	1035
+EMAIL	tony@eucalyptus.com
+PXE_TYPE	QAIMAGE
+BUILD_TYPE	NORMAL
+TEST_SEQ	build-n-conf-3.3
+NETWORK	MANAGED-NOVLAN
+SUBNET_IP	172.31.64.0
+MANAGED_IPS	10.111.102.66 10.111.102.67 10.111.102.68 10.111.102.69 10.111.102.70 10.111.102.71 10.111.102.72 10.111.102.73 10.111.102.74 10.111.102.75 10.111.102.76 10.111.102.77 10.111.102.78 10.111.102.79 10.111.102.80 10.111.102.81 10.111.102.82 10.111.102.83 10.111.102.84 10.111.102.85 10.111.102.86 10.111.102.87 10.111.102.88 10.111.102.89
+BZR_BRANCH	sftp://root@192.168.7.1/home/repositories/eucalyptus/eee
+BZR_REVISION	0
+GIT_REPO	git+ssh://repo-euca@git.eucalyptus-systems.com/internal#3.3.0
+GIT_HASH	95beb044797ad03c4b7866c3bed08d3aba48ba4b
+
+10.111.1.62	CENTOS	6.4	64	REPO	[UI CLC WS CC00 SC00]
+10.111.5.2	CENTOS	6.4	64	REPO	[NC00]
+10.111.5.13	CENTOS	6.4	64	REPO	[NC00]
+
+MEMO
+CLOUD_OPTS=--db-home=/usr/pgsql-9.1/
+
+SET_VNET_NETMASK=255.255.192.0
+
+EXTRA_REPO=pgrpms http://packages.release.eucalyptus-systems.com/yum/tags/euca-master-bootstrap/rhel/6/x86_64/
+
+EXTRA_REPO=elrepo http://mirror.eucalyptus-systems.com/mirrors/elrepo/el6/x86_64/
+
+USE_EPEL_REPO=YES
+
+JAVA_HOME=/usr/lib/jvm/java-1.7.0
+
+EXTRA_PKG=postgresql91-server PyGreSQL m2crypto python-boto drbd83 drbd83-kmod
+
+MAX_CORES=24
+
+SAN_PROVIDER=NO-SAN
+EBS_STORAGE_MANAGER=DASManager
+
+END_MEMO</description>
+          <defaultValue></defaultValue>
+        </hudson.model.TextParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>true</concurrentBuild>
+  <customWorkspace>$BUILD_TAG</customWorkspace>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>### CLONE TEST REPO
+git clone $repo_url repo
+cd repo
+git checkout $branch
+cd ..
+mkdir credentials
+cat &gt; credentials/config &lt;&lt;EOF
+$config
+EOF
+
+mkdir virtualenv/
+rsync -va /var/lib/jenkins/share/eutester-base/ virtualenv/ &gt;&gt; $WORKSPACE/install.log
+
+cd repo
+../virtualenv/bin/python setup.py install  &gt;&gt; $WORKSPACE/install.log
+
+../virtualenv/bin/python $script --config ../credentials/config --branch testing --nogpg --nightly --password foobar</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.plugins.logparser.LogParserPublisher plugin="log-parser@1.0.8">
+      <unstableOnWarning>true</unstableOnWarning>
+      <failBuildOnError>true</failBuildOnError>
+      <parsingRulesPath>/var/lib/jenkins/parsers/eutester</parsingRulesPath>
+    </hudson.plugins.logparser.LogParserPublisher>
+    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.16">
+      <deleteDirs>false</deleteDirs>
+      <skipWhenFailed>false</skipWhenFailed>
+      <cleanWhenSuccess>true</cleanWhenSuccess>
+      <cleanWhenUnstable>true</cleanWhenUnstable>
+      <cleanWhenFailure>true</cleanWhenFailure>
+      <cleanWhenNotBuilt>true</cleanWhenNotBuilt>
+      <cleanWhenAborted>true</cleanWhenAborted>
+      <notFailBuild>false</notFailBuild>
+      <cleanupMatrixParent>false</cleanupMatrixParent>
+    </hudson.plugins.ws__cleanup.WsCleanup>
+  </publishers>
+  <buildWrappers/>
+</project>
