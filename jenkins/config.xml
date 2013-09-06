@@ -29,7 +29,7 @@
     </hudson.model.AllView>
     <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.9.1">
       <owner class="hudson" reference="../../.."/>
-      <name>Testing</name>
+      <name>Tests</name>
       <description>&lt;html&gt;&#xd;
 	&lt;head&gt;&#xd;
 		&lt;title&gt;HTML Online Editor Sample&lt;/title&gt;&#xd;
@@ -238,7 +238,7 @@
       </columns>
     </com.tikal.jenkins.plugins.multijob.views.MultiJobView>
   </views>
-  <primaryView>Testing</primaryView>
+  <primaryView>Tests</primaryView>
   <slaveAgentPort>0</slaveAgentPort>
   <label></label>
   <nodeProperties/>
