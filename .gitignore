@@ -1,0 +1,5 @@
+### LOGS
+*.log
+
+### DISK USAGE PLUGIN
+hudson.plugins.disk_usage.DiskUsageProjectActionFactory.xml
