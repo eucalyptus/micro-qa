@@ -40,3 +40,21 @@ rsync -va /var/lib/jenkins/ /vagrant/jenkins/ --exclude workspace --exclude buil
 EOF
 chmod +x $SYNC_COMMAND
 
+### Install Selenium Dependencies
+easy_install selenium
+yum -y install make rubygems ruby-devel xorg-x11-font* wget xorg-x11-server-Xvfb firefox
+cd /
+wget https://selenium.googlecode.com/files/selenium-server-2.35.0.zip
+unzip selenium-server-2.35.0.zip
+dbus-uuidgen > /var/lib/dbus/machine-id
+Xvfb :0 -ac 2> /dev/null &
+export DISPLAY=":0" && nohup java -jar selenium-2.35.0/selenium-server-standalone-2.35.0.jar -trustAllSSLCertificates &
+
+### Create rc.local
+cat > /etc/rc.local <<EOF
+#!/bin/bash
+Xvfb :0 -ac &
+export DISPLAY=":0" && nohup java -jar /selenium-2.35.0/selenium-server-standalone-2.35.0.jar -trustAllSSLCertificates &
+exit 0
+EOF
+chmod +x /etc/rc.local
