@@ -17,5 +17,5 @@ Vagrant.configure("2") do |config|
         v.customize [ "modifyvm", :id, "--memory", options[:memory].to_i, "--cpus", options[:cores].to_i]
     end 
     config.vm.hostname = "micro-qa"
-    config.vm.provision :shell, :path => deploy.sh
+    config.vm.provision :shell, :path => "deploy.sh"
 end
