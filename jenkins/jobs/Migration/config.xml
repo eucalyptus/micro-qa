@@ -1,0 +1,88 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>&lt;strong&gt;Test migration when at least two NCs are present in the cloud.&lt;/strong&gt;</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>repo_url</name>
+          <description></description>
+          <defaultValue>https://github.com/mdshaonimran/eutester.git</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>script</name>
+          <description></description>
+          <defaultValue>testcases/cloud_admin/migration.py</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>branch</name>
+          <description></description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>dev/migration</string>
+              <string>testing</string>
+              <string>master</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.TextParameterDefinition>
+          <name>topology</name>
+          <description>Topology of eucalyptus components</description>
+          <defaultValue>10.111.1.105    CENTOS  6.4     64      REPO    [UI CLC WS CC00 SC00]
+10.111.5.147    CENTOS  6.4     64      REPO    [NC00]
+10.111.5.151    CENTOS  6.4     64      REPO    [NC00]</defaultValue>
+        </hudson.model.TextParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>password</name>
+          <description>Root password for the machines described in the topology above. If keys are synced between Jenkins and the cloud infrastrucure just leave the password as default.</description>
+          <defaultValue>foobar</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>true</concurrentBuild>
+  <customWorkspace>$BUILD_TAG</customWorkspace>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>### CLONE TEST REPO
+git clone $repo_url repo
+cd repo
+git checkout $branch
+cd ..
+mkdir input
+cat &gt; input/cloud.conf &lt;&lt;EOF
+$topology
+EOF
+
+mkdir virtualenv/
+rsync -va /var/lib/jenkins/share/eutester-base/ virtualenv/ &gt;&gt; $WORKSPACE/install.log
+
+cd repo
+../virtualenv/bin/python setup.py install  &gt;&gt; $WORKSPACE/install.log
+
+../virtualenv/bin/python $script --config ../input/cloud.conf --password $password</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.16">
+      <deleteDirs>false</deleteDirs>
+      <skipWhenFailed>false</skipWhenFailed>
+      <cleanWhenSuccess>true</cleanWhenSuccess>
+      <cleanWhenUnstable>true</cleanWhenUnstable>
+      <cleanWhenFailure>true</cleanWhenFailure>
+      <cleanWhenNotBuilt>true</cleanWhenNotBuilt>
+      <cleanWhenAborted>true</cleanWhenAborted>
+      <notFailBuild>false</notFailBuild>
+      <cleanupMatrixParent>false</cleanupMatrixParent>
+    </hudson.plugins.ws__cleanup.WsCleanup>
+  </publishers>
+  <buildWrappers/>
+</project>
