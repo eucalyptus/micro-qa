@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: nicolas
+Build-Jdk: 1.6.0_31
+Extension-Name: configurationslicing
+Specification-Title: Allows configuration of a single property across 
+ a group of projects
+Implementation-Title: configurationslicing
+Implementation-Version: 1.37
+Group-Id: org.jvnet.hudson.plugins
+Short-Name: configurationslicing
+Long-Name: Configuration Slicing plugin
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Configuration+Slicing+
+ Plugin
+Plugin-Version: 1.37
+Hudson-Version: null
+Plugin-Dependencies: maven-plugin:1.395;resolution:=optional,ant:1.1;r
+ esolution:=optional,groovy:1.9;resolution:=optional,email-ext:2.7;res
+ olution:=optional,build-timeout:1.6;resolution:=optional,PrioritySort
+ er:1.3;resolution:=optional,timestamper:1.2.2;resolution:=optional,jy
+ thon:1.9;resolution:=optional,python:1.2;resolution:=optional,gradle:
+ 1.12;resolution:=optional,ws-cleanup:0.10;resolution:=optional
+Plugin-Developers: Jacob Robertson:jacob_robertson:jacob.robertson.wor
+ k@gmail.com
+
