@@ -70,8 +70,8 @@ cd repo
   </builders>
   <publishers>
     <hudson.plugins.logparser.LogParserPublisher plugin="log-parser@1.0.8">
-      <unstableOnWarning>true</unstableOnWarning>
-      <failBuildOnError>true</failBuildOnError>
+      <unstableOnWarning>false</unstableOnWarning>
+      <failBuildOnError>false</failBuildOnError>
       <parsingRulesPath>/var/lib/jenkins/parsers/eutester</parsingRulesPath>
     </hudson.plugins.logparser.LogParserPublisher>
     <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.16">
