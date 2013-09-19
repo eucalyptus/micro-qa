@@ -1,5 +1,8 @@
 #!/bin/bash -x
 
+### Add EPEL repo
+yum install -y http://mirror.ancl.hawaii.edu/linux/epel/6/i386/epel-release-6-8.noarch.rpm
+
 ### Install deps
 yum install -y python-devel python-setuptools gcc make python-virtualenv java-1.7.0-openjdk-devel git ntp wget unzip ant
 
@@ -10,7 +13,6 @@ yum install -y jenkins
 chkconfig jenkins on
 
 ### Install ansible deps
-yum install -y http://mirror.ancl.hawaii.edu/linux/epel/6/i386/epel-release-6-8.noarch.rpm
 yum install -y PyYAML python-jinja2 python-paramiko
 git clone https://github.com/ansible/ansible.git /opt/ansible
 
@@ -39,6 +41,17 @@ cat > $SYNC_COMMAND <<EOF
 rsync -va /var/lib/jenkins/ /vagrant/jenkins/ --exclude workspace --exclude builds --exclude nextBuildNumber --exclude lastStable --exclude lastSuccessful --exclude .git
 EOF
 chmod +x $SYNC_COMMAND
+
+### Setup eutester-base virtualenv
+pushd /var/lib/jenkins/
+mkdir share
+pushd share
+virtualenv eutester-base
+source eutester-base/bin/activate
+./eutester-base/bin/easy_install 'paramiko>=1.7' 'boto==2.5.2' 'jinja2>=2.7' argparse futures python-dateutil mock
+chown -R jenkins:jenkins eutester-base
+popd
+popd
 
 ### Install Selenium Dependencies
 easy_install selenium
