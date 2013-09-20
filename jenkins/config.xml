@@ -269,7 +269,7 @@
       </sections>
     </hudson.plugins.sectioned__view.SectionedView>
   </views>
-  <primaryView>Debugging</primaryView>
+  <primaryView>Tests</primaryView>
   <slaveAgentPort>0</slaveAgentPort>
   <label></label>
   <nodeProperties/>
