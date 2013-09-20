@@ -7,9 +7,44 @@
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
+          <name>selenium_ip</name>
+          <description>IP address of the selenium server.</description>
+          <defaultValue>10.111.4.125</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
           <name>console_ip</name>
-          <description></description>
-          <defaultValue></defaultValue>
+          <description>IP address of machine run</description>
+          <defaultValue>10.111.1.173</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>protocol</name>
+          <description>Protocol for UI: http or https.</description>
+          <defaultValue>http</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>account</name>
+          <description>Account name for UI log in.</description>
+          <defaultValue>ui-test-acct-00</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>username</name>
+          <description>User name for UI log in.</description>
+          <defaultValue>user00</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>password</name>
+          <description>Password for UI log in.</description>
+          <defaultValue>mypassword1</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>repo_url</name>
+          <description>Location of selenium tests.</description>
+          <defaultValue>https://github.com/aliceh/se34euca.git</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>branch</name>
+          <description>Branch of the repo to be tested.</description>
+          <defaultValue>master</defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -23,10 +58,10 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Keypairs</phaseName>
+      <phaseName>Keypair Opeartions</phaseName>
       <phaseJobs>
         <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Harness</jobName>
+          <jobName>UI Key Pair Operations</jobName>
           <currParams>true</currParams>
           <exposedSCM>false</exposedSCM>
           <configs>
@@ -40,18 +75,16 @@ testcase=keypair_operations</properties>
       <continuationCondition>SUCCESSFUL</continuationCondition>
     </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
     <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Security Groups</phaseName>
+      <phaseName>Security Group Operations</phaseName>
       <phaseJobs>
         <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Harness</jobName>
+          <jobName>UI Security Group Operations</jobName>
           <currParams>true</currParams>
           <exposedSCM>false</exposedSCM>
           <configs>
             <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters plugin="parameterized-trigger@2.20">
               <properties>script=runtest_sequences.py
-testcase=security_group_operations
-
-</properties>
+testcase=security_group_operations</properties>
             </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
           </configs>
         </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
@@ -59,88 +92,13 @@ testcase=security_group_operations
       <continuationCondition>SUCCESSFUL</continuationCondition>
     </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
     <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Adds rules to security group &quot;mywebservice-01&quot;.</phaseName>
+      <phaseName>Instance Operations</phaseName>
       <phaseJobs>
         <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Harness</jobName>
+          <jobName>UI Instance Operations</jobName>
           <currParams>true</currParams>
           <exposedSCM>false</exposedSCM>
-          <configs>
-            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters plugin="parameterized-trigger@2.20">
-              <properties>script=runtest_security_group.py
-testcase=add_rules_to_security_group</properties>
-            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
-          </configs>
-        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-      </phaseJobs>
-      <continuationCondition>SUCCESSFUL</continuationCondition>
-    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Security Groups II</phaseName>
-      <phaseJobs>
-        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Harness</jobName>
-          <currParams>true</currParams>
-          <exposedSCM>false</exposedSCM>
-          <configs>
-            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters plugin="parameterized-trigger@2.20">
-              <properties>script=runtest_sequences.py
-testcase=security_group_operations_01
-
-</properties>
-            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
-          </configs>
-        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-      </phaseJobs>
-      <continuationCondition>SUCCESSFUL</continuationCondition>
-    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Instances</phaseName>
-      <phaseJobs>
-        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Harness</jobName>
-          <currParams>true</currParams>
-          <exposedSCM>false</exposedSCM>
-          <configs>
-            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters plugin="parameterized-trigger@2.20">
-              <properties>script=runtest_sequences.py
-testcase=instance_operations</properties>
-            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
-          </configs>
-        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-      </phaseJobs>
-      <continuationCondition>SUCCESSFUL</continuationCondition>
-    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Creates a 2G volume without name</phaseName>
-      <phaseJobs>
-        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Harness</jobName>
-          <currParams>true</currParams>
-          <exposedSCM>false</exposedSCM>
-          <configs>
-            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters plugin="parameterized-trigger@2.20">
-              <properties>script=runtest_volume.py
-testcase=create_volume</properties>
-            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
-          </configs>
-        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-      </phaseJobs>
-      <continuationCondition>SUCCESSFUL</continuationCondition>
-    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Deletes the first volume from Volumes Landing Page</phaseName>
-      <phaseJobs>
-        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Harness</jobName>
-          <currParams>true</currParams>
-          <exposedSCM>false</exposedSCM>
-          <configs>
-            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters plugin="parameterized-trigger@2.20">
-              <properties>script=runtest_volume.py
-testcase=delete_volume</properties>
-            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
-          </configs>
+          <configs class="empty-list"/>
         </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
       </phaseJobs>
       <continuationCondition>SUCCESSFUL</continuationCondition>
