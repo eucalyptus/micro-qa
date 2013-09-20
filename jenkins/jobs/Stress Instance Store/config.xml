@@ -1,0 +1,169 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>&lt;strong&gt;Job that runs instance-store instances constantly&lt;/strong&gt;</description>
+  <logRotator class="hudson.tasks.LogRotator">
+    <daysToKeep>-1</daysToKeep>
+    <numToKeep>5000</numToKeep>
+    <artifactDaysToKeep>-1</artifactDaysToKeep>
+    <artifactNumToKeep>-1</artifactNumToKeep>
+  </logRotator>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>repo_url</name>
+          <description></description>
+          <defaultValue>https://github.com/eucalyptus/eutester.git</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>branch</name>
+          <description></description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>master</string>
+              <string>testing</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.TextParameterDefinition>
+          <name>eucarc</name>
+          <description>Text from eucarc file</description>
+          <defaultValue></defaultValue>
+        </hudson.model.TextParameterDefinition>
+        <hudson.model.TextParameterDefinition>
+          <name>script</name>
+          <description></description>
+          <defaultValue>#!/usr/bin/python
+
+import time
+from eucaops import Eucaops
+from eutester.eutestcase import EutesterTestCase
+import os
+
+class InstanceBasics(EutesterTestCase):
+    def __init__(self):
+        #### Pre-conditions
+        self.setuptestcase()
+        self.setup_parser()
+        self.get_args()
+        # Setup basic eutester object
+        self.tester = Eucaops( credpath=self.args.credpath)
+        self.reservation = None
+        ### Add and authorize a group for the instance
+        ### Generate a keypair for the instance
+        self.keypair_name = &quot;keypair-&quot; + str(time.time()).replace(&quot;.&quot;, &quot;&quot;) + self.tester.id_generator()
+        self.keypair = self.tester.add_keypair(self.keypair_name)
+        ### Get an image to work with
+        self.image = self.tester.get_emi(root_device_type=&apos;instance-store&apos;)
+
+    def clean_method(self):
+        &quot;&quot;&quot;
+        Description: Attempts to clean up resources created in this test
+        &quot;&quot;&quot;
+        self.tester.cleanup_artifacts()
+
+    def MyTest(self):
+        &quot;&quot;&quot;
+        Description: This test will simply run an instance and check that it is reachable via ssh.
+        &quot;&quot;&quot;
+        self.reservation = self.tester.run_instance(self.image, min=1, max=1,keypair=self.keypair_name, timeout=600)
+        for instance in self.reservation.instances:
+            assert self.tester.ping(instance.public_dns_name)
+     
+if __name__ == &quot;__main__&quot;:
+    testcase = InstanceBasics()
+    ### Use the list of tests passed from config/command line to determine what subset of tests to run
+    ### or use a predefined list
+    list = testcase.args.tests or [ &quot;MyTest&quot;]
+
+    ### Convert test suite methods to EutesterUnitTest objects
+    unit_list = [ ]
+    for test in list:
+        unit_list.append( testcase.create_testunit_by_name(test) )
+
+    ### Run the EutesterUnitTest objects
+    result = testcase.run_test_case_list(unit_list,clean_on_exit=True)
+    exit(result)</defaultValue>
+        </hudson.model.TextParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
+      <maxConcurrentPerNode>0</maxConcurrentPerNode>
+      <maxConcurrentTotal>1</maxConcurrentTotal>
+      <throttleEnabled>true</throttleEnabled>
+      <throttleOption>project</throttleOption>
+    </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>true</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec>* * * * *</spec>
+    </hudson.triggers.TimerTrigger>
+  </triggers>
+  <concurrentBuild>true</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>CREDPATH=credentials
+if [ ! -d &quot;$CREDPATH&quot; ]; then
+    mkdir $CREDPATH
+fi
+cat &gt; credentials/eucarc &lt;&lt; EOF
+$eucarc
+EOF
+
+### CLONE TEST REPO
+git clone $repo_url repo
+cd repo
+git checkout $branch
+cd ..
+
+mkdir virtualenv/
+rsync -va /var/lib/jenkins/share/eutester-base/ virtualenv/ &gt;&gt; $WORKSPACE/install.log
+
+cd repo
+
+cat &gt; test_script &lt;&lt; EOF
+$script
+EOF
+
+../virtualenv/bin/python setup.py install  &gt;&gt; $WORKSPACE/install.log
+
+../virtualenv/bin/python test_script --credpath ../credentials</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.plugins.logparser.LogParserPublisher plugin="log-parser@1.0.8">
+      <unstableOnWarning>false</unstableOnWarning>
+      <failBuildOnError>false</failBuildOnError>
+      <parsingRulesPath>/var/lib/jenkins/parsers/eutester</parsingRulesPath>
+    </hudson.plugins.logparser.LogParserPublisher>
+    <hudson.plugins.parameterizedtrigger.BuildTrigger plugin="parameterized-trigger@2.20">
+      <configs>
+        <hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
+          <configs class="empty-list"/>
+          <projects>Stress Instance Store, </projects>
+          <condition>ALWAYS</condition>
+          <triggerWithNoParameters>true</triggerWithNoParameters>
+        </hudson.plugins.parameterizedtrigger.BuildTriggerConfig>
+      </configs>
+    </hudson.plugins.parameterizedtrigger.BuildTrigger>
+    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.16">
+      <deleteDirs>false</deleteDirs>
+      <skipWhenFailed>false</skipWhenFailed>
+      <cleanWhenSuccess>true</cleanWhenSuccess>
+      <cleanWhenUnstable>true</cleanWhenUnstable>
+      <cleanWhenFailure>true</cleanWhenFailure>
+      <cleanWhenNotBuilt>true</cleanWhenNotBuilt>
+      <cleanWhenAborted>true</cleanWhenAborted>
+      <notFailBuild>false</notFailBuild>
+      <cleanupMatrixParent>false</cleanupMatrixParent>
+    </hudson.plugins.ws__cleanup.WsCleanup>
+  </publishers>
+  <buildWrappers/>
+</project>
