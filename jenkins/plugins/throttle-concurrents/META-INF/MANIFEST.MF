@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: abayer
+Build-Jdk: 1.6.0_31
+Extension-Name: throttle-concurrents
+Specification-Title: Plugin to throttle the number of concurrent build
+ s of a single job per node.
+Implementation-Title: throttle-concurrents
+Implementation-Version: 1.7.2
+Group-Id: org.jenkins-ci.plugins
+Short-Name: throttle-concurrents
+Long-Name: Jenkins Throttle Concurrent Builds Plug-in
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Throttle+Concurrent+Bu
+ ilds+Plugin
+Plugin-Version: 1.7.2
+Hudson-Version: 1.399
+Plugin-Developers: Andrew Bayer:abayer:andrew.bayer@gmail.com
+

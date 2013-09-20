@@ -268,6 +268,42 @@
         </hudson.plugins.sectioned__view.ListViewSection>
       </sections>
     </hudson.plugins.sectioned__view.SectionedView>
+    <hudson.plugins.sectioned__view.SectionedView plugin="sectioned-view@1.18">
+      <owner class="hudson" reference="../../.."/>
+      <name>Stress</name>
+      <description>Enable the jobs below after setting up proper credentials in the eucarc parameter.&lt;br&gt;&#xd;
+The will run once per minute and up to the number defined in the concurrent jobs config parameter</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <sections>
+        <hudson.plugins.sectioned__view.ListViewSection>
+          <jobNames>
+            <comparator class="hudson.util.CaseInsensitiveComparator"/>
+            <string>Stress BFEBS</string>
+            <string>Stress Instance Store</string>
+          </jobNames>
+          <jobFilters/>
+          <name>EC2 Stress</name>
+          <width>FULL</width>
+          <alignment>CENTER</alignment>
+          <columns>
+            <hudson.views.StatusColumn/>
+            <hudson.views.WeatherColumn/>
+            <hudson.views.JobColumn/>
+            <info.noirbizarre.jenkins.plugins.DescriptionColumn plugin="description-column-plugin@1.3">
+              <displayName>false</displayName>
+              <trim>false</trim>
+              <displayLength>1</displayLength>
+            </info.noirbizarre.jenkins.plugins.DescriptionColumn>
+            <hudson.views.LastSuccessColumn/>
+            <hudson.views.LastFailureColumn/>
+            <hudson.views.LastDurationColumn/>
+            <hudson.views.BuildButtonColumn/>
+          </columns>
+        </hudson.plugins.sectioned__view.ListViewSection>
+      </sections>
+    </hudson.plugins.sectioned__view.SectionedView>
   </views>
   <primaryView>Tests</primaryView>
   <slaveAgentPort>0</slaveAgentPort>
