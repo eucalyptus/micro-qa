@@ -12,6 +12,24 @@ OS = CENTOS
 Vagrant.configure("2") do |config|
     config.vm.box = OS[:box]
     config.vm.box_url = OS[:url]
+    config.vm.provider :aws do |aws,override|
+        aws.access_key_id = "XXXXXXXXXXXXXXXXXX"
+        aws.secret_access_key = "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
+        aws.instance_type = "m1.medium"
+        aws.ami = "emi-1873419A"
+        aws.security_groups = ["default"]
+        aws.region = "eucalyptus"
+        aws.endpoint = "http://10.0.1.91:8773/services/Eucalyptus"
+        aws.keypair_name = "vic"
+        #aws.user_data = $user_data
+        override.ssh.username ="root"
+        override.ssh.private_key_path ="/Users/viglesias/.ssh/id_rsa"
+        # Optional
+        #aws.availability_zone = "one"
+        aws.tags = {
+                Name: "Micro QA",
+        }
+    end
     config.vm.network :forwarded_port, guest: 80, host: 8080
     config.vm.provider :virtualbox do |v| 
         v.customize [ "modifyvm", :id, "--memory", options[:memory].to_i, "--cpus", options[:cores].to_i]
