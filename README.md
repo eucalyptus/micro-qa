@@ -3,7 +3,7 @@ micro-qa
 
 Self Contained Automated Test Environment
 
-## Setting up
+## Setting up with Virtual Box
 1.  Download and install [VirtualBox](https://www.virtualbox.org)
 
 2.  Download and install [Vagrant](http://www.vagrantup.com/)
@@ -15,6 +15,32 @@ Self Contained Automated Test Environment
 5. Once inside the repository run "vagrant up". This will download a virtual machine, boot it, and install MicroQA.
 
 6. Login to MicroQA on your browser by visiting: http://localhost:8080
+
+## Setting up with AWS or Eucalyptus
+1.  Download and install [Vagrant](http://www.vagrantup.com/)
+
+2. Do a fork of MicroQA project (requires github account for information on how to set up a Github account, refer to the following URL: [http://help.github.com/set-up-git-redirect/](http://help.github.com/set-up-git-redirect/)).  On information on how to fork a project, refer to the following link: [http://help.github.com/fork-a-repo/](http://help.github.com/fork-a-repo/).
+
+3. Clone your fork to your local machine.
+
+4. Edit the following parameters in the Vagrantfile:
+         
+    aws.access_key_id = "XXXXXXXXXXXXXXXXXX"
+    aws.secret_access_key = "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
+    aws.instance_type = "m1.medium"
+    ## This CentOS 6 EMI needs to have the following commented out of /etc/sudoers,
+    ## Defaults    requiretty
+    aws.ami = "emi-1873419A"
+    aws.security_groups = ["default"]
+    aws.region = "eucalyptus"
+    aws.endpoint = "http://10.0.1.91:8773/services/Eucalyptus"
+    aws.keypair_name = "vic"
+    override.ssh.username ="root"
+    override.ssh.private_key_path ="/Users/viglesias/.ssh/id_rsa" 
+
+5. Once inside the repository run "vagrant up --provider=aws". This will run a virtual machine, and install MicroQA in your cloud.
+
+6. Login to MicroQA on your browser by visiting: http://<instance-ip>
 
 ## Guidelines for Contributing to MicroQA
 1. Create a test job from the MicroQA Jenkins instance (or edit an existing job)
