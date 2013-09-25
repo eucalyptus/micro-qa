@@ -24,7 +24,7 @@ Self Contained Automated Test Environment
 3. Clone your fork to your local machine.
 
 4. Edit the following parameters in the Vagrantfile:
-         
+    ```     
     aws.access_key_id = "XXXXXXXXXXXXXXXXXX"
     aws.secret_access_key = "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
     aws.instance_type = "m1.medium"
@@ -36,7 +36,8 @@ Self Contained Automated Test Environment
     aws.endpoint = "http://10.0.1.91:8773/services/Eucalyptus"
     aws.keypair_name = "vic"
     override.ssh.username ="root"
-    override.ssh.private_key_path ="/Users/viglesias/.ssh/id_rsa" 
+    override.ssh.private_key_path ="/Users/viglesias/.ssh/id_rsa"
+    ```
 
 5. Once inside the repository run "vagrant up --provider=aws". This will run a virtual machine, and install MicroQA in your cloud.
 
