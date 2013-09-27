@@ -1,51 +1,20 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>&lt;strong&gt;Runs the following IP Address Operations:&lt;/strong&gt;&#xd;
+  <description>&lt;strong&gt;Runs the following clesn up operations:&lt;/strong&gt;&#xd;
 &#xd;
-&lt;p&gt;Create Security Group &apos;mywebservice&apos;. &lt;/p&gt;&#xd;
+&lt;p&gt; Check number of Running Instances on Dashboard, terminate if not zero.&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Verify on Dashboard that Security Group count is 2. &lt;/p&gt;&#xd;
+&lt;p&gt; Check number of Snapshots on Dashboard, delete if not zero.&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Create Key Pair &apos;my-sel-gen-key-00&apos;. &lt;/p&gt;&#xd;
+&lt;p&gt;Check number of Key Pairs on Dashboard, delete if not zero.&lt;/p&gt; &#xd;
 &#xd;
-&lt;p&gt;Verify on Dashboard that Key Pair count is 1. &lt;/p&gt;&#xd;
+&lt;p&gt;Check number of Volumes on Dashboard, delete if not zero.&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Launch Instance &apos;testinstance&apos;.&lt;/p&gt;&#xd;
+&lt;p&gt;Check number of Security Groups on Dashboard, delete if not one.&lt;/p&gt; &#xd;
 &#xd;
-&lt;p&gt;Verify on Dashboard that Running Instance count is 1. &lt;/p&gt;&#xd;
+&lt;p&gt;Check number of IP Addresses on Dashboard, release to cloud if not zero.&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Allocate 1 IP address.&lt;/p&gt;&#xd;
-&#xd;
-&lt;p&gt;Verify on Dashboard that IP address count is 1. &lt;/p&gt;&#xd;
-&#xd;
-&lt;p&gt;Associate IP form Instances landing page.&lt;/p&gt;&#xd;
-&#xd;
-&lt;p&gt;Disassociate IP form IP addresses landing page.&lt;/p&gt;&#xd;
-&#xd;
-&lt;p&gt;Associate IP form IP address landing page.&lt;/p&gt;&#xd;
-&#xd;
-&lt;p&gt;Disassociate IP form Instances landing page.&lt;/p&gt;&#xd;
-&#xd;
-&lt;p&gt;Associate IP form IP address landing page.&lt;/p&gt;&#xd;
-&#xd;
-&#xd;
-&lt;p&gt;Terminate instance.&lt;/p&gt;&#xd;
-&#xd;
-&lt;p&gt;Verify on Dashboard that Running Instance count is 0. &lt;/p&gt;&#xd;
-&#xd;
-&#xd;
-&lt;p&gt;Delete security group.&lt;/p&gt;&#xd;
-&#xd;
-&lt;p&gt;Delete key pair.&lt;/p&gt;&#xd;
-&#xd;
-&lt;p&gt;Verify on Dashboard that Security Group count is 1. &lt;/p&gt;&#xd;
-&#xd;
-&lt;p&gt;Verify on Dashboard that Key Pair count is 0. &lt;/p&gt;&#xd;
-&#xd;
-&lt;p&gt;Release IP to cloud. &lt;/p&gt;&#xd;
-&#xd;
-&lt;p&gt;Verify on Dashboard that IP address count is 0. &lt;/p&gt;&#xd;
 </description>
   <keepDependencies>false</keepDependencies>
   <properties>
@@ -54,46 +23,46 @@
         <hudson.model.StringParameterDefinition>
           <name>repo_url</name>
           <description>URL to UI test repo.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>https://github.com/aliceh/se34euca/</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>script</name>
           <description>The name of the executable for the test.</description>
-          <defaultValue>runtest_sequences.py </defaultValue>
+          <defaultValue>runtest_utility.py </defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>console_ip</name>
           <description>IP of the User Console.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>10.111.1.173</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>selenium_ip</name>
           <description>IP of Selenium server.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>10.111.4.112</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>account</name>
           <description>Account.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>ui-test-acct-00</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>username</name>
           <description>User name.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>user00</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>password</name>
           <description>Password.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>mypassword1</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>testcase</name>
           <description>Name of the testcase.</description>
-          <defaultValue>ip_address_operations</defaultValue>
+          <defaultValue>clean_up</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>protocol</name>
-          <description>Protocol used in UI</description>
+          <description></description>
           <defaultValue>https</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>

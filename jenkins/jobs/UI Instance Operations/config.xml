@@ -37,7 +37,7 @@
         <hudson.model.StringParameterDefinition>
           <name>repo_url</name>
           <description>URL to UI test repo.</description>
-          <defaultValue>https://github.com/eucalyptus/se34euca/</defaultValue>
+          <defaultValue>https://github.com/aliceh/se34euca/</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>script</name>
@@ -52,7 +52,7 @@
         <hudson.model.StringParameterDefinition>
           <name>selenium_ip</name>
           <description>IP of Selenium server.</description>
-          <defaultValue>10.111.4.125</defaultValue>
+          <defaultValue>10.111.4.112</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>account</name>

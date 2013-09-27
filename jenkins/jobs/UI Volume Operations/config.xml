@@ -3,13 +3,48 @@
   <actions/>
   <description>&lt;strong&gt;Runs the following Volume Operations:&lt;/strong&gt;&#xd;
 &#xd;
-&lt;p&gt;Create &lt;/p&gt;&#xd;
+&lt;p&gt;Create security group named &apos;mywebservice&apos; with rules.&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Delete &lt;/p&gt;&#xd;
+&lt;p&gt;Create key pair named &apos;my-sel-gen-key-00&apos;.&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Creates  &lt;/p&gt;&#xd;
+&lt;p&gt;Launch instance named &apos;testinstance&apos;.&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Delete  &lt;/p&gt;</description>
+&lt;p&gt;Create a 2G volume.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify volume count is 1.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Attach volume to testinstance on Volumes Landing Page.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Detach volume from testinstance on Volumes Landing Page.&lt;/p&gt;&#xd;
+&#xd;
+&#xd;
+&lt;p&gt;Delete volume.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify volume count on Dashboard is 0.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Create volume named &apos;test-volume&apos;.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Attach test-volume to testinstance on Instrances Landing Page. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Detach  test-volume from testinstance on Instrances Landing Page. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Attach test-volume to testinstance on Instrances Landing Page. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Terminate all instances. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify running instance count on Dashboard is 0.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Delete all volumes. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Delete all keypairs. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Delete all security groups. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify key pair count on Dashboard is 0.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify security group count on Dashboard is 1.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify volume count on Dashboard is 0.&lt;/p&gt;</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <hudson.model.ParametersDefinitionProperty>
@@ -17,7 +52,7 @@
         <hudson.model.StringParameterDefinition>
           <name>repo_url</name>
           <description>URL to UI test repo.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>https://github.com/aliceh/se34euca.git</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>script</name>
@@ -27,27 +62,27 @@
         <hudson.model.StringParameterDefinition>
           <name>console_ip</name>
           <description>IP of the User Console.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>10.111.1.173</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>selenium_ip</name>
           <description>IP of Selenium server.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>10.111.4.112</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>account</name>
           <description>Account.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>ui-test-acct-00</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>username</name>
           <description>User name.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>user00</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>password</name>
           <description>Password.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>mypassword1</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>testcase</name>
