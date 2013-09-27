@@ -3,13 +3,50 @@
   <actions/>
   <description>&lt;strong&gt;Runs the following IP Address Operations:&lt;/strong&gt;&#xd;
 &#xd;
-&lt;p&gt;Allocate &lt;/p&gt;&#xd;
+&lt;p&gt;Create Security Group &apos;mywebservice&apos;. &lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Associate&lt;/p&gt;&#xd;
+&lt;p&gt;Verify on Dashboard that Security Group count is 2. &lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Disassociate &lt;/p&gt;&#xd;
+&lt;p&gt;Create Key Pair &apos;my-sel-gen-key-00&apos;. &lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Release &lt;/p&gt;</description>
+&lt;p&gt;Verify on Dashboard that Key Pair count is 1. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Launch Instance &apos;testinstance&apos;.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify on Dashboard that Running Instance count is 1. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Allocate 1 IP address.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify on Dashboard that IP address count is 1. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Associate IP form Instances landing page.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Disassociate IP form IP addresses landing page.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Associate IP form IP address landing page.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Disassociate IP form Instances landing page.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Associate IP form IP address landing page.&lt;/p&gt;&#xd;
+&#xd;
+&#xd;
+&lt;p&gt;Terminate instance.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify on Dashboard that Running Instance count is 0. &lt;/p&gt;&#xd;
+&#xd;
+&#xd;
+&lt;p&gt;Delete security group.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Delete key pair.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify on Dashboard that Security Group count is 1. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify on Dashboard that Key Pair count is 0. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Release IP to cloud. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify on Dashboard that IP address count is 0. &lt;/p&gt;&#xd;
+</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <hudson.model.ParametersDefinitionProperty>

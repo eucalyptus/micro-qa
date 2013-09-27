@@ -1,15 +1,29 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>&lt;strong&gt;Runs the following Volume Operations:&lt;/strong&gt;&#xd;
+  <description>&lt;strong&gt;Runs the following Snapshot Operations:&lt;/strong&gt;&#xd;
 &#xd;
-&lt;p&gt;Create &lt;/p&gt;&#xd;
+&lt;p&gt;Create Volume named &apos;test-volume&apos;.&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Delete &lt;/p&gt;&#xd;
+&lt;p&gt;Verify Volume count on the Dashboard is 1.&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Creates  &lt;/p&gt;&#xd;
+&lt;p&gt;Create Snapshot from Volume on Volumes landing page.&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Delete  &lt;/p&gt;</description>
+&lt;p&gt;Verify Snapshot count on the dashboard is 1.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Create Volume from Snapshot on Snapshots landing page.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Register Snapshot as image. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Delete all Snapshots.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify Snapshot count on the dashboard is 0.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Delete all Volumes.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify Volume count on the dashboard is 0.&lt;/p&gt;&#xd;
+&#xd;
+</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <hudson.model.ParametersDefinitionProperty>
