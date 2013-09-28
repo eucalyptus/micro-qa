@@ -6,15 +6,27 @@
   <properties>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>repo_url</name>
+          <description>Eutester repository to clone tests from</description>
+          <defaultValue>git://github.com/eucalyptus/eutester.git</defaultValue>
+        </hudson.model.StringParameterDefinition>
         <hudson.model.TextParameterDefinition>
           <name>eucarc</name>
           <description>Eucarc file containing credentials of eucalyptus/admin</description>
           <defaultValue></defaultValue>
         </hudson.model.TextParameterDefinition>
+        <hudson.model.TextParameterDefinition>
+          <name>topology</name>
+          <description>Machine configuration topology.</description>
+          <defaultValue>&lt;ipaddress&gt; CENTOS 6.4 64 REPO [CLC WS CC00 SC00]
+&lt;ipaddress&gt; CENTOS 6.4 64 REPO [NC00]
+</defaultValue>
+        </hudson.model.TextParameterDefinition>
         <hudson.model.StringParameterDefinition>
-          <name>repo_url</name>
-          <description>Eutester repository to clone tests from</description>
-          <defaultValue>git://github.com/eucalyptus/eutester.git</defaultValue>
+          <name>imgurl</name>
+          <description>Image URL for BFEBS image.</description>
+          <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.ChoiceParameterDefinition>
           <name>branch</name>
@@ -28,6 +40,12 @@
         </hudson.model.ChoiceParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
+      <maxConcurrentPerNode>0</maxConcurrentPerNode>
+      <maxConcurrentTotal>0</maxConcurrentTotal>
+      <throttleEnabled>false</throttleEnabled>
+      <throttleOption>project</throttleOption>
+    </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
   </properties>
   <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
