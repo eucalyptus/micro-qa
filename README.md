@@ -50,7 +50,7 @@ Self Contained Automated Test Environment
    ```
 6. Once inside the repository run "vagrant up --provider=aws". This will run a virtual machine, and install MicroQA in your cloud.
 
-7. Login to MicroQA on your browser by visiting: http://<instance-ip>:8080
+7. Login to MicroQA on your browser by visiting: http://\<instance-ip\>:8080
 
 ## Guidelines for Contributing to MicroQA
 1. Create a test job from the MicroQA Jenkins instance (or edit an existing job)
