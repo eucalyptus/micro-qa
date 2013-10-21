@@ -1,51 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>&lt;strong&gt;Runs the following IP Address Operations:&lt;/strong&gt;&#xd;
+  <description>&lt;strong&gt;Runs the following Snapshot Operations:&lt;/strong&gt;&#xd;
 &#xd;
-&lt;p&gt;Create Security Group &apos;mywebservice&apos;. &lt;/p&gt;&#xd;
+&lt;p&gt;Create Volume named &apos;test-volume&apos;.&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Verify on Dashboard that Security Group count is 2. &lt;/p&gt;&#xd;
+&lt;p&gt;Verify Volume count on the Dashboard is 1.&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Create Key Pair &apos;my-sel-gen-key-00&apos;. &lt;/p&gt;&#xd;
+&lt;p&gt;Create Snapshot from Volume on Volumes landing page.&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Verify on Dashboard that Key Pair count is 1. &lt;/p&gt;&#xd;
+&lt;p&gt;Verify Snapshot count on the dashboard is 1.&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Launch Instance &apos;testinstance&apos;.&lt;/p&gt;&#xd;
+&lt;p&gt;Create Volume from Snapshot on Snapshots landing page.&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Verify on Dashboard that Running Instance count is 1. &lt;/p&gt;&#xd;
+&lt;p&gt;Register Snapshot as image. &lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Allocate 1 IP address.&lt;/p&gt;&#xd;
+&lt;p&gt;Delete all Snapshots.&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Verify on Dashboard that IP address count is 1. &lt;/p&gt;&#xd;
+&lt;p&gt;Verify Snapshot count on the dashboard is 0.&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Associate IP form Instances landing page.&lt;/p&gt;&#xd;
+&lt;p&gt;Delete all Volumes.&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Disassociate IP form IP addresses landing page.&lt;/p&gt;&#xd;
+&lt;p&gt;Verify Volume count on the dashboard is 0.&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Associate IP form IP address landing page.&lt;/p&gt;&#xd;
-&#xd;
-&lt;p&gt;Disassociate IP form Instances landing page.&lt;/p&gt;&#xd;
-&#xd;
-&lt;p&gt;Associate IP form IP address landing page.&lt;/p&gt;&#xd;
-&#xd;
-&#xd;
-&lt;p&gt;Terminate instance.&lt;/p&gt;&#xd;
-&#xd;
-&lt;p&gt;Verify on Dashboard that Running Instance count is 0. &lt;/p&gt;&#xd;
-&#xd;
-&#xd;
-&lt;p&gt;Delete security group.&lt;/p&gt;&#xd;
-&#xd;
-&lt;p&gt;Delete key pair.&lt;/p&gt;&#xd;
-&#xd;
-&lt;p&gt;Verify on Dashboard that Security Group count is 1. &lt;/p&gt;&#xd;
-&#xd;
-&lt;p&gt;Verify on Dashboard that Key Pair count is 0. &lt;/p&gt;&#xd;
-&#xd;
-&lt;p&gt;Release IP to cloud. &lt;/p&gt;&#xd;
-&#xd;
-&lt;p&gt;Verify on Dashboard that IP address count is 0. &lt;/p&gt;&#xd;
 </description>
   <keepDependencies>false</keepDependencies>
   <properties>
@@ -89,7 +66,7 @@
         <hudson.model.StringParameterDefinition>
           <name>testcase</name>
           <description>Name of the testcase.</description>
-          <defaultValue>ip_address_operations</defaultValue>
+          <defaultValue>snapshot_operations</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>protocol</name>

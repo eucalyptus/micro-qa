@@ -17,8 +17,22 @@
           <defaultValue>testcases/cloud_admin/upgrade_euca.py</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.ChoiceParameterDefinition>
+          <name>update</name>
+          <description>branch to update to</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>master</string>
+              <string>testing</string>
+              <string>security</string>
+              <string>maint/3.3/master</string>
+              <string>maint/3.3/testing</string>
+              <string>maint/3.3/security</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
           <name>branch</name>
-          <description></description>
+          <description>eutester tests branch</description>
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
               <string>master</string>
@@ -60,7 +74,7 @@ rsync -va /var/lib/jenkins/share/eutester-base/ virtualenv/ &gt;&gt; $WORKSPACE/
 cd repo
 ../virtualenv/bin/python setup.py install  &gt;&gt; $WORKSPACE/install.log
 
-../virtualenv/bin/python $script --config ../credentials/config --branch testing --nogpg --nightly --password foobar</command>
+../virtualenv/bin/python $script --config ../credentials/config --branch $update --nogpg --nightly --password foobar</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>

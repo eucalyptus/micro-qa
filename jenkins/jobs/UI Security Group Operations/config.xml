@@ -3,13 +3,19 @@
   <actions/>
   <description>&lt;strong&gt;Runs the following Security Group Operations:&lt;/strong&gt;&#xd;
 &#xd;
-&lt;p&gt;Create &lt;/p&gt;&#xd;
+&lt;p&gt;Create empty security group with description &quot;test&quot;&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Delete &lt;/p&gt;&#xd;
+&lt;p&gt;Verify security group count is 2&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Creates  &lt;/p&gt;&#xd;
+&lt;p&gt;Add rules to the empty security group&lt;/p&gt;&#xd;
 &#xd;
-&lt;p&gt;Delete  &lt;/p&gt;</description>
+&lt;p&gt;Creates security group &quot;mywebservice&quot; with rules &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify security group count is 3&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Delete all security groups&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify security group count is 1&lt;/p&gt;</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <hudson.model.ParametersDefinitionProperty>
@@ -17,7 +23,7 @@
         <hudson.model.StringParameterDefinition>
           <name>repo_url</name>
           <description>URL to UI test repo.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>https://github.com/aliceh/se34euca.git</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>script</name>
@@ -27,27 +33,27 @@
         <hudson.model.StringParameterDefinition>
           <name>console_ip</name>
           <description>IP of the User Console.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>10.111.1.173</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>selenium_ip</name>
           <description>IP of Selenium server.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>10.111.4.112</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>account</name>
           <description>Account.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>ui-test-acct-00</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>username</name>
           <description>User name.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>user00</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>password</name>
           <description>Password.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>mypassword1</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>testcase</name>
