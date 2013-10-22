@@ -19,11 +19,16 @@ Self Contained Automated Test Environment
 ## Setting up with AWS or Eucalyptus
 1.  Download and install [Vagrant](http://www.vagrantup.com/)
 
-2. Do a fork of MicroQA project (requires github account for information on how to set up a Github account, refer to the following URL: [http://help.github.com/set-up-git-redirect/](http://help.github.com/set-up-git-redirect/)).  On information on how to fork a project, refer to the following link: [http://help.github.com/fork-a-repo/](http://help.github.com/fork-a-repo/).
+2. Install the Vagrant-AWS plugin: 
+   ```
+	vagrant plugin install vagrant-aws
+   ```
 
-3. Clone your fork to your local machine.
+3. Do a fork of MicroQA project (requires github account for information on how to set up a Github account, refer to the following URL: [http://help.github.com/set-up-git-redirect/](http://help.github.com/set-up-git-redirect/)).  On information on how to fork a project, refer to the following link: [http://help.github.com/fork-a-repo/](http://help.github.com/fork-a-repo/).
 
-4. Edit the following parameters in the Vagrantfile:
+4. Clone your fork to your local machine.
+
+5. Edit the following parameters in the Vagrantfile:
     ```     
     aws.access_key_id = "XXXXXXXXXXXXXXXXXX"
     aws.secret_access_key = "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
@@ -39,9 +44,13 @@ Self Contained Automated Test Environment
     override.ssh.private_key_path ="/Users/viglesias/.ssh/id_rsa"
     ```
 
-5. Once inside the repository run "vagrant up --provider=aws". This will run a virtual machine, and install MicroQA in your cloud.
+6. Install a "dummy" vagrant box file to allow override of the box with the ami/emi:
+   ```
+   vagrant box add dummy https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box
+   ```
+6. Once inside the repository run "vagrant up --provider=aws". This will run a virtual machine, and install MicroQA in your cloud.
 
-6. Login to MicroQA on your browser by visiting: http://<instance-ip>
+7. Login to MicroQA on your browser by visiting: http://\<instance-ip\>:8080
 
 ## Guidelines for Contributing to MicroQA
 1. Create a test job from the MicroQA Jenkins instance (or edit an existing job)
