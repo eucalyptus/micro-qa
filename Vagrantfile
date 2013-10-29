@@ -9,17 +9,23 @@ CENTOS = {
   url: "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130427.box"
 }
 OS = CENTOS
+#$user_data = <<USERDATA
+##!/bin/bash
+#echo 'Defaults:root !requiretty' > /etc/sudoers.d/888-root-cloud-init-requiretty
+#chmod 0440 /etc/sudoers.d/888-root-cloud-init-requiretty
+#USERDATA
+
 Vagrant.configure("2") do |config|
     config.vm.box = OS[:box]
     config.vm.box_url = OS[:url]
     config.vm.provider :aws do |aws,override|
-        aws.access_key_id = "XXXXXXXXXXXXXXXXXX"
-        aws.secret_access_key = "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
-        aws.instance_type = "m1.medium"
-        aws.ami = "emi-1873419A"
+        aws.access_key_id = "XNKO4SHYC0XH1OKWDKEVC"
+        aws.secret_access_key = "CwiaSozGTiLELjnm96iTgOMKLuiht4mcPwkGDWV3"
+        aws.instance_type = "cc1.4xlarge"
+        aws.ami = "emi-DEC14FAF"
         aws.security_groups = ["default"]
         aws.region = "eucalyptus"
-        aws.endpoint = "http://10.0.1.91:8773/services/Eucalyptus"
+        aws.endpoint = "http://viglesiasce.mine.nu:8773/services/Eucalyptus"
         aws.keypair_name = "vic"
         #aws.user_data = $user_data
         override.ssh.username ="root"
