@@ -1,7 +1,50 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>&lt;strong&gt;Runs a particular UI test.&lt;/strong&gt;</description>
+  <description>&lt;strong&gt;Runs the following Volume Operations:&lt;/strong&gt;&#xd;
+&#xd;
+&lt;p&gt;Create security group named &apos;mywebservice&apos; with rules.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Create key pair named &apos;my-sel-gen-key-00&apos;.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Launch instance named &apos;testinstance&apos;.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Create a 2G volume.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify volume count is 1.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Attach volume to testinstance on Volumes Landing Page.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Detach volume from testinstance on Volumes Landing Page.&lt;/p&gt;&#xd;
+&#xd;
+&#xd;
+&lt;p&gt;Delete volume.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify volume count on Dashboard is 0.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Create volume named &apos;test-volume&apos;.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Attach test-volume to testinstance on Instrances Landing Page. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Detach  test-volume from testinstance on Instrances Landing Page. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Attach test-volume to testinstance on Instrances Landing Page. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Terminate all instances. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify running instance count on Dashboard is 0.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Delete all volumes. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Delete all keypairs. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Delete all security groups. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify key pair count on Dashboard is 0.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify security group count on Dashboard is 1.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify volume count on Dashboard is 0.&lt;/p&gt;</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <hudson.model.ParametersDefinitionProperty>
@@ -9,22 +52,13 @@
         <hudson.model.StringParameterDefinition>
           <name>repo_url</name>
           <description>URL to UI test repo.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>https://github.com/aliceh/se34euca.git</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>script</name>
           <description>The name of the executable for the test.</description>
-          <defaultValue>runtest_volume.py </defaultValue>
+          <defaultValue>runtest_sequences.py </defaultValue>
         </hudson.model.StringParameterDefinition>
-        <hudson.model.ChoiceParameterDefinition>
-          <name>branch</name>
-          <description></description>
-          <choices class="java.util.Arrays$ArrayList">
-            <a class="string-array">
-              <string>master</string>
-            </a>
-          </choices>
-        </hudson.model.ChoiceParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>console_ip</name>
           <description>IP of the User Console.</description>
@@ -33,7 +67,7 @@
         <hudson.model.StringParameterDefinition>
           <name>selenium_ip</name>
           <description>IP of Selenium server.</description>
-          <defaultValue>localhost</defaultValue>
+          <defaultValue>10.111.4.112</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>account</name>
@@ -53,12 +87,17 @@
         <hudson.model.StringParameterDefinition>
           <name>testcase</name>
           <description>Name of the testcase.</description>
-          <defaultValue>create_volume</defaultValue>
+          <defaultValue>volume_operations_02</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>protocol</name>
-          <description>Protocol for the UI: http or https.</description>
+          <description>Protocol used in UI</description>
           <defaultValue>https</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>branch</name>
+          <description>Branch of the repo to be tested.</description>
+          <defaultValue>master</defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -73,7 +112,9 @@
   <builders>
     <hudson.tasks.Shell>
       <command>git clone $repo_url
-cd se34euca/se34euca/
+cd se34euca
+git checkout $branch
+cd se34euca/
 export PYTHONPATH=../
 ./$script -l $protocol -i $console_ip -s $selenium_ip -a $account -u $username -w $password -t $testcase </command>
     </hudson.tasks.Shell>

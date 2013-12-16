@@ -9,12 +9,12 @@
         <hudson.model.StringParameterDefinition>
           <name>repo_url</name>
           <description>URL to UI test repo.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>https://github.com/aliceh/se34euca/</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>script</name>
           <description>The name of the executable for the test.</description>
-          <defaultValue>runtest_volume.py </defaultValue>
+          <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.ChoiceParameterDefinition>
           <name>branch</name>
@@ -28,12 +28,7 @@
         <hudson.model.StringParameterDefinition>
           <name>console_ip</name>
           <description>IP of the User Console.</description>
-          <defaultValue>10.111.1.51</defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>selenium_ip</name>
-          <description>IP of Selenium server.</description>
-          <defaultValue>localhost</defaultValue>
+          <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>account</name>
@@ -60,6 +55,16 @@
           <description>Protocol for the UI: http or https.</description>
           <defaultValue>https</defaultValue>
         </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>sauce_account</name>
+          <description>Sauce Labs account.</description>
+          <defaultValue>eucaqa</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>sauce_access_key</name>
+          <description>Sauce Labs access key.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
   </properties>
@@ -73,9 +78,11 @@
   <builders>
     <hudson.tasks.Shell>
       <command>git clone $repo_url
-cd se34euca/se34euca/
+cd se34euca
+git checkout $branch
+cd se34euca/
 export PYTHONPATH=../
-./$script -l $protocol -i $console_ip -s $selenium_ip -a $account -u $username -w $password -t $testcase </command>
+./$script -l $protocol -i $console_ip -n $sauce_account -x $sauce_access_key -a $account -u $username -w $password -t $testcase </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>

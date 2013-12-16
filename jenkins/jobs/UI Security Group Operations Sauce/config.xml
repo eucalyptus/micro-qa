@@ -1,7 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>&lt;strong&gt;Runs a particular UI test.&lt;/strong&gt;</description>
+  <description>&lt;strong&gt;Runs the following Security Group Operations:&lt;/strong&gt;&#xd;
+&#xd;
+&lt;p&gt;Create empty security group with description &quot;test&quot;&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify security group count is 2&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Add rules to the empty security group&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Creates security group &quot;mywebservice&quot; with rules &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify security group count is 3&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Delete all security groups&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify security group count is 1&lt;/p&gt;</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <hudson.model.ParametersDefinitionProperty>
@@ -9,31 +23,22 @@
         <hudson.model.StringParameterDefinition>
           <name>repo_url</name>
           <description>URL to UI test repo.</description>
-          <defaultValue></defaultValue>
+          <defaultValue>https://github.com/aliceh/se34euca.git</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>script</name>
           <description>The name of the executable for the test.</description>
-          <defaultValue>runtest_volume.py </defaultValue>
+          <defaultValue>runtest_sequences.py </defaultValue>
         </hudson.model.StringParameterDefinition>
-        <hudson.model.ChoiceParameterDefinition>
-          <name>branch</name>
-          <description></description>
-          <choices class="java.util.Arrays$ArrayList">
-            <a class="string-array">
-              <string>master</string>
-            </a>
-          </choices>
-        </hudson.model.ChoiceParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>console_ip</name>
           <description>IP of the User Console.</description>
-          <defaultValue>10.111.1.51</defaultValue>
+          <defaultValue>10.111.1.173</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
-          <name>selenium_ip</name>
-          <description>IP of Selenium server.</description>
-          <defaultValue>localhost</defaultValue>
+          <name>sauce_account</name>
+          <description>Sauce Labs account.</description>
+          <defaultValue>eucaqa</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>account</name>
@@ -53,12 +58,22 @@
         <hudson.model.StringParameterDefinition>
           <name>testcase</name>
           <description>Name of the testcase.</description>
-          <defaultValue>create_volume</defaultValue>
+          <defaultValue>security_group_operations</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>protocol</name>
-          <description>Protocol for the UI: http or https.</description>
+          <description>Protocol used in UI</description>
           <defaultValue>https</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>branch</name>
+          <description>Branch of the repo to be tested.</description>
+          <defaultValue>master</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>sauce_access_key</name>
+          <description>Sauce Labs access key.</description>
+          <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -73,9 +88,11 @@
   <builders>
     <hudson.tasks.Shell>
       <command>git clone $repo_url
-cd se34euca/se34euca/
+cd se34euca
+git checkout $branch
+cd se34euca/
 export PYTHONPATH=../
-./$script -l $protocol -i $console_ip -s $selenium_ip -a $account -u $username -w $password -t $testcase </command>
+./$script -l $protocol -i $console_ip -n $sauce_account -x $sauce_access_key -a $account -u $username -w $password -t $testcase </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
