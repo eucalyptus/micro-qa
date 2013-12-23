@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>&lt;em&gt;Build a new Eucalyptus Cloud from Packages.&lt;/em&gt;</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>method</name>
+          <description></description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>packages</string>
+              <string>source</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>hostname</name>
+          <description>IP address or hostname of machine you would like to install on.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.PasswordParameterDefinition>
+          <name>password</name>
+          <description>Leave blank if you&apos;ve uploaded your ssh keys </description>
+          <defaultValue>hs8BfSQU6z+Ydc1V4SUWGw==</defaultValue>
+        </hudson.model.PasswordParameterDefinition>
+        <hudson.model.TextParameterDefinition>
+          <name>configuration</name>
+          <description>Configuration of the Eucalyptus deployment.
+
+Required fields:
+public-ips
+
+Full list of attributes can be found here:
+https://github.com/viglesiasce/eucalyptus-cookbook/blob/master/attributes/default.rb</description>
+          <defaultValue>{
+  &quot;eucalyptus&quot;: { 
+                         &quot;network&quot;: { &quot;bridged-interface&quot;: &quot;eth0&quot;, 
+                                            &quot;public-ips&quot;: &quot;REQUIRED-FIELD&quot;  },
+                         &quot;nc&quot;: { &quot;hypervisor&quot;: &quot;kvm&quot;  } 
+   }
+}</defaultValue>
+        </hudson.model.TextParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
+      <maxConcurrentPerNode>0</maxConcurrentPerNode>
+      <maxConcurrentTotal>0</maxConcurrentTotal>
+      <throttleEnabled>false</throttleEnabled>
+      <throttleOption>project</throttleOption>
+    </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>true</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>role=&quot;cloud-in-a-box&quot;
+if [ $method = &quot;source&quot; ];then
+    role=$role-source
+fi
+
+if [ $password ];then
+    knife bootstrap $hostname -r &quot;role[$role]&quot; -j &quot;$configuration&quot; -P $password
+else
+    knife bootstrap $hostname -r &quot;role[$role]&quot; -j &quot;$configuration&quot;
+fi</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.16">
+      <deleteDirs>false</deleteDirs>
+      <skipWhenFailed>false</skipWhenFailed>
+      <cleanWhenSuccess>true</cleanWhenSuccess>
+      <cleanWhenUnstable>true</cleanWhenUnstable>
+      <cleanWhenFailure>true</cleanWhenFailure>
+      <cleanWhenNotBuilt>true</cleanWhenNotBuilt>
+      <cleanWhenAborted>true</cleanWhenAborted>
+      <notFailBuild>false</notFailBuild>
+      <cleanupMatrixParent>false</cleanupMatrixParent>
+    </hudson.plugins.ws__cleanup.WsCleanup>
+  </publishers>
+  <buildWrappers/>
+</project>

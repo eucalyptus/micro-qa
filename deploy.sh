@@ -12,10 +12,6 @@ rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
 yum install -y jenkins
 chkconfig jenkins on
 
-### Install ansible deps
-yum install -y PyYAML python-jinja2 python-paramiko
-git clone https://github.com/ansible/ansible.git /opt/ansible
-
 ### Configure NTP
 chkconfig ntpd on
 service ntpd start
@@ -32,6 +28,8 @@ rsync -va /vagrant/jenkins/ /var/lib/jenkins/
 chown -R jenkins:jenkins /var/lib/jenkins
 
 ### Start jenkins
+ipaddress=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'`
+sed -i s/localhost/$ipaddress/g /var/lib/jenkins/jenkins.model.JenkinsLocationConfiguration.xml /var/lib/jenkins/org.codefirst.SimpleThemeDecorator.xml
 service jenkins start
 
 ### Setup Jenkins sync script
@@ -62,6 +60,61 @@ unzip selenium-server-2.35.0.zip
 dbus-uuidgen > /var/lib/dbus/machine-id
 Xvfb :0 -ac 2> /dev/null &
 export DISPLAY=":0" && nohup java -jar selenium-2.35.0/selenium-server-standalone-2.35.0.jar -trustAllSSLCertificates &
+
+### Install chef dependencies
+curl -L https://www.opscode.com/chef/install.sh | bash
+yum -y install https://opscode-omnibus-packages.s3.amazonaws.com/el/6/x86_64/chef-server-11.0.10-1.el6.x86_64.rpm
+chef-server-ctl reconfigure
+cp /etc/chef-server/admin.pem ~/.chef
+cp /etc/chef-server/chef-validator.pem ~/.chef
+cat > ~/.chef/knife.rb <<EOF
+log_level                :info
+log_location             STDOUT
+node_name                'admin'
+client_key               '/var/lib/jenkins/.chef/admin.pem'
+validation_client_name   'chef-validator'
+validation_key           '/var/lib/jenkins/.chef/chef-validator.pem'
+chef_server_url          'https://localhost:443'
+syntax_check_cache_path  '/var/lib/jenkins/.chef/syntax_check_cache'
+cookbook_path [
+  "/root/cookbooks",
+]
+EOF
+
+echo 'erchef['s3_url_ttl'] = 3600' >> /etc/chef-server/chef-server.rb
+chef-server-ctl reconfigure
+
+HOSTNAME=`hostname` sed -i s/localhost/$HOSTNAME/g ~/.chef/knife.rb
+
+cp -a .chef/ /var/lib/jenkins/
+chown -R jenkins:jenkins /var/lib/jenkins/.chef/
+
+## Download cookbooks
+mkdir /root/cookbooks
+pushd /root/cookbooks
+git init
+echo "Chef Repo" >> README
+git add .
+git commit -a -m "Initial commit"
+knife cookbook site install ntp
+knife cookbook upload ntp
+knife cookbook site install partial_search
+knife cookbook upload partial_search
+knife cookbook site install ssh_known_hosts
+knife cookbook upload ssh_known_hosts
+knife cookbook site install selinux
+knife cookbook upload selinux
+knife cookbook site install yum
+knife cookbook upload yum
+knife cookbook site install iptables
+knife cookbook upload iptables
+
+git clone https://github.com/viglesiasce/eucalyptus-cookbook.git eucalyptus
+knife cookbook upload eucalyptus
+
+## Upload roles
+knife role from file eucalyptus/roles/*
+popd
 
 ### Create rc.local
 cat > /etc/rc.local <<EOF

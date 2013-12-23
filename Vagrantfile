@@ -13,8 +13,8 @@ Vagrant.configure("2") do |config|
     config.vm.box = OS[:box]
     config.vm.box_url = OS[:url]
     config.vm.provider :aws do |aws,override|
-        aws.access_key_id = "XXXXXXXXXXXXXXXXXX"
-        aws.secret_access_key = "YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"
+        aws.access_key_id = "XNKO4SHYC0XH1OKWDKEVC"
+        aws.secret_access_key = "CwiaSozGTiLELjnm96iTgOMKLuiht4mcPwkGDWV3"
         aws.instance_type = "m1.medium"
         aws.ami = "emi-1873419A"
         aws.security_groups = ["default"]
