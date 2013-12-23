@@ -7,7 +7,7 @@
   </parent>
 
   <artifactId>external-monitor-job</artifactId>
-  <version>1.1</version>
+  <version>1.2</version>
   <packaging>hpi</packaging>
   <name>External Monitor Job Type Plugin</name>
   <description>Adds the ability to monitor the result of externally executed jobs</description>
@@ -33,16 +33,6 @@
     <repository>
       <id>repo.jenkins-ci.org</id>
       <url>http://repo.jenkins-ci.org/public/</url>
-    </repository>
-    <repository><!-- only until we release ant and javadoc plugins -->
-      <id>maven.jenkins-ci.org</id>
-      <url>http://maven.jenkins-ci.org/content/repositories/snapshots/</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
     </repository>
   </repositories>
 
