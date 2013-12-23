@@ -87,7 +87,7 @@ chef-server-ctl reconfigure
 
 HOSTNAME=`hostname` sed -i s/localhost/$HOSTNAME/g ~/.chef/knife.rb
 
-cp -a .chef/ /var/lib/jenkins/
+cp -a /root/.chef/ /var/lib/jenkins/
 chown -R jenkins:jenkins /var/lib/jenkins/.chef/
 
 ## Download cookbooks
