@@ -67,9 +67,9 @@ if [ $method = &quot;source&quot; ];then
 fi
 
 if [ $password ];then
-    knife bootstrap $hostname -r &quot;role[$role]&quot; -j &quot;$configuration&quot; -P $password
+    knife bootstrap $hostname --no-host-key-verify -r &quot;role[$role]&quot; -j &quot;$configuration&quot; -P $password
 else
-    knife bootstrap $hostname -r &quot;role[$role]&quot; -j &quot;$configuration&quot;
+    knife bootstrap $hostname --no-host-key-verify -r &quot;role[$role]&quot; -j &quot;$configuration&quot;
 fi</command>
     </hudson.tasks.Shell>
   </builders>
