@@ -65,6 +65,7 @@ export DISPLAY=":0" && nohup java -jar selenium-2.35.0/selenium-server-standalon
 curl -L https://www.opscode.com/chef/install.sh | bash
 yum -y install https://opscode-omnibus-packages.s3.amazonaws.com/el/6/x86_64/chef-server-11.0.10-1.el6.x86_64.rpm
 chef-server-ctl reconfigure
+mkdir ~/.chef
 cp /etc/chef-server/admin.pem ~/.chef
 cp /etc/chef-server/chef-validator.pem ~/.chef
 cat > ~/.chef/knife.rb <<EOF
