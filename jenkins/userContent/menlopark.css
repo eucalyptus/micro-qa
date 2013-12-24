@@ -36,8 +36,8 @@ a, a:visited, a:active, a:hover, a:link {
 }
 
 textarea, .setting-input {
-    background-color: #110F13;
-    color: #DFDFDF;
+#    background-color: #110F13;
+#    color: #DFDFDF;
     padding: 6px 10px;
     font-size: 10.5pt;
     box-shadow: rgba(0,0,0,0.5) 1px 3px 6px inset;
