@@ -92,7 +92,7 @@ json_file.write(json.dumps(config))
     knife bootstrap $frontend --no-host-key-verify -r &quot;role[frontend]&quot; -j &quot;`cat config.json`&quot; -P $password
 else
     knife bootstrap $node --no-host-key-verify -r &quot;role[node]&quot; -j &quot;`cat config.json`&quot;
-    knife bootstrap $frontend --no-host-key-verify -r &quot;role[frontend&quot; -j &quot;`cat config.json`&quot;
+    knife bootstrap $frontend --no-host-key-verify -r &quot;role[frontend]&quot; -j &quot;`cat config.json`&quot;
 fi</command>
     </hudson.tasks.Shell>
   </builders>
