@@ -29,10 +29,8 @@ Vagrant.configure("2") do |config|
                 Name: "Micro QA",
         }
     end
-    config.vm.network :forwarded_port, guest: 80, host: 8080
     config.vm.provider :virtualbox do |v| 
         v.customize [ "modifyvm", :id, "--memory", options[:memory].to_i, "--cpus", options[:cores].to_i]
     end 
-    config.vm.hostname = "micro-qa"
     config.vm.provision :shell, :path => "deploy.sh"
 end
