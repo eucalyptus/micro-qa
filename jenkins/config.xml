@@ -9,6 +9,7 @@
   <useSecurity>true</useSecurity>
   <authorizationStrategy class="hudson.security.AuthorizationStrategy$Unsecured"/>
   <securityRealm class="hudson.security.SecurityRealm$None"/>
+  <disableRememberMe>false</disableRememberMe>
   <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
   <workspaceDir>${ITEM_ROOTDIR}/workspace</workspaceDir>
   <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
@@ -109,6 +110,7 @@
         <string>Deploy Cloud in a Box</string>
         <string>Deploy Frontend and Node</string>
         <string>Rebuild Hosts Using Cobbler</string>
+        <string>Riak CS install and configure</string>
         <string>Upload Host Keypair</string>
       </jobNames>
       <jobFilters/>
