@@ -27,9 +27,15 @@ iptables-save > /etc/sysconfig/iptables
 rsync -va /vagrant/jenkins/ /var/lib/jenkins/
 chown -R jenkins:jenkins /var/lib/jenkins
 
-### Start jenkins
-ipaddress=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'`
+### Get IP address
+if curl http://169.254.169.254/latest/meta-data;then 
+  ipaddress=`curl http://169.254.169.254/latest/meta-data/public-ipv4/`
+else
+  ipaddress=`ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'`
+fi
 sed -i s/localhost/$ipaddress/g /var/lib/jenkins/jenkins.model.JenkinsLocationConfiguration.xml /var/lib/jenkins/org.codefirst.SimpleThemeDecorator.xml
+
+### Start jenkins
 service jenkins start
 
 ### Setup Jenkins sync script
@@ -85,7 +91,7 @@ EOF
 echo 'erchef['s3_url_ttl'] = 3600' >> /etc/chef-server/chef-server.rb
 chef-server-ctl reconfigure
 
-HOSTNAME=`hostname` sed -i s/localhost/$HOSTNAME/g ~/.chef/knife.rb
+sed -i s/localhost/$ipaddress/g ~/.chef/knife.rb
 
 cp -a /root/.chef/ /var/lib/jenkins/
 chown -R jenkins:jenkins /var/lib/jenkins/.chef/

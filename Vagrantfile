@@ -10,6 +10,7 @@ CENTOS = {
 }
 OS = CENTOS
 Vagrant.configure("2") do |config|
+    config.vm.network "public_network"
     config.vm.box = OS[:box]
     config.vm.box_url = OS[:url]
     config.vm.provider :aws do |aws,override|

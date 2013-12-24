@@ -107,6 +107,7 @@
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
         <string>Deploy Cloud in a Box</string>
+        <string>Deploy Frontend and Node</string>
         <string>Rebuild Hosts Using Cobbler</string>
         <string>Upload Host Keypair</string>
       </jobNames>
