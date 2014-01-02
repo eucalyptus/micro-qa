@@ -1,7 +1,10 @@
 #!/bin/bash -x
 
 ### Add EPEL repo
-yum install -y http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+if [ ! -e /etc/yum.repos.d/epel.repo ];then 
+  yum install -y http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+fi
+
 
 ### Install deps
 yum install -y python-devel python-setuptools gcc make python-virtualenv java-1.7.0-openjdk-devel git ntp wget unzip ant
