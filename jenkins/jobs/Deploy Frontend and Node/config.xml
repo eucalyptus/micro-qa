@@ -42,7 +42,7 @@ Full list of attributes can be found here:
 https://github.com/viglesiasce/eucalyptus-cookbook/blob/master/attributes/default.rb</description>
           <defaultValue>{
   &quot;eucalyptus&quot;: { 
-                         &quot;network&quot;: { &quot;bridged-interface&quot;: &quot;eth0&quot;, 
+                         &quot;network&quot;: { &quot;bridged-nic&quot;: &quot;eth0&quot;, 
                                             &quot;public-ips&quot;: &quot;REQUIRED-FIELD&quot;  },
                          &quot;nc&quot;: { &quot;hypervisor&quot;: &quot;kvm&quot;  } 
    }
