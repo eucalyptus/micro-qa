@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 options = {
   :cores => 2,
-  :memory => 1536,
+  :memory => 3000,
 }
 CENTOS = {
   box: "centos",
