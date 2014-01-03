@@ -13,6 +13,8 @@ Vagrant.configure("2") do |config|
     config.vm.network "public_network"
     config.vm.box = OS[:box]
     config.vm.box_url = OS[:url]
+    config.ssh.pty = true
+    config.vm.hostname = "micro-qa"
     config.vm.provider :aws do |aws,override|
 	aws.access_key_id = "YOURACCESSKEY"
         aws.secret_access_key = "YOURSECRETKEY"
