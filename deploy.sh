@@ -96,8 +96,8 @@ cookbook_path [
 EOF
 
 echo 'erchef['s3_url_ttl'] = 3600' >> /etc/chef-server/chef-server.rb
-echo "bookshelf['vip'] = '$ipaddress'"
-echo "bookshelf['url'] = 'https://$ipaddress'"
+echo "bookshelf['vip'] = '$ipaddress'"  >> /etc/chef-server/chef-server.rb
+echo "bookshelf['url'] = 'https://$ipaddress'"  >> /etc/chef-server/chef-server.rb
 chef-server-ctl reconfigure
 
 sed -i s/localhost/$ipaddress/g ~/.chef/knife.rb
