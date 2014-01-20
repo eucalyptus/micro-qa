@@ -140,3 +140,6 @@ export DISPLAY=":0" && nohup java -jar /selenium-2.35.0/selenium-server-standalo
 exit 0
 EOF
 chmod +x /etc/rc.local
+
+### Show the user the ip address that their MicroQA received
+ifconfig eth1
