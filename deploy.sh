@@ -34,12 +34,14 @@ chown -R jenkins:jenkins /var/lib/jenkins
 if curl http://169.254.169.254/latest/meta-data;then 
   ### This is an instance
   ipaddress=`curl http://169.254.169.254/latest/meta-data/public-ipv4/`
+  hostname=`curl http://169.254.169.254/latest/meta-data/public-hostname/`
 else
   ### This is a virtualbox vm
   ipaddress=`ifconfig eth1 | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'`
+  hostname=`hostname`
 fi
 sed -i s/localhost/$ipaddress/g /var/lib/jenkins/jenkins.model.JenkinsLocationConfiguration.xml /var/lib/jenkins/org.codefirst.SimpleThemeDecorator.xml
-echo "$ipaddress `hostname`" >> /etc/hosts
+echo "$ipaddress $hostname" >> /etc/hosts
 ### Start jenkins
 service jenkins start
 
