@@ -123,7 +123,7 @@ knife cookbook upload yum
 knife cookbook site install iptables
 knife cookbook upload iptables
 
-git clone https://github.com/viglesiasce/eucalyptus-cookbook.git eucalyptus
+git clone https://github.com/eucalyptus/eucalyptus-cookbook.git eucalyptus
 knife cookbook upload eucalyptus
 
 ## Upload roles
