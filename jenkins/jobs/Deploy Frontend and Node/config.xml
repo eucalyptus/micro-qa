@@ -78,7 +78,8 @@ json_file = open(&quot;config.json&quot;)
 config = json.loads(json_file.read())
 json_file.close()
 config[&quot;eucalyptus&quot;][&quot;install-type&quot;] = os.environ[&apos;method&apos;]
-config[&quot;eucalyptus&quot;][&quot;topology&quot;] = {}
+if &quot;network&quot; not in config[&quot;eucalyptus&quot;]:
+    config[&quot;eucalyptus&quot;][&quot;network&quot;] = {}
 config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;clusters&quot;] = {}
 config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;clusters&quot;][&quot;default&quot;] = {}
 config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;clusters&quot;][&quot;default&quot;][&quot;nodes&quot;] = os.environ[&apos;node&apos;]
