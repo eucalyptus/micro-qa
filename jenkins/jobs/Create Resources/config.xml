@@ -27,12 +27,18 @@
           </choices>
         </hudson.model.ChoiceParameterDefinition>
         <hudson.model.TextParameterDefinition>
-          <name>config</name>
+          <name>topology</name>
           <description>Text from the config file ie. build_config_file_setup.lst</description>
           <defaultValue></defaultValue>
         </hudson.model.TextParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
+      <maxConcurrentPerNode>0</maxConcurrentPerNode>
+      <maxConcurrentTotal>0</maxConcurrentTotal>
+      <throttleEnabled>false</throttleEnabled>
+      <throttleOption>project</throttleOption>
+    </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
   </properties>
   <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
@@ -51,7 +57,7 @@ git checkout $branch
 cd ..
 mkdir credentials
 cat &gt; credentials/config &lt;&lt;EOF
-$config
+$topology
 EOF
 
 mkdir virtualenv/
@@ -65,8 +71,8 @@ cd repo
   </builders>
   <publishers>
     <hudson.plugins.logparser.LogParserPublisher plugin="log-parser@1.0.8">
-      <unstableOnWarning>true</unstableOnWarning>
-      <failBuildOnError>true</failBuildOnError>
+      <unstableOnWarning>false</unstableOnWarning>
+      <failBuildOnError>false</failBuildOnError>
       <parsingRulesPath>/var/lib/jenkins/parsers/eutester</parsingRulesPath>
     </hudson.plugins.logparser.LogParserPublisher>
     <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.16">

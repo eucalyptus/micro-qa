@@ -3,12 +3,13 @@
   <disabledAdministrativeMonitors>
     <string>jenkins.security.RekeySecretAdminMonitor</string>
   </disabledAdministrativeMonitors>
-  <version>1.529</version>
+  <version>1.531</version>
   <numExecutors>5</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
   <authorizationStrategy class="hudson.security.AuthorizationStrategy$Unsecured"/>
   <securityRealm class="hudson.security.SecurityRealm$None"/>
+  <disableRememberMe>false</disableRememberMe>
   <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
   <workspaceDir>${ITEM_ROOTDIR}/workspace</workspaceDir>
   <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
@@ -27,65 +28,6 @@
       <filterQueue>false</filterQueue>
       <properties class="hudson.model.View$PropertyList"/>
     </hudson.model.AllView>
-    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.9.1">
-      <owner class="hudson" reference="../../.."/>
-      <name>Tests</name>
-      <description>&lt;html&gt;&#xd;
-	&lt;head&gt;&#xd;
-		&lt;title&gt;HTML Online Editor Sample&lt;/title&gt;&#xd;
-	&lt;/head&gt;&#xd;
-	&lt;body&gt;&#xd;
-		&lt;h1&gt;&#xd;
-			Welcome to Micro-QA v3.0.0&lt;/h1&gt;&#xd;
-		&lt;p&gt;&#xd;
-			This Jenkins server is intended to provide an easy way to get going with both Eutester and Eutester4j&lt;br&gt;&#xd;
-                        in order to validate and debug cloud installations.&#xd;
-                &lt;/p&gt;&#xd;
-          &lt;h2&gt; Running a Test &lt;/h2&gt;&#xd;
-          &lt;p&gt;In order to run a test click the &quot;play&quot; button to the right of each job listed, then enter your eucarc file into&lt;br&gt;&#xd;
-             the field provided. At the bottom of the page you should see a &quot;Build&quot; button which will kick off the test.&lt;/p&gt;&#xd;
-	&lt;/body&gt;&#xd;
-&lt;/html&gt;&#xd;
-</description>
-      <filterExecutors>false</filterExecutors>
-      <filterQueue>false</filterQueue>
-      <properties class="hudson.model.View$PropertyList"/>
-      <jobNames>
-        <comparator class="hudson.util.CaseInsensitiveComparator"/>
-        <string>Boot From EBS</string>
-        <string>CloudWatch</string>
-        <string>EBS Suite</string>
-        <string>Eutester4j Suite</string>
-        <string>Instance Suite</string>
-        <string>Tagging+Filtering</string>
-        <string>Walrus Bucket Tests</string>
-        <string>Walrus Object Tests</string>
-      </jobNames>
-      <jobFilters/>
-      <columns>
-        <hudson.views.StatusColumn/>
-        <hudson.views.WeatherColumn/>
-        <hudson.views.JobColumn/>
-        <jenkins.plugins.extracolumns.DescriptionColumn plugin="extra-columns@1.11">
-          <displayName>false</displayName>
-          <trim>false</trim>
-          <displayLength>1</displayLength>
-        </jenkins.plugins.extracolumns.DescriptionColumn>
-        <hudson.views.LastSuccessColumn/>
-        <hudson.views.LastFailureColumn/>
-        <hudson.views.LastDurationColumn/>
-        <hudson.views.BuildButtonColumn/>
-      </columns>
-      <recurse>false</recurse>
-      <useCssStyle>false</useCssStyle>
-      <includeStdJobList>true</includeStdJobList>
-      <leftPortletWidth>50%</leftPortletWidth>
-      <rightPortletWidth>50%</rightPortletWidth>
-      <leftPortlets/>
-      <rightPortlets/>
-      <topPortlets/>
-      <bottomPortlets/>
-    </hudson.plugins.view.dashboard.Dashboard>
     <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.9.1">
       <owner class="hudson" reference="../../.."/>
       <name>Debugging</name>
@@ -165,9 +107,10 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
-        <string>Deploy Cloud from Packages</string>
-        <string>Deploy Cloud from Source</string>
+        <string>Deploy Cloud in a Box</string>
+        <string>Deploy Frontend and Node</string>
         <string>Rebuild Hosts Using Cobbler</string>
+        <string>Riak CS install and configure</string>
         <string>Upload Host Keypair</string>
       </jobNames>
       <jobFilters/>
@@ -260,6 +203,109 @@
       </columns>
       <recurse>false</recurse>
     </listView>
+    <hudson.plugins.sectioned__view.SectionedView plugin="sectioned-view@1.18">
+      <owner class="hudson" reference="../../.."/>
+      <name>Tests</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <sections>
+        <hudson.plugins.sectioned__view.ListViewSection>
+          <jobNames>
+            <comparator class="hudson.util.CaseInsensitiveComparator"/>
+            <string>Full Regression Sequence</string>
+          </jobNames>
+          <jobFilters/>
+          <name>Sequences</name>
+          <width>FULL</width>
+          <alignment>CENTER</alignment>
+          <columns>
+            <hudson.views.StatusColumn/>
+            <hudson.views.WeatherColumn/>
+            <hudson.views.JobColumn/>
+            <info.noirbizarre.jenkins.plugins.DescriptionColumn plugin="description-column-plugin@1.3">
+              <displayName>false</displayName>
+              <trim>false</trim>
+              <displayLength>1</displayLength>
+            </info.noirbizarre.jenkins.plugins.DescriptionColumn>
+            <hudson.views.LastSuccessColumn/>
+            <hudson.views.LastFailureColumn/>
+            <hudson.views.LastDurationColumn/>
+            <hudson.views.BuildButtonColumn/>
+          </columns>
+        </hudson.plugins.sectioned__view.ListViewSection>
+        <hudson.plugins.sectioned__view.ListViewSection>
+          <jobNames>
+            <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../hudson.plugins.sectioned__view.ListViewSection/jobNames/comparator"/>
+            <string>Boot From EBS</string>
+            <string>CloudWatch</string>
+            <string>Create Resources</string>
+            <string>Create Users</string>
+            <string>EBS Suite</string>
+            <string>Eutester4j Suite</string>
+            <string>Instance Suite</string>
+            <string>Migration</string>
+            <string>Tagging+Filtering</string>
+            <string>Walrus Bucket Tests</string>
+            <string>Walrus Object Tests</string>
+          </jobNames>
+          <jobFilters/>
+          <name>Individual Tests</name>
+          <width>FULL</width>
+          <alignment>CENTER</alignment>
+          <columns>
+            <hudson.views.StatusColumn/>
+            <hudson.views.WeatherColumn/>
+            <hudson.views.JobColumn/>
+            <info.noirbizarre.jenkins.plugins.DescriptionColumn plugin="description-column-plugin@1.3">
+              <displayName>false</displayName>
+              <trim>false</trim>
+              <displayLength>1</displayLength>
+            </info.noirbizarre.jenkins.plugins.DescriptionColumn>
+            <hudson.views.LastSuccessColumn/>
+            <hudson.views.LastFailureColumn/>
+            <hudson.views.LastDurationColumn/>
+            <hudson.views.BuildButtonColumn/>
+          </columns>
+        </hudson.plugins.sectioned__view.ListViewSection>
+      </sections>
+    </hudson.plugins.sectioned__view.SectionedView>
+    <hudson.plugins.sectioned__view.SectionedView plugin="sectioned-view@1.18">
+      <owner class="hudson" reference="../../.."/>
+      <name>Stress</name>
+      <description>Enable the jobs below after setting up proper credentials in the eucarc parameter.&lt;br&gt;&#xd;
+The will run once per minute and up to the number defined in the concurrent jobs config parameter</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <sections>
+        <hudson.plugins.sectioned__view.ListViewSection>
+          <jobNames>
+            <comparator class="hudson.util.CaseInsensitiveComparator"/>
+            <string>Stress BFEBS</string>
+            <string>Stress Instance Store</string>
+          </jobNames>
+          <jobFilters/>
+          <name>EC2 Stress</name>
+          <width>FULL</width>
+          <alignment>CENTER</alignment>
+          <columns>
+            <hudson.views.StatusColumn/>
+            <hudson.views.WeatherColumn/>
+            <hudson.views.JobColumn/>
+            <info.noirbizarre.jenkins.plugins.DescriptionColumn plugin="description-column-plugin@1.3">
+              <displayName>false</displayName>
+              <trim>false</trim>
+              <displayLength>1</displayLength>
+            </info.noirbizarre.jenkins.plugins.DescriptionColumn>
+            <hudson.views.LastSuccessColumn/>
+            <hudson.views.LastFailureColumn/>
+            <hudson.views.LastDurationColumn/>
+            <hudson.views.BuildButtonColumn/>
+          </columns>
+        </hudson.plugins.sectioned__view.ListViewSection>
+      </sections>
+    </hudson.plugins.sectioned__view.SectionedView>
   </views>
   <primaryView>Tests</primaryView>
   <slaveAgentPort>0</slaveAgentPort>

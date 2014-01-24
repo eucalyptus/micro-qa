@@ -19,6 +19,12 @@
         </hudson.model.TextParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
+      <maxConcurrentPerNode>0</maxConcurrentPerNode>
+      <maxConcurrentTotal>0</maxConcurrentTotal>
+      <throttleEnabled>false</throttleEnabled>
+      <throttleOption>project</throttleOption>
+    </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
   </properties>
   <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
@@ -30,20 +36,20 @@
   <builders>
     <hudson.tasks.Shell>
       <command>#!/bin/bash
+keydir=~/.ssh
+mkdir -p $keydir
+rm -f $keydir/*
+chmod 700 $keydir
 
-mkdir -p /var/lib/jenkins/build-keys
-rm -f /var/lib/jenkins/build-keys/*
-chmod 700 /var/lib/jenkins/build-keys
-
-cat &gt; /var/lib/jenkins/build-keys/buildkey &lt;&lt;EOF
+cat &gt; $keydir/id_rsa &lt;&lt;EOF
 $privatekey
 EOF
 
-cat &gt; /var/lib/jenkins/build-keys/buildkey.pub &lt;&lt;EOF
+cat &gt; $keydir/id_rsa.pub &lt;&lt;EOF
 $publickey
 EOF
 
-chmod 600 /var/lib/jenkins/build-keys/*
+chmod 600 $keydir/*
 
 </command>
     </hudson.tasks.Shell>

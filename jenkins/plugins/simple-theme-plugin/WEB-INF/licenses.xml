@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<l:dependencies xmlns:l='licenses' groupId='org.codefirst.jenkins.simplethemeplugin' artifactId='simple-theme-plugin' version='0.3'><l:dependency name='Simple Theme Plugin' groupId='org.codefirst.jenkins.simplethemeplugin' artifactId='simple-theme-plugin' version='0.3' url='http://wiki.jenkins-ci.org/display/JENKINS/Simple+Theme+Plugin'><l:description/></l:dependency></l:dependencies>

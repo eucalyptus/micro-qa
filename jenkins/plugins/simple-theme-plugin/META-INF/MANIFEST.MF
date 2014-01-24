@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: stephenc
+Build-Jdk: 1.7.0_15
+Extension-Name: simple-theme-plugin
+Implementation-Title: simple-theme-plugin
+Implementation-Version: 0.3
+Group-Id: org.codefirst.jenkins.simplethemeplugin
+Short-Name: simple-theme-plugin
+Long-Name: Simple Theme Plugin
+Url: http://wiki.jenkins-ci.org/display/JENKINS/Simple+Theme+Plugin
+Plugin-Version: 0.3
+Hudson-Version: 1.424
+Jenkins-Version: 1.424
+Plugin-Developers: mallowlabs:mallowlabs:mallowlabs@gmail.com
+

@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<org.codefirst.SimpleThemeDecorator plugin="simple-theme-plugin@0.3">
+  <cssUrl>http://localhost:8080/userContent/menlopark.css</cssUrl>
+  <jsUrl>http://localhost:8080/userContent/menlopark.js</jsUrl>
+</org.codefirst.SimpleThemeDecorator>

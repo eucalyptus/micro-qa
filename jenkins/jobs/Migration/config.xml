@@ -9,7 +9,7 @@
         <hudson.model.StringParameterDefinition>
           <name>repo_url</name>
           <description></description>
-          <defaultValue>https://github.com/mdshaonimran/eutester.git</defaultValue>
+          <defaultValue>https://github.com/eucalyptus/eutester.git</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>script</name>
@@ -21,7 +21,6 @@
           <description></description>
           <choices class="java.util.Arrays$ArrayList">
             <a class="string-array">
-              <string>dev/migration</string>
               <string>testing</string>
               <string>master</string>
             </a>
@@ -39,8 +38,19 @@
           <description>Root password for the machines described in the topology above. If keys are synced between Jenkins and the cloud infrastrucure just leave the password as default.</description>
           <defaultValue>foobar</defaultValue>
         </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>imgurl</name>
+          <description>Image URL to download a BFEBS image</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
+      <maxConcurrentPerNode>0</maxConcurrentPerNode>
+      <maxConcurrentTotal>0</maxConcurrentTotal>
+      <throttleEnabled>false</throttleEnabled>
+      <throttleOption>project</throttleOption>
+    </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
   </properties>
   <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
@@ -68,10 +78,15 @@ rsync -va /var/lib/jenkins/share/eutester-base/ virtualenv/ &gt;&gt; $WORKSPACE/
 cd repo
 ../virtualenv/bin/python setup.py install  &gt;&gt; $WORKSPACE/install.log
 
-../virtualenv/bin/python $script --config ../input/cloud.conf --password $password</command>
+../virtualenv/bin/python $script --config ../input/cloud.conf --password $password --imgurl $imgurl</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
+    <hudson.plugins.logparser.LogParserPublisher plugin="log-parser@1.0.8">
+      <unstableOnWarning>false</unstableOnWarning>
+      <failBuildOnError>false</failBuildOnError>
+      <parsingRulesPath>/var/lib/jenkins/parsers/eutester</parsingRulesPath>
+    </hudson.plugins.logparser.LogParserPublisher>
     <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.16">
       <deleteDirs>false</deleteDirs>
       <skipWhenFailed>false</skipWhenFailed>
