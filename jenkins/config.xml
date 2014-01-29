@@ -107,6 +107,7 @@
       <properties class="hudson.model.View$PropertyList"/>
       <jobNames>
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>Add Node</string>
         <string>Deploy Cloud in a Box</string>
         <string>Deploy Frontend and Node</string>
         <string>Rebuild Hosts Using Cobbler</string>
@@ -298,6 +299,58 @@ The will run once per minute and up to the number defined in the concurrent jobs
               <trim>false</trim>
               <displayLength>1</displayLength>
             </info.noirbizarre.jenkins.plugins.DescriptionColumn>
+            <hudson.views.LastSuccessColumn/>
+            <hudson.views.LastFailureColumn/>
+            <hudson.views.LastDurationColumn/>
+            <hudson.views.BuildButtonColumn/>
+          </columns>
+        </hudson.plugins.sectioned__view.ListViewSection>
+      </sections>
+    </hudson.plugins.sectioned__view.SectionedView>
+    <hudson.plugins.sectioned__view.SectionedView plugin="sectioned-view@1.18">
+      <owner class="hudson" reference="../../.."/>
+      <name>Apps</name>
+      <description>&lt;h2&gt;What is it?&lt;/h2&gt;&#xd;
+&lt;p&gt;These &quot;apps&quot; are one touch jobs that usually leverage vagrant and/or chef to launch fully configured VMs.&lt;/p&gt;&#xd;
+&lt;h3&gt;ToDo&lt;/h3&gt;&#xd;
+&lt;li&gt;Create a job to import cloud credentials&lt;/li&gt;&#xd;
+&lt;li&gt;Add some apps such as: riak or cassandra&lt;/li&gt;</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <sections>
+        <hudson.plugins.sectioned__view.ListViewSection>
+          <jobNames>
+            <comparator class="hudson.util.CaseInsensitiveComparator"/>
+            <string>Riak Cluster</string>
+            <string>Riak CS install and configure</string>
+          </jobNames>
+          <jobFilters/>
+          <name>Riak Solutions</name>
+          <width>FULL</width>
+          <alignment>CENTER</alignment>
+          <columns>
+            <hudson.views.StatusColumn/>
+            <hudson.views.WeatherColumn/>
+            <hudson.views.JobColumn/>
+            <hudson.views.LastSuccessColumn/>
+            <hudson.views.LastFailureColumn/>
+            <hudson.views.LastDurationColumn/>
+            <hudson.views.BuildButtonColumn/>
+          </columns>
+        </hudson.plugins.sectioned__view.ListViewSection>
+        <hudson.plugins.sectioned__view.ListViewSection>
+          <jobNames>
+            <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../hudson.plugins.sectioned__view.ListViewSection/jobNames/comparator"/>
+          </jobNames>
+          <jobFilters/>
+          <name>Cassandra Solutions</name>
+          <width>FULL</width>
+          <alignment>CENTER</alignment>
+          <columns>
+            <hudson.views.StatusColumn/>
+            <hudson.views.WeatherColumn/>
+            <hudson.views.JobColumn/>
             <hudson.views.LastSuccessColumn/>
             <hudson.views.LastFailureColumn/>
             <hudson.views.LastDurationColumn/>
