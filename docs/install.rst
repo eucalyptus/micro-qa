@@ -83,7 +83,7 @@ You can setup micro-qa on an AWS instance or Eucalyptus instance too.
 ::
 
 
-	$ vagrant box add dummy https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box
+	$ vagrant box add centos https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box
 
 
 * Once inside the repository run **vagrant up --provider=aws**. This will run a virtual machine, and install MicroQA in your cloud.
