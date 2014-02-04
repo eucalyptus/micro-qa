@@ -46,7 +46,7 @@ Self Contained Automated Test Environment
 
 6. Install a "dummy" vagrant box file to allow override of the box with the ami/emi:
    ```
-   vagrant box add dummy https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box
+   vagrant box add centos https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box
    ```
 6. Once inside the repository run "vagrant up --provider=aws". This will run a virtual machine, and install MicroQA in your cloud.
 
