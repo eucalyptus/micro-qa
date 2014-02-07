@@ -1,0 +1,135 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<com.tikal.jenkins.plugins.multijob.MultiJobProject plugin="jenkins-multijob-plugin@1.10-SNAPSHOT">
+  <actions/>
+  <description>&lt;strong&gt;Runs UI-HTML-1, UI-HTML-2, UI-HTML-3, UI-HTML-4, UI-HTML-5 in this order.&lt;/strong&gt;</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>console_ip</name>
+          <description>IP address of eucalyptus console</description>
+          <defaultValue>10.111.5.43</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
+      <maxConcurrentPerNode>0</maxConcurrentPerNode>
+      <maxConcurrentTotal>0</maxConcurrentTotal>
+      <throttleEnabled>false</throttleEnabled>
+      <throttleOption>project</throttleOption>
+    </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@1.5.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <name></name>
+        <refspec></refspec>
+        <url>https://github.com/aliceh/se34euca</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <disableSubmodules>false</disableSubmodules>
+    <recursiveSubmodules>false</recursiveSubmodules>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <authorOrCommitter>false</authorOrCommitter>
+    <clean>false</clean>
+    <wipeOutWorkspace>false</wipeOutWorkspace>
+    <pruneBranches>false</pruneBranches>
+    <remotePoll>false</remotePoll>
+    <ignoreNotifyCommit>false</ignoreNotifyCommit>
+    <useShallowClone>false</useShallowClone>
+    <buildChooser class="hudson.plugins.git.util.DefaultBuildChooser"/>
+    <gitTool>Default</gitTool>
+    <submoduleCfg class="list"/>
+    <relativeTargetDir></relativeTargetDir>
+    <reference></reference>
+    <excludedRegions></excludedRegions>
+    <excludedUsers></excludedUsers>
+    <gitConfigName></gitConfigName>
+    <gitConfigEmail></gitConfigEmail>
+    <skipTag>false</skipTag>
+    <includedRegions></includedRegions>
+    <scmName></scmName>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName></phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>UI-HTML-1</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs class="empty-list"/>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName></phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>UI-HTML-2</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs class="empty-list"/>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName></phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>UI-HTML-3</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs class="empty-list"/>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName></phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>UI-HTML-4</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs class="empty-list"/>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName></phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>UI-HTML-5</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs class="empty-list"/>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.16">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
+</com.tikal.jenkins.plugins.multijob.MultiJobProject>

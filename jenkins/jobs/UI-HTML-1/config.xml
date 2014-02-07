@@ -1,7 +1,25 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>Selenium HTML tests Part 1</description>
+  <description>&lt;strong&gt; Selenium HTML tests Part 1&lt;/strong&gt;&#xd;
+&lt;p&gt; Runs tests as user00/ui-test-acct-01&lt;/p&gt;&#xd;
+&#xd;
+&lt;table id=&quot;suiteTable&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot; border=&quot;1&quot; class=&quot;selenium&quot;&gt;&lt;tbody&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;b&gt;Test Suite&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;login_ui-test-acct-01_user00.html&quot;&gt;login_ui-test-acct-01_user00&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;import-key-pair.html&quot;&gt;import-key-pair.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-create-key-pair.html&quot;&gt;chk-create-key-pair.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;delete-imported-key-pair.html&quot;&gt;delete-imported-key-pair.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-delete-key-pair.html&quot;&gt;chk-delete-key-pair.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;allocate-ip.html&quot;&gt;allocate-ip.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-allocate-ip-1.html&quot;&gt;chk-allocate-ip-1.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;allocate-ip.html&quot;&gt;allocate-ip.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-allocate-ip.html&quot;&gt;chk-allocate-ip.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;release-ip-to-cloud.html&quot;&gt;release-ip-to-cloud.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;create-key-pair.html&quot;&gt;create-key-pair.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-create-key-pair.html&quot;&gt;chk-create-key-pair.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;/tbody&gt;&lt;/table&gt;&#xd;
+</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <hudson.model.ParametersDefinitionProperty>
@@ -9,12 +27,12 @@
         <hudson.model.StringParameterDefinition>
           <name>console_ip</name>
           <description>IP address of eucalyptus console</description>
-          <defaultValue>10.111.5.8</defaultValue>
+          <defaultValue>10.111.5.43</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>console_protocol</name>
           <description>Protocol that eucalyptus console uses: can be http or https</description>
-          <defaultValue>http</defaultValue>
+          <defaultValue>https</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>browser_type</name>
@@ -32,7 +50,7 @@
 
 
 </description>
-          <defaultValue>/se34euca/selenium_ide/Jenkins_3.4.2/UI-manual-tests_1.html</defaultValue>
+          <defaultValue>selenium_ide/Jenkins_3.4.2/UI-manual-tests_1.html</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>branch</name>
@@ -93,9 +111,9 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>export DISPLAY=:0
+      <command>echo &apos;storedVars[&quot;url&quot;] = &quot;$console_protocol://$console_ip:8888&quot;;&apos; &gt;&gt; selenium_ide/Selenium_RC_Plugins/user-extensions.js
 
-java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar  -htmlSuite &quot;*firefox&quot; &quot;$console_protocol://$console_ip:8888&quot; &quot;$dir&quot; &quot;report1.html&quot; -trustAllSSLCertificates  -debug
+export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar  -userExtensions &quot;selenium_ide/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$console_protocol://$console_ip:8888&quot; &quot;$dir&quot; &quot;report1.html&quot; -trustAllSSLCertificates  
  </command>
     </hudson.tasks.Shell>
   </builders>
