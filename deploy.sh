@@ -27,8 +27,8 @@ iptables -A PREROUTING -t nat -i eth0 -p tcp --dport 80 -j REDIRECT --to-port 80
 iptables-save > /etc/sysconfig/iptables
 
 ### Initialize Jenkins Home
-rsync -va /vagrant/jenkins/ /var/lib/jenkins/
-chown -R jenkins:jenkins /var/lib/jenkins
+sed -i s#JENKINS_HOME=.*#JENKINS_HOME=\"/vagrant/jenkins\"# /etc/sysconfig/jenkins
+chown -R jenkins:jenkins /vagrant/jenkins
 
 ### Get IP address
 if curl http://169.254.169.254/latest/meta-data;then 
