@@ -30,15 +30,11 @@ Vagrant.configure("2") do |config|
         config.vm.box_url = "https://dl.dropbox.com/u/5721940/vagrant-boxes/vagrant-centos-6.4-x86_64-vmware_fusion.box"
         v.vmx["memsize"] = options[:memory].to_i
         v.vmx["numvcpus"] = options[:cores].to_i
+        v.vmx["vhv.enable"] = "true"
     end
     config.vm.provider :virtualbox do |v| 
         config.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130427.box"
         v.customize [ "modifyvm", :id, "--memory", options[:memory].to_i, "--cpus", options[:cores].to_i]
     end
-    config.vm.provider :vmware_fusion do |v|
-          v.vmx["memsize"] = options[:memory].to_i
-          v.vmx["numvcpus"] = options[:cores].to_i
-          v.vmx["vhv.enable"] = "true"
-    end 
     config.vm.provision :shell, :path => "deploy.sh"
 end
