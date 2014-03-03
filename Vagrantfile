@@ -4,17 +4,12 @@ options = {
   :cores => 2,
   :memory => 3000,
 }
-CENTOS = {
-  box: "centos",
-  url: "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130427.box"
-}
-OS = CENTOS
 Vagrant.configure("2") do |config|
     config.vm.network "public_network"
-    config.vm.box = OS[:box]
-    config.vm.box_url = OS[:url]
+    config.vm.box = "centos"
     config.vm.hostname = "micro-qa"
     config.vm.provider :aws do |aws,override|
+        config.vm.box_url = "https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box"
 	aws.access_key_id = "YOURACCESSKEY"
         aws.secret_access_key = "YOURSECRETKEY"
         aws.instance_type = "m1.xlarge"
@@ -31,8 +26,19 @@ Vagrant.configure("2") do |config|
         }
     end
     config.vm.network :forwarded_port, guest: 80, host: 8080
+    config.vm.provider "vmware_fusion" do |v|
+        config.vm.box_url = "https://dl.dropbox.com/u/5721940/vagrant-boxes/vagrant-centos-6.4-x86_64-vmware_fusion.box"
+        v.vmx["memsize"] = options[:memory].to_i
+        v.vmx["numvcpus"] = options[:cores].to_i
+    end
     config.vm.provider :virtualbox do |v| 
+        config.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130427.box"
         v.customize [ "modifyvm", :id, "--memory", options[:memory].to_i, "--cpus", options[:cores].to_i]
+    end
+    config.vm.provider :vmware_fusion do |v|
+          v.vmx["memsize"] = options[:memory].to_i
+          v.vmx["numvcpus"] = options[:cores].to_i
+          v.vmx["vhv.enable"] = "true"
     end 
     config.vm.provision :shell, :path => "deploy.sh"
 end
