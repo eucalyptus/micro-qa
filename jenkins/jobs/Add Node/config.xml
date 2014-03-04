@@ -28,7 +28,7 @@
           <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
-          <name>frontend</name>
+          <name>node</name>
           <description>IP address of machine you would like to install the node controller on</description>
           <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
@@ -93,7 +93,7 @@ config[&quot;eucalyptus&quot;][&quot;topology&quot;] = {}
 config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;clusters&quot;] = {}
 config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;clusters&quot;][&quot;default&quot;] = {}
 config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;clusters&quot;][&quot;default&quot;][&quot;cc-1&quot;] = os.environ[&apos;cluster&apos;]
-config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;clusters&quot;][&quot;default&quot;][&quot;nodes&quot;] = os.environ[&apos;frontend&apos;]
+config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;clusters&quot;][&quot;default&quot;][&quot;nodes&quot;] = os.environ[&apos;node&apos;]
 json_file = open(&quot;config.json&quot;, &apos;w&apos;)
 json_file.write(json.dumps(config))
 </command>
@@ -101,10 +101,8 @@ json_file.write(json.dumps(config))
     <hudson.tasks.Shell>
       <command>if [ $password ];then
     knife bootstrap $frontend -E $environment --no-host-key-verify -r &quot;role[node]&quot; -j &quot;`cat config.json`&quot; -P $password
-    knife bootstrap $cluster -E $environment --no-host-key-verify -r &quot;recipe[eucalyptus::register-nodes]&quot; -j &quot;`cat config.json`&quot; -P $password
 else
     knife bootstrap $frontend -E $environment --no-host-key-verify -r &quot;role[node]&quot; -j &quot;`cat config.json`&quot;
-    knife bootstrap $cluster -E $environment --no-host-key-verify -r &quot;recipe[eucalyptus::register-nodes]&quot; -j &quot;`cat config.json`&quot;
 fi</command>
     </hudson.tasks.Shell>
   </builders>
