@@ -129,7 +129,11 @@ knife cookbook site install eucalyptus
 knife cookbook upload eucalyptus
 
 ## Upload roles
+git clone https://github.com/eucalyptus/eucalyptus-cookbook
+pushd eucalyptus-cookbook
+git checkout 0.1.5
 knife role from file eucalyptus/roles/*
+popd
 popd
 
 ### Create rc.local
