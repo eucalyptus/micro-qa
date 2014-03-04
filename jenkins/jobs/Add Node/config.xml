@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>&lt;em&gt;Build a new Eucalyptus Cloud from Packages.&lt;/em&gt;</description>
+  <description>Build a new Eucalyptus Cloud from Packages.</description>
   <logRotator class="hudson.tasks.LogRotator">
     <daysToKeep>-1</daysToKeep>
     <numToKeep>100</numToKeep>
@@ -100,9 +100,11 @@ json_file.write(json.dumps(config))
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>if [ $password ];then
-    knife bootstrap $frontend -E $environment --no-host-key-verify -r &quot;role[node]&quot; -j &quot;`cat config.json`&quot; -P $password
+    knife bootstrap $node -E $environment --no-host-key-verify -r &quot;role[node]&quot; -j &quot;`cat config.json`&quot; -P $password
+    knife bootstrap $cluster -E $environment --no-host-key-verify -r &quot;recipe[eucalyptus::register-nodes]&quot; -j &quot;`cat config.json`&quot; -P $password
 else
-    knife bootstrap $frontend -E $environment --no-host-key-verify -r &quot;role[node]&quot; -j &quot;`cat config.json`&quot;
+    knife bootstrap $node -E $environment --no-host-key-verify -r &quot;role[node]&quot; -j &quot;`cat config.json`&quot;
+    knife bootstrap $cluster -E $environment --no-host-key-verify -r &quot;recipe[eucalyptus::register-nodes]&quot; -j &quot;`cat config.json`&quot;
 fi</command>
     </hudson.tasks.Shell>
   </builders>
