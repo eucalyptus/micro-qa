@@ -8,6 +8,7 @@ Vagrant.configure("2") do |config|
     config.vm.network "public_network"
     config.vm.box = "centos"
     config.vm.hostname = "micro-qa"
+    config.ssh.pty = true
     config.vm.provider :aws do |aws,override|
         config.vm.box_url = "https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box"
 	aws.access_key_id = "YOURACCESSKEY"
