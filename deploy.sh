@@ -1,5 +1,11 @@
 #!/bin/bash -x
 
+### If installing on baremetal, grab jenkins source
+if [ ! -d /vagrant ];then 
+  yum install -y git
+  git clone https://github.com/eucalyptus/micro-qa /vagrant
+fi
+
 ### Add EPEL repo
 if [ ! -e /etc/yum.repos.d/epel.repo ];then 
   yum install -y http://download.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
