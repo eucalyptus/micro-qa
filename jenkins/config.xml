@@ -109,6 +109,7 @@
         <comparator class="hudson.util.CaseInsensitiveComparator"/>
         <string>Add Node</string>
         <string>Deploy Cloud in a Box</string>
+        <string>Deploy for Production</string>
         <string>Deploy Frontend and Node</string>
         <string>Rebuild Hosts Using Cobbler</string>
         <string>Riak CS install and configure</string>
