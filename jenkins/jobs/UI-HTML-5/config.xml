@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>&lt;strong&gt; Selenium HTML tests Part 5&lt;/strong&gt;&#xd;
+&lt;p&gt; Runs tests as user00/ui-test-acct-01&lt;/p&gt;&#xd;
+&lt;table id=&quot;suiteTable&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot; border=&quot;1&quot; class=&quot;selenium&quot;&gt;&lt;tbody&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;b&gt;Test Suite&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;login_ui-test-acct-01_user00.html&quot;&gt;login_ui-test-acct-01_user00&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;create-sec-group-with-rules.html&quot;&gt;create-sec-group-with-rules.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;create-key-pair.html&quot;&gt;create-key-pair&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;create-volume.html&quot;&gt;create-volume&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-create-key-pair.html&quot;&gt;chk-create-key-pair&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-create-volume.html&quot;&gt;chk-create-volume&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;launch-inst-name-myinst.html&quot;&gt;launch-inst-name-myinst&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;delete-security-group.html&quot;&gt;delete-security-group.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-launch-myinst.html&quot;&gt;chk-launch-myinst&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;attach-volume-from-volumes-page.html&quot;&gt;attach-volume-from-volumes-page.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-delete-security-group.html&quot;&gt;chk-delete-security-group.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-attach-volume.html&quot;&gt;chk-attach-volume.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;create-snapshot-test-snap.html&quot;&gt;create-snapshot-test-snap.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;snapshot-to-volume.html&quot;&gt;snapshot-to-volume&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;register-snapshot-test-snap-as-image.html&quot;&gt;register-snapshot-test-snap-as-image.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;detach-volume-inst-page.html&quot;&gt;detach-volume-inst-page.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;terminate-all-instances.html&quot;&gt;terminate-all-instances.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;delete-snapshots-all.html&quot;&gt;delete-snapshots-all.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-terminate-instance.html&quot;&gt;chk-terminate-instance.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;delete-volumes-all.html&quot;&gt;delete-volumes-all.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-delete-volume.html&quot;&gt;chk-delete-volume.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;/tbody&gt;&lt;/table&gt;&#xd;
+&#xd;
+</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>console_ip</name>
+          <description>IP address of eucalyptus console</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>console_protocol</name>
+          <description>Protocol that eucalyptus console uses: can be http or https</description>
+          <defaultValue>https</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>browser_type</name>
+          <description>Browser type for the test: can be firefox or iexplorer</description>
+          <defaultValue>*firefox </defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>repo_url</name>
+          <description>Github repo URL of test suite.</description>
+          <defaultValue>https://github.com/aliceh/se34euca</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>dir</name>
+          <description>Directory of the cloned test suite.
+
+
+</description>
+          <defaultValue>selenium_ide/Jenkins_3.4.2/UI-manual-tests_5.html</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>branch</name>
+          <description></description>
+          <defaultValue>master</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
+      <maxConcurrentPerNode>0</maxConcurrentPerNode>
+      <maxConcurrentTotal>0</maxConcurrentTotal>
+      <throttleEnabled>false</throttleEnabled>
+      <throttleOption>project</throttleOption>
+    </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>git clone $repo_url
+cd se34euca
+git checkout $branch
+
+echo &apos;storedVars[&quot;url&quot;] = &quot;$console_protocol://$console_ip:8888&quot;;&apos; &gt;&gt; selenium_ide/Selenium_RC_Plugins/user-extensions.js
+
+export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar  -userExtensions &quot;selenium_ide/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$console_protocol://$console_ip:8888&quot; &quot;$dir&quot; &quot;report5.html&quot; -trustAllSSLCertificates  
+ </command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>se34euca/report5.html</artifacts>
+      <latestOnly>false</latestOnly>
+      <allowEmptyArchive>false</allowEmptyArchive>
+    </hudson.tasks.ArtifactArchiver>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.16">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
+</project>
