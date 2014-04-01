@@ -360,6 +360,86 @@ The will run once per minute and up to the number defined in the concurrent jobs
         </hudson.plugins.sectioned__view.ListViewSection>
       </sections>
     </hudson.plugins.sectioned__view.SectionedView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>UI-HTML-3.4.2</name>
+      <description>&lt;p&gt; Selenium IDE tests for UI 3.4.2&#xd;
+  &#xd;
+&lt;/p&gt;  </description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>UI-Clean-UP</string>
+        <string>UI-HTML-1</string>
+        <string>UI-HTML-2</string>
+        <string>UI-HTML-3</string>
+        <string>UI-HTML-4</string>
+        <string>UI-HTML-5</string>
+        <string>UI-HTML-full-sequence</string>
+        <string>UI-HTML-suite</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>UI-Koala</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>Koala-INSTANCE-OPERATIONS</string>
+        <string>Koala-KEY-PAIR-OPERATIONS</string>
+        <string>Koala-SECURITY-GROUP-OPERATIONS</string>
+        <string>Koala-SUITE</string>
+        <string>UI-Clean-UP-Koala</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <recurse>false</recurse>
+    </listView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>DEVELOP</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>Koala-LOGIN</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <recurse>false</recurse>
+    </listView>
   </views>
   <primaryView>Tests</primaryView>
   <slaveAgentPort>0</slaveAgentPort>

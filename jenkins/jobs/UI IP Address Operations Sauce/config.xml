@@ -1,0 +1,136 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>&lt;strong&gt;Runs the following IP Address Operations:&lt;/strong&gt;&#xd;
+&#xd;
+&lt;p&gt;Create Security Group &apos;mywebservice&apos;. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify on Dashboard that Security Group count is 2. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Create Key Pair &apos;my-sel-gen-key-00&apos;. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify on Dashboard that Key Pair count is 1. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Launch Instance &apos;testinstance&apos;.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify on Dashboard that Running Instance count is 1. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Allocate 1 IP address.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify on Dashboard that IP address count is 1. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Associate IP form Instances landing page.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Disassociate IP form IP addresses landing page.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Associate IP form IP address landing page.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Disassociate IP form Instances landing page.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Associate IP form IP address landing page.&lt;/p&gt;&#xd;
+&#xd;
+&#xd;
+&lt;p&gt;Terminate instance.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify on Dashboard that Running Instance count is 0. &lt;/p&gt;&#xd;
+&#xd;
+&#xd;
+&lt;p&gt;Delete security group.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Delete key pair.&lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify on Dashboard that Security Group count is 1. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify on Dashboard that Key Pair count is 0. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Release IP to cloud. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Verify on Dashboard that IP address count is 0. &lt;/p&gt;&#xd;
+</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>repo_url</name>
+          <description>URL to UI test repo.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>script</name>
+          <description>The name of the executable for the test.</description>
+          <defaultValue>runtest_sequences.py </defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>console_ip</name>
+          <description>IP of the User Console.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>sauce_account</name>
+          <description>Sauce Labs account.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>account</name>
+          <description>Account.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>username</name>
+          <description>User name.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>password</name>
+          <description>Password.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>testcase</name>
+          <description>Name of the testcase.</description>
+          <defaultValue>ip_address_operations</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>protocol</name>
+          <description>Protocol used in UI</description>
+          <defaultValue>https</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>branch</name>
+          <description>Branch of the repo to be tested.</description>
+          <defaultValue>master</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>sauce_access_key</name>
+          <description>Sauce Labs access key.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>git clone $repo_url
+cd se34euca
+git checkout $branch
+cd se34euca/
+export PYTHONPATH=../
+./$script -l $protocol -i $console_ip -n $sauce_account -x $sauce_access_key -a $account -u $username -w $password -t $testcase </command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.16">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
+</project>

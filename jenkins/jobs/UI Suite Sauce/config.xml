@@ -7,9 +7,9 @@
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
-          <name>selenium_ip</name>
-          <description>IP address of the selenium server.</description>
-          <defaultValue>10.111.4.116</defaultValue>
+          <name>sauce_account</name>
+          <description>Sauce Labs account.</description>
+          <defaultValue>eucaqa</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>console_ip</name>
@@ -24,7 +24,7 @@
         <hudson.model.StringParameterDefinition>
           <name>account</name>
           <description>Account name for UI log in.</description>
-          <defaultValue>ui-test-acct-00</defaultValue>
+          <defaultValue>ui-test-acct-01</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>username</name>
@@ -34,7 +34,7 @@
         <hudson.model.StringParameterDefinition>
           <name>password</name>
           <description>Password for UI log in.</description>
-          <defaultValue>mypassword1</defaultValue>
+          <defaultValue>mypassword3</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>repo_url</name>
@@ -44,7 +44,12 @@
         <hudson.model.StringParameterDefinition>
           <name>branch</name>
           <description>Branch of the repo to be tested.</description>
-          <defaultValue>chromium</defaultValue>
+          <defaultValue>master</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>sauce_access_key</name>
+          <description>Sauce Labs access key.</description>
+          <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -58,154 +63,256 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName>Imports a key pair and names it &quot;import-key&quot; </phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>UI Harness Sauce</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters plugin="parameterized-trigger@2.20">
+              <properties>script=runtest_keypair.py
+testcase=import_keypair</properties>
+            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+          </configs>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName>Deletes the first key pair from the list on Key Pairs Landing page </phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>UI Harness Sauce</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters plugin="parameterized-trigger@2.20">
+              <properties>script=runtest_keypair.py
+testcase=delete_keypair</properties>
+            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+          </configs>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName>Creates key pair named &quot;my-sel-gen-key-00&quot; </phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>UI Harness Sauce</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters plugin="parameterized-trigger@2.20">
+              <properties>script=runtest_keypair.py
+testcase=generate_keypair
+</properties>
+            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+          </configs>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName>Creates a 2G volume without name</phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>UI Harness Sauce</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters plugin="parameterized-trigger@2.20">
+              <properties>script=runtest_volume.py
+testcase=create_volume</properties>
+            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+          </configs>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName>Deletes the first volume from Volumes Landing Page</phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>UI Harness Sauce</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters plugin="parameterized-trigger@2.20">
+              <properties>script=runtest_volume.py
+testcase=delete_volume</properties>
+            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+          </configs>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName>Launches a new instence from Dashboard in default group with key-pair  &quot;my-sel-gen-key-00&quot; and  names it &quot;testinstance&quot;.</phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>UI Harness Sauce</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters plugin="parameterized-trigger@2.20">
+              <properties>script=runtest_instance.py
+testcase=launch_instance_given_name_security_group_keypair</properties>
+            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+          </configs>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName>Allocate IP</phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>UI Harness Sauce</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters plugin="parameterized-trigger@2.20">
+              <properties>script=runtest_ip_address.py
+testcase=allocate_ip_address</properties>
+            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+          </configs>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName>Release IP</phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>UI Harness Sauce</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters plugin="parameterized-trigger@2.20">
+              <properties>script=runtest_ip_address.py
+testcase=release_ip_address</properties>
+            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+          </configs>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName>Allocate IP</phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>UI Harness Sauce</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters plugin="parameterized-trigger@2.20">
+              <properties>script=runtest_ip_address.py
+testcase=allocate_ip_address</properties>
+            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+          </configs>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName>Create volume with name &quot;v&quot;</phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>UI Harness Sauce</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters plugin="parameterized-trigger@2.20">
+              <properties>script=runtest_volume.py
+testcase=create_volume_name_v</properties>
+            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+          </configs>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName>Launch more like this</phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>UI Harness Sauce</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters plugin="parameterized-trigger@2.20">
+              <properties>script=runtest_instance.py
+testcase=launch_more_like_this</properties>
+            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+          </configs>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName>Attach volume from Instances landing page</phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>UI Harness Sauce</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters plugin="parameterized-trigger@2.20">
+              <properties>script=runtest_volume.py
+testcase=attach_volume_from_instance_lp</properties>
+            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+          </configs>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName>Terminate all instances</phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>UI Harness Sauce</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.PredefinedBuildParameters plugin="parameterized-trigger@2.20">
+              <properties>script=runtest_instance.py
+testcase=terminate_instance_all</properties>
+            </hudson.plugins.parameterizedtrigger.PredefinedBuildParameters>
+          </configs>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName>Create a security group</phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>UI Harness Sauce</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs class="empty-list"/>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName>Launch instance from Instances landing page</phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>UI Harness Sauce</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs class="empty-list"/>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
       <phaseName>Clean Up</phaseName>
       <phaseJobs>
         <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Clean Up</jobName>
-          <currParams>true</currParams>
-          <exposedSCM>false</exposedSCM>
-          <configs class="empty-list"/>
-        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-      </phaseJobs>
-      <continuationCondition>SUCCESSFUL</continuationCondition>
-    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Keypair Opeartions</phaseName>
-      <phaseJobs>
-        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Key Pair Operations</jobName>
-          <currParams>true</currParams>
-          <exposedSCM>false</exposedSCM>
-          <configs class="empty-list"/>
-        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-      </phaseJobs>
-      <continuationCondition>SUCCESSFUL</continuationCondition>
-    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Clean Up</phaseName>
-      <phaseJobs>
-        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Clean Up</jobName>
-          <currParams>true</currParams>
-          <exposedSCM>false</exposedSCM>
-          <configs class="empty-list"/>
-        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-      </phaseJobs>
-      <continuationCondition>SUCCESSFUL</continuationCondition>
-    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>IP Address Operations</phaseName>
-      <phaseJobs>
-        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI IP Address Operations</jobName>
-          <currParams>true</currParams>
-          <exposedSCM>false</exposedSCM>
-          <configs class="empty-list"/>
-        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-      </phaseJobs>
-      <continuationCondition>SUCCESSFUL</continuationCondition>
-    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Clean Up</phaseName>
-      <phaseJobs>
-        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Clean Up</jobName>
-          <currParams>true</currParams>
-          <exposedSCM>false</exposedSCM>
-          <configs class="empty-list"/>
-        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-      </phaseJobs>
-      <continuationCondition>SUCCESSFUL</continuationCondition>
-    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Security Group Operations</phaseName>
-      <phaseJobs>
-        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Security Group Operations</jobName>
-          <currParams>true</currParams>
-          <exposedSCM>false</exposedSCM>
-          <configs class="empty-list"/>
-        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-      </phaseJobs>
-      <continuationCondition>SUCCESSFUL</continuationCondition>
-    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Clean Up</phaseName>
-      <phaseJobs>
-        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Clean Up</jobName>
-          <currParams>true</currParams>
-          <exposedSCM>false</exposedSCM>
-          <configs class="empty-list"/>
-        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-      </phaseJobs>
-      <continuationCondition>SUCCESSFUL</continuationCondition>
-    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Instance Operations</phaseName>
-      <phaseJobs>
-        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Instance Operations</jobName>
-          <currParams>true</currParams>
-          <exposedSCM>false</exposedSCM>
-          <configs class="empty-list"/>
-        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-      </phaseJobs>
-      <continuationCondition>SUCCESSFUL</continuationCondition>
-    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Clean Up</phaseName>
-      <phaseJobs>
-        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Clean Up</jobName>
-          <currParams>true</currParams>
-          <exposedSCM>false</exposedSCM>
-          <configs class="empty-list"/>
-        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-      </phaseJobs>
-      <continuationCondition>SUCCESSFUL</continuationCondition>
-    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Volume Operations</phaseName>
-      <phaseJobs>
-        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Volume Operations</jobName>
-          <currParams>true</currParams>
-          <exposedSCM>false</exposedSCM>
-          <configs class="empty-list"/>
-        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-      </phaseJobs>
-      <continuationCondition>SUCCESSFUL</continuationCondition>
-    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Clean Up</phaseName>
-      <phaseJobs>
-        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Clean Up</jobName>
-          <currParams>true</currParams>
-          <exposedSCM>false</exposedSCM>
-          <configs class="empty-list"/>
-        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-      </phaseJobs>
-      <continuationCondition>SUCCESSFUL</continuationCondition>
-    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Snapshot Operations</phaseName>
-      <phaseJobs>
-        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Snapshot Opeartions</jobName>
-          <currParams>true</currParams>
-          <exposedSCM>false</exposedSCM>
-          <configs class="empty-list"/>
-        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-      </phaseJobs>
-      <continuationCondition>SUCCESSFUL</continuationCondition>
-    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Clean Up</phaseName>
-      <phaseJobs>
-        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Clean Up</jobName>
+          <jobName>UI Clean Up Sauce</jobName>
           <currParams>true</currParams>
           <exposedSCM>false</exposedSCM>
           <configs class="empty-list"/>

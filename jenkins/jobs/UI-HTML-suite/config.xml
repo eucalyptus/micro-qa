@@ -1,53 +1,63 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <com.tikal.jenkins.plugins.multijob.MultiJobProject plugin="jenkins-multijob-plugin@1.10-SNAPSHOT">
   <actions/>
-  <description>Runs UI tests in a sequence.</description>
+  <description>&lt;strong&gt;Runs UI-HTML-1, UI-HTML-2, UI-HTML-3, UI-HTML-4, UI-HTML-5 in this order.&lt;/strong&gt;&#xd;
+&lt;p&gt;&#xd;
+&lt;strong&gt; Use eucarc for ui-test-acct-01/user00 in the UI-Clean-UP config. &lt;/strong&gt;&#xd;
+&lt;/p&gt;</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
-          <name>selenium_ip</name>
-          <description>IP address of the selenium server.</description>
-          <defaultValue>10.111.4.116</defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
           <name>console_ip</name>
-          <description>IP address of machine run</description>
-          <defaultValue>10.111.5.8</defaultValue>
+          <description>IP address of eucalyptus console</description>
+          <defaultValue>10.111.5.43</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
-          <name>protocol</name>
-          <description>Protocol for UI: http or https.</description>
+          <name>console_protocol</name>
+          <description></description>
           <defaultValue>https</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
-          <name>account</name>
-          <description>Account name for UI log in.</description>
-          <defaultValue>ui-test-acct-00</defaultValue>
+          <name>browser_type</name>
+          <description></description>
+          <defaultValue>*firefox</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
-          <name>username</name>
-          <description>User name for UI log in.</description>
-          <defaultValue>user00</defaultValue>
+          <name>eutester_repo_url</name>
+          <description></description>
+          <defaultValue>https://github.com/aliceh/eutester</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
-          <name>password</name>
-          <description>Password for UI log in.</description>
-          <defaultValue>mypassword1</defaultValue>
+          <name>eutester_branch</name>
+          <description></description>
+          <defaultValue>cleanup</defaultValue>
         </hudson.model.StringParameterDefinition>
+        <hudson.model.TextParameterDefinition>
+          <name>eucarc</name>
+          <description></description>
+          <defaultValue>
+</defaultValue>
+        </hudson.model.TextParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>repo_url</name>
-          <description>Location of selenium tests.</description>
-          <defaultValue>https://github.com/aliceh/se34euca.git</defaultValue>
+          <description></description>
+          <defaultValue>https://github.com/aliceh/se34euca</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>branch</name>
-          <description>Branch of the repo to be tested.</description>
-          <defaultValue>chromium</defaultValue>
+          <description></description>
+          <defaultValue>master</defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
+      <maxConcurrentPerNode>0</maxConcurrentPerNode>
+      <maxConcurrentTotal>0</maxConcurrentTotal>
+      <throttleEnabled>false</throttleEnabled>
+      <throttleOption>project</throttleOption>
+    </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
   </properties>
   <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
@@ -58,10 +68,10 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Clean Up</phaseName>
+      <phaseName></phaseName>
       <phaseJobs>
         <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Clean Up</jobName>
+          <jobName>UI-Clean-UP</jobName>
           <currParams>true</currParams>
           <exposedSCM>false</exposedSCM>
           <configs class="empty-list"/>
@@ -70,10 +80,10 @@
       <continuationCondition>SUCCESSFUL</continuationCondition>
     </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
     <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Keypair Opeartions</phaseName>
+      <phaseName></phaseName>
       <phaseJobs>
         <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Key Pair Operations</jobName>
+          <jobName>UI-HTML-1</jobName>
           <currParams>true</currParams>
           <exposedSCM>false</exposedSCM>
           <configs class="empty-list"/>
@@ -82,10 +92,10 @@
       <continuationCondition>SUCCESSFUL</continuationCondition>
     </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
     <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Clean Up</phaseName>
+      <phaseName></phaseName>
       <phaseJobs>
         <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Clean Up</jobName>
+          <jobName>UI-Clean-UP</jobName>
           <currParams>true</currParams>
           <exposedSCM>false</exposedSCM>
           <configs class="empty-list"/>
@@ -94,10 +104,10 @@
       <continuationCondition>SUCCESSFUL</continuationCondition>
     </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
     <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>IP Address Operations</phaseName>
+      <phaseName></phaseName>
       <phaseJobs>
         <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI IP Address Operations</jobName>
+          <jobName>UI-HTML-2</jobName>
           <currParams>true</currParams>
           <exposedSCM>false</exposedSCM>
           <configs class="empty-list"/>
@@ -106,10 +116,10 @@
       <continuationCondition>SUCCESSFUL</continuationCondition>
     </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
     <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Clean Up</phaseName>
+      <phaseName></phaseName>
       <phaseJobs>
         <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Clean Up</jobName>
+          <jobName>UI-Clean-UP</jobName>
           <currParams>true</currParams>
           <exposedSCM>false</exposedSCM>
           <configs class="empty-list"/>
@@ -118,10 +128,10 @@
       <continuationCondition>SUCCESSFUL</continuationCondition>
     </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
     <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Security Group Operations</phaseName>
+      <phaseName></phaseName>
       <phaseJobs>
         <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Security Group Operations</jobName>
+          <jobName>UI-HTML-3</jobName>
           <currParams>true</currParams>
           <exposedSCM>false</exposedSCM>
           <configs class="empty-list"/>
@@ -130,10 +140,10 @@
       <continuationCondition>SUCCESSFUL</continuationCondition>
     </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
     <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Clean Up</phaseName>
+      <phaseName></phaseName>
       <phaseJobs>
         <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Clean Up</jobName>
+          <jobName>UI-Clean-UP</jobName>
           <currParams>true</currParams>
           <exposedSCM>false</exposedSCM>
           <configs class="empty-list"/>
@@ -142,10 +152,10 @@
       <continuationCondition>SUCCESSFUL</continuationCondition>
     </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
     <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Instance Operations</phaseName>
+      <phaseName></phaseName>
       <phaseJobs>
         <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Instance Operations</jobName>
+          <jobName>UI-HTML-4</jobName>
           <currParams>true</currParams>
           <exposedSCM>false</exposedSCM>
           <configs class="empty-list"/>
@@ -154,10 +164,10 @@
       <continuationCondition>SUCCESSFUL</continuationCondition>
     </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
     <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Clean Up</phaseName>
+      <phaseName></phaseName>
       <phaseJobs>
         <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Clean Up</jobName>
+          <jobName>UI-Clean-UP</jobName>
           <currParams>true</currParams>
           <exposedSCM>false</exposedSCM>
           <configs class="empty-list"/>
@@ -166,10 +176,10 @@
       <continuationCondition>SUCCESSFUL</continuationCondition>
     </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
     <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Volume Operations</phaseName>
+      <phaseName></phaseName>
       <phaseJobs>
         <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Volume Operations</jobName>
+          <jobName>UI-HTML-5</jobName>
           <currParams>true</currParams>
           <exposedSCM>false</exposedSCM>
           <configs class="empty-list"/>
@@ -178,34 +188,10 @@
       <continuationCondition>SUCCESSFUL</continuationCondition>
     </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
     <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Clean Up</phaseName>
+      <phaseName></phaseName>
       <phaseJobs>
         <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Clean Up</jobName>
-          <currParams>true</currParams>
-          <exposedSCM>false</exposedSCM>
-          <configs class="empty-list"/>
-        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-      </phaseJobs>
-      <continuationCondition>SUCCESSFUL</continuationCondition>
-    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Snapshot Operations</phaseName>
-      <phaseJobs>
-        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Snapshot Opeartions</jobName>
-          <currParams>true</currParams>
-          <exposedSCM>false</exposedSCM>
-          <configs class="empty-list"/>
-        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-      </phaseJobs>
-      <continuationCondition>SUCCESSFUL</continuationCondition>
-    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
-      <phaseName>Clean Up</phaseName>
-      <phaseJobs>
-        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
-          <jobName>UI Clean Up</jobName>
+          <jobName>UI-Clean-UP</jobName>
           <currParams>true</currParams>
           <exposedSCM>false</exposedSCM>
           <configs class="empty-list"/>

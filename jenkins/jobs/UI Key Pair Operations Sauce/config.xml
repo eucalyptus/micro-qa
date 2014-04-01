@@ -1,0 +1,99 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>&lt;strong&gt;Runs the following Key Pair Operations:&lt;/strong&gt;&#xd;
+&#xd;
+&lt;p&gt;Import a key pair and names it &quot;import-key&quot;. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Delete the imported key. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Creates key pair named &quot;my-sel-gen-key-00&quot;. &lt;/p&gt;&#xd;
+&#xd;
+&lt;p&gt;Delete all keys. &lt;/p&gt;</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>repo_url</name>
+          <description>URL to UI test repo.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>script</name>
+          <description>The name of the executable for the test.</description>
+          <defaultValue>runtest_sequences.py </defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>console_ip</name>
+          <description>IP of the User Console.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>sauce_account</name>
+          <description>Sauce Labs account.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>account</name>
+          <description>Account.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>username</name>
+          <description>User name.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>password</name>
+          <description>Password.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>testcase</name>
+          <description>Name of the testcase.</description>
+          <defaultValue>keypair_operations</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>protocol</name>
+          <description>Protocol used in UI</description>
+          <defaultValue>https</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>branch</name>
+          <description>Branch of the repo to be tested.</description>
+          <defaultValue>master</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>sauce_access_key</name>
+          <description>Sauce Labs access key.</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>git clone $repo_url
+cd se34euca
+git checkout $branch
+cd se34euca/
+export PYTHONPATH=../
+./$script -l $protocol -i $console_ip -n $sauce_account -x $sauce_access_key -a $account -u $username -w $password -t $testcase </command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.16">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
+</project>
