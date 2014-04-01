@@ -16,17 +16,17 @@ Vagrant.configure("2") do |config|
     config.vm.hostname = "micro-qa"
     config.vm.provider :aws do |aws,override|
         config.ssh.pty = true
-        aws.access_key_id = "1YCMC3ZSCW8UF2GUE1B3U"
-        aws.secret_access_key = "4fV20keM4AQiRMBejxxgYhYxQSFnd7vamQ8IsdCh"
+        aws.access_key_id = ""
+        aws.secret_access_key = ""
         aws.instance_type = "m1.xlarge"
-        aws.ami = "emi-80F94DD2"
+        aws.ami = ""
         aws.security_groups = ["default"]
         aws.region = "eucalyptus"
         aws.instance_ready_timeout = 600
-        aws.endpoint = "http://10.111.1.136:8773/services/Eucalyptus"
+        aws.endpoint = ""
         aws.keypair_name = "mykey"
         override.ssh.username ="root"
-        override.ssh.private_key_path ="/Users/alicehubenko/keypair/id_rsa"
+        override.ssh.private_key_path =""
         aws.block_device_mapping = [{ :DeviceName => "/dev/sda", "Ebs.VolumeSize" => 10 }]
         aws.tags = {
                 Name: "Micro QA",
