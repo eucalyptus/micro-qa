@@ -3,6 +3,36 @@
   <actions/>
   <description>&lt;strong&gt; Selenium HTML tests Part 4&lt;/strong&gt;&#xd;
 &lt;p&gt; Runs tests as user00/ui-test-acct-01&lt;/p&gt;&#xd;
+&lt;table id=&quot;suiteTable&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot; border=&quot;1&quot; class=&quot;selenium&quot;&gt;&lt;tbody&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;b&gt;Test Suite&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;login_ui-test-acct-01_user00.html&quot;&gt;login_ui-test-acct-01_user00&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;create-key-pair.html&quot;&gt;create-key-pair&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-create-key-pair.html&quot;&gt;chk-create-key-pair&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;launch-instance-from-dboard.html&quot;&gt;launch-instance-from-dboard.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-launch-inst-from-instances.html&quot;&gt;chk-launch-inst-from-instances&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;terminate-all-instances.html&quot;&gt;terminate-all-instances.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-terminate-instance.html&quot;&gt;chk-terminate-instance.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;launch-inst-name-myinst.html&quot;&gt;launch-inst-name-myinst.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-launch-myinst.html&quot;&gt;chk-launch-myinst.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;allocate-ip.html&quot;&gt;allocate-ip.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-allocate-ip-1.html&quot;&gt;chk-allocate-ip-1.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;associate-ip-land-ip.html&quot;&gt;associate-ip-land-ip.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;release-ip-while-associated.html&quot;&gt;release-ip-while-associated.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-release-ip.html&quot;&gt;chk-release-ip&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;allocate-ip.html&quot;&gt;allocate-ip&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-allocate-ip-1.html&quot;&gt;chk-allocate-ip-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;associate-ip-land-inst.html&quot;&gt;associate-ip-land-inst&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;disassociate-ip-land-ip.html&quot;&gt;disassociate-ip-land-ip.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;associate-ip-land-ip.html&quot;&gt;associate-ip-land-ip.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;disassociate-ip-land-instances.html&quot;&gt;disassociate-ip-land-instances.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;terminate-all-instances.html&quot;&gt;terminate-all-instances&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-terminate-instance.html&quot;&gt;chk-terminate-instance&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;delete-key-pair.html&quot;&gt;delete-key-pair&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-delete-key-pair.html&quot;&gt;chk-delete-key-pair&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;release-ip-to-cloud.html&quot;&gt;release-ip-to-cloud&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-release-ip.html&quot;&gt;chk-release-ip&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;/tbody&gt;&lt;/table&gt;&#xd;
+&#xd;
 &#xd;
 </description>
   <keepDependencies>false</keepDependencies>
@@ -12,7 +42,7 @@
         <hudson.model.StringParameterDefinition>
           <name>console_ip</name>
           <description>IP address of eucalyptus console</description>
-          <defaultValue>10.111.5.43</defaultValue>
+          <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>console_protocol</name>
@@ -51,43 +81,7 @@
       <throttleOption>project</throttleOption>
     </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@1.5.0">
-    <configVersion>2</configVersion>
-    <userRemoteConfigs>
-      <hudson.plugins.git.UserRemoteConfig>
-        <name></name>
-        <refspec></refspec>
-        <url>https://github.com/aliceh/se34euca</url>
-      </hudson.plugins.git.UserRemoteConfig>
-    </userRemoteConfigs>
-    <branches>
-      <hudson.plugins.git.BranchSpec>
-        <name>*/master</name>
-      </hudson.plugins.git.BranchSpec>
-    </branches>
-    <disableSubmodules>false</disableSubmodules>
-    <recursiveSubmodules>false</recursiveSubmodules>
-    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
-    <authorOrCommitter>false</authorOrCommitter>
-    <clean>false</clean>
-    <wipeOutWorkspace>false</wipeOutWorkspace>
-    <pruneBranches>false</pruneBranches>
-    <remotePoll>false</remotePoll>
-    <ignoreNotifyCommit>false</ignoreNotifyCommit>
-    <useShallowClone>false</useShallowClone>
-    <buildChooser class="hudson.plugins.git.util.DefaultBuildChooser"/>
-    <gitTool>Default</gitTool>
-    <submoduleCfg class="list"/>
-    <relativeTargetDir></relativeTargetDir>
-    <reference></reference>
-    <excludedRegions></excludedRegions>
-    <excludedUsers></excludedUsers>
-    <gitConfigName></gitConfigName>
-    <gitConfigEmail></gitConfigEmail>
-    <skipTag>false</skipTag>
-    <includedRegions></includedRegions>
-    <scmName></scmName>
-  </scm>
+  <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
@@ -96,7 +90,11 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>echo &apos;storedVars[&quot;url&quot;] = &quot;$console_protocol://$console_ip:8888&quot;;&apos; &gt;&gt; selenium_ide/Selenium_RC_Plugins/user-extensions.js
+      <command>git clone $repo_url
+cd se34euca
+git checkout $branch
+
+echo &apos;storedVars[&quot;url&quot;] = &quot;$console_protocol://$console_ip:8888&quot;;&apos; &gt;&gt; selenium_ide/Selenium_RC_Plugins/user-extensions.js
 
 export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar  -userExtensions &quot;selenium_ide/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$console_protocol://$console_ip:8888&quot; &quot;$dir&quot; &quot;report4.html&quot; -trustAllSSLCertificates  
  </command>
@@ -104,7 +102,7 @@ export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalo
   </builders>
   <publishers>
     <hudson.tasks.ArtifactArchiver>
-      <artifacts>report4.html</artifacts>
+      <artifacts>se34euca/report4.html</artifacts>
       <latestOnly>false</latestOnly>
       <allowEmptyArchive>false</allowEmptyArchive>
     </hudson.tasks.ArtifactArchiver>

@@ -17,8 +17,15 @@
 &lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-allocate-ip.html&quot;&gt;chk-allocate-ip.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
 &lt;tr&gt;&lt;td&gt;&lt;a href=&quot;release-ip-to-cloud.html&quot;&gt;release-ip-to-cloud.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
 &lt;tr&gt;&lt;td&gt;&lt;a href=&quot;create-key-pair.html&quot;&gt;create-key-pair.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;create-volume.html&quot;&gt;create-volume&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
 &lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-create-key-pair.html&quot;&gt;chk-create-key-pair.html&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;delete-key-pair.html&quot;&gt;delete-key-pair&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-delete-key-pair.html&quot;&gt;chk-delete-key-pair&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-create-volume.html&quot;&gt;chk-create-volume&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;delete-volume.html&quot;&gt;delete-volume&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;chk-delete-volume.html&quot;&gt;chk-delete-volume&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
 &lt;/tbody&gt;&lt;/table&gt;&#xd;
+&#xd;
 </description>
   <keepDependencies>false</keepDependencies>
   <properties>
@@ -57,6 +64,21 @@
           <description></description>
           <defaultValue>master</defaultValue>
         </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>user</name>
+          <description></description>
+          <defaultValue>user00</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>account</name>
+          <description></description>
+          <defaultValue>ui-test-acct-01</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>password</name>
+          <description></description>
+          <defaultValue>mypasword3</defaultValue>
+        </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
     <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
@@ -66,43 +88,7 @@
       <throttleOption>project</throttleOption>
     </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
   </properties>
-  <scm class="hudson.plugins.git.GitSCM" plugin="git@1.5.0">
-    <configVersion>2</configVersion>
-    <userRemoteConfigs>
-      <hudson.plugins.git.UserRemoteConfig>
-        <name></name>
-        <refspec></refspec>
-        <url>https://github.com/aliceh/se34euca</url>
-      </hudson.plugins.git.UserRemoteConfig>
-    </userRemoteConfigs>
-    <branches>
-      <hudson.plugins.git.BranchSpec>
-        <name>**</name>
-      </hudson.plugins.git.BranchSpec>
-    </branches>
-    <disableSubmodules>false</disableSubmodules>
-    <recursiveSubmodules>false</recursiveSubmodules>
-    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
-    <authorOrCommitter>false</authorOrCommitter>
-    <clean>false</clean>
-    <wipeOutWorkspace>false</wipeOutWorkspace>
-    <pruneBranches>false</pruneBranches>
-    <remotePoll>false</remotePoll>
-    <ignoreNotifyCommit>false</ignoreNotifyCommit>
-    <useShallowClone>false</useShallowClone>
-    <buildChooser class="hudson.plugins.git.util.DefaultBuildChooser"/>
-    <gitTool>Default</gitTool>
-    <submoduleCfg class="list"/>
-    <relativeTargetDir></relativeTargetDir>
-    <reference></reference>
-    <excludedRegions></excludedRegions>
-    <excludedUsers></excludedUsers>
-    <gitConfigName></gitConfigName>
-    <gitConfigEmail></gitConfigEmail>
-    <skipTag>false</skipTag>
-    <includedRegions></includedRegions>
-    <scmName></scmName>
-  </scm>
+  <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
@@ -111,7 +97,13 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>echo &apos;storedVars[&quot;url&quot;] = &quot;$console_protocol://$console_ip:8888&quot;;&apos; &gt;&gt; selenium_ide/Selenium_RC_Plugins/user-extensions.js
+      <command>git clone $repo_url
+cd se34euca
+git checkout $branch
+
+
+echo &apos;storedVars[&quot;urlplus&quot;] = [&quot;$console_protocol://$console_ip:8888@$account@$user@$password&quot;];&apos; &gt;&gt; selenium_ide/Selenium_RC_Plugins/user-extensions.js
+
 
 export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar  -userExtensions &quot;selenium_ide/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$console_protocol://$console_ip:8888&quot; &quot;$dir&quot; &quot;report1.html&quot; -trustAllSSLCertificates  
  </command>
@@ -119,7 +111,7 @@ export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalo
   </builders>
   <publishers>
     <hudson.tasks.ArtifactArchiver>
-      <artifacts>report1.html</artifacts>
+      <artifacts>se34euca/report1.html</artifacts>
       <latestOnly>false</latestOnly>
       <allowEmptyArchive>false</allowEmptyArchive>
     </hudson.tasks.ArtifactArchiver>
