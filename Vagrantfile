@@ -17,9 +17,10 @@ Vagrant.configure("2") do |config|
         aws.ami = "emi-A6EA57D5"
         aws.security_groups = ["default"]
         aws.region = "eucalyptus"
+        aws.availability_zone = "home"
         aws.instance_ready_timeout = 600
-        aws.endpoint = "http://my-clc-ip:8773/services/Eucalyptus"
-        aws.keypair_name = "my-keypair"
+        aws.endpoint = "http://10.0.1.91:8773/services/Eucalyptus"
+        aws.keypair_name = "vic"
         override.ssh.username ="root"
         aws.block_device_mapping = [
         {
