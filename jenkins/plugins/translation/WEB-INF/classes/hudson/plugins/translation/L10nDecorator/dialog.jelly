@@ -1,0 +1,84 @@
+<!--
+The MIT License
+
+Copyright (c) 2004-2009, Sun Microsystems, Inc.
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+-->
+
+<!--
+  Called from the dialog.js to render the dialog content HTML
+-->
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:f="/lib/form">
+  <l:ajax>
+    <style>
+      #l10n-dialog textarea { width:90% }
+      #l10n-dialog .localized { display:none; }
+      #l10n-dialog .caption { float:left; width:40%; }
+
+      #l10n-error .bd { overflow: auto; height:320px; }
+    </style>
+    <l:yui module="resize" suffix="-beta" />
+    <l:yui module="cookie" suffix="-beta" />
+    <div class="hd">
+      ${%Help us localize this page}
+      <st:nbsp /><st:nbsp /><st:nbsp /><st:nbsp />
+      (<a href="http://wiki.jenkins-ci.org/display/JENKINS/Translation+Assistance+Plugin" target="_new">${%Help}</a>)
+    </div>
+    <div class="bd">
+      <form id="l10n-form" name="l10n-form" method="POST" action="http://www.jenkins-ci.org/l10n/submit">
+        <div>
+          <div class="caption">${%Locale}:</div>
+          <select name="locale" id="l10n-locale" onchange="translation.reload(this)">
+            <j:forEach var="e" items="${it.listLocales()}">
+              <f:option value="${e.code}" selected="${e.matchesRequestLocale()}">${e.name}</f:option>
+            </j:forEach>
+          </select>
+        </div>
+        <div>
+          <div class="caption">${%optionalName}:</div>
+          <input type="text" name="submitter" />
+        </div>
+
+        <!-- post back the encrypted bundle list to help server verify that there's no tampering -->
+        <input type="hidden" name="bundles" />
+
+        <div>
+          <input type="checkbox" name="contribute" />
+          <label class="attach-previous"><a href="https://wiki.jenkins-ci.org/display/JENKINS/License+of+contribution+to+Jenkins+translation">
+            ${%I contribute my translations to the Jenkins project}
+          </a></label>
+        </div>
+        <div style="margin-bottom:0.2em">
+          <input type="checkbox" onchange="translation.toggleMode(this)" />
+          <label class="attach-previous">${%Show already translated text}</label>
+        </div>
+        <!--
+          the latest YUI doesn't appear to require the body height to have the scroll bar displayed
+          (just specifying the height property in the constructor would do)
+          but in 2.5.1, we need to do it the other way, or else the body section doesn't get a fixed height,
+          which is necessary for the scrollbar to kick in.
+         -->
+        <div style="overflow-y:scroll; height: 25em" id="l10n-main">
+          <st:include page="text.jelly" />
+        </div>
+      </form>
+    </div>
+  </l:ajax>
+</j:jelly>
