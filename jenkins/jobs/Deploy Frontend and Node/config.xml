@@ -43,8 +43,7 @@ https://github.com/viglesiasce/eucalyptus-cookbook/blob/master/attributes/defaul
           <defaultValue>{
   &quot;eucalyptus&quot;: { 
                          &quot;network&quot;: { &quot;bridged-nic&quot;: &quot;eth0&quot;, 
-                                            &quot;public-ips&quot;: &quot;REQUIRED-FIELD&quot;  },
-                         &quot;nc&quot;: { &quot;hypervisor&quot;: &quot;kvm&quot;  } 
+                                            &quot;public-ips&quot;: &quot;REQUIRED-FIELD&quot;  }
    }
 }</defaultValue>
         </hudson.model.TextParameterDefinition>
@@ -79,14 +78,13 @@ config = json.loads(json_file.read())
 json_file.close()
 if &quot;install-type&quot; not in config[&quot;eucalyptus&quot;]:
     config[&quot;eucalyptus&quot;][&quot;install-type&quot;] = os.environ[&apos;method&apos;]
-config[&quot;eucalyptus&quot;][&quot;topology&quot;] = {}
-config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;clc-1&quot;] = os.environ[&apos;frontend&apos;]
-config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;walrus&quot;] = os.environ[&apos;frontend&apos;]
-config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;clusters&quot;] = {}
-config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;clusters&quot;][&quot;default&quot;] = {}
-config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;clusters&quot;][&quot;default&quot;][&quot;cc-1&quot;] = os.environ[&apos;frontend&apos;]
-config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;clusters&quot;][&quot;default&quot;][&quot;sc-1&quot;] = os.environ[&apos;frontend&apos;]
-config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;clusters&quot;][&quot;default&quot;][&quot;nodes&quot;] = os.environ[&apos;node&apos;]
+config[&quot;eucalyptus&quot;][&quot;topology&quot;] = { &quot;clc-1&quot;: os.environ[&apos;frontend&apos;], 
+                                     &quot;walrus&quot;: os.environ[&apos;frontend&apos;], 
+                                     &quot;user-facing&quot;: [os.environ[&apos;frontend&apos;]], 
+                                     &quot;clusters&quot;: {&quot;default&quot;: { &quot;cc-1&quot;: os.environ[&apos;frontend&apos;], 
+                                                              &quot;sc-1&quot;: os.environ[&apos;frontend&apos;], 
+                                                              &quot;nodes&quot;: os.environ[&apos;node&apos;], 
+                                                              &quot;storage-backend&quot;: &quot;overlay&quot; }}}
 json_file = open(&quot;config.json&quot;, &apos;w&apos;)
 json_file.write(json.dumps(config))</command>
     </hudson.tasks.Shell>
@@ -94,9 +92,11 @@ json_file.write(json.dumps(config))</command>
       <command>if [ $password ];then
     knife bootstrap $frontend -no-host-key-verify -r &quot;role[frontend]&quot; -j &quot;`cat config.json`&quot; -P $password
     knife bootstrap $node --no-host-key-verify -r &quot;role[node]&quot; -j &quot;`cat config.json`&quot; -P $password
+    knife bootstrap $frontend --no-host-key-verify -r &quot;recipe[eucalyptus::configure]&quot; -j &quot;`cat config.json`&quot; -P $password
 else
     knife bootstrap $frontend --no-host-key-verify -r &quot;role[frontend]&quot; -j &quot;`cat config.json`&quot;
     knife bootstrap $node --no-host-key-verify -r &quot;role[node]&quot; -j &quot;`cat config.json`&quot;
+    knife bootstrap $frontend --no-host-key-verify -r &quot;recipe[eucalyptus::configure]&quot; -j &quot;`cat config.json`&quot;
 fi</command>
     </hudson.tasks.Shell>
   </builders>
