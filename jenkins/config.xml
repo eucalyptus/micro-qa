@@ -149,29 +149,6 @@ http://microqa.readthedocs.org/ </description>
         <hudson.views.BuildButtonColumn/>
       </columns>
     </com.tikal.jenkins.plugins.multijob.views.MultiJobView>
-    <listView>
-      <owner class="hudson" reference="../../.."/>
-      <name>User Console</name>
-      <filterExecutors>false</filterExecutors>
-      <filterQueue>false</filterQueue>
-      <properties class="hudson.model.View$PropertyList"/>
-      <jobNames>
-        <comparator class="hudson.util.CaseInsensitiveComparator"/>
-        <string>UI Harness</string>
-        <string>UI Suite</string>
-      </jobNames>
-      <jobFilters/>
-      <columns>
-        <hudson.views.StatusColumn/>
-        <hudson.views.WeatherColumn/>
-        <hudson.views.JobColumn/>
-        <hudson.views.LastSuccessColumn/>
-        <hudson.views.LastFailureColumn/>
-        <hudson.views.LastDurationColumn/>
-        <hudson.views.BuildButtonColumn/>
-      </columns>
-      <recurse>false</recurse>
-    </listView>
     <hudson.plugins.sectioned__view.SectionedView plugin="sectioned-view@1.18">
       <owner class="hudson" reference="../../.."/>
       <name>Tests</name>
