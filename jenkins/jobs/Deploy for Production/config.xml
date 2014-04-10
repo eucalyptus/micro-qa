@@ -57,15 +57,6 @@ https://github.com/viglesiasce/eucalyptus-cookbook/blob/master/attributes/defaul
    }
 }</defaultValue>
         </hudson.model.TextParameterDefinition>
-        <hudson.model.ChoiceParameterDefinition>
-          <name>environment</name>
-          <description></description>
-          <choices class="java.util.Arrays$ArrayList">
-            <a class="string-array">
-              <string>QA</string>
-            </a>
-          </choices>
-        </hudson.model.ChoiceParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
     <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
@@ -97,14 +88,13 @@ config = json.loads(json_file.read())
 json_file.close()
 if &quot;install-type&quot; not in config[&quot;eucalyptus&quot;]:
     config[&quot;eucalyptus&quot;][&quot;install-type&quot;] = os.environ[&apos;method&apos;]
-config[&quot;eucalyptus&quot;][&quot;topology&quot;] = {}
-config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;clc-1&quot;] = os.environ[&apos;frontend&apos;]
-config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;walrus&quot;] = os.environ[&apos;frontend&apos;]
-config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;clusters&quot;] = {}
-config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;clusters&quot;][&quot;default&quot;] = {}
-config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;clusters&quot;][&quot;default&quot;][&quot;cc-1&quot;] = os.environ[&apos;cluster&apos;]
-config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;clusters&quot;][&quot;default&quot;][&quot;sc-1&quot;] = os.environ[&apos;cluster&apos;]
-config[&quot;eucalyptus&quot;][&quot;topology&quot;][&quot;clusters&quot;][&quot;default&quot;][&quot;nodes&quot;] = os.environ[&apos;node&apos;]
+config[&quot;eucalyptus&quot;][&quot;topology&quot;] = { &quot;clc-1&quot;: os.environ[&apos;frontend&apos;], 
+                                     &quot;walrus&quot;: os.environ[&apos;frontend&apos;], 
+                                     &quot;user-facing&quot;: [os.environ[&apos;frontend&apos;]], 
+                                     &quot;clusters&quot;: {&quot;default&quot;: { &quot;cc-1&quot;: os.environ[&apos;cluster&apos;], 
+                                                              &quot;sc-1&quot;: os.environ[&apos;cluster&apos;], 
+                                                              &quot;nodes&quot;: os.environ[&apos;node&apos;], 
+                                                              &quot;storage-backend&quot;: &quot;overlay&quot; }}}
 json_file = open(&quot;config.json&quot;, &apos;w&apos;)
 json_file.write(json.dumps(config))
 </command>
@@ -114,12 +104,12 @@ json_file.write(json.dumps(config))
     knife bootstrap $frontend --no-host-key-verify -r &quot;role[endpoints]&quot; -j &quot;`cat config.json`&quot; -P $password
     knife bootstrap $cluster --no-host-key-verify -r &quot;role[cluster]&quot; -j &quot;`cat config.json`&quot; -P $password
     knife bootstrap $node --no-host-key-verify -r &quot;role[node]&quot; -j &quot;`cat config.json`&quot; -P $password
-    knife bootstrap $frontend --no-host-key-verify -r &quot;recipe[eucalyptus::create-first-resources]&quot; -j &quot;`cat config.json`&quot; -P $password
+    knife bootstrap $frontend --no-host-key-verify -r &quot;recipe[eucalyptus::configure]&quot; -j &quot;`cat config.json`&quot; -P $password
 else
     knife bootstrap $frontend --no-host-key-verify -r &quot;role[endpoints]&quot; -j &quot;`cat config.json`&quot;
     knife bootstrap $cluster --no-host-key-verify -r &quot;role[cluster]&quot; -j &quot;`cat config.json`&quot;
     knife bootstrap $node --no-host-key-verify -r &quot;role[node]&quot; -j &quot;`cat config.json`&quot;
-    knife bootstrap $frontend --no-host-key-verify -r &quot;recipe[eucalyptus::create-first-resources]&quot; -j &quot;`cat config.json`&quot;
+    knife bootstrap $frontend --no-host-key-verify -r &quot;recipe[eucalyptus::configure]&quot; -j &quot;`cat config.json`&quot;
 fi</command>
     </hudson.tasks.Shell>
   </builders>
