@@ -38,8 +38,7 @@ https://github.com/viglesiasce/eucalyptus-cookbook/blob/master/attributes/defaul
           <defaultValue>{
   &quot;eucalyptus&quot;: { 
                          &quot;network&quot;: { &quot;bridged-nic&quot;: &quot;eth0&quot;, 
-                                            &quot;public-ips&quot;: &quot;REQUIRED-FIELD&quot;  },
-                         &quot;nc&quot;: { &quot;hypervisor&quot;: &quot;kvm&quot;  } 
+                                            &quot;public-ips&quot;: &quot;REQUIRED-FIELD&quot;  }
    }
 }</defaultValue>
         </hudson.model.TextParameterDefinition>
