@@ -441,7 +441,7 @@ The will run once per minute and up to the number defined in the concurrent jobs
       <recurse>false</recurse>
     </listView>
   </views>
-  <primaryView>Tests</primaryView>
+  <primaryView>Deploy</primaryView>
   <slaveAgentPort>0</slaveAgentPort>
   <label></label>
   <nodeProperties/>
