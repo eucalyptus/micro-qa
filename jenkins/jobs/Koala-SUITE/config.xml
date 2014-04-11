@@ -1,0 +1,157 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<com.tikal.jenkins.plugins.multijob.MultiJobProject plugin="jenkins-multijob-plugin@1.10-SNAPSHOT">
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>console_ip</name>
+          <description>IP address of eucalyptus console</description>
+          <defaultValue>10.111.1.176</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>console_protocol</name>
+          <description></description>
+          <defaultValue>http</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>browser_type</name>
+          <description></description>
+          <defaultValue>*firefox</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>eutester_repo_url</name>
+          <description></description>
+          <defaultValue>https://github.com/aliceh/eutester</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>eutester_branch</name>
+          <description></description>
+          <defaultValue>cleanup</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.TextParameterDefinition>
+          <name>eucarc</name>
+          <description></description>
+          <defaultValue>EUCA_KEY_DIR=$(cd $(dirname ${BASH_SOURCE:-$0}); pwd -P)
+export EC2_URL=http://compute.g-12-01.autoqa.qa1.eucalyptus-systems.com:8773/services/compute
+export S3_URL=http://objectstorage.g-12-01.autoqa.qa1.eucalyptus-systems.com:8773/services/objectstorage
+export EUARE_URL=http://euare.g-12-01.autoqa.qa1.eucalyptus-systems.com:8773/services/Euare
+export TOKEN_URL=http://tokens.g-12-01.autoqa.qa1.eucalyptus-systems.com:8773/services/Tokens
+export AWS_AUTO_SCALING_URL=http://autoscaling.g-12-01.autoqa.qa1.eucalyptus-systems.com:8773/services/AutoScaling
+export AWS_CLOUDWATCH_URL=http://cloudwatch.g-12-01.autoqa.qa1.eucalyptus-systems.com:8773/services/CloudWatch
+export AWS_ELB_URL=http://loadbalancing.g-12-01.autoqa.qa1.eucalyptus-systems.com:8773/services/LoadBalancing
+export EUSTORE_URL=http://emis.eucalyptus.com/
+export EC2_PRIVATE_KEY=${EUCA_KEY_DIR}/euca2-admin-894febf4-pk.pem
+export EC2_CERT=${EUCA_KEY_DIR}/euca2-admin-894febf4-cert.pem
+export EC2_JVM_ARGS=-Djavax.net.ssl.trustStore=${EUCA_KEY_DIR}/jssecacerts
+export EUCALYPTUS_CERT=${EUCA_KEY_DIR}/cloud-cert.pem
+export EC2_ACCOUNT_NUMBER=&apos;951821457783&apos;
+export EC2_ACCESS_KEY=&apos;AKIZ691NMGUXB7YUFQNG&apos;
+export EC2_SECRET_KEY=&apos;VLRMUJrJWruW5j2FOT7eO3ghBISLxDWbtNRB4Pzb&apos;
+export AWS_ACCESS_KEY=&apos;AKIZ691NMGUXB7YUFQNG&apos;
+export AWS_SECRET_KEY=&apos;VLRMUJrJWruW5j2FOT7eO3ghBISLxDWbtNRB4Pzb&apos;
+export AWS_CREDENTIAL_FILE=${EUCA_KEY_DIR}/iamrc
+export EC2_USER_ID=&apos;951821457783&apos;
+alias ec2-bundle-image=&quot;ec2-bundle-image --cert ${EC2_CERT} --privatekey ${EC2_PRIVATE_KEY} --user ${EC2_ACCOUNT_NUMBER} --ec2cert ${EUCALYPTUS_CERT}&quot;
+alias ec2-upload-bundle=&quot;ec2-upload-bundle -a ${EC2_ACCESS_KEY} -s ${EC2_SECRET_KEY} --url ${S3_URL}&quot;
+eucarc (END) 
+</defaultValue>
+        </hudson.model.TextParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>repo_url</name>
+          <description></description>
+          <defaultValue>https://github.com/aliceh/se34euca</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>branch</name>
+          <description></description>
+          <defaultValue>master</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
+      <maxConcurrentPerNode>0</maxConcurrentPerNode>
+      <maxConcurrentTotal>0</maxConcurrentTotal>
+      <throttleEnabled>false</throttleEnabled>
+      <throttleOption>project</throttleOption>
+    </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName></phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>Koala-SECURITY-GROUP-OPERATIONS</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs class="empty-list"/>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName></phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>Koala-KEY-PAIR-OPERATIONS</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs class="empty-list"/>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName></phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>Koala-INSTANCE-OPERATIONS</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs class="empty-list"/>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName></phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>Koala-VOLUME-OPERATIONS</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs class="empty-list"/>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+    <com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+      <phaseName></phaseName>
+      <phaseJobs>
+        <com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+          <jobName>Koala-IP-OPERATIONS</jobName>
+          <currParams>true</currParams>
+          <exposedSCM>false</exposedSCM>
+          <configs class="empty-list"/>
+        </com.tikal.jenkins.plugins.multijob.PhaseJobsConfig>
+      </phaseJobs>
+      <continuationCondition>SUCCESSFUL</continuationCondition>
+    </com.tikal.jenkins.plugins.multijob.MultiJobBuilder>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.16">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
+</com.tikal.jenkins.plugins.multijob.MultiJobProject>
