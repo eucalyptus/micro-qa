@@ -7,23 +7,26 @@
 &lt;tr&gt;&lt;td&gt;&lt;b&gt;Test Suite&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
 &lt;tr&gt;&lt;td&gt;&lt;a href=&quot;koala_login.html&quot;&gt;koala_login&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
 &lt;tr&gt;&lt;td&gt;&lt;a href=&quot;get_dashboard_counts.html&quot;&gt;get_dashboard_counts&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;create-key-pair-key_1-from-dashboard.html&quot;&gt;create-key-pair-key_1-from-dashboard&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-keypairs-count-increased-by-1.html&quot;&gt;verify-keypairs-count-increased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
 &lt;tr&gt;&lt;td&gt;&lt;a href=&quot;create-s-group-1-with-rules-and-tags.html&quot;&gt;create-s-group-1-with-rules-and-tags&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
 &lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-s.group-number-increased-by-1.html&quot;&gt;verify-s.group-number-increased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;launch-instance-from-dboard-az1-key_1-group_1.html&quot;&gt;launch-instance-from-dboard-az1-key_1-group_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-running-instances-count-increased-by-1.html&quot;&gt;verify-running-instances-count-increased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;allocate-1-ip-address.html&quot;&gt;allocate-1-ip-address&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;associate-ip-to-instance_1-on-ip-lp.html&quot;&gt;associate-ip-to-instance_1-on-ip-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;disassociate-ip-from-instance_1-on-instances-lp.html&quot;&gt;disassociate-ip-from-instance_1-on-instances-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;associate-ip_1-to-instance_1-on-instances-lp.html&quot;&gt;associate-ip_1-to-instance_1-on-instances-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;terminate_instance_1_from_lp.html&quot;&gt;terminate_instance_1_from_lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-running-instances-count-decreased-by-1.html&quot;&gt;verify-running-instances-count-decreased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;delete-key_1.html&quot;&gt;delete-key_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-keypairs-count-decreased-by-1.html&quot;&gt;verify-keypairs-count-decreased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;release-ip_1-on-ip-lp.html&quot;&gt;release-ip_1-on-ip-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;pause-30-seconds.html&quot;&gt;pause-30-seconds&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
 &lt;tr&gt;&lt;td&gt;&lt;a href=&quot;delete-s-group-1-from-landing-page_lw.html&quot;&gt;delete-s-group-1-from-landing-page_lw&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
 &lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-s.group-number-decreased-by-1.html&quot;&gt;verify-s.group-number-decreased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;create-s-group-2-with-rules-from-dashboard.html&quot;&gt;create-s-group-2-with-rules-from-dashboard&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-s.group-number-increased-by-1.html&quot;&gt;verify-s.group-number-increased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;delete-s.group-2-from-item-page.html&quot;&gt;delete-s.group-2-from-item-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-s.group-number-decreased-by-1.html&quot;&gt;verify-s.group-number-decreased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;create-empty-s-group-3.html&quot;&gt;create-empty-s-group-3&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-s.group-number-increased-by-1.html&quot;&gt;verify-s.group-number-increased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;add-rules-to-empty-s-group-3.html&quot;&gt;add-rules-to-empty-s-group-3&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;delete-s-group-3-from-detail-page.html&quot;&gt;delete-s-group-3-from-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-s.group-number-decreased-by-1.html&quot;&gt;verify-s.group-number-decreased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
 &lt;tr&gt;&lt;td&gt;&lt;a href=&quot;koala_logout.html&quot;&gt;koala_logout&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;/tbody&gt;&lt;/table&gt;&#xd;
-&#xd;
-</description>
+&lt;/tbody&gt;&lt;/table&gt;</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <hudson.model.ParametersDefinitionProperty>
@@ -54,12 +57,12 @@
 
 
 </description>
-          <defaultValue>selenium_ide/KOALA/SECURITY_GROUP_OPERATIONS.html</defaultValue>
+          <defaultValue>selenium_ide/KOALA/IP_OPERATIONS.html</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>branch</name>
           <description></description>
-          <defaultValue>master</defaultValue>
+          <defaultValue>testing</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>account</name>
@@ -101,14 +104,13 @@ git checkout $branch
 echo &apos;storedVars[&quot;url&quot;] = &quot;$console_protocol://$console_ip:8888&quot;;&apos; &gt;&gt; selenium_ide/Selenium_RC_Plugins/user-extensions.js
 
 
-
-export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar  -userExtensions &quot;selenium_ide/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$console_protocol://$console_ip:8888&quot; &quot;$dir&quot; &quot;security-group-operations.html&quot; -trustAllSSLCertificates  
+export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar  -Dorg.openqa.jetty.SocketListener.bufferSize=20480 -userExtensions &quot;selenium_ide/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$console_protocol://$console_ip:8888&quot; &quot;$dir&quot; &quot;ip-operations.html&quot; -trustAllSSLCertificates  -debug
  </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
     <hudson.tasks.ArtifactArchiver>
-      <artifacts>se34euca/security-group-operations.html</artifacts>
+      <artifacts>se34euca/ip-operations.html</artifacts>
       <latestOnly>false</latestOnly>
       <allowEmptyArchive>false</allowEmptyArchive>
     </hudson.tasks.ArtifactArchiver>
