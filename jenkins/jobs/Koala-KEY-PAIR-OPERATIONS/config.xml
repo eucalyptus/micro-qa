@@ -37,7 +37,7 @@
         <hudson.model.StringParameterDefinition>
           <name>repo_url</name>
           <description>Github repo URL of test suite.</description>
-          <defaultValue>https://github.com/aliceh/se34euca</defaultValue>
+          <defaultValue>https://github.com/eucalyptus/se34euca</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>dir</name>
@@ -50,22 +50,22 @@
         <hudson.model.StringParameterDefinition>
           <name>branch</name>
           <description>Choices include master and testing</description>
-          <defaultValue>testing</defaultValue>
+          <defaultValue>master</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>account</name>
           <description>Account to run the test.</description>
-          <defaultValue>alice</defaultValue>
+          <defaultValue>ui-test-acct-00</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>user</name>
           <description>User to run the test.</description>
-          <defaultValue>admin</defaultValue>
+          <defaultValue>user00</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>password</name>
           <description>Password for user@account. </description>
-          <defaultValue>foobar</defaultValue>
+          <defaultValue>mypassword1</defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
