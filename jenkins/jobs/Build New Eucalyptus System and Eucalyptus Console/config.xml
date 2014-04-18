@@ -1,0 +1,335 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Using the QA system, it will build a new Eucalyptus system and install the latest Eucalyptus Console when triggered.</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>ghprbActualCommit</name>
+          <description>Pull Request Commit </description>
+          <defaultValue>testing</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>qa_testname</name>
+          <description>QA TESTNAME</description>
+          <defaultValue>NULL</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>qa_testname_prefix</name>
+          <description>QA TESTNAME PREFIX</description>
+          <defaultValue>kyo-ui-pull-request</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
+      <maxConcurrentPerNode>0</maxConcurrentPerNode>
+      <maxConcurrentTotal>3</maxConcurrentTotal>
+      <throttleEnabled>true</throttleEnabled>
+      <throttleOption>category</throttleOption>
+    </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>true</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/usr/bin/python
+
+import time
+import sys
+import os
+import commands
+import json
+import string
+import re
+
+def run_cmd(command):
+    print &quot;CMD: &quot; + command
+    print
+    (ret, line) = commands.getstatusoutput(command)
+    return line
+
+def start_build_with_ui_branch(testname, ui_branch):
+    cmd = &quot;wget -qO- http://10.111.1.120/api/start_test?TEST_NAME=&quot; + testname + &quot;\&amp;UI_BRANCH=&quot; + ui_branch
+    line = run_cmd(cmd)
+    print line
+    return line
+
+def start_build_with_ui_branch_using_test_pool(testname_prefix, ui_branch, pool_count):
+    for x in range(0, pool_count):
+        index = &quot;%02d&quot; % (x)
+        testname = testname_prefix + &quot;-&quot; + index
+        print &quot;Using Testname: &quot;, testname
+        line = start_build_with_ui_branch(testname, ui_branch)
+        print line
+        if( not re.search(r&apos;ERROR&apos;, line, re.M|re.I) ):
+            print &quot;Ran Testname: &quot; , testname
+            return testname
+    return &quot;NULL&quot;
+
+def wait_for_pxeboot(testname):
+    cmd = &quot;wget -qO- http://10.111.1.120/api/get_test_status?TEST_NAME=&quot; + testname
+    isDone = False
+    count = 0
+    while(True):
+      line = run_cmd(cmd)
+      d = json.loads(line)
+      pxeboot_state = &quot;NULL&quot;
+      if( len(d[&apos;results&apos;][&apos;test_phase&apos;]) &gt; 0 ):
+          pxeboot_state = d[&apos;results&apos;][&apos;test_phase&apos;][0][&apos;state&apos;]
+      print &quot;Trial:&quot;, count, &quot; Running: &quot;, d[&apos;running&apos;], &quot; PXEBOOT: &quot;, pxeboot_state
+      if( int(d[&apos;running&apos;]) is 1 and str(pxeboot_state) == &quot;running&quot; ):
+          isDone = True
+      count = count + 1
+      if(isDone or count &gt; 120):
+          print &quot;IN PXE.&quot;
+          break
+      sys.stdout.flush()
+      time.sleep(30)
+    return
+
+def wait_for_build(testname):
+    cmd = &quot;wget -qO- http://10.111.1.120/api/get_test_status?TEST_NAME=&quot; + testname
+    isDone = False
+    count = 0
+    while(True):
+      line = run_cmd(cmd)
+      d = json.loads(line)
+      print &quot;Trial:&quot;, count, &quot; Running: &quot;, d[&apos;running&apos;], &quot; Unique ID: &quot;, d[&apos;unique_id&apos;]
+      if( int(d[&apos;running&apos;]) is 0 ):
+          isDone = True
+      count = count + 1
+      if(isDone or count &gt; 120):
+          print &quot;DONE.&quot;
+          break
+      sys.stdout.flush()
+      time.sleep(60)
+    return
+
+def is_pxeboot_passed(testname):
+    cmd = &quot;wget -qO- http://10.111.1.120/api/get_test_status?TEST_NAME=&quot; + testname
+    isPassed = True
+    line = run_cmd(cmd)
+    d = json.loads(line)
+    print &quot;Testname: &quot;, testname, &quot;Unique ID: &quot;, d[&apos;unique_id&apos;], &quot;PXEBOOT: &quot; , d[&apos;results&apos;][&apos;test_phase&apos;][0][&apos;state&apos;]
+    if( str(d[&apos;results&apos;][&apos;test_phase&apos;][0][&apos;state&apos;]) == &quot;failed&quot; ):
+        isPassed = False
+    return isPassed
+
+def is_build_passed(testname):
+    cmd = &quot;wget -qO- http://10.111.1.120/api/get_test_status?TEST_NAME=&quot; + testname
+    isPassed = True
+    line = run_cmd(cmd)
+    d = json.loads(line)
+    print &quot;Testname: &quot;, testname, &quot;Unique ID: &quot;, d[&apos;unique_id&apos;], &quot;BUILD: &quot; , d[&apos;results&apos;][&apos;test_phase&apos;][1][&apos;state&apos;]
+    if( str(d[&apos;results&apos;][&apos;test_phase&apos;][1][&apos;state&apos;]) == &quot;failed&quot; ):
+        isPassed = False
+    return isPassed
+
+def get_unique_id(testname):
+    cmd = &quot;wget -qO- http://10.111.1.120/api/get_test_status?TEST_NAME=&quot; + testname
+    (ret, line) = commands.getstatusoutput(cmd)
+    d = json.loads(line)
+    print &quot;Unique ID: &quot;, d[&apos;unique_id&apos;]
+    return d[&apos;unique_id&apos;]
+
+def get_console_ip(testname, uid):
+    ip = &quot;NULL&quot;
+    cmd = &quot;wget -qO- http://10.111.1.120/euca-qa/build_log/&quot; + testname + &quot;/&quot; + uid + &quot;/build_config_file_&quot; + testname + &quot;.lst&quot;
+    cmd2 = cmd + &quot; | grep UI&quot;
+    print cmd2
+    (ret, lines) = commands.getstatusoutput(cmd2)
+    pattern = r&quot;\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}&quot;
+    pattern_re = re.compile(pattern)
+    for line in string.split(lines, &apos;\n&apos;):  
+      ip_address = pattern_re.findall(line)
+      if( ip_address ):
+          ip = ip_address
+          print &quot;Line: &quot;, line
+          print &quot;CONSOLE IP: &quot;, ip[0]
+          break
+    return ip[0]
+
+def free_machines(testname, uid):
+    cmd = &quot;wget -qO- http://10.111.1.120/api/free_test?TEST_NAME=&quot; + testname + &quot;\&amp;UID=&quot; + uid
+    run_cmd(cmd)
+    return
+    
+
+def main():
+
+    qa_testname = os.environ[&apos;qa_testname&apos;]
+    qa_testname_prefix = os.environ[&apos;qa_testname_prefix&apos;]
+    ghprbActualCommit = os.environ[&apos;ghprbActualCommit&apos;]
+
+    print
+    print &quot;[qa_testname] &quot;, qa_testname
+    print &quot;[ghprbActualCommit] &quot;, &apos;ghprbActualCommit&apos;
+
+    retry_count = 3
+    current_count = 0
+    isQABuildPassed = False
+
+    while(isQABuildPassed is False and current_count &lt; retry_count):
+
+        print
+        print &quot;=== Start QA-BUILD ===&quot;
+        if( qa_testname != &quot;NULL&quot; ):
+            start_build_with_ui_branch(qa_testname, ghprbActualCommit)
+        else:
+            print &quot;[qa_testname_prefix] &quot;, qa_testname_prefix
+            qa_testname = start_build_with_ui_branch_using_test_pool(qa_testname_prefix, ghprbActualCommit, 3)
+
+        if(qa_testname == &quot;NULL&quot;):
+            sys.exit(1)
+
+        print
+        print &quot;=== Wait For PXEBOOT to Start ===&quot;
+        wait_for_pxeboot(qa_testname)
+        
+        print
+        print &quot;=== Wait For QA-BUILD to Complete ===&quot;
+        wait_for_build(qa_testname)
+
+        if( is_pxeboot_passed(qa_testname) ):
+            print
+            print &quot;=== PXEBOOT PASSED ===&quot;
+            if( is_build_passed(qa_testname) ):
+                print
+                print &quot;=== BUILD PASSED ===&quot;
+                isQABuildPassed = True
+            else:
+                print
+                print &quot;=== BUILD FAILED ===&quot;
+                print
+                print &quot;=== Get Unique ID ===&quot;
+                unique_id = get_unique_id(qa_testname)
+                print
+                print &quot;=== Free Machines ===&quot;
+                free_machines(qa_testname, unique_id)
+                qa_testname = &quot;NULL&quot;
+                time.sleep(60)
+        else:
+            print
+            print &quot;=== PXE FAILED ===&quot;
+            qa_testname = &quot;NULL&quot;
+            time.sleep(60)
+
+        current_count = current_count + 1
+
+    if( isQABuildPassed is False ):
+        print
+        print &quot;=== ABORT ===&quot;
+        sys.exit(1)
+
+    print
+    print &quot;=== Get Unique ID ===&quot;
+    unique_id = get_unique_id(qa_testname)
+
+    print
+    print &quot;=== Get CONSOLE IP ===&quot;
+    console_ip = get_console_ip(qa_testname, unique_id);
+    print
+    print &quot;[CONSOLE IP] &quot;, console_ip
+
+    print
+    if( console_ip is &quot;N&quot; ):
+        print &quot;Failed to Build&quot;
+        sys.exit(1)    
+
+    os.system(&quot;echo qa_testname_used=&quot; + qa_testname + &quot; &gt;&gt; ./test_env.txt&quot;)
+    os.system(&quot;echo console_ip=&quot; + console_ip + &quot; &gt;&gt; ./test_env.txt&quot;)
+    os.system(&quot;echo protocol=https &gt;&gt; ./test_env.txt&quot;)
+    os.system(&quot;echo qa_test_uid=&quot; + unique_id + &quot; &gt;&gt; ./test_env.txt&quot;)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+    exit</command>
+    </hudson.tasks.Shell>
+    <EnvInjectBuilder plugin="envinject@1.88">
+      <info>
+        <propertiesFilePath>./test_env.txt</propertiesFilePath>
+      </info>
+    </EnvInjectBuilder>
+    <hudson.plugins.parameterizedtrigger.TriggerBuilder plugin="parameterized-trigger@2.20">
+      <configs>
+        <hudson.plugins.parameterizedtrigger.BlockableBuildTriggerConfig>
+          <configs>
+            <hudson.plugins.parameterizedtrigger.FileBuildParameters>
+              <propertiesFile>./test_env.txt</propertiesFile>
+              <failTriggerOnMissing>true</failTriggerOnMissing>
+            </hudson.plugins.parameterizedtrigger.FileBuildParameters>
+          </configs>
+          <projects>Koala-SUITE</projects>
+          <condition>ALWAYS</condition>
+          <triggerWithNoParameters>false</triggerWithNoParameters>
+          <block>
+            <unstableThreshold>
+              <name>UNSTABLE</name>
+              <ordinal>1</ordinal>
+              <color>YELLOW</color>
+              <completeBuild>true</completeBuild>
+            </unstableThreshold>
+            <failureThreshold>
+              <name>FAILURE</name>
+              <ordinal>2</ordinal>
+              <color>RED</color>
+              <completeBuild>true</completeBuild>
+            </failureThreshold>
+          </block>
+          <buildAllNodesWithLabel>false</buildAllNodesWithLabel>
+        </hudson.plugins.parameterizedtrigger.BlockableBuildTriggerConfig>
+      </configs>
+    </hudson.plugins.parameterizedtrigger.TriggerBuilder>
+    <hudson.tasks.Shell>
+      <command>#!/usr/bin/python
+
+import time
+import sys
+import os
+import commands
+import json
+import string
+import re
+
+def run_cmd(command):
+	print &quot;CMD: &quot; + command
+	print
+	(ret, line) = commands.getstatusoutput(command)
+	print line
+	return
+
+def main():
+    print
+    print &quot;[qa_testname] &quot;, os.environ[&apos;qa_testname_used&apos;]
+    print &quot;[qa_test_uid] &quot;, os.environ[&apos;qa_test_uid&apos;]
+    print
+    print &quot;=== Free Machines ===&quot;
+    cmd = &quot;wget -qO- http://10.111.1.120/api/free_test?TEST_NAME=&quot; + os.environ[&apos;qa_testname_used&apos;] + &quot;\&amp;UID=&quot; + os.environ[&apos;qa_test_uid&apos;]
+    run_cmd(cmd)
+    time.sleep(1)
+
+if __name__ == &quot;__main__&quot;:
+    main()
+    exit
+</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.11">
+      <timeoutMinutes>300</timeoutMinutes>
+      <failBuild>false</failBuild>
+      <writingDescription>false</writingDescription>
+      <timeoutPercentage>0</timeoutPercentage>
+      <timeoutType>absolute</timeoutType>
+      <timeoutMinutesElasticDefault>3</timeoutMinutesElasticDefault>
+    </hudson.plugins.build__timeout.BuildTimeoutWrapper>
+  </buildWrappers>
+</project>

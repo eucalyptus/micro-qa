@@ -62,7 +62,7 @@ eucarc (END)
         <hudson.model.StringParameterDefinition>
           <name>repo_url</name>
           <description></description>
-          <defaultValue>https://github.com/aliceh/se34euca</defaultValue>
+          <defaultValue>https://github.com/eucalyptus/se34euca</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>branch</name>
