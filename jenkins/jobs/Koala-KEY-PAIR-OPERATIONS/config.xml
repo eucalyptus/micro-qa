@@ -22,12 +22,12 @@
         <hudson.model.StringParameterDefinition>
           <name>console_ip</name>
           <description>IP address of eucalyptus console</description>
-          <defaultValue>10.111.5.153</defaultValue>
+          <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>console_protocol</name>
           <description>Protocol that eucalyptus console uses: can be http or https</description>
-          <defaultValue>http</defaultValue>
+          <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>browser_type</name>
@@ -37,7 +37,12 @@
         <hudson.model.StringParameterDefinition>
           <name>repo_url</name>
           <description>Github repo URL of test suite.</description>
-          <defaultValue>https://github.com/eucalyptus/se34euca</defaultValue>
+          <defaultValue>https://github.com/eucalyptus/eucaconsole</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>branch</name>
+          <description>Choices include master and testing</description>
+          <defaultValue>develop</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>dir</name>
@@ -45,27 +50,7 @@
 
 
 </description>
-          <defaultValue>selenium_ide/KOALA/KEYPAIR_OPERATIONS.html</defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>branch</name>
-          <description>Choices include master and testing</description>
-          <defaultValue>master</defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>account</name>
-          <description>Account to run the test.</description>
-          <defaultValue>ui-test-acct-00</defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>user</name>
-          <description>User to run the test.</description>
-          <defaultValue>user00</defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>password</name>
-          <description>Password for user@account. </description>
-          <defaultValue>mypassword1</defaultValue>
+          <defaultValue>selenium/KOALA/KEYPAIR_OPERATIONS.html</defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -86,20 +71,18 @@
   <builders>
     <hudson.tasks.Shell>
       <command>git clone $repo_url
-cd se34euca
+cd eucaconsole/tests
 git checkout $branch
 
-echo &apos;storedVars[&quot;url&quot;] = &quot;$console_protocol://$console_ip:8888&quot;;&apos; &gt;&gt; selenium_ide/Selenium_RC_Plugins/user-extensions.js
+if [ $console_protocol = &quot;https&quot; ]; then export url=&quot;$console_protocol://$console_ip&quot; ; else export url=&quot;$console_protocol://$console_ip:8888&quot; ; fi 
 
-
-
-export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar -Dorg.openqa.jetty.SocketListener.bufferSize=20480 -userExtensions &quot;selenium_ide/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$console_protocol://$console_ip:8888&quot; &quot;$dir&quot; &quot;key-pair-operations.html&quot; -trustAllSSLCertificates 
+export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar -Dorg.openqa.jetty.SocketListener.bufferSize=20480 -userExtensions &quot;selenium/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$url&quot; &quot;$dir&quot; &quot;key-pair-operations.html&quot; -trustAllSSLCertificates 
  </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
     <hudson.tasks.ArtifactArchiver>
-      <artifacts>se34euca/key-pair-operations.html</artifacts>
+      <artifacts>eucaconsole/tests/key-pair-operations.html</artifacts>
       <latestOnly>false</latestOnly>
       <allowEmptyArchive>false</allowEmptyArchive>
     </hudson.tasks.ArtifactArchiver>
