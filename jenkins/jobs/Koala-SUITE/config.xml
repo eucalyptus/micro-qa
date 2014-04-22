@@ -9,7 +9,7 @@
         <hudson.model.StringParameterDefinition>
           <name>console_ip</name>
           <description>IP address of eucalyptus console</description>
-          <defaultValue>10.111.1.176</defaultValue>
+          <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>console_protocol</name>
