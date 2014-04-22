@@ -9,12 +9,12 @@
         <hudson.model.StringParameterDefinition>
           <name>console_ip</name>
           <description>IP address of eucalyptus console</description>
-          <defaultValue></defaultValue>
+          <defaultValue>10.111.1.176</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>console_protocol</name>
           <description></description>
-          <defaultValue></defaultValue>
+          <defaultValue>http</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>browser_type</name>
@@ -130,5 +130,13 @@
       <deleteDirs>false</deleteDirs>
       <cleanupParameter></cleanupParameter>
     </hudson.plugins.ws__cleanup.PreBuildCleanup>
+    <hudson.plugins.build__timeout.BuildTimeoutWrapper plugin="build-timeout@1.11">
+      <timeoutMinutes>180</timeoutMinutes>
+      <failBuild>false</failBuild>
+      <writingDescription>false</writingDescription>
+      <timeoutPercentage>0</timeoutPercentage>
+      <timeoutType>absolute</timeoutType>
+      <timeoutMinutesElasticDefault>3</timeoutMinutesElasticDefault>
+    </hudson.plugins.build__timeout.BuildTimeoutWrapper>
   </buildWrappers>
 </com.tikal.jenkins.plugins.multijob.MultiJobProject>
