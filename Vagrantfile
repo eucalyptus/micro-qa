@@ -34,14 +34,22 @@ Vagrant.configure("2") do |config|
     end
     config.vm.network :forwarded_port, guest: 80, host: 8080
     config.vm.provider :vmware_fusion do |v, override|
-        override.vm.box_url = "https://dl.dropbox.com/u/5721940/vagrant-boxes/vagrant-centos-6.4-x86_64-vmware_fusion.box"
+        if config.vm.box == "centos"
+          override.vm.box_url = "https://dl.dropbox.com/u/5721940/vagrant-boxes/vagrant-centos-6.4-x86_64-vmware_fusion.box"
+        else
+          override.vm.box_url = "http://grahamc.com/vagrant/ubuntu-12.04.2-server-amd64-vmware-fusion.box"
+        end
         v.vmx["memsize"] = options[:memory].to_i
         v.vmx["numvcpus"] = options[:cores].to_i
         v.vmx["vhv.enable"] = "true"
     end
-    config.vm.provider :virtualbox do |v, override| 
-        override.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130427.box"
+    config.vm.provider :virtualbox do |v, override|
+        if config.vm.box == "centos"
+          override.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130427.box"
+        else
+          override.vm.box_url = "http://grahamc.com/vagrant/ubuntu-12.04-omnibus-chef.box"
+        end
         v.customize [ "modifyvm", :id, "--memory", options[:memory].to_i, "--cpus", options[:cores].to_i]
     end
-    config.vm.provision :shell, :path => "deploy.sh"
+    config.vm.provision :shell, :path => "deploy_#{config.vm.box}.sh"
 end
