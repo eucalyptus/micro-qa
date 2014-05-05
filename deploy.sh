@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash -xe
 
 ### If installing on baremetal, grab jenkins source
 if [ ! -d /vagrant ];then 
@@ -34,7 +34,7 @@ iptables-save > /etc/sysconfig/iptables
 
 ### Initialize Jenkins Home
 sed -i s#JENKINS_HOME=.*#JENKINS_HOME=\"/vagrant/jenkins\"# /etc/sysconfig/jenkins
-chown -R jenkins:jenkins /vagrant/jenkins
+sed -i s#JENKINS_USER=.*#JENKINS_USER=\"root\"# /etc/sysconfig/jenkins
 
 ### Get IP address
 if curl http://169.254.169.254/latest/meta-data;then 
@@ -46,27 +46,19 @@ else
   ipaddress=`ifconfig eth1 | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'`
   hostname=`hostname`
 fi
-sed -i s/localhost/$ipaddress/g /var/lib/jenkins/jenkins.model.JenkinsLocationConfiguration.xml /var/lib/jenkins/org.codefirst.SimpleThemeDecorator.xml
+sed -i s/localhost/$ipaddress/g /vagrant/jenkins/jenkins.model.JenkinsLocationConfiguration.xml /vagrant/jenkins/org.codefirst.SimpleThemeDecorator.xml
 echo "$ipaddress $hostname" >> /etc/hosts
 ### Start jenkins
 service jenkins start
 
-### Setup Jenkins sync script
-SYNC_COMMAND=/usr/bin/jenkins-sync
-cat > $SYNC_COMMAND <<EOF
-#!/bin/bash
-rsync -va /var/lib/jenkins/ /vagrant/jenkins/ --exclude workspace --exclude builds --exclude nextBuildNumber --exclude lastStable --exclude lastSuccessful --exclude .git --exclude share
-EOF
-chmod +x $SYNC_COMMAND
-
 ### Setup eutester-base virtualenv
-pushd /var/lib/jenkins/
-mkdir share
+pushd /vagrant/jenkins/
+mkdir -p share
 pushd share
 virtualenv eutester-base
 source eutester-base/bin/activate
 ./eutester-base/bin/easy_install 'paramiko>=1.7' 'boto==2.5.2' 'jinja2>=2.7' argparse futures python-dateutil mock
-chown -R jenkins:jenkins eutester-base
+chown -R root:root eutester-base
 popd
 popd
 
@@ -74,11 +66,10 @@ popd
 easy_install selenium
 yum -y install make rubygems ruby-devel xorg-x11-font* wget xorg-x11-server-Xvfb firefox
 cd /
-wget -q https://selenium.googlecode.com/files/selenium-server-2.35.0.zip
-unzip selenium-server-2.35.0.zip
-dbus-uuidgen > /var/lib/dbus/machine-id
+wget -q https://selenium.googlecode.com/files/selenium-server-2.39.0.zip
+unzip selenium-server-2.39.0.zip
+#dbus-uuidgen > /var/lib/dbus/machine-id
 Xvfb :0 -ac 2> /dev/null &
-export DISPLAY=":0" && nohup java -jar selenium-2.35.0/selenium-server-standalone-2.35.0.jar -trustAllSSLCertificates &
 
 ### Install chef dependencies
 curl -L https://www.opscode.com/chef/install.sh | bash
@@ -91,11 +82,11 @@ cat > ~/.chef/knife.rb <<EOF
 log_level                :info
 log_location             STDOUT
 node_name                'admin'
-client_key               '/var/lib/jenkins/.chef/admin.pem'
+client_key               '/vagrant/jenkins/.chef/admin.pem'
 validation_client_name   'chef-validator'
-validation_key           '/var/lib/jenkins/.chef/chef-validator.pem'
+validation_key           '/vagrant/jenkins/.chef/chef-validator.pem'
 chef_server_url          'https://localhost:443'
-syntax_check_cache_path  '/var/lib/jenkins/.chef/syntax_check_cache'
+syntax_check_cache_path  '/vagrant/jenkins/.chef/syntax_check_cache'
 cookbook_path [
   "/root/cookbooks",
 ]
@@ -108,8 +99,8 @@ chef-server-ctl reconfigure
 
 sed -i s/localhost/$ipaddress/g ~/.chef/knife.rb
 
-cp -a /root/.chef/ /var/lib/jenkins/
-chown -R jenkins:jenkins /var/lib/jenkins/.chef/
+cp -a /root/.chef/ /vagrant/jenkins/
+chown -R jenkins:jenkins /vagrant/jenkins/.chef/
 
 ## Download cookbooks
 mkdir /root/cookbooks

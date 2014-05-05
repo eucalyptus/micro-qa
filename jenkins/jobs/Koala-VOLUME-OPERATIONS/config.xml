@@ -40,12 +40,12 @@
         <hudson.model.StringParameterDefinition>
           <name>console_ip</name>
           <description>IP address of eucalyptus console</description>
-          <defaultValue>10.111.5.153</defaultValue>
+          <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>console_protocol</name>
           <description>Protocol that eucalyptus console uses: can be http or https</description>
-          <defaultValue>http</defaultValue>
+          <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>browser_type</name>
@@ -55,7 +55,12 @@
         <hudson.model.StringParameterDefinition>
           <name>repo_url</name>
           <description>Github repo URL of test suite.</description>
-          <defaultValue>https://github.com/aliceh/se34euca</defaultValue>
+          <defaultValue>https://github.com/eucalyptus/eucaconsole</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>branch</name>
+          <description></description>
+          <defaultValue>develop</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>dir</name>
@@ -63,27 +68,7 @@
 
 
 </description>
-          <defaultValue>selenium_ide/KOALA/VOLUME-OPERATIONS.html</defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>branch</name>
-          <description></description>
-          <defaultValue>testing</defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>account</name>
-          <description>Account to run the test.</description>
-          <defaultValue>alice</defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>user</name>
-          <description>User to run the test.</description>
-          <defaultValue>admin</defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>password</name>
-          <description>Password for user@account. </description>
-          <defaultValue>foobar</defaultValue>
+          <defaultValue>selenium/KOALA/VOLUME-OPERATIONS.html</defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -104,19 +89,18 @@
   <builders>
     <hudson.tasks.Shell>
       <command>git clone $repo_url
-cd se34euca
+cd eucaconsole/tests
 git checkout $branch
 
-echo &apos;storedVars[&quot;url&quot;] = &quot;$console_protocol://$console_ip:8888&quot;;&apos; &gt;&gt; selenium_ide/Selenium_RC_Plugins/user-extensions.js
+if [ $console_protocol = &quot;https&quot; ]; then export url=&quot;$console_protocol://$console_ip&quot; ; else export url=&quot;$console_protocol://$console_ip:8888&quot; ; fi 
 
-
-export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar  -Dorg.openqa.jetty.SocketListener.bufferSize=20480 -userExtensions &quot;selenium_ide/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$console_protocol://$console_ip:8888&quot; &quot;$dir&quot; &quot;volume-operations.html&quot; -trustAllSSLCertificates  -debug
+export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar  -Dorg.openqa.jetty.SocketListener.bufferSize=20480 -userExtensions &quot;selenium/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$url&quot; &quot;$dir&quot; &quot;volume-operations.html&quot; -trustAllSSLCertificates  -debug
  </command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
     <hudson.tasks.ArtifactArchiver>
-      <artifacts>se34euca/volume-operations.html</artifacts>
+      <artifacts>eucaconsole/tests/volume-operations.html</artifacts>
       <latestOnly>false</latestOnly>
       <allowEmptyArchive>false</allowEmptyArchive>
     </hudson.tasks.ArtifactArchiver>
