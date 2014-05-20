@@ -37,7 +37,6 @@ else
   ipaddress=`ifconfig eth1 | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'`
   hostname=`hostname`
 fi
-sed -i s/localhost/$ipaddress/g /vagrant/jenkins/jenkins.model.JenkinsLocationConfiguration.xml /vagrant/jenkins/org.codefirst.SimpleThemeDecorator.xml
 echo "$ipaddress $hostname" >> /etc/hosts
 ### Start jenkins
 service jenkins restart
