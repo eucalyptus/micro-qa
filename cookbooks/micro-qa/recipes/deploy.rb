@@ -52,11 +52,12 @@ bash "Install motherbrain" do
     rvm --default use 2.0.0
     gem install motherbrain
   EOH
+  user "root"
   not_if "which mb"
 end
 
 directory "/root/.mb"
 
-template "/root/.mb/config" do
+template "/root/.mb/config.json" do
   source "motherbrain.erb"
 end

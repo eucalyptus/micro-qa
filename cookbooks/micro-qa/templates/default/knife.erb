@@ -5,6 +5,4 @@ client_key               '/etc/chef-server/admin.pem'
 validation_client_name   'chef-validator'
 validation_key           '/etc/chef-server/chef-validator.pem'
 chef_server_url          'https://<%= node[:ipaddress] %>:443'
-cookbook_path [
-  "/root/cookbooks",
-]
+cookbook_path            '/root/cookbooks'
