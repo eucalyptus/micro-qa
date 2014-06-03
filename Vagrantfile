@@ -32,7 +32,7 @@ Vagrant.configure("2") do |config|
                 Name: "Micro QA",
         }
     end
-    config.vm.network :forwarded_port, guest: 80, host: 8080
+    config.vm.network :forwarded_port, guest: 8080, host: 8080
     config.vm.provider :vmware_fusion do |v, override|
         if config.vm.box == "centos"
           override.vm.box_url = "https://dl.dropbox.com/u/5721940/vagrant-boxes/vagrant-centos-6.4-x86_64-vmware_fusion.box"
