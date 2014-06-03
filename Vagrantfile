@@ -5,7 +5,6 @@ options = {
   :memory => 3000,
 }
 Vagrant.configure("2") do |config|
-    config.vm.network "public_network"
     config.vm.box = "ubuntu"
     config.vm.hostname = "micro-qa"
     config.vm.synced_folder ".", "/vagrant", owner: "root", group: "root"
@@ -34,6 +33,7 @@ Vagrant.configure("2") do |config|
     end
     config.vm.network :forwarded_port, guest: 8080, host: 8080
     config.vm.provider :vmware_fusion do |v, override|
+        override.vm.network "public_network"
         if config.vm.box == "centos"
           override.vm.box_url = "https://dl.dropbox.com/u/5721940/vagrant-boxes/vagrant-centos-6.4-x86_64-vmware_fusion.box"
         else
@@ -44,6 +44,7 @@ Vagrant.configure("2") do |config|
         v.vmx["vhv.enable"] = "true"
     end
     config.vm.provider :virtualbox do |v, override|
+        override.vm.network "public_network"
         if config.vm.box == "centos"
           override.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130427.box"
         else
