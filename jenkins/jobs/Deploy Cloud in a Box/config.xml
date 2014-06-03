@@ -6,28 +6,13 @@
   <properties>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
-        <hudson.model.ChoiceParameterDefinition>
-          <name>method</name>
-          <description></description>
-          <choices class="java.util.Arrays$ArrayList">
-            <a class="string-array">
-              <string>packages</string>
-              <string>source</string>
-            </a>
-          </choices>
-        </hudson.model.ChoiceParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>hostname</name>
           <description>IP address or hostname of machine you would like to install on.</description>
           <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
-        <hudson.model.PasswordParameterDefinition>
-          <name>password</name>
-          <description>Leave blank if you&apos;ve uploaded your ssh keys </description>
-          <defaultValue>hs8BfSQU6z+Ydc1V4SUWGw==</defaultValue>
-        </hudson.model.PasswordParameterDefinition>
         <hudson.model.TextParameterDefinition>
-          <name>configuration</name>
+          <name>environment</name>
           <description>Configuration of the Eucalyptus deployment.
 
 Required fields:
@@ -36,11 +21,19 @@ public-ips
 Full list of attributes can be found here:
 https://github.com/viglesiasce/eucalyptus-cookbook/blob/master/attributes/default.rb</description>
           <defaultValue>{
-  &quot;eucalyptus&quot;: { 
-                         &quot;network&quot;: { &quot;bridged-nic&quot;: &quot;eth0&quot;, 
-                                            &quot;public-ips&quot;: &quot;REQUIRED-FIELD&quot;  }
-   }
-}</defaultValue>
+  &quot;name&quot;: &quot;edge-nightly&quot;,
+  &quot;description&quot;: &quot;4.0 Nightlies EDGE Testing&quot;,
+  &quot;json_class&quot;: &quot;Chef::Environment&quot;,
+  &quot;chef_type&quot;: &quot;environment&quot;,
+  &quot;default_attributes&quot;: {
+    &quot;eucalyptus&quot;: {
+      &quot;network&quot;: { &quot;public-ips&quot;: &quot;10.0.5.100-10.0.5.200&quot;},
+      &quot;eucalyptus-repo&quot;: &quot;http://downloads.eucalyptus.com/software/eucalyptus/nightly/4.0/centos/6/x86_64/&quot;,
+      &quot;euca2ools-repo&quot;: &quot;http://downloads.eucalyptus.com/software/euca2ools/nightly/3.1/centos/6/x86_64/&quot;
+    }
+  }
+}
+</defaultValue>
         </hudson.model.TextParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -60,24 +53,35 @@ https://github.com/viglesiasce/eucalyptus-cookbook/blob/master/attributes/defaul
   <concurrentBuild>true</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>cat &gt; config.json &lt;&lt;EOF
-$configuration
+      <command>#!/bin/bash
+
+cat &gt; environment.json &lt;&lt;EOF
+$environment
+EOF
+cat &gt; bootstrap.json &lt;&lt;EOF
+{
+  &quot;nodes&quot;: [
+    {
+      &quot;groups&quot;: [&quot;cloud::full&quot;,&quot;node::default&quot;],
+      &quot;hosts&quot;: [&quot;$hostname&quot;]
+    }
+  ]
+}
 EOF</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>#!/usr/bin/python
 import json
 import os
-json_file = open(&quot;config.json&quot;)
-config = json.loads(json_file.read())
+json_file = open(&quot;environment.json&quot;)
+environment = json.loads(json_file.read())
 json_file.close()
-config[&quot;eucalyptus&quot;][&quot;install-type&quot;] = os.environ[&apos;method&apos;]
-if &quot;network&quot; not in config[&quot;eucalyptus&quot;]:
-    config[&quot;eucalyptus&quot;][&quot;network&quot;] = {}
-config[&quot;eucalyptus&quot;][&quot;network&quot;][&quot;public-interface&quot;] = &quot;br0&quot;
-config[&quot;eucalyptus&quot;][&quot;network&quot;][&quot;private-interface&quot;] = &quot;br0&quot;
+if &quot;network&quot; not in environment[&quot;default_attributes&quot;][&quot;eucalyptus&quot;]:
+    environment[&quot;default_attributes&quot;][&quot;eucalyptus&quot;][&quot;network&quot;] = {}
+environment[&quot;default_attributes&quot;][&quot;eucalyptus&quot;][&quot;network&quot;][&quot;public-interface&quot;] = &quot;br0&quot;
+environment[&quot;default_attributes&quot;][&quot;eucalyptus&quot;][&quot;network&quot;][&quot;private-interface&quot;] = &quot;br0&quot;
 
-config[&quot;eucalyptus&quot;][&quot;topology&quot;] = { &quot;clc-1&quot;: os.environ[&apos;hostname&apos;], 
+environment[&quot;default_attributes&quot;][&quot;eucalyptus&quot;][&quot;topology&quot;] = { &quot;clc-1&quot;: os.environ[&apos;hostname&apos;], 
                                      &quot;walrus&quot;: os.environ[&apos;hostname&apos;], 
                                      &quot;user-facing&quot;: [os.environ[&apos;hostname&apos;]], 
                                      &quot;clusters&quot;: {&quot;default&quot;: { &quot;cc-1&quot;: os.environ[&apos;hostname&apos;], 
@@ -86,31 +90,24 @@ config[&quot;eucalyptus&quot;][&quot;topology&quot;] = { &quot;clc-1&quot;: os.e
                                                               &quot;storage-backend&quot;: &quot;overlay&quot; }}}
 
 
-json_file = open(&quot;config.json&quot;, &apos;w&apos;)
-json_file.write(json.dumps(config))
-</command>
+json_file = open(&quot;environment.json&quot;, &apos;w&apos;)
+json_file.write(json.dumps(environment))
+
+env_name = open(&quot;environment-name&quot;, &apos;w&apos;)
+env_name.write(environment[&quot;name&quot;])</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
-      <command>role=&quot;cloud-in-a-box&quot;
-if [ $password ];then
-    knife bootstrap $hostname --no-host-key-verify -r &quot;role[$role]&quot; -j &quot;`cat config.json`&quot; -P $password
-else
-    knife bootstrap $hostname --no-host-key-verify -r &quot;role[$role]&quot; -j &quot;`cat config.json`&quot;
-fi</command>
+      <command>#!/bin/bash
+source /usr/local/rvm/scripts/rvm
+mb environment from environment.json
+mb eucalyptus bootstrap bootstrap.json -v -e `cat environment-name` -c /root/.mb/config.json</command>
     </hudson.tasks.Shell>
   </builders>
-  <publishers>
-    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.16">
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.16">
       <deleteDirs>false</deleteDirs>
-      <skipWhenFailed>false</skipWhenFailed>
-      <cleanWhenSuccess>true</cleanWhenSuccess>
-      <cleanWhenUnstable>true</cleanWhenUnstable>
-      <cleanWhenFailure>true</cleanWhenFailure>
-      <cleanWhenNotBuilt>true</cleanWhenNotBuilt>
-      <cleanWhenAborted>true</cleanWhenAborted>
-      <notFailBuild>false</notFailBuild>
-      <cleanupMatrixParent>false</cleanupMatrixParent>
-    </hudson.plugins.ws__cleanup.WsCleanup>
-  </publishers>
-  <buildWrappers/>
+      <cleanupParameter></cleanupParameter>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
 </project>
