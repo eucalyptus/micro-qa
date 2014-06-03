@@ -1,0 +1,7 @@
+source 'https://api.berkshelf.com'
+cookbook  'yum'
+cookbook  'ntp'
+cookbook  'apt'
+cookbook  'python'
+cookbook  'chef-server'
+cookbook  'micro-qa', :path => "./cookbooks/micro-qa/"

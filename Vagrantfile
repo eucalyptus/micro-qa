@@ -6,7 +6,7 @@ options = {
 }
 Vagrant.configure("2") do |config|
     config.vm.network "public_network"
-    config.vm.box = "centos"
+    config.vm.box = "ubuntu"
     config.vm.hostname = "micro-qa"
     config.vm.synced_folder ".", "/vagrant", owner: "root", group: "root"
     config.vm.provider :aws do |aws, override|
@@ -51,5 +51,14 @@ Vagrant.configure("2") do |config|
         end
         v.customize [ "modifyvm", :id, "--memory", options[:memory].to_i, "--cpus", options[:cores].to_i]
     end
-    config.vm.provision :shell, :path => "deploy_#{config.vm.box}.sh"
+    config.omnibus.chef_version = :latest
+    config.berkshelf.enabled = true
+    config.vm.provision :chef_solo do |chef|
+      chef.add_recipe "micro-qa::jenkins"
+      chef.add_recipe "micro-qa::eutester"
+      chef.add_recipe "chef-server::default"
+      chef.add_recipe "micro-qa::deploy"
+      chef.add_recipe "micro-qa::console-tests"
+      chef.json = {}
+    end
 end
