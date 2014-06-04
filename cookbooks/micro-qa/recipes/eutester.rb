@@ -38,3 +38,5 @@ python_pip "eutester" do
   virtualenv "/vagrant/jenkins/share/eutester-base"
   only_if "ls /vagrant"
 end
+
+python_pip "ipython"
