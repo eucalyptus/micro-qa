@@ -5,7 +5,7 @@ options = {
   :memory => 3000,
 }
 Vagrant.configure("2") do |config|
-    config.vm.box = "ubuntu"
+    config.vm.box = "micro-qa"
     config.vm.hostname = "micro-qa"
     config.vm.synced_folder ".", "/vagrant", owner: "root", group: "root"
     config.vm.provider :aws do |aws, override|
@@ -36,6 +36,8 @@ Vagrant.configure("2") do |config|
         override.vm.network "public_network"
         if config.vm.box == "centos"
           override.vm.box_url = "https://dl.dropbox.com/u/5721940/vagrant-boxes/vagrant-centos-6.4-x86_64-vmware_fusion.box"
+        elsif config.vm.box == "micro-qa"
+          override.vm.box_url = "https://vagrantcloud.com/viglesiasce/micro-qa/version/1/provider/vmware.box"
         else
           override.vm.box_url = "http://grahamc.com/vagrant/ubuntu-12.04.2-server-amd64-vmware-fusion.box"
         end
@@ -47,6 +49,8 @@ Vagrant.configure("2") do |config|
         override.vm.network "public_network"
         if config.vm.box == "centos"
           override.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130427.box"
+        elsif config.vm.box == "micro-qa"
+          override.vm.box_url = "https://vagrantcloud.com/viglesiasce/micro-qa/version/1/provider/virtualbox.box"
         else
           override.vm.box_url = "http://grahamc.com/vagrant/ubuntu-12.04-omnibus-chef.box"
         end
