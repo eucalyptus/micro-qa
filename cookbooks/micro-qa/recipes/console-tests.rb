@@ -25,7 +25,7 @@ remote_file "/selenium-server.zip" do
   source "https://selenium.googlecode.com/files/selenium-server-2.39.0.zip"
 end
 
-execute "unzip selenium-server.zip" do
+execute "unzip -o selenium-server.zip" do
   cwd "/"
   not_if "ls /selenium-server-2.39.0"
 end
