@@ -23,7 +23,9 @@ elsif platform?("ubuntu", "debian")
   end
 end
 
-directory "/vagrant/jenkins/share"
+directory "/vagrant/jenkins/share" do
+  only_if "ls /vagrant"
+end
 
 python_virtualenv "/vagrant/jenkins/share/eutester-base" do
   owner "root"
