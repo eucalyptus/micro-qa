@@ -13,6 +13,8 @@ template "/root/.chef/knife.rb" do
   source "knife.erb"
 end
 
+package "git"
+
 execute "Upload cookbooks to chef server" do
     command <<-EOH
       mkdir /root/cookbooks
@@ -33,11 +35,6 @@ execute "Upload cookbooks to chef server" do
     not_if "knife cookbook list | grep eucalyptus"
 end
 
-execute "Install Ruby 2.0.0" do
-  command "curl -sSL https://get.rvm.io | bash -s stable --ruby=2.0.0"
-  not_if "rvm current | grep ruby-2.0.0"
-end
-
 if platform?("redhat", "centos", "fedora")
     package "libxml-devel"
     package "libxslt-devel"
@@ -46,14 +43,25 @@ if platform?("redhat", "centos", "fedora")
     package "libxslt1-dev"
 end
 
-bash "Install motherbrain" do
-  code <<-EOH
-    source /usr/local/rvm/scripts/rvm
-    rvm --default use 2.0.0
-    gem install motherbrain
-  EOH
-  user "root"
-  not_if "which mb"
+include_recipe "rbenv::default"
+include_recipe "rbenv::ruby_build"
+
+mb_ruby_version = "2.0.0-p481"
+
+rbenv_ruby mb_ruby_version do
+  global true
+end
+
+rbenv_execute "gem update --system" do
+  ruby_version mb_ruby_version
+end
+
+rbenv_execute "gem install hashie -v 2.1.1" do
+  ruby_version mb_ruby_version
+end
+
+rbenv_execute "gem install motherbrain" do
+  ruby_version mb_ruby_version
 end
 
 directory "/root/.mb"
