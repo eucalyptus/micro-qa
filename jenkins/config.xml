@@ -271,6 +271,16 @@ The will run once per minute and up to the number defined in the concurrent jobs
     <hudson.plugins.sectioned__view.SectionedView plugin="sectioned-view@1.18">
       <owner class="hudson" reference="../../.."/>
       <name>Provisioning</name>
+      <description>&lt;font size=&quot;5&quot; color=&quot;blue&quot;&gt;Documentation&lt;br&gt;&#xd;
+&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/pages/viewpage.action?pageId=56983597&quot;&gt;Deployment overview&lt;/a&gt;&lt;br&gt;&#xd;
+&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/display/QA/Eucalyptus+Configuration&quot;&gt;Configuring your environment&lt;/a&gt;&lt;br&gt;&#xd;
+&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/display/QA/QA+System+Documentation+Table+of+Contents&quot;&gt;Further documentation&lt;/a&gt;&lt;br&gt;&#xd;
+&lt;/font&gt;&#xd;
+&lt;font size=&quot;3&quot; color=&quot;red&quot;&gt;&#xd;
+  1. Upload your SSH keys that allow you to login as root to the boxes youd like to deploy on&lt;br&gt;&#xd;
+  2. Run the Deploy job&lt;br&gt;&#xd;
+  3. Rinse and repeat with the rebuild job&#xd;
+&lt;/font&gt;</description>
       <filterExecutors>false</filterExecutors>
       <filterQueue>false</filterQueue>
       <properties class="hudson.model.View$PropertyList"/>
@@ -278,6 +288,25 @@ The will run once per minute and up to the number defined in the concurrent jobs
         <hudson.plugins.sectioned__view.ListViewSection>
           <jobNames>
             <comparator class="hudson.util.CaseInsensitiveComparator"/>
+            <string>Upload Host Keypair</string>
+          </jobNames>
+          <jobFilters/>
+          <name>Administrate</name>
+          <width>FULL</width>
+          <alignment>CENTER</alignment>
+          <columns>
+            <hudson.views.StatusColumn/>
+            <hudson.views.JobColumn/>
+            <hudson.views.LastSuccessColumn/>
+            <hudson.views.LastFailureColumn/>
+            <hudson.views.LastDurationColumn/>
+            <hudson.views.BuildButtonColumn/>
+            <jenkins.plugins.extracolumns.LastBuildConsoleColumn plugin="extra-columns@1.11"/>
+          </columns>
+        </hudson.plugins.sectioned__view.ListViewSection>
+        <hudson.plugins.sectioned__view.ListViewSection>
+          <jobNames>
+            <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../hudson.plugins.sectioned__view.ListViewSection/jobNames/comparator"/>
             <string>Deploy</string>
           </jobNames>
           <jobFilters/>
@@ -301,25 +330,6 @@ The will run once per minute and up to the number defined in the concurrent jobs
           </jobNames>
           <jobFilters/>
           <name>Rebuild</name>
-          <width>FULL</width>
-          <alignment>CENTER</alignment>
-          <columns>
-            <hudson.views.StatusColumn/>
-            <hudson.views.JobColumn/>
-            <hudson.views.LastSuccessColumn/>
-            <hudson.views.LastFailureColumn/>
-            <hudson.views.LastDurationColumn/>
-            <hudson.views.BuildButtonColumn/>
-            <jenkins.plugins.extracolumns.LastBuildConsoleColumn plugin="extra-columns@1.11"/>
-          </columns>
-        </hudson.plugins.sectioned__view.ListViewSection>
-        <hudson.plugins.sectioned__view.ListViewSection>
-          <jobNames>
-            <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../hudson.plugins.sectioned__view.ListViewSection/jobNames/comparator"/>
-            <string>Upload Host Keypair</string>
-          </jobNames>
-          <jobFilters/>
-          <name>Administrate</name>
           <width>FULL</width>
           <alignment>CENTER</alignment>
           <columns>

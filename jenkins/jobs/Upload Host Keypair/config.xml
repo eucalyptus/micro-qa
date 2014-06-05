@@ -38,7 +38,6 @@
       <command>#!/bin/bash
 keydir=~/.ssh
 mkdir -p $keydir
-rm -f $keydir/*
 chmod 700 $keydir
 
 cat &gt; $keydir/id_rsa &lt;&lt;EOF
@@ -46,6 +45,10 @@ $privatekey
 EOF
 
 cat &gt; $keydir/id_rsa.pub &lt;&lt;EOF
+$publickey
+EOF
+
+cat &gt; $keydir/authorized_keys &lt;&lt;EOF
 $publickey
 EOF
 
