@@ -6,20 +6,17 @@
   <properties>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
-        <hudson.model.StringParameterDefinition>
-          <name>hostname</name>
-          <description>IP address or hostname of machine you would like to install on.</description>
-          <defaultValue></defaultValue>
-        </hudson.model.StringParameterDefinition>
         <hudson.model.TextParameterDefinition>
           <name>environment</name>
-          <description>Configuration of the Eucalyptus deployment.
+          <description>&lt;font size=&quot;2&quot; color=&quot;blue&quot;&gt;Configuration of the Eucalyptus deployment.&lt;br&gt;
 
-Required fields:
-public-ips
+Required fields:&lt;br&gt;
+public-ips&lt;br&gt;
 
-Full list of attributes can be found here:
-https://github.com/viglesiasce/eucalyptus-cookbook/blob/master/attributes/default.rb</description>
+&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/display/QA/Environment+Files&quot;&gt;More information&lt;/a&gt;&lt;br&gt;&lt;/font&gt;
+
+
+</description>
           <defaultValue>{
   &quot;name&quot;: &quot;edge-nightly&quot;,
   &quot;description&quot;: &quot;4.0 Nightlies EDGE Testing&quot;,
@@ -27,13 +24,27 @@ https://github.com/viglesiasce/eucalyptus-cookbook/blob/master/attributes/defaul
   &quot;chef_type&quot;: &quot;environment&quot;,
   &quot;default_attributes&quot;: {
     &quot;eucalyptus&quot;: {
-      &quot;network&quot;: { &quot;public-ips&quot;: &quot;10.0.5.100-10.0.5.200&quot;},
+      &quot;network&quot;: { &quot;public-ips&quot;: &quot;REQUIRED&quot;},
       &quot;eucalyptus-repo&quot;: &quot;http://downloads.eucalyptus.com/software/eucalyptus/4.0/centos/6/x86_64/&quot;,
       &quot;euca2ools-repo&quot;: &quot;http://downloads.eucalyptus.com/software/euca2ools/3.1/centos/6/x86_64/&quot;
     }
   }
 }
 </defaultValue>
+        </hudson.model.TextParameterDefinition>
+        <hudson.model.TextParameterDefinition>
+          <name>bootstrap</name>
+          <description>&lt;font size=&quot;2&quot; color=&quot;blue&quot;&gt;&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/display/QA/Deploy+Using+Motherbrain&quot;&gt;
+More information on possibilities for bootstrap manifests&lt;/a&gt;&lt;/font&gt;
+</description>
+          <defaultValue>{
+  &quot;nodes&quot;: [
+    {
+      &quot;groups&quot;: [&quot;cloud::full&quot;,&quot;node::default&quot;],
+      &quot;hosts&quot;: [&quot;&lt;YOUR MACHINE IP&gt;&quot;]
+    }
+  ]
+}</defaultValue>
         </hudson.model.TextParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -59,40 +70,8 @@ cat &gt; environment.json &lt;&lt;EOF
 $environment
 EOF
 cat &gt; bootstrap.json &lt;&lt;EOF
-{
-  &quot;nodes&quot;: [
-    {
-      &quot;groups&quot;: [&quot;cloud::full&quot;,&quot;node::default&quot;],
-      &quot;hosts&quot;: [&quot;$hostname&quot;]
-    }
-  ]
-}
+$bootstrap
 EOF</command>
-    </hudson.tasks.Shell>
-    <hudson.tasks.Shell>
-      <command>#!/usr/bin/python
-import json
-import os
-
-### Load JSON file from parameter
-json_file = open(&quot;environment.json&quot;)
-environment = json.loads(json_file.read())
-json_file.close()
-
-environment[&quot;default_attributes&quot;][&quot;eucalyptus&quot;][&quot;topology&quot;] = { &quot;clc-1&quot;: os.environ[&apos;hostname&apos;], 
-                                     &quot;walrus&quot;: os.environ[&apos;hostname&apos;], 
-                                     &quot;user-facing&quot;: [os.environ[&apos;hostname&apos;]], 
-                                     &quot;clusters&quot;: {&quot;default&quot;: { &quot;cc-1&quot;: os.environ[&apos;hostname&apos;], 
-                                                              &quot;sc-1&quot;: os.environ[&apos;hostname&apos;], 
-                                                              &quot;nodes&quot;: os.environ[&apos;hostname&apos;], 
-                                                              &quot;storage-backend&quot;: &quot;overlay&quot; }}}
-
-
-json_file = open(&quot;environment.json&quot;, &apos;w&apos;)
-json_file.write(json.dumps(environment))
-
-env_name = open(&quot;environment-name&quot;, &apos;w&apos;)
-env_name.write(environment[&quot;name&quot;])</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>#!/bin/bash

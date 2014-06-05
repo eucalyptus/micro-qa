@@ -305,12 +305,12 @@ The will run once per minute and up to the number defined in the concurrent jobs
           <alignment>CENTER</alignment>
           <columns>
             <hudson.views.StatusColumn/>
-            <hudson.views.WeatherColumn/>
             <hudson.views.JobColumn/>
             <hudson.views.LastSuccessColumn/>
             <hudson.views.LastFailureColumn/>
             <hudson.views.LastDurationColumn/>
             <hudson.views.BuildButtonColumn/>
+            <jenkins.plugins.extracolumns.LastBuildConsoleColumn plugin="extra-columns@1.11"/>
           </columns>
         </hudson.plugins.sectioned__view.ListViewSection>
         <hudson.plugins.sectioned__view.ListViewSection>
@@ -324,12 +324,12 @@ The will run once per minute and up to the number defined in the concurrent jobs
           <alignment>CENTER</alignment>
           <columns>
             <hudson.views.StatusColumn/>
-            <hudson.views.WeatherColumn/>
             <hudson.views.JobColumn/>
             <hudson.views.LastSuccessColumn/>
             <hudson.views.LastFailureColumn/>
             <hudson.views.LastDurationColumn/>
             <hudson.views.BuildButtonColumn/>
+            <jenkins.plugins.extracolumns.LastBuildConsoleColumn plugin="extra-columns@1.11"/>
           </columns>
         </hudson.plugins.sectioned__view.ListViewSection>
       </sections>
