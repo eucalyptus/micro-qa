@@ -271,16 +271,42 @@ The will run once per minute and up to the number defined in the concurrent jobs
     <hudson.plugins.sectioned__view.SectionedView plugin="sectioned-view@1.18">
       <owner class="hudson" reference="../../.."/>
       <name>Provisioning</name>
-      <description>&lt;font size=&quot;5&quot; color=&quot;blue&quot;&gt;Documentation&lt;br&gt;&#xd;
-&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/pages/viewpage.action?pageId=56983597&quot;&gt;Deployment overview&lt;/a&gt;&lt;br&gt;&#xd;
-&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/display/QA/Eucalyptus+Configuration&quot;&gt;Configuring your environment&lt;/a&gt;&lt;br&gt;&#xd;
-&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/display/QA/QA+System+Documentation+Table+of+Contents&quot;&gt;Further documentation&lt;/a&gt;&lt;br&gt;&#xd;
-&lt;/font&gt;&#xd;
-&lt;font size=&quot;3&quot; color=&quot;red&quot;&gt;&#xd;
-  1. Upload your SSH keys that allow you to login as root to the boxes youd like to deploy on&lt;br&gt;&#xd;
-  2. Run the Deploy job&lt;br&gt;&#xd;
-  3. Rinse and repeat with the rebuild job&#xd;
-&lt;/font&gt;</description>
+      <description>&lt;html&gt;&#xd;
+	&lt;head&gt;&#xd;
+		&lt;title&gt;&lt;/title&gt;&#xd;
+	&lt;/head&gt;&#xd;
+	&lt;body&gt;&#xd;
+		&lt;div&gt;&#xd;
+			&lt;div style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+				&lt;font size=&quot;5&quot;&gt;Documentation&lt;/font&gt;&lt;/div&gt;&#xd;
+			&lt;ul&gt;&#xd;
+				&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+					&lt;font color=&quot;blue&quot; size=&quot;5&quot;&gt;&lt;span style=&quot;font-size:16px;&quot;&gt;&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/pages/viewpage.action?pageId=56983597&quot; style=&quot;color: rgb(92, 53, 102);&quot;&gt;Deployment overview&lt;/a&gt;&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&#xd;
+				&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+					&lt;font color=&quot;blue&quot; size=&quot;5&quot;&gt;&lt;span style=&quot;font-size:16px;&quot;&gt;&lt;/span&gt;&lt;/font&gt;&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/display/QA/Eucalyptus+Configuration&quot; style=&quot;font-size: 16px; color: rgb(92, 53, 102);&quot;&gt;Configuring your environment&lt;/a&gt;&lt;/li&gt;&#xd;
+				&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+					&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/display/QA/QA+System+Documentation+Table+of+Contents&quot; style=&quot;font-size: 16px; color: rgb(92, 53, 102);&quot;&gt;Further documentation&lt;/a&gt;&lt;/li&gt;&#xd;
+			&lt;/ul&gt;&#xd;
+			&lt;div&gt;&#xd;
+				&lt;div style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+					&lt;font size=&quot;5&quot;&gt;Steps to deploy Eucalyptus&lt;/font&gt;&lt;/div&gt;&#xd;
+				&lt;ol&gt;&#xd;
+					&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+						&lt;span style=&quot;font-size:16px;&quot;&gt;Upload your SSH keys that allow you to login as root to the boxes you&apos;d like to deploy on&lt;/span&gt;&lt;/li&gt;&#xd;
+					&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+						&lt;span style=&quot;font-size:16px;&quot;&gt;Run the Deploy job&lt;/span&gt;&lt;/li&gt;&#xd;
+					&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+						&lt;span style=&quot;font-size:16px;&quot;&gt;Rinse and repeat with the rebuild job&lt;/span&gt;&lt;/li&gt;&#xd;
+				&lt;/ol&gt;&#xd;
+				&lt;div&gt;&#xd;
+					&amp;nbsp;&lt;/div&gt;&#xd;
+			&lt;/div&gt;&#xd;
+		&lt;/div&gt;&#xd;
+		&lt;p&gt;&#xd;
+			&amp;nbsp;&lt;/p&gt;&#xd;
+	&lt;/body&gt;&#xd;
+&lt;/html&gt;&#xd;
+</description>
       <filterExecutors>false</filterExecutors>
       <filterQueue>false</filterQueue>
       <properties class="hudson.model.View$PropertyList"/>

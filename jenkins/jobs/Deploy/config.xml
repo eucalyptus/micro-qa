@@ -1,12 +1,27 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>&lt;font size=&quot;5&quot; color=&quot;blue&quot;&gt;Documentation&lt;br&gt;&#xd;
-&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/pages/viewpage.action?pageId=56983597&quot;&gt;Deployment overview&lt;/a&gt;&lt;br&gt;&#xd;
-&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/display/QA/Eucalyptus+Configuration&quot;&gt;Configuring your environment&lt;/a&gt;&lt;br&gt;&#xd;
-&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/display/QA/QA+System+Documentation+Table+of+Contents&quot;&gt;Further documentation&lt;/a&gt;&lt;br&gt;&#xd;
-&lt;/font&gt;&#xd;
-&#xd;
+  <description>&lt;html&gt;&#xd;
+	&lt;head&gt;&#xd;
+		&lt;title&gt;&lt;/title&gt;&#xd;
+	&lt;/head&gt;&#xd;
+	&lt;body&gt;&#xd;
+		&lt;div&gt;&#xd;
+			&lt;div style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+				&lt;font size=&quot;5&quot;&gt;Documentation&lt;/font&gt;&lt;/div&gt;&#xd;
+			&lt;ul&gt;&#xd;
+				&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+					&lt;font color=&quot;blue&quot; size=&quot;5&quot;&gt;&lt;span style=&quot;font-size:16px;&quot;&gt;&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/pages/viewpage.action?pageId=56983597&quot; style=&quot;color: rgb(92, 53, 102);&quot;&gt;Deployment overview&lt;/a&gt;&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&#xd;
+				&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+					&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/display/QA/Eucalyptus+Configuration&quot; style=&quot;font-size: 16px; color: rgb(92, 53, 102);&quot;&gt;Configuring your environment&lt;/a&gt;&lt;/li&gt;&#xd;
+				&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+					&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/display/QA/QA+System+Documentation+Table+of+Contents&quot; style=&quot;font-size: 16px; color: rgb(92, 53, 102);&quot;&gt;Further documentation&lt;/a&gt;&lt;/li&gt;&#xd;
+			&lt;/ul&gt;&#xd;
+		&lt;/div&gt;&#xd;
+		&lt;p&gt;&#xd;
+			&amp;nbsp;&lt;/p&gt;&#xd;
+	&lt;/body&gt;&#xd;
+&lt;/html&gt;&#xd;
 </description>
   <keepDependencies>false</keepDependencies>
   <properties>
