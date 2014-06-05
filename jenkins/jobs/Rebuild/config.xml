@@ -92,10 +92,14 @@ bootstrap = json.loads(open(&quot;bootstrap.json&quot;).read())
 for group in bootstrap[&quot;nodes&quot;]:
     nuke[&quot;nodes&quot;][0][&quot;hosts&quot;].append(group[&quot;hosts&quot;])
 
-nuke = open(&apos;nuke.json&apos;, &apos;w&apos;)
-nuke.write(json.dumps(nuke))
-nuke.close()
-</command>
+nuke_file = open(&apos;nuke.json&apos;, &apos;w&apos;)
+nuke_file.write(json.dumps(nuke))
+nuke_file.close()
+
+environment = json.loads(open(&quot;environment.json&quot;).read())
+environment_name = open(&apos;environment-name&apos;, &apos;w&apos;)
+environment_name.write(environment[&apos;name&apos;])
+environment_name.close()</command>
     </hudson.tasks.Shell>
     <hudson.tasks.Shell>
       <command>#!/bin/bash
