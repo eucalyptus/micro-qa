@@ -292,7 +292,7 @@ The will run once per minute and up to the number defined in the concurrent jobs
 					&lt;font size=&quot;5&quot;&gt;Steps to deploy Eucalyptus&lt;/font&gt;&lt;/div&gt;&#xd;
 				&lt;ol&gt;&#xd;
 					&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
-						&lt;span style=&quot;font-size:16px;&quot;&gt;Upload your SSH keys that allow you to login as root to the boxes you&apos;d like to deploy on&lt;/span&gt;&lt;/li&gt;&#xd;
+						&lt;span style=&quot;font-size:16px;&quot;&gt;Upload your SSH keys or set the default password for the nodes you wish to run Eucalyptus on&lt;/span&gt;&lt;/li&gt;&#xd;
 					&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
 						&lt;span style=&quot;font-size:16px;&quot;&gt;Run the Deploy job&lt;/span&gt;&lt;/li&gt;&#xd;
 					&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
@@ -314,6 +314,7 @@ The will run once per minute and up to the number defined in the concurrent jobs
         <hudson.plugins.sectioned__view.ListViewSection>
           <jobNames>
             <comparator class="hudson.util.CaseInsensitiveComparator"/>
+            <string>Set default password</string>
             <string>Upload Host Keypair</string>
           </jobNames>
           <jobFilters/>
