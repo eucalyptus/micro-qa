@@ -63,7 +63,7 @@
         <hudson.model.TextParameterDefinition>
           <name>bootstrap</name>
           <description>&lt;font size=&quot;3&quot; color=&quot;blue&quot;&gt;
-&lt;a href=&quot;https://github.com/eucalyptus/eucalyptus-cookbook/blob/master/environments/edge-nightly.json&quot;&gt;
+&lt;a href=&quot;https://github.com/eucalyptus/eucalyptus-cookbook/blob/master/bootstrap.json&quot;&gt;
   Sample bootstrap&lt;/a&gt;
 &lt;/font&gt;</description>
           <defaultValue>{
