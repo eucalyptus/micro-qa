@@ -16,8 +16,8 @@ end
 package "git"
 
 execute "Upload cookbooks to chef server" do
-    command <<-EOH
-      mkdir /root/cookbooks
+  command <<-EOH
+      mkdir -p /root/cookbooks
       cd /root/cookbooks
       git init
       echo "Chef Repo" >> README
@@ -31,8 +31,18 @@ execute "Upload cookbooks to chef server" do
       knife cookbook upload yum
       git clone https://github.com/eucalyptus/eucalyptus-cookbook eucalyptus
       knife cookbook upload eucalyptus
-    EOH
-    not_if "knife cookbook list | grep eucalyptus"
+  EOH
+  not_if "ls /root/cookbooks/eucalyptus"
+end
+
+execute "Reupload eucalyptus cookbook" do
+  command <<-EOH
+    chef-server-ctl reconfigure
+    git pull
+    knife cookbook upload eucalyptus
+  EOH
+  cwd '/root/cookbooks/eucalyptus'
+  only_if "ls /root/cookbooks/eucalyptus"
 end
 
 if platform?("redhat", "centos", "fedora")
