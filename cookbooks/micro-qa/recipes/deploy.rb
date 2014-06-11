@@ -43,6 +43,7 @@ execute "Reupload eucalyptus cookbook" do
   EOH
   cwd '/root/cookbooks/eucalyptus'
   only_if "ls /root/cookbooks/eucalyptus"
+  retries 5
 end
 
 if platform?("redhat", "centos", "fedora")
@@ -64,14 +65,17 @@ end
 
 rbenv_execute "gem update --system" do
   ruby_version mb_ruby_version
+  not_if "which mb"
 end
 
 rbenv_execute "gem install hashie -v 2.1.1" do
   ruby_version mb_ruby_version
+  not_if "which mb"
 end
 
 rbenv_execute "gem install motherbrain" do
   ruby_version mb_ruby_version
+  not_if "which mb"
 end
 
 directory "/root/.mb"
