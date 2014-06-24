@@ -7,6 +7,8 @@
 # All rights reserved - Do Not Redistribute
 #
 
+include_recipe "micro-qa"
+
 easy_install_package "selenium"
 
 if platform?("redhat", "centos", "fedora")

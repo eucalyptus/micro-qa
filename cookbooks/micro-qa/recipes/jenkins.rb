@@ -7,6 +7,7 @@
 # All rights reserved - Do Not Redistribute
 #
 
+include_recipe "micro-qa"
 include_recipe "apt"
 
 if platform?('redhat', 'centos', 'fedora')

@@ -1,1 +1,0 @@
-cookbooks/micro-qa/Berksfile

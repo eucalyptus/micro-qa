@@ -7,6 +7,12 @@
 # All rights reserved - Do Not Redistribute
 #
 
+package 'git'
+git "/vagrant" do
+  repository "https://github.com/eucalyptus/micro-qa.git"
+  not_if "ls /vagrant"
+end
+
 if platform?("redhat", "centos", "fedora")
   # code for only redhat family systems.
 elsif platform?("ubuntu", "debian") 

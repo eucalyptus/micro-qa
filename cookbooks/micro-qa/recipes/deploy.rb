@@ -6,6 +6,7 @@
 #
 # All rights reserved - Do Not Redistribute
 #
+include_recipe "micro-qa"
 
 directory "/root/.chef"
 
@@ -47,7 +48,7 @@ execute "Reupload eucalyptus cookbook" do
 end
 
 if platform?("redhat", "centos", "fedora")
-    package "libxml-devel"
+    package "libxml2-devel"
     package "libxslt-devel"
   elsif platform?("ubuntu", "debian")
     package "libxml2-dev"
@@ -65,17 +66,11 @@ end
 
 rbenv_execute "gem update --system" do
   ruby_version mb_ruby_version
-  not_if "which mb"
-end
-
-rbenv_execute "gem install hashie -v 2.1.1" do
-  ruby_version mb_ruby_version
-  not_if "which mb"
 end
 
 rbenv_execute "gem install motherbrain" do
   ruby_version mb_ruby_version
-  not_if "which mb"
+  not_if "ls /opt/rbenv/versions/#{mb_ruby_version}/bin/mb"
 end
 
 directory "/root/.mb"
