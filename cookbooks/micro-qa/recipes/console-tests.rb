@@ -31,3 +31,5 @@ execute "unzip -o selenium-server.zip" do
   cwd "/"
   not_if "ls /selenium-server-2.39.0"
 end
+
+execute "Xvfb :0 -ac &"
