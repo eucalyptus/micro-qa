@@ -13,6 +13,9 @@
   <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
   <workspaceDir>${ITEM_ROOTDIR}/workspace</workspaceDir>
   <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
+  <markupFormatter class="hudson.markup.RawHtmlMarkupFormatter" plugin="antisamy-markup-formatter@1.1">
+    <disableSyntaxHighlighting>false</disableSyntaxHighlighting>
+  </markupFormatter>
   <jdks/>
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
@@ -82,128 +85,6 @@
       <topPortlets/>
       <bottomPortlets/>
     </hudson.plugins.view.dashboard.Dashboard>
-    <listView>
-      <owner class="hudson" reference="../../.."/>
-      <name>Deploy</name>
-      <description>&lt;html&gt;&#xd;
-	&lt;head&gt;&#xd;
-		&lt;title&gt;HTML Online Editor Sample&lt;/title&gt;&#xd;
-	&lt;/head&gt;&#xd;
-	&lt;body&gt;&#xd;
-		&lt;h1&gt;&#xd;
-			Welcome to Micro-QA v3.0.0&lt;/h1&gt;&#xd;
-		&lt;p&gt;&#xd;
-			This Jenkins server is intended to provide an easy way to get going with both Eutester and Eutester4j&lt;br&gt;&#xd;
-                        in order to validate and debug cloud installations.&#xd;
-                &lt;/p&gt;&#xd;
-          &lt;h2&gt; Running a Test &lt;/h2&gt;&#xd;
-          &lt;p&gt;In order to run a test click the &quot;play&quot; button to the right of each job listed, then enter your eucarc file into&lt;br&gt;&#xd;
-             the field provided. At the bottom of the page you should see a &quot;Build&quot; button which will kick off the test.&lt;/p&gt;&#xd;
-	&lt;/body&gt;&#xd;
-&lt;/html&gt;&#xd;
-</description>
-      <filterExecutors>false</filterExecutors>
-      <filterQueue>false</filterQueue>
-      <properties class="hudson.model.View$PropertyList"/>
-      <jobNames>
-        <comparator class="hudson.util.CaseInsensitiveComparator"/>
-        <string>Add Node</string>
-        <string>Deploy Cloud in a Box</string>
-        <string>Deploy Frontend and Node</string>
-        <string>Rebuild Hosts Using Cobbler</string>
-        <string>Riak CS install and configure</string>
-        <string>Upload Host Keypair</string>
-      </jobNames>
-      <jobFilters/>
-      <columns>
-        <hudson.views.StatusColumn/>
-        <hudson.views.WeatherColumn/>
-        <hudson.views.JobColumn/>
-        <hudson.views.LastSuccessColumn/>
-        <hudson.views.LastFailureColumn/>
-        <hudson.views.LastDurationColumn/>
-        <hudson.views.BuildButtonColumn/>
-      </columns>
-      <recurse>false</recurse>
-    </listView>
-    <com.tikal.jenkins.plugins.multijob.views.MultiJobView plugin="jenkins-multijob-plugin@1.10-SNAPSHOT">
-      <owner class="hudson" reference="../../.."/>
-      <name>Upgrade</name>
-      <description>&lt;html&gt;&#xd;
-	&lt;head&gt;&#xd;
-		&lt;title&gt;HTML Online Editor Sample&lt;/title&gt;&#xd;
-	&lt;/head&gt;&#xd;
-	&lt;body&gt;&#xd;
-		&lt;h1&gt;&#xd;
-			Welcome to Micro-QA v3.0.0&lt;/h1&gt;&#xd;
-		&lt;p&gt;&#xd;
-			This Jenkins server is intended to provide an easy way to get going with both Eutester and Eutester4j&lt;br&gt;&#xd;
-                        in order to validate, debug and upgrade cloud installations.&#xd;
-                &lt;/p&gt;&#xd;
-          &lt;h2&gt; Running a Test &lt;/h2&gt;&#xd;
-          &lt;p&gt;In order to run a test click the &quot;play&quot; button to the right of each job listed, then enter your eucarc file into&lt;br&gt;&#xd;
-             the field provided. At the bottom of the page you should see a &quot;Build&quot; button which will kick off the test.&lt;/p&gt;&#xd;
-	&lt;/body&gt;&#xd;
-&lt;/html&gt;&#xd;
-</description>
-      <filterExecutors>false</filterExecutors>
-      <filterQueue>false</filterQueue>
-      <properties class="hudson.model.View$PropertyList"/>
-      <jobNames>
-        <comparator class="hudson.util.CaseInsensitiveComparator"/>
-        <string>Create Resources</string>
-        <string>Create Users</string>
-        <string>End to End Upgrade Test</string>
-        <string>PopulateUpgrade</string>
-        <string>Register BFEBS</string>
-        <string>Upgrade</string>
-      </jobNames>
-      <jobFilters/>
-      <columns>
-        <com.tikal.jenkins.plugins.multijob.views.JobColumn/>
-        <com.tikal.jenkins.plugins.multijob.views.StatusColumn/>
-        <com.tikal.jenkins.plugins.multijob.views.WeatherColumn/>
-        <com.tikal.jenkins.plugins.multijob.views.LastSuccessColumn/>
-        <com.tikal.jenkins.plugins.multijob.views.LastFailureColumn/>
-        <com.tikal.jenkins.plugins.multijob.views.LastDurationColumn/>
-        <com.tikal.jenkins.plugins.multijob.views.ConsoleColumn/>
-        <hudson.views.BuildButtonColumn/>
-      </columns>
-      <recurse>false</recurse>
-      <columns defined-in="com.tikal.jenkins.plugins.multijob.views.MultiJobView">
-        <com.tikal.jenkins.plugins.multijob.views.JobColumn/>
-        <com.tikal.jenkins.plugins.multijob.views.StatusColumn/>
-        <com.tikal.jenkins.plugins.multijob.views.WeatherColumn/>
-        <com.tikal.jenkins.plugins.multijob.views.LastSuccessColumn/>
-        <com.tikal.jenkins.plugins.multijob.views.LastFailureColumn/>
-        <com.tikal.jenkins.plugins.multijob.views.LastDurationColumn/>
-        <com.tikal.jenkins.plugins.multijob.views.ConsoleColumn/>
-        <hudson.views.BuildButtonColumn/>
-      </columns>
-    </com.tikal.jenkins.plugins.multijob.views.MultiJobView>
-    <listView>
-      <owner class="hudson" reference="../../.."/>
-      <name>User Console</name>
-      <filterExecutors>false</filterExecutors>
-      <filterQueue>false</filterQueue>
-      <properties class="hudson.model.View$PropertyList"/>
-      <jobNames>
-        <comparator class="hudson.util.CaseInsensitiveComparator"/>
-        <string>UI Harness</string>
-        <string>UI Suite</string>
-      </jobNames>
-      <jobFilters/>
-      <columns>
-        <hudson.views.StatusColumn/>
-        <hudson.views.WeatherColumn/>
-        <hudson.views.JobColumn/>
-        <hudson.views.LastSuccessColumn/>
-        <hudson.views.LastFailureColumn/>
-        <hudson.views.LastDurationColumn/>
-        <hudson.views.BuildButtonColumn/>
-      </columns>
-      <recurse>false</recurse>
-    </listView>
     <hudson.plugins.sectioned__view.SectionedView plugin="sectioned-view@1.18">
       <owner class="hudson" reference="../../.."/>
       <name>Tests</name>
@@ -361,38 +242,6 @@ The will run once per minute and up to the number defined in the concurrent jobs
     </hudson.plugins.sectioned__view.SectionedView>
     <listView>
       <owner class="hudson" reference="../../.."/>
-      <name>UI-HTML-3.4.2</name>
-      <description>&lt;p&gt; Selenium IDE tests for UI 3.4.2&#xd;
-  &#xd;
-&lt;/p&gt;  </description>
-      <filterExecutors>false</filterExecutors>
-      <filterQueue>false</filterQueue>
-      <properties class="hudson.model.View$PropertyList"/>
-      <jobNames>
-        <comparator class="hudson.util.CaseInsensitiveComparator"/>
-        <string>UI-Clean-UP</string>
-        <string>UI-HTML-1</string>
-        <string>UI-HTML-2</string>
-        <string>UI-HTML-3</string>
-        <string>UI-HTML-4</string>
-        <string>UI-HTML-5</string>
-        <string>UI-HTML-full-sequence</string>
-        <string>UI-HTML-suite</string>
-      </jobNames>
-      <jobFilters/>
-      <columns>
-        <hudson.views.StatusColumn/>
-        <hudson.views.WeatherColumn/>
-        <hudson.views.JobColumn/>
-        <hudson.views.LastSuccessColumn/>
-        <hudson.views.LastFailureColumn/>
-        <hudson.views.LastDurationColumn/>
-        <hudson.views.BuildButtonColumn/>
-      </columns>
-      <recurse>false</recurse>
-    </listView>
-    <listView>
-      <owner class="hudson" reference="../../.."/>
       <name>UI-Koala</name>
       <filterExecutors>false</filterExecutors>
       <filterQueue>false</filterQueue>
@@ -419,28 +268,109 @@ The will run once per minute and up to the number defined in the concurrent jobs
       </columns>
       <recurse>false</recurse>
     </listView>
-    <listView>
+    <hudson.plugins.sectioned__view.SectionedView plugin="sectioned-view@1.18">
       <owner class="hudson" reference="../../.."/>
-      <name>DEVELOP</name>
+      <name>Provisioning</name>
+      <description>&lt;html&gt;&#xd;
+	&lt;head&gt;&#xd;
+		&lt;title&gt;&lt;/title&gt;&#xd;
+	&lt;/head&gt;&#xd;
+	&lt;body&gt;&#xd;
+		&lt;div&gt;&#xd;
+			&lt;div style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+				&lt;font size=&quot;5&quot;&gt;Documentation&lt;/font&gt;&lt;/div&gt;&#xd;
+			&lt;ul&gt;&#xd;
+				&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+					&lt;font color=&quot;blue&quot; size=&quot;5&quot;&gt;&lt;span style=&quot;font-size:16px;&quot;&gt;&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/pages/viewpage.action?pageId=56983597&quot; style=&quot;color: rgb(92, 53, 102);&quot;&gt;Deployment overview&lt;/a&gt;&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&#xd;
+				&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+					&lt;font color=&quot;blue&quot; size=&quot;5&quot;&gt;&lt;span style=&quot;font-size:16px;&quot;&gt;&lt;/span&gt;&lt;/font&gt;&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/display/QA/Eucalyptus+Configuration&quot; style=&quot;font-size: 16px; color: rgb(92, 53, 102);&quot;&gt;Configuring your environment&lt;/a&gt;&lt;/li&gt;&#xd;
+				&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+					&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/display/QA/QA+System+Documentation+Table+of+Contents&quot; style=&quot;font-size: 16px; color: rgb(92, 53, 102);&quot;&gt;Further documentation&lt;/a&gt;&lt;/li&gt;&#xd;
+			&lt;/ul&gt;&#xd;
+			&lt;div&gt;&#xd;
+				&lt;div style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+					&lt;font size=&quot;5&quot;&gt;Steps to deploy Eucalyptus&lt;/font&gt;&lt;/div&gt;&#xd;
+				&lt;ol&gt;&#xd;
+					&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+						&lt;span style=&quot;font-size:16px;&quot;&gt;Upload your SSH keys or set the default password for the nodes you wish to run Eucalyptus on&lt;/span&gt;&lt;/li&gt;&#xd;
+					&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+						&lt;span style=&quot;font-size:16px;&quot;&gt;Run the Deploy job&lt;/span&gt;&lt;/li&gt;&#xd;
+					&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+						&lt;span style=&quot;font-size:16px;&quot;&gt;Rinse and repeat with the rebuild job&lt;/span&gt;&lt;/li&gt;&#xd;
+				&lt;/ol&gt;&#xd;
+				&lt;div&gt;&#xd;
+					&amp;nbsp;&lt;/div&gt;&#xd;
+			&lt;/div&gt;&#xd;
+		&lt;/div&gt;&#xd;
+		&lt;p&gt;&#xd;
+			&amp;nbsp;&lt;/p&gt;&#xd;
+	&lt;/body&gt;&#xd;
+&lt;/html&gt;&#xd;
+</description>
       <filterExecutors>false</filterExecutors>
       <filterQueue>false</filterQueue>
       <properties class="hudson.model.View$PropertyList"/>
-      <jobNames>
-        <comparator class="hudson.util.CaseInsensitiveComparator"/>
-        <string>Koala-LOGIN</string>
-      </jobNames>
-      <jobFilters/>
-      <columns>
-        <hudson.views.StatusColumn/>
-        <hudson.views.WeatherColumn/>
-        <hudson.views.JobColumn/>
-        <hudson.views.LastSuccessColumn/>
-        <hudson.views.LastFailureColumn/>
-        <hudson.views.LastDurationColumn/>
-        <hudson.views.BuildButtonColumn/>
-      </columns>
-      <recurse>false</recurse>
-    </listView>
+      <sections>
+        <hudson.plugins.sectioned__view.ListViewSection>
+          <jobNames>
+            <comparator class="hudson.util.CaseInsensitiveComparator"/>
+            <string>Set default password</string>
+            <string>Upload Host Keypair</string>
+          </jobNames>
+          <jobFilters/>
+          <name>Administrate</name>
+          <width>FULL</width>
+          <alignment>CENTER</alignment>
+          <columns>
+            <hudson.views.StatusColumn/>
+            <hudson.views.JobColumn/>
+            <hudson.views.LastSuccessColumn/>
+            <hudson.views.LastFailureColumn/>
+            <hudson.views.LastDurationColumn/>
+            <hudson.views.BuildButtonColumn/>
+            <jenkins.plugins.extracolumns.LastBuildConsoleColumn plugin="extra-columns@1.11"/>
+          </columns>
+        </hudson.plugins.sectioned__view.ListViewSection>
+        <hudson.plugins.sectioned__view.ListViewSection>
+          <jobNames>
+            <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../hudson.plugins.sectioned__view.ListViewSection/jobNames/comparator"/>
+            <string>Deploy</string>
+          </jobNames>
+          <jobFilters/>
+          <name>Deploy</name>
+          <width>FULL</width>
+          <alignment>CENTER</alignment>
+          <columns>
+            <hudson.views.StatusColumn/>
+            <hudson.views.JobColumn/>
+            <hudson.views.LastSuccessColumn/>
+            <hudson.views.LastFailureColumn/>
+            <hudson.views.LastDurationColumn/>
+            <hudson.views.BuildButtonColumn/>
+            <jenkins.plugins.extracolumns.LastBuildConsoleColumn plugin="extra-columns@1.11"/>
+          </columns>
+        </hudson.plugins.sectioned__view.ListViewSection>
+        <hudson.plugins.sectioned__view.ListViewSection>
+          <jobNames>
+            <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../hudson.plugins.sectioned__view.ListViewSection/jobNames/comparator"/>
+            <string>Rebuild</string>
+          </jobNames>
+          <jobFilters/>
+          <name>Rebuild</name>
+          <width>FULL</width>
+          <alignment>CENTER</alignment>
+          <columns>
+            <hudson.views.StatusColumn/>
+            <hudson.views.JobColumn/>
+            <hudson.views.LastSuccessColumn/>
+            <hudson.views.LastFailureColumn/>
+            <hudson.views.LastDurationColumn/>
+            <hudson.views.BuildButtonColumn/>
+            <jenkins.plugins.extracolumns.LastBuildConsoleColumn plugin="extra-columns@1.11"/>
+          </columns>
+        </hudson.plugins.sectioned__view.ListViewSection>
+      </sections>
+    </hudson.plugins.sectioned__view.SectionedView>
   </views>
   <primaryView>Tests</primaryView>
   <slaveAgentPort>0</slaveAgentPort>

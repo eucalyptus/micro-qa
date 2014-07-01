@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>&lt;em&gt;Build a new Eucalyptus Cloud from Packages.&lt;/em&gt;</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.TextParameterDefinition>
+          <name>environment</name>
+          <description>&lt;font size=&quot;2&quot; color=&quot;blue&quot;&gt;Configuration of the Eucalyptus deployment.&lt;br&gt;
+
+Required fields:&lt;br&gt;
+public-ips&lt;br&gt;
+
+&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/display/QA/Environment+Files&quot;&gt;More information&lt;/a&gt;&lt;br&gt;&lt;/font&gt;
+
+
+</description>
+          <defaultValue>{
+  &quot;name&quot;: &quot;edge-nightly&quot;,
+  &quot;description&quot;: &quot;4.0 Nightlies EDGE Testing&quot;,
+  &quot;json_class&quot;: &quot;Chef::Environment&quot;,
+  &quot;chef_type&quot;: &quot;environment&quot;,
+  &quot;default_attributes&quot;: {
+    &quot;eucalyptus&quot;: {
+      &quot;network&quot;: { &quot;public-ips&quot;: &quot;REQUIRED&quot;},
+      &quot;eucalyptus-repo&quot;: &quot;http://downloads.eucalyptus.com/software/eucalyptus/4.0/centos/6/x86_64/&quot;,
+      &quot;euca2ools-repo&quot;: &quot;http://downloads.eucalyptus.com/software/euca2ools/3.1/centos/6/x86_64/&quot;
+    }
+  }
+}
+</defaultValue>
+        </hudson.model.TextParameterDefinition>
+        <hudson.model.TextParameterDefinition>
+          <name>bootstrap</name>
+          <description>&lt;font size=&quot;2&quot; color=&quot;blue&quot;&gt;&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/display/QA/Deploy+Using+Motherbrain&quot;&gt;
+More information on possibilities for bootstrap manifests&lt;/a&gt;&lt;/font&gt;
+</description>
+          <defaultValue>{
+  &quot;nodes&quot;: [
+    {
+      &quot;groups&quot;: [&quot;cloud::full&quot;,&quot;node::default&quot;],
+      &quot;hosts&quot;: [&quot;&lt;YOUR MACHINE IP&gt;&quot;]
+    }
+  ]
+}</defaultValue>
+        </hudson.model.TextParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
+      <maxConcurrentPerNode>0</maxConcurrentPerNode>
+      <maxConcurrentTotal>0</maxConcurrentTotal>
+      <throttleEnabled>false</throttleEnabled>
+      <throttleOption>project</throttleOption>
+    </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>true</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+
+cat &gt; environment.json &lt;&lt;EOF
+$environment
+EOF
+cat &gt; bootstrap.json &lt;&lt;EOF
+$bootstrap
+EOF</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>#!/usr/bin/python
+
+import json
+
+nuke = {
+  &quot;nodes&quot;: [
+    {
+      &quot;groups&quot;: [&quot;nuke::default&quot;],
+      &quot;hosts&quot;: []
+    }
+  ]
+}
+
+bootstrap = json.loads(open(&quot;bootstrap.json&quot;).read())
+
+for group in bootstrap[&quot;nodes&quot;]:
+    nuke[&quot;nodes&quot;][0][&quot;hosts&quot;].append(group[&quot;hosts&quot;])
+
+nuke_file = open(&apos;nuke.json&apos;, &apos;w&apos;)
+nuke_file.write(json.dumps(nuke))
+nuke_file.close()
+
+environment = json.loads(open(&quot;environment.json&quot;).read())
+environment_name = open(&apos;environment-name&apos;, &apos;w&apos;)
+environment_name.write(environment[&apos;name&apos;])
+environment_name.close()</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+source /etc/profile.d/rbenv.sh
+ENV_NAME=`cat environment-name`
+
+### Nuke
+mb environment destroy $ENV_NAME --force
+mb environment from environment.json
+mb eucalyptus bootstrap nuke.json -v -e $ENV_NAME -c /root/.mb/config.json
+
+### Redeploy
+mb environment destroy $ENV_NAME --force
+mb environment from environment.json
+mb eucalyptus bootstrap bootstrap.json -v -e $ENV_NAME -c /root/.mb/config.json</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.16">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
+</project>

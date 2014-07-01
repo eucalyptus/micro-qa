@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>&lt;html&gt;&#xd;
+	&lt;head&gt;&#xd;
+		&lt;title&gt;&lt;/title&gt;&#xd;
+	&lt;/head&gt;&#xd;
+	&lt;body&gt;&#xd;
+		&lt;div&gt;&#xd;
+			&lt;div style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+				&lt;font size=&quot;5&quot;&gt;Documentation&lt;/font&gt;&lt;/div&gt;&#xd;
+			&lt;ul&gt;&#xd;
+				&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+					&lt;font color=&quot;blue&quot; size=&quot;5&quot;&gt;&lt;span style=&quot;font-size:16px;&quot;&gt;&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/pages/viewpage.action?pageId=56983597&quot; style=&quot;color: rgb(92, 53, 102);&quot;&gt;Deployment overview&lt;/a&gt;&lt;/span&gt;&lt;/font&gt;&lt;/li&gt;&#xd;
+				&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+					&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/display/QA/Eucalyptus+Configuration&quot; style=&quot;font-size: 16px; color: rgb(92, 53, 102);&quot;&gt;Configuring your environment&lt;/a&gt;&lt;/li&gt;&#xd;
+				&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
+					&lt;a href=&quot;https://eucalyptus.atlassian.net/wiki/display/QA/QA+System+Documentation+Table+of+Contents&quot; style=&quot;font-size: 16px; color: rgb(92, 53, 102);&quot;&gt;Further documentation&lt;/a&gt;&lt;/li&gt;&#xd;
+			&lt;/ul&gt;&#xd;
+		&lt;/div&gt;&#xd;
+		&lt;p&gt;&#xd;
+			&amp;nbsp;&lt;/p&gt;&#xd;
+	&lt;/body&gt;&#xd;
+&lt;/html&gt;&#xd;
+</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.TextParameterDefinition>
+          <name>environment</name>
+          <description>&lt;font size=&quot;3&quot; color=&quot;blue&quot;&gt;
+&lt;a href=&quot;https://github.com/eucalyptus/eucalyptus-cookbook/blob/master/environments/edge-nightly.json&quot;&gt;
+  Sample environment&lt;/a&gt;
+&lt;/font&gt;</description>
+          <defaultValue>{
+  &quot;name&quot;: &quot;edge-nightly&quot;,
+  &quot;description&quot;: &quot;4.0 Nightlies EDGE Testing&quot;,
+  &quot;json_class&quot;: &quot;Chef::Environment&quot;,
+  &quot;chef_type&quot;: &quot;environment&quot;,
+  &quot;default_attributes&quot;: {
+    &quot;eucalyptus&quot;: {
+      &quot;network&quot;: { &quot;public-ips&quot;: &quot;REQUIRED&quot;},
+       &quot;topology&quot;: {
+        &quot;clc-1&quot;: &quot;&lt;CLC-IP&gt;&quot;,
+        &quot;walrus&quot;: &quot;&lt;WALRUS-IP&gt;&quot;,
+        &quot;user-facing&quot;: [&quot;&lt;UFS-IP&gt;&quot;],
+        &quot;clusters&quot;: {
+          &quot;default&quot;: {
+            &quot;cc-1&quot;: &quot;&lt;CC-IP&gt;&quot;,
+            &quot;sc-1&quot;: &quot;&lt;SC-IP&gt;&quot;,
+            &quot;nodes&quot;: &quot;&lt;NC-IP&gt;&quot;
+          }
+        }
+      },
+      &quot;eucalyptus-repo&quot;: &quot;http://downloads.eucalyptus.com/software/eucalyptus/4.0/centos/6/x86_64/&quot;,
+      &quot;euca2ools-repo&quot;: &quot;http://downloads.eucalyptus.com/software/euca2ools/3.1/centos/6/x86_64/&quot;
+    }
+  }
+}
+</defaultValue>
+        </hudson.model.TextParameterDefinition>
+        <hudson.model.TextParameterDefinition>
+          <name>bootstrap</name>
+          <description>&lt;font size=&quot;3&quot; color=&quot;blue&quot;&gt;
+&lt;a href=&quot;https://github.com/eucalyptus/eucalyptus-cookbook/blob/master/bootstrap.json&quot;&gt;
+  Sample bootstrap&lt;/a&gt;
+&lt;/font&gt;</description>
+          <defaultValue>{
+  &quot;nodes&quot;: [
+    {
+      &quot;groups&quot;: [&quot;cloud::full&quot;,&quot;node::default&quot;],
+      &quot;hosts&quot;: [&quot;&lt;YOUR MACHINE IP&gt;&quot;]
+    }
+  ]
+}</defaultValue>
+        </hudson.model.TextParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
+      <maxConcurrentPerNode>0</maxConcurrentPerNode>
+      <maxConcurrentTotal>0</maxConcurrentTotal>
+      <throttleEnabled>false</throttleEnabled>
+      <throttleOption>project</throttleOption>
+    </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>true</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+
+cat &gt; environment.json &lt;&lt;EOF
+$environment
+EOF
+cat &gt; bootstrap.json &lt;&lt;EOF
+$bootstrap
+EOF</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>#!/usr/bin/python
+import json
+
+environment = json.loads(open(&apos;environment.json&apos;).read())
+name = open(&apos;environment-name&apos;,&apos;w&apos;)
+name.write(environment[&apos;name&apos;])
+name.close()</command>
+    </hudson.tasks.Shell>
+    <hudson.tasks.Shell>
+      <command>#!/bin/bash
+source /etc/profile.d/rbenv.sh
+ENV_NAME=`cat environment-name`
+mb environment unlock $ENV_NAME
+mb environment destroy --force $ENV_NAME
+mb environment from environment.json
+mb eucalyptus bootstrap bootstrap.json -v -e $ENV_NAME -c /root/.mb/config.json</command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers/>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.16">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
+</project>

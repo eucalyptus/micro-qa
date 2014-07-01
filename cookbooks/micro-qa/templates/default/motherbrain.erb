@@ -1,0 +1,55 @@
+{
+  "berkshelf": {
+    "path": "~/.berkshelf"
+  },
+  "chef": {
+    "api_url": "https://<%= node[:ipaddress] %>",
+    "api_client": "admin",
+    "api_key": "/etc/chef-server/admin.pem",
+    "validator_client": "chef-validator",
+    "validator_path": "/etc/chef-server/chef-validator.pem",
+    "bootstrap_proxy": null,
+    "encrypted_data_bag_secret_path": null
+  },
+  "ssh": {
+    "user": "root",
+    "password": null,
+    "keys": ["/root/.ssh/id_rsa"],
+    "sudo": false,
+    "timeout": 10.0,
+    "verbose": null
+  },
+  "winrm": {
+    "user": null,
+    "password": null,
+    "port": 5985
+  },
+  "ssl": {
+    "verify": false
+  },
+  "log": {
+    "level": "INFO",
+    "location": "STDOUT"
+  },
+  "server": {
+    "daemonize": false,
+    "pid": "/var/run/motherbrain/mb.pid"
+  },
+  "rest_gateway": {
+    "enable": false,
+    "host": "0.0.0.0",
+    "port": 0
+  },
+  "plugin_manager": {
+    "eager_loading": false,
+    "eager_load_interval": 300,
+    "async_loading": false
+  },
+  "ef": {
+    "api_url": null,
+    "api_key": null
+  },
+  "bootstrap": {
+    "default_template": null
+  }
+}

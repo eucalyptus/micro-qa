@@ -6,17 +6,11 @@
   <properties>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
-        <hudson.model.TextParameterDefinition>
-          <name>privatekey</name>
-          <description>Private DSA Key for accessing hosts when building a cloud.</description>
+        <hudson.model.StringParameterDefinition>
+          <name>password</name>
+          <description></description>
           <defaultValue></defaultValue>
-        </hudson.model.TextParameterDefinition>
-        <hudson.model.TextParameterDefinition>
-          <name>publickey</name>
-          <description>Public DSA Key for accessing hosts when building a cloud.
-</description>
-          <defaultValue></defaultValue>
-        </hudson.model.TextParameterDefinition>
+        </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
     <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
@@ -35,26 +29,19 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
-      <command>#!/bin/bash
-keydir=~/.ssh
-mkdir -p $keydir
-chmod 700 $keydir
+      <command>#!/usr/bin/python
 
-cat &gt; $keydir/id_rsa &lt;&lt;EOF
-$privatekey
-EOF
+import json
+import os
 
-cat &gt; $keydir/id_rsa.pub &lt;&lt;EOF
-$publickey
-EOF
+mb_config_path = &apos;/root/.mb/config.json&apos;
+mb_config = json.loads(open(mb_config_path).read())
 
-cat &gt; $keydir/authorized_keys &lt;&lt;EOF
-$publickey
-EOF
+mb_config[&quot;ssh&quot;][&quot;password&quot;] = os.getenv(&apos;password&apos;, &apos;foobar&apos;)
 
-chmod 600 $keydir/*
-
-</command>
+mb_file = open(mb_config_path, &apos;w&apos;)
+mb_file.write(json.dumps(mb_config))
+mb_file.close()</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
