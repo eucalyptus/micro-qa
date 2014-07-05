@@ -17,7 +17,6 @@ Vagrant.configure("2") do |config|
         aws.instance_type = "m1.xlarge"
         aws.ami = "emi-A6EA57D5"
         aws.security_groups = ["default"]
-        aws.region = "eucalyptus"
         aws.instance_ready_timeout = 600
         aws.endpoint = "http://my-clc-ip:8773/services/Eucalyptus"
         aws.keypair_name = "my-keypair"
