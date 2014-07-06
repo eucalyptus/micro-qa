@@ -252,6 +252,7 @@ The will run once per minute and up to the number defined in the concurrent jobs
         <string>Koala-IP-OPERATIONS</string>
         <string>Koala-KEY-PAIR-OPERATIONS</string>
         <string>Koala-SECURITY-GROUP-OPERATIONS</string>
+        <string>Koala-SNAPSHOT-OPERATIONS</string>
         <string>Koala-SUITE</string>
         <string>Koala-VOLUME-OPERATIONS</string>
         <string>UI-Clean-UP-Koala</string>

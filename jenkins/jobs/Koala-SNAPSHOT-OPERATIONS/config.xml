@@ -1,0 +1,149 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>&lt;strong&gt; Selenium HTML tests for Koala&lt;/strong&gt;&#xd;
+&lt;table id=&quot;suiteTable&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot; border=&quot;1&quot; class=&quot;selenium&quot;&gt;&lt;tbody&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;b&gt;Test Suite&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/koala_login.html&quot;&gt;koala_login&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set_all_to_list_view.html&quot;&gt;set_all_to_list_view&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/store-availability-zones.html&quot;&gt;store-availability-zones&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-availability-zone-to-first-on-list.html&quot;&gt;set-availability-zone-to-first-on-list&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-instance-type-to-m1-medium.html&quot;&gt;set-instance-type-to-m1-medium&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-keypair-to-None.html&quot;&gt;set-keypair-to-None&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-s-group-to-default.html&quot;&gt;set-s-group-to-default&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/launch-instance-from-instances-lp.html&quot;&gt;launch-instance-from-instances-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/verify-instance-is-running.html&quot;&gt;verify-instance-is-running&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-volume-size-to-2.html&quot;&gt;set-volume-size-to-2&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/create-volume-from-dashboard.html&quot;&gt;create-volume-from-dashboard&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/verify-volume-visible-on-lp.html&quot;&gt;verify-volume-visible-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/verify-volume-status-is-available-on-lp.html&quot;&gt;verify-volume-status-is-available-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/store-volume-data-as-volume_1.html&quot;&gt;store-volume-data-as-volume_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-tag-data-short.html&quot;&gt;set-tag-data-short&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Snapshots/create-snapshot-from-volumes-lp.html&quot;&gt;create-snapshot-from-volumes-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Snapshots/verify-snapshot-visible-on-lp.html&quot;&gt;verify-snapshot-visible-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Snapshots/verify-snapshot-status-is-completed-on-lp.html&quot;&gt;verify-snapshot-status-is-completed-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-availability-zone-to-second-on-list.html&quot;&gt;set-availability-zone-to-second-on-list&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Snapshots/create-volume-from-snapshot-on-snapshot-lp.html&quot;&gt;create-volume-from-snapshot-on-snapshot-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/verify-volume-visible-on-lp.html&quot;&gt;verify-volume-visible-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/verify-volume-status-is-available-on-lp.html&quot;&gt;verify-volume-status-is-available-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/delete-volume-on-detail-page.html&quot;&gt;delete-volume-on-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/verify-volume-status-is-deleted-on-lp.html&quot;&gt;verify-volume-status-is-deleted-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Snapshots/register-snapshot-as-image-from-snapshot-lp.html&quot;&gt;register-snapshot-as-image-from-snapshot-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Images/verify-image-visible-on-lp.html&quot;&gt;verify-image-visible-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Snapshots/delete-snapshot-from-lp.html&quot;&gt;delete-snapshot-from-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Snapshots/verify-snapshot-not-present-on-lp.html&quot;&gt;verify-snapshot-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Images/verify-image-not-present-on-lp.html&quot;&gt;verify-image-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-volume-data-to-volume_1.html&quot;&gt;set-volume-data-to-volume_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/attach-volume-from-volumes-lp.html&quot;&gt;attach-volume-from-volumes-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/verify-volume-status-is-attached-on-lp.html&quot;&gt;verify-volume-status-is-attached-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Snapshots/create-snapshot-from-snapshots-lp.html&quot;&gt;create-snapshot-from-snapshots-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Snapshots/verify-snapshot-status-is-completed-on-lp.html&quot;&gt;verify-snapshot-status-is-completed-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Snapshots/delete-snapshot-from-detail-page.html&quot;&gt;delete-snapshot-from-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Snapshots/create-snapshot-from-dashboard.html&quot;&gt;create-snapshot-from-dashboard&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Snapshots/verify-snapshot-visible-on-lp.html&quot;&gt;verify-snapshot-visible-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Snapshots/verify-snapshot-status-is-completed-on-lp.html&quot;&gt;verify-snapshot-status-is-completed-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Snapshots/delete-snapshot-from-lp.html&quot;&gt;delete-snapshot-from-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/terminate-instance-from-detail-page.html&quot;&gt;terminate-instance-from-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/verify-instance-is-terminated.html&quot;&gt;verify-instance-is-terminated&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/verify-volume-status-is-available-on-lp.html&quot;&gt;verify-volume-status-is-available-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/delete-volume-from-lp.html&quot;&gt;delete-volume-from-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/verify-volume-status-is-deleted-on-lp.html&quot;&gt;verify-volume-status-is-deleted-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/koala_logout.html&quot;&gt;koala_logout&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;/tbody&gt;&lt;/table&gt;&#xd;
+&#xd;
+&#xd;
+</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>console_url</name>
+          <description>URL of eucalyptus console</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>account</name>
+          <description>Eucalyptus account</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>user_name</name>
+          <description>Eucalyptus user</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>password</name>
+          <description>Eucalyptus user password</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>browser_type</name>
+          <description>Browser type for the test: can be firefox or iexplorer</description>
+          <defaultValue>*firefox </defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>repo_url</name>
+          <description>Github repo URL of test suite.</description>
+          <defaultValue>https://github.com/eucalyptus/eucaconsole</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>branch</name>
+          <description></description>
+          <defaultValue>tests-refactored</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>dir</name>
+          <description>Directory of the cloned test suite.
+
+
+</description>
+          <defaultValue>selenium/SNAPSHOT_OPERATIONS.html</defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
+      <maxConcurrentPerNode>0</maxConcurrentPerNode>
+      <maxConcurrentTotal>0</maxConcurrentTotal>
+      <throttleEnabled>false</throttleEnabled>
+      <throttleOption>project</throttleOption>
+    </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>git clone $repo_url
+cd eucaconsole/tests
+git checkout $branch
+
+#Xvfb :0 -ac 2&gt; /dev/null &amp;
+
+sed -i &quot;s/ui-test-acct-00/$account/g&quot; selenium/KOALA/koala_log*
+sed -i &quot;s/admin/$user_name/g&quot; selenium/KOALA/koala_log*
+sed -i &quot;s/mypassword0/$password/g&quot; selenium/KOALA/koala_login.html
+
+
+export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar  -Dorg.openqa.jetty.SocketListener.bufferSize=20480 -userExtensions &quot;selenium/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$console_url&quot; &quot;$dir&quot; &quot;snapshot-operations.html&quot; -trustAllSSLCertificates  -timeout 3600 -debug
+ </command>
+    </hudson.tasks.Shell>
+  </builders>
+  <publishers>
+    <hudson.tasks.ArtifactArchiver>
+      <artifacts>eucaconsole/tests/snapshot-operations.html</artifacts>
+      <latestOnly>false</latestOnly>
+      <allowEmptyArchive>false</allowEmptyArchive>
+    </hudson.tasks.ArtifactArchiver>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.16">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+  </buildWrappers>
+</project>
