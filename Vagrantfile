@@ -11,16 +11,16 @@ Vagrant.configure("2") do |config|
     config.vm.provider :aws do |aws, override|
         override.vm.box_url = "https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box"
         override.ssh.pty = true
-        override.ssh.private_key_path = "/Users/alicehubenko/keypair/id_rsa"
-        aws.access_key_id ="1YCMC3ZSCW8UF2GUE1B3U" 
-        aws.secret_access_key = "4fV20keM4AQiRMBejxxgYhYxQSFnd7vamQ8IsdCh" 
+        override.ssh.private_key_path = "~/.ssh/id_rsa"
+        aws.access_key_id = "DWDWTCOBHXXXXXXXXXXXXX"
+        aws.secret_access_key = "D1eKhnWw2wUfeOvKNMVQYYYYYYYYYYYYYY"
         aws.instance_type = "m1.xlarge"
-        aws.ami = "emi-80F94DD2"
+        aws.ami = "emi-A6EA57D5"
         aws.security_groups = ["default"]
         aws.region = "eucalyptus"
         aws.instance_ready_timeout = 600
-        aws.endpoint = "http://10.111.1.136:8773/services/Eucalyptus"
-        aws.keypair_name = "mykey"
+        aws.endpoint = "http://my-clc-ip:8773/services/Eucalyptus"
+        aws.keypair_name = "my-keypair"
         override.ssh.username ="root"
         aws.block_device_mapping = [
         {
