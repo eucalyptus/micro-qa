@@ -2,31 +2,40 @@
 <project>
   <actions/>
   <description>&lt;strong&gt; Selenium HTML tests for Koala&lt;/strong&gt;&#xd;
-&lt;p&gt; Runs as ui-test-acct-00 admin.&lt;/p&gt;&#xd;
 &lt;table id=&quot;suiteTable&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot; border=&quot;1&quot; class=&quot;selenium&quot;&gt;&lt;tbody&gt;&#xd;
 &lt;tr&gt;&lt;td&gt;&lt;b&gt;Test Suite&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;koala_login.html&quot;&gt;koala_login&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;get_dashboard_counts.html&quot;&gt;get_dashboard_counts&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;create-key-pair-key_1-from-dashboard.html&quot;&gt;create-key-pair-key_1-from-dashboard&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-keypairs-count-increased-by-1.html&quot;&gt;verify-keypairs-count-increased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;create-key-pair-key_2-from-landing-page.html&quot;&gt;create-key-pair-key_2-from-landing-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-keypairs-count-increased-by-1.html&quot;&gt;verify-keypairs-count-increased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;delete-created-keypairs_lw.html&quot;&gt;delete-created-keypairs_lw&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-keypairs-count-decreased-by-2.html&quot;&gt;verify-keypairs-count-decreased-by-2&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;koala_logout.html&quot;&gt;koala_logout&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;/tbody&gt;&lt;/table&gt;</description>
+&lt;tr&gt;&lt;td&gt;koala_login&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;set_all_to_list_view&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;create-key-pair-from-dashboard&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;verify-key-pair-was-created&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;store-keypair-name-as-keypair_1&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;create-key-pair-from-landing-page&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;verify-key-pair-was-created&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;store-keypair-name-as-keypair_2&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;import-key-pair&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &gt;store-keypair-name-as-keypair_3&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &gt;verify-key-pair-was-created&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &gt;set-keypair-name-to-keypair_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &gt;delete-key-pair-from-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &gt;verify-key-pair-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &gt;set-keypair-name-to-keypair_2&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &gt;delete-key-pair-from-landing-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &gt;verify-key-pair-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &gt;set-keypair-name-to-keypair_3&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &gt;delete-key-pair-from-landing-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &gt;verify-key-pair-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &gt;koala_logout&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;/tbody&gt;&lt;/table&gt;&#xd;
+</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
-          <name>console_ip</name>
-          <description>IP address of eucalyptus console</description>
-          <defaultValue></defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>console_protocol</name>
-          <description>Protocol that eucalyptus console uses: can be http or https</description>
+          <name>console_url</name>
+          <description>URL of eucalyptus console
+
+</description>
           <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
@@ -42,7 +51,7 @@
         <hudson.model.StringParameterDefinition>
           <name>branch</name>
           <description>Choices include master and testing</description>
-          <defaultValue>develop</defaultValue>
+          <defaultValue>tests-refactored</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>dir</name>
@@ -50,7 +59,22 @@
 
 
 </description>
-          <defaultValue>selenium/KOALA/KEYPAIR_OPERATIONS.html</defaultValue>
+          <defaultValue>selenium/KEYPAIR_OPERATIONS.html</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>account</name>
+          <description></description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>user_name</name>
+          <description></description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>password</name>
+          <description></description>
+          <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -74,9 +98,13 @@
 cd eucaconsole/tests
 git checkout $branch
 
-if [ $console_protocol = &quot;https&quot; ]; then export url=&quot;$console_protocol://$console_ip&quot; ; else export url=&quot;$console_protocol://$console_ip:8888&quot; ; fi 
+#Xvfb :0 -ac 2&gt; /dev/null &amp;
 
-export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar -Dorg.openqa.jetty.SocketListener.bufferSize=20480 -userExtensions &quot;selenium/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$url&quot; &quot;$dir&quot; &quot;key-pair-operations.html&quot; -trustAllSSLCertificates 
+sed -i &quot;s/ui-test-acct-00/$account/g&quot; selenium/KOALA/koala_log*
+sed -i &quot;s/admin/$user_name/g&quot; selenium/KOALA/koala_log*
+sed -i &quot;s/mypassword0/$password/g&quot; selenium/KOALA/koala_login.html
+
+export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar -Dorg.openqa.jetty.SocketListener.bufferSize=20480 -userExtensions &quot;selenium/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$console_url&quot; &quot;$dir&quot; &quot;key-pair-operations.html&quot; -trustAllSSLCertificates 
  </command>
     </hudson.tasks.Shell>
   </builders>
