@@ -58,14 +58,10 @@ end
 include_recipe "rbenv::default"
 include_recipe "rbenv::ruby_build"
 
-mb_ruby_version = "2.0.0-p481"
+mb_ruby_version = "2.1.2"
 
 rbenv_ruby mb_ruby_version do
   global true
-end
-
-rbenv_execute "gem update --system" do
-  ruby_version mb_ruby_version
 end
 
 rbenv_execute "gem install motherbrain" do
