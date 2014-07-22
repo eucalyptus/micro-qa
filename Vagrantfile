@@ -17,7 +17,6 @@ Vagrant.configure("2") do |config|
         aws.instance_type = "m1.xlarge"
         aws.ami = "emi-A6EA57D5"
         aws.security_groups = ["default"]
-        aws.region = "eucalyptus"
         aws.instance_ready_timeout = 600
         aws.endpoint = "http://my-clc-ip:8773/services/Eucalyptus"
         aws.keypair_name = "my-keypair"
@@ -59,10 +58,10 @@ Vagrant.configure("2") do |config|
     config.omnibus.chef_version = :latest
     config.berkshelf.enabled = true
     config.vm.provision :chef_solo do |chef|
-      chef.add_recipe "micro-qa::jenkins"
-      chef.add_recipe "micro-qa::eutester"
       chef.add_recipe "chef-server::default"
       chef.add_recipe "micro-qa::deploy"
+      chef.add_recipe "micro-qa::jenkins"
+      chef.add_recipe "micro-qa::eutester"
       chef.add_recipe "micro-qa::console-tests"
       chef.json = {}
     end

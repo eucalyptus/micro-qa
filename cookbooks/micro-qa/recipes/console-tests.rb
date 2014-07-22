@@ -13,7 +13,7 @@ easy_install_package "selenium"
 
 if platform?("redhat", "centos", "fedora")
   # code for only redhat family systems.
-  %w{make rubygems ruby-devel xorg-x11-font* wget xorg-x11-server-Xvfb firefox}.each do |package_name|
+  %w{make rubygems ruby-devel wget xorg-x11-server-Xvfb firefox}.each do |package_name|
     package package_name
   end
 elsif platform?("ubuntu", "debian") 
