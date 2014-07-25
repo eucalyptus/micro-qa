@@ -1,0 +1,27 @@
+Content-Type: multipart/mixed; boundary="===============5423618256409275201=="
+MIME-Version: 1.0
+
+--===============5423618256409275201==
+Content-Type: text/x-shellscript; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="script.sh"
+
+#!/bin/bash
+SWAP_FILE=/tmp/swap
+dd if=/dev/zero of=$SWAP_FILE bs=1M count=2000
+mkswap $SWAP_FILE
+swapon $SWAP_FILE
+--===============5423618256409275201==
+Content-Type: text/cloud-config; charset="us-ascii"
+MIME-Version: 1.0
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment; filename="cloud-config.txt"
+
+#cloud-config
+disable_root: false
+apt_mirror: http://us.archive.ubuntu.com/ubuntu/
+resize_rootfs: True
+packages:
+ - rsync
+--===============5423618256409275201==--
