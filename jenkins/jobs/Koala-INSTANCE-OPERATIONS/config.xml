@@ -2,32 +2,47 @@
 <project>
   <actions/>
   <description>&lt;strong&gt; Selenium HTML tests for Koala&lt;/strong&gt;&#xd;
-&lt;p&gt; Runs as ui-test-acct-00 admin.&lt;/p&gt;&#xd;
 &lt;table id=&quot;suiteTable&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot; border=&quot;1&quot; class=&quot;selenium&quot;&gt;&lt;tbody&gt;&#xd;
 &lt;tr&gt;&lt;td&gt;&lt;b&gt;Test Suite&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;koala_login.html&quot;&gt;koala_login&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;get_dashboard_counts.html&quot;&gt;get_dashboard_counts&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;create-s-group-1-with-rules-and-tags.html&quot;&gt;create-s-group-1-with-rules-and-tags&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-s.group-number-increased-by-1.html&quot;&gt;verify-s.group-number-increased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;create-key-pair-key_1-from-dashboard.html&quot;&gt;create-key-pair-key_1-from-dashboard&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-keypairs-count-increased-by-1.html&quot;&gt;verify-keypairs-count-increased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;launch-instance-from-dboard-az1-key_1-group_1.html&quot;&gt;launch-instance-from-dboard-az1-key_1-group_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-running-instances-count-increased-by-1.html&quot;&gt;verify-running-instances-count-increased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;launch-instance-from-instances-lp.html&quot;&gt;launch-instance-from-instances-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-running-instances-count-increased-by-1.html&quot;&gt;verify-running-instances-count-increased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;terminate-all-instances.html&quot;&gt;terminate-all-instances&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-running-instances-count-is-0.html&quot;&gt;verify-running-instances-count-is-0&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;launch-instance-from-images.html&quot;&gt;launch-instance-from-images&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-running-instances-count-increased-by-1.html&quot;&gt;verify-running-instances-count-increased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;launch-more-like-this.html&quot;&gt;launch-more-like-this&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-running-instances-count-increased-by-1.html&quot;&gt;verify-running-instances-count-increased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;terminate-all-instances.html&quot;&gt;terminate-all-instances&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-running-instances-count-is-0.html&quot;&gt;verify-running-instances-count-is-0&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;delete-s-group-1-from-landing-page.html&quot;&gt;delete-s-group-1-from-landing-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-s.group-number-decreased-by-1.html&quot;&gt;verify-s.group-number-decreased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;delete-key_1.html&quot;&gt;delete-key_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-keypairs-count-decreased-by-1.html&quot;&gt;verify-keypairs-count-decreased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;koala_logout.html&quot;&gt;koala_logout&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/koala_login.html&quot;&gt;koala_login&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set_all_to_list_view.html&quot;&gt;set_all_to_list_view&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/store-availability-zones.html&quot;&gt;store-availability-zones&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-tag-data-short.html&quot;&gt;set-tag-data-short&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/SecurityGroups/create-s-group-from-lp-with-RDP-SSH-cTCP-to-default-1-tag.html&quot;&gt;create-s-group-from-lp-with-RDP-SSH-cTCP-to-default-1-tag&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/SecurityGroups/verify-s-group-was-created.html&quot;&gt;verify-s-group-was-created&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/store-s-group-data-as-s_group_1.html&quot;&gt;store-s-group-data-as-s_group_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Keypairs/create-key-pair-from-dashboard.html&quot;&gt;create-key-pair-from-dashboard&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Keypairs/verify-key-pair-was-created.html&quot;&gt;verify-key-pair-was-created&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/store-keypair-name-as-keypair_1.html&quot;&gt;store-keypair-name-as-keypair_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-instance-type-to-m1-medium.html&quot;&gt;set-instance-type-to-m1-medium&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/launch-instance-from-instances-lp.html&quot;&gt;launch-instance-from-instances-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/verify-instance-is-running.html&quot;&gt;verify-instance-is-running&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-keypair-to-None.html&quot;&gt;set-keypair-to-None&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-s-group-to-default.html&quot;&gt;set-s-group-to-default&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-instance-type-to-t1-micro.html&quot;&gt;set-instance-type-to-t1-micro&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/launch-instance-from-images-lp.html&quot;&gt;launch-instance-from-images-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/verify-instance-is-running.html&quot;&gt;verify-instance-is-running&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/store-instance-status.html&quot;&gt;store-instance-status&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/verify-instance-data-displays-on-lp.html&quot;&gt;verify-instance-data-displays-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/batch-terminate-all-running-instances.html&quot;&gt;batch-terminate-all-running-instances&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/verify-no-running-instances.html&quot;&gt;verify-no-running-instances&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-availability-zone-to-first-on-list.html&quot;&gt;set-availability-zone-to-first-on-list&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/launch-instance-from-dashboard.html&quot;&gt;launch-instance-from-dashboard&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/verify-instance-is-running.html&quot;&gt;verify-instance-is-running&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/store-instance-data-as-instance_1.html&quot;&gt;store-instance-data-as-instance_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/launch-more-like-this-from-lp.html&quot;&gt;launch-more-like-this-from-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/verify-instance-is-running.html&quot;&gt;verify-instance-is-running&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/terminate-instance-from-lp.html&quot;&gt;terminate-instance-from-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/verify-instance-is-terminated.html&quot;&gt;verify-instance-is-terminated&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-instance-data-to-instance_1.html&quot;&gt;set-instance-data-to-instance_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/terminate-instance-from-detail-page.html&quot;&gt;terminate-instance-from-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-s-group-data-to-s_group_1.html&quot;&gt;set-s-group-data-to-s_group_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/SecurityGroups/delete-s-group-from-landing-page.html&quot;&gt;delete-s-group-from-landing-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/SecurityGroups/verify-s-group-not-present-on-lp.html&quot;&gt;verify-s-group-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-keypair-name-to-keypair_1.html&quot;&gt;set-keypair-name-to-keypair_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Keypairs/delete-key-pair-from-detail-page.html&quot;&gt;delete-key-pair-from-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Keypairs/verify-key-pair-not-present-on-lp.html&quot;&gt;verify-key-pair-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/koala_logout.html&quot;&gt;koala_logout&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
 &lt;/tbody&gt;&lt;/table&gt;&#xd;
 &#xd;
 </description>
@@ -36,13 +51,8 @@
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
-          <name>console_ip</name>
-          <description>IP address of eucalyptus console</description>
-          <defaultValue></defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>console_protocol</name>
-          <description>Protocol that eucalyptus console uses: can be http or https</description>
+          <name>console_url</name>
+          <description>URL eucalyptus console</description>
           <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
@@ -58,7 +68,7 @@
         <hudson.model.StringParameterDefinition>
           <name>branch</name>
           <description></description>
-          <defaultValue>develop</defaultValue>
+          <defaultValue>tests-refactored</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>dir</name>
@@ -66,7 +76,22 @@
 
 
 </description>
-          <defaultValue>selenium/KOALA/INSTANCE_OPERATIONS.html</defaultValue>
+          <defaultValue>selenium/INSTANCE_OPERATIONS.html</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>account</name>
+          <description>Eucalyptus account</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>user_name</name>
+          <description>Eucalyptus user</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>password</name>
+          <description>Eucalyptus user password</description>
+          <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -90,10 +115,14 @@
 cd eucaconsole/tests
 git checkout $branch
 
+#Xvfb :0 -ac 2&gt; /dev/null &amp;
 
-if [ $console_protocol = &quot;https&quot; ]; then export url=&quot;$console_protocol://$console_ip&quot; ; else export url=&quot;$console_protocol://$console_ip:8888&quot; ; fi 
+sed -i &quot;s/ui-test-acct-00/$account/g&quot; selenium/KOALA/koala_log*
+sed -i &quot;s/admin/$user_name/g&quot; selenium/KOALA/koala_log*
+sed -i &quot;s/mypassword0/$password/g&quot; selenium/KOALA/koala_login.html
 
-export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar  -Dorg.openqa.jetty.SocketListener.bufferSize=20480 -userExtensions &quot;selenium/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$url&quot; &quot;$dir&quot; &quot;instance-operations.html&quot; -trustAllSSLCertificates  -debug
+
+export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar  -Dorg.openqa.jetty.SocketListener.bufferSize=20480 -userExtensions &quot;selenium/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$console_url&quot; &quot;$dir&quot; &quot;instance-operations.html&quot; -trustAllSSLCertificates  -timeout 3600 -debug
  </command>
     </hudson.tasks.Shell>
   </builders>
