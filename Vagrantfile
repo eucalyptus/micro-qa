@@ -21,6 +21,7 @@ Vagrant.configure("2") do |config|
         aws.endpoint = "http://my-clc-ip:8773/services/Eucalyptus"
         aws.keypair_name = "my-keypair"
         override.ssh.username ="root"
+        aws.user_data = File.read("user_data.txt")
         aws.block_device_mapping = [
         {
             :DeviceName => "/dev/sda", 
