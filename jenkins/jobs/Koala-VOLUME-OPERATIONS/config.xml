@@ -5,41 +5,47 @@
 &lt;p&gt; Runs as ui-test-acct-00 admin.&lt;/p&gt;&#xd;
 &lt;table id=&quot;suiteTable&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot; border=&quot;1&quot; class=&quot;selenium&quot;&gt;&lt;tbody&gt;&#xd;
 &lt;tr&gt;&lt;td&gt;&lt;b&gt;Test Suite&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/koala_login.html&quot;&gt;koala_login&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/store-availability-zones.html&quot;&gt;store-availability-zones&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-volume-size-to-2.html&quot;&gt;set-volume-size-to-2&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-availability-zone-to-first-on-list.html&quot;&gt;set-availability-zone-to-first-on-list&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-tag-data-short.html&quot;&gt;set-tag-data-short&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/create-volume-from-dashboard.html&quot;&gt;create-volume-from-dashboard&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/verify-volume-visible-on-lp.html&quot;&gt;verify-volume-visible-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/store-volume-data-as-volume_1.html&quot;&gt;store-volume-data-as-volume_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Keypairs/create-key-pair-from-landing-page.html&quot;&gt;create-key-pair-from-landing-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Keypairs/verify-key-pair-was-created.html&quot;&gt;verify-key-pair-was-created&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/SecurityGroups/create-s-group-from-lp-with-RDP-SSH-cTCP-to-default-1-tag.html&quot;&gt;create-s-group-from-lp-with-RDP-SSH-cTCP-to-default-1-tag&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-instance-type-to-m1-medium.html&quot;&gt;set-instance-type-to-m1-medium&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/launch-instance-from-instances-lp.html&quot;&gt;launch-instance-from-instances-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/verify-instance-is-running.html&quot;&gt;verify-instance-is-running&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/attach-volume-to-instance-from-inst-detail-page.html&quot;&gt;attach-volume-to-instance-from-inst-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/verify-volume-status-is-attached-on-lp.html&quot;&gt;verify-volume-status-is-attached-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/detach-volume-on-its-detail-page.html&quot;&gt;detach-volume-on-its-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/verify-volume-status-is-available-on-lp.html&quot;&gt;verify-volume-status-is-available-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/attach-volume-from-volumes-lp.html&quot;&gt;attach-volume-from-volumes-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/verify-volume-status-is-attached-on-lp.html&quot;&gt;verify-volume-status-is-attached-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/create-volume-from-lp.html&quot;&gt;create-volume-from-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/terminate-instance-from-detail-page.html&quot;&gt;terminate-instance-from-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/verify-volume-visible-on-lp.html&quot;&gt;verify-volume-visible-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Instances/verify-instance-is-terminated.html&quot;&gt;verify-instance-is-terminated&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Keypairs/delete-key-pair-from-detail-page.html&quot;&gt;delete-key-pair-from-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Keypairs/verify-key-pair-was-deleted.html&quot;&gt;verify-key-pair-was-deleted&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/delete-volume-on-detail-page.html&quot;&gt;delete-volume-on-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/verify-volume-status-is-deleted-on-lp.html&quot;&gt;verify-volume-status-is-deleted-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-volume-data-to-volume_1.html&quot;&gt;set-volume-data-to-volume_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/delete-volume-from-lp.html&quot;&gt;delete-volume-from-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/Volumes/verify-volume-status-is-deleted-on-lp.html&quot;&gt;verify-volume-status-is-deleted-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/SecurityGroups/delete-s-group-from-detail-page.html&quot;&gt;delete-s-group-from-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/SecurityGroups/verify-s-group-not-present-on-lp.html&quot;&gt;verify-s-group-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/koala_logout.html&quot;&gt;koala_logout&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/koala_login.html&quot;&gt;koala_login&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/store-availability-zones.html&quot;&gt;store-availability-zones&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/Volumes/set-volume-size-to-2.html&quot;&gt;set-volume-size-to-2&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/set-availability-zone-to-first-on-list.html&quot;&gt;set-availability-zone-to-first-on-list&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/set-tag-data-short.html&quot;&gt;set-tag-data-short&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/Volumes/set-volume-name-to-volume-and-5randomchars.html&quot;&gt;set-volume-name-to-volume-and-5randomchars&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Volumes/create-volume-from-dashboard.html&quot;&gt;create-volume-from-dashboard&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Volumes/verify-volume-visible-on-lp.html&quot;&gt;verify-volume-visible-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Volumes/verify-volume-status-is-available-on-lp.html&quot;&gt;verify-volume-status-is-available-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/Keypairs/set-keypair-name-to-key-and-5randomchars.html&quot;&gt;set-keypair-name-to-key-and-5randomchars&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Keypairs/create-key-pair-from-landing-page.html&quot;&gt;create-key-pair-from-landing-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Keypairs/verify-key-pair-was-created.html&quot;&gt;verify-key-pair-was-created&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/SecurityGroups/set-s-group-name-to-group-and-5randomchars.html&quot;&gt;set-s-group-name-to-group-and-5randomchars&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/SecurityGroups/set-s-group-description-short.html&quot;&gt;set-s-group-description-short&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/SecurityGroups/create-s-group-from-lp-with-RDP-SSH-cTCP-to-default-1-tag.html&quot;&gt;create-s-group-from-lp-with-RDP-SSH-cTCP-to-default-1-tag&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/Instances/set-instance-type-to-m1-medium.html&quot;&gt;set-instance-type-to-m1-medium&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/Instances/set-instance-name-to-instance-and-5randomchars.html&quot;&gt;set-instance-name-to-instance-and-5randomchars&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Instances/launch-instance-from-instances-lp.html&quot;&gt;launch-instance-from-instances-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Instances/verify-instance-is-running.html&quot;&gt;verify-instance-is-running&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Volumes/attach-volume-to-instance-from-inst-detail-page.html&quot;&gt;attach-volume-to-instance-from-inst-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Volumes/verify-volume-status-is-attached-on-inst-detail-page.html&quot;&gt;verify-volume-status-is-attached-on-inst-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Volumes/detach-volume-on-its-detail-page.html&quot;&gt;detach-volume-on-its-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Volumes/verify-volume-status-is-available-on-lp.html&quot;&gt;verify-volume-status-is-available-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Volumes/attach-volume-from-volumes-lp.html&quot;&gt;attach-volume-from-volumes-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Volumes/verify-volume-status-is-attached-on-lp.html&quot;&gt;verify-volume-status-is-attached-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Instances/terminate-instance-from-detail-page.html&quot;&gt;terminate-instance-from-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Instances/verify-instance-is-terminated.html&quot;&gt;verify-instance-is-terminated&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Volumes/verify-volume-status-is-available-on-lp.html&quot;&gt;verify-volume-status-is-available-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Volumes/delete-volume-on-detail-page.html&quot;&gt;delete-volume-on-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/Volumes/set-volume-name-to-volume-and-5randomchars.html&quot;&gt;set-volume-name-to-volume-and-5randomchars&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Volumes/create-volume-from-lp.html&quot;&gt;create-volume-from-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Volumes/verify-volume-visible-on-lp.html&quot;&gt;verify-volume-visible-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Volumes/verify-volume-status-is-available-on-lp.html&quot;&gt;verify-volume-status-is-available-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Volumes/delete-volume-from-lp.html&quot;&gt;delete-volume-from-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Keypairs/delete-key-pair-from-detail-page.html&quot;&gt;delete-key-pair-from-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Keypairs/verify-key-pair-was-deleted.html&quot;&gt;verify-key-pair-was-deleted&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/SecurityGroups/delete-s-group-from-detail-page.html&quot;&gt;delete-s-group-from-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/SecurityGroups/verify-s-group-not-present-on-lp.html&quot;&gt;verify-s-group-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/koala_logout.html&quot;&gt;koala_logout&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
 &lt;/tbody&gt;&lt;/table&gt;&#xd;
+&#xd;
 </description>
   <keepDependencies>false</keepDependencies>
   <properties>
@@ -63,7 +69,7 @@
         <hudson.model.StringParameterDefinition>
           <name>branch</name>
           <description></description>
-          <defaultValue>tests-refactored</defaultValue>
+          <defaultValue>develop</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>dir</name>
@@ -87,6 +93,11 @@
           <name>password</name>
           <description>Eucalyptus user password</description>
           <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>port</name>
+          <description></description>
+          <defaultValue>4444</defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -112,12 +123,11 @@ git checkout $branch
 
 #Xvfb :0 -ac 2&gt; /dev/null &amp;
 
-sed -i &quot;s/ui-test-acct-00/$account/g&quot; selenium/KOALA/koala_log*
-sed -i &quot;s/admin/$user_name/g&quot; selenium/KOALA/koala_log*
-sed -i &quot;s/mypassword0/$password/g&quot; selenium/KOALA/koala_login.html
+sed -i &quot;s/ui-test-acct-00/$account/g&quot; selenium/tests/koala_log*
+sed -i &quot;s/admin/$user_name/g&quot; selenium/tests/koala_log*
+sed -i &quot;s/mypassword0/$password/g&quot; selenium/tests/koala_login.html
 
-
-export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar  -Dorg.openqa.jetty.SocketListener.bufferSize=20480 -userExtensions &quot;selenium/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$console_url&quot; &quot;$dir&quot; &quot;volume-operations.html&quot; -trustAllSSLCertificates  -timeout 3600 -debug
+export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar -Dorg.openqa.jetty.SocketListener.bufferSize=20480 -userExtensions &quot;selenium/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$console_url&quot; &quot;$dir&quot; &quot;volume-operations.html&quot; -trustAllSSLCertificates  -timeout 3600 -debug -port $port
  </command>
     </hudson.tasks.Shell>
   </builders>
@@ -126,6 +136,8 @@ export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalo
       <artifacts>eucaconsole/tests/volume-operations.html</artifacts>
       <latestOnly>false</latestOnly>
       <allowEmptyArchive>false</allowEmptyArchive>
+      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <defaultExcludes>true</defaultExcludes>
     </hudson.tasks.ArtifactArchiver>
   </publishers>
   <buildWrappers>
