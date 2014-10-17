@@ -1,44 +1,45 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>&lt;strong&gt; Selenium HTML tests for Koala&lt;/strong&gt;&#xd;
-&lt;p&gt; Runs as ui-test-acct-00 admin.&lt;/p&gt;&#xd;
-&lt;table id=&quot;suiteTable&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot; border=&quot;1&quot; class=&quot;selenium&quot;&gt;&lt;tbody&gt;&#xd;
+  <description>&lt;table id=&quot;suiteTable&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot; border=&quot;1&quot; class=&quot;selenium&quot;&gt;&lt;tbody&gt;&#xd;
 &lt;tr&gt;&lt;td&gt;&lt;b&gt;Test Suite&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;koala_login.html&quot;&gt;koala_login&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;get_dashboard_counts.html&quot;&gt;get_dashboard_counts&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;create-key-pair-key_1-from-dashboard.html&quot;&gt;create-key-pair-key_1-from-dashboard&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-keypairs-count-increased-by-1.html&quot;&gt;verify-keypairs-count-increased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;create-s-group-1-with-rules-and-tags.html&quot;&gt;create-s-group-1-with-rules-and-tags&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-s.group-number-increased-by-1.html&quot;&gt;verify-s.group-number-increased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;launch-instance-from-dboard-az1-key_1-group_1.html&quot;&gt;launch-instance-from-dboard-az1-key_1-group_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-running-instances-count-increased-by-1.html&quot;&gt;verify-running-instances-count-increased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;allocate-1-ip-address.html&quot;&gt;allocate-1-ip-address&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;associate-ip-to-instance_1-on-ip-lp.html&quot;&gt;associate-ip-to-instance_1-on-ip-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;disassociate-ip-from-instance_1-on-instances-lp.html&quot;&gt;disassociate-ip-from-instance_1-on-instances-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;associate-ip_1-to-instance_1-on-instances-lp.html&quot;&gt;associate-ip_1-to-instance_1-on-instances-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;terminate_instance_1_from_lp.html&quot;&gt;terminate_instance_1_from_lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-running-instances-count-decreased-by-1.html&quot;&gt;verify-running-instances-count-decreased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;delete-key_1.html&quot;&gt;delete-key_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-keypairs-count-decreased-by-1.html&quot;&gt;verify-keypairs-count-decreased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;release-ip_1-on-ip-lp.html&quot;&gt;release-ip_1-on-ip-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;pause-30-seconds.html&quot;&gt;pause-30-seconds&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;delete-s-group-1-from-landing-page_lw.html&quot;&gt;delete-s-group-1-from-landing-page_lw&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;verify-s.group-number-decreased-by-1.html&quot;&gt;verify-s.group-number-decreased-by-1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;koala_logout.html&quot;&gt;koala_logout&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/koala_login.html&quot;&gt;koala_login&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/store-availability-zones.html&quot;&gt;store-availability-zones&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/set-availability-zone-to-first-on-list.html&quot;&gt;set-availability-zone-to-first-on-list&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/set-tag-data-short.html&quot;&gt;set-tag-data-short&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/Instances/set-instance-type-to-m1-medium.html&quot;&gt;set-instance-type-to-m1-medium&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/Keypairs/set-keypair-name-to-key-and-5randomchars.html&quot;&gt;set-keypair-name-to-key-and-5randomchars&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/SecurityGroups/set-s-group-name-to-group-and-5randomchars.html&quot;&gt;set-s-group-name-to-group-and-5randomchars&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/Instances/set-instance-name-to-instance-and-5randomchars.html&quot;&gt;set-instance-name-to-instance-and-5randomchars&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Instances/launch-instance-from-dashboard-create-s-group-and-key-from-launch-wz.html&quot;&gt;launch-instance-from-dashboard-create-s-group-and-key-from-launch-wz&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Instances/verify-instance-is-running.html&quot;&gt;verify-instance-is-running&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/ElasticIPs/allocate-ip-address-from-lp.html&quot;&gt;allocate-ip-address-from-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/ElasticIPs/associate-ip-to-instance-on-instances-lp.html&quot;&gt;associate-ip-to-instance-on-instances-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/ElasticIPs/disassociate-ip-from-instance-on-instances-lp.html&quot;&gt;disassociate-ip-from-instance-on-instances-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/ElasticIPs/associate-ip-to-instance-on-ip-lp.html&quot;&gt;associate-ip-to-instance-on-ip-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/ElasticIPs/disassociate-ip-from-instance-on-ip-lp.html&quot;&gt;disassociate-ip-from-instance-on-ip-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/ElasticIPs/release-ip-on-ip-lp.html&quot;&gt;release-ip-on-ip-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/ElasticIPs/allocate-ip-address-from-dboard.html&quot;&gt;allocate-ip-address-from-dboard&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/ElasticIPs/associate-ip-to-instance-on-detail-page.html&quot;&gt;associate-ip-to-instance-on-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/ElasticIPs/disassociate-ip-from-instance-on-inst-detail-page.html&quot;&gt;disassociate-ip-from-instance-on-inst-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/ElasticIPs/associate-ip-to-instance-on-ip-detail-page.html&quot;&gt;associate-ip-to-instance-on-ip-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/ElasticIPs/disassociate-ip-from-instance-on-ip-detail-page.html&quot;&gt;disassociate-ip-from-instance-on-ip-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/ElasticIPs/release-ip-on-ip-detail-page.html&quot;&gt;release-ip-on-ip-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Instances/terminate-instance-from-lp.html&quot;&gt;terminate-instance-from-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Instances/verify-instance-is-terminated.html&quot;&gt;verify-instance-is-terminated&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Keypairs/delete-key-pair-from-detail-page.html&quot;&gt;delete-key-pair-from-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Keypairs/verify-key-pair-was-deleted.html&quot;&gt;verify-key-pair-was-deleted&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/SecurityGroups/delete-s-group-from-landing-page.html&quot;&gt;delete-s-group-from-landing-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/SecurityGroups/verify-s-group-not-present-on-lp.html&quot;&gt;verify-s-group-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/koala_logout.html&quot;&gt;koala_logout&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
 &lt;/tbody&gt;&lt;/table&gt;</description>
   <keepDependencies>false</keepDependencies>
   <properties>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
-          <name>console_ip</name>
-          <description>IP address of eucalyptus console</description>
-          <defaultValue></defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>console_protocol</name>
-          <description>Protocol that eucalyptus console uses: can be http or https</description>
+          <name>console_url</name>
+          <description>URL eucalyptus console</description>
           <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
@@ -62,7 +63,27 @@
 
 
 </description>
-          <defaultValue>selenium/KOALA/IP_OPERATIONS.html</defaultValue>
+          <defaultValue>selenium/IP_OPERATIONS.html</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>account</name>
+          <description>Eucalyptus account</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>user_name</name>
+          <description>Eucalyptus user</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>password</name>
+          <description>Eucalyptus user password</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>port</name>
+          <description></description>
+          <defaultValue>4444</defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -86,11 +107,14 @@
 cd eucaconsole/tests
 git checkout $branch
 
+#Xvfb :0 -ac 2&gt; /dev/null &amp;
 
-if [ $console_protocol = &quot;https&quot; ]; then export url=&quot;$console_protocol://$console_ip&quot; ; else export url=&quot;$console_protocol://$console_ip:8888&quot; ; fi 
+sed -i &quot;s/ui-test-acct-00/$account/g&quot; selenium/tests/koala_log*
+sed -i &quot;s/admin/$user_name/g&quot; selenium/tests/koala_log*
+sed -i &quot;s/mypassword0/$password/g&quot; selenium/tests/koala_login.html
 
 
-export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar  -Dorg.openqa.jetty.SocketListener.bufferSize=20480 -userExtensions &quot;selenium/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$url&quot; &quot;$dir&quot;  &quot;ip-operations.html&quot; -trustAllSSLCertificates  -debug
+export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar  -Dorg.openqa.jetty.SocketListener.bufferSize=20480 -userExtensions &quot;selenium/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$console_url&quot; &quot;$dir&quot; &quot;ip-operations.html&quot; -trustAllSSLCertificates  -timeout 3600 -debug -port $port
  </command>
     </hudson.tasks.Shell>
   </builders>
@@ -99,6 +123,8 @@ export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalo
       <artifacts>eucaconsole/tests/ip-operations.html</artifacts>
       <latestOnly>false</latestOnly>
       <allowEmptyArchive>false</allowEmptyArchive>
+      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <defaultExcludes>true</defaultExcludes>
     </hudson.tasks.ArtifactArchiver>
   </publishers>
   <buildWrappers>

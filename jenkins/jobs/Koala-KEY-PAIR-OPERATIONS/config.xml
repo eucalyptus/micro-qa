@@ -4,28 +4,32 @@
   <description>&lt;strong&gt; Selenium HTML tests for Koala&lt;/strong&gt;&#xd;
 &lt;table id=&quot;suiteTable&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot; border=&quot;1&quot; class=&quot;selenium&quot;&gt;&lt;tbody&gt;&#xd;
 &lt;tr&gt;&lt;td&gt;&lt;b&gt;Test Suite&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;koala_login&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;set_all_to_list_view&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;create-key-pair-from-dashboard&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;verify-key-pair-was-created&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;store-keypair-name-as-keypair_1&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;create-key-pair-from-landing-page&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;verify-key-pair-was-created&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;store-keypair-name-as-keypair_2&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;import-key-pair&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a &gt;store-keypair-name-as-keypair_3&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a &gt;verify-key-pair-was-created&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a &gt;set-keypair-name-to-keypair_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a &gt;delete-key-pair-from-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a &gt;verify-key-pair-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a &gt;set-keypair-name-to-keypair_2&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a &gt;delete-key-pair-from-landing-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a &gt;verify-key-pair-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a &gt;set-keypair-name-to-keypair_3&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a &gt;delete-key-pair-from-landing-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a &gt;verify-key-pair-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a &gt;koala_logout&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/koala_login.html&quot;&gt;koala_login&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/set_all_to_list_view.html&quot;&gt;set_all_to_list_view&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/Keypairs/set-keypair-name-to-key-and-5randomchars.html&quot;&gt;set-keypair-name-to-key-and-5randomchars&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Keypairs/create-key-pair-from-dashboard.html&quot;&gt;create-key-pair-from-dashboard&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Keypairs/verify-key-pair-was-created.html&quot;&gt;verify-key-pair-was-created&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/Keypairs/store-keypair-name-as-keypair_1.html&quot;&gt;store-keypair-name-as-keypair_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/Keypairs/set-keypair-name-to-key-and-5randomchars.html&quot;&gt;set-keypair-name-to-key-and-5randomchars&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Keypairs/create-key-pair-from-landing-page.html&quot;&gt;create-key-pair-from-landing-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Keypairs/verify-key-pair-was-created.html&quot;&gt;verify-key-pair-was-created&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/Keypairs/store-keypair-name-as-keypair_2.html&quot;&gt;store-keypair-name-as-keypair_2&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/Keypairs/set-keypair-name-to-key-and-5randomchars.html&quot;&gt;set-keypair-name-to-key-and-5randomchars&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Keypairs/import-key-pair.html&quot;&gt;import-key-pair&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/Keypairs/store-keypair-name-as-keypair_3.html&quot;&gt;store-keypair-name-as-keypair_3&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Keypairs/verify-key-pair-was-created.html&quot;&gt;verify-key-pair-was-created&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/Keypairs/set-keypair-name-to-keypair_1.html&quot;&gt;set-keypair-name-to-keypair_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Keypairs/delete-key-pair-from-detail-page.html&quot;&gt;delete-key-pair-from-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Keypairs/verify-key-pair-not-present-on-lp.html&quot;&gt;verify-key-pair-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/Keypairs/set-keypair-name-to-keypair_2.html&quot;&gt;set-keypair-name-to-keypair_2&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Keypairs/delete-key-pair-from-landing-page.html&quot;&gt;delete-key-pair-from-landing-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Keypairs/verify-key-pair-not-present-on-lp.html&quot;&gt;verify-key-pair-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/Keypairs/set-keypair-name-to-keypair_3.html&quot;&gt;set-keypair-name-to-keypair_3&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Keypairs/delete-key-pair-from-landing-page.html&quot;&gt;delete-key-pair-from-landing-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/Keypairs/verify-key-pair-not-present-on-lp.html&quot;&gt;verify-key-pair-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/koala_logout.html&quot;&gt;koala_logout&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
 &lt;/tbody&gt;&lt;/table&gt;&#xd;
+&#xd;
 </description>
   <keepDependencies>false</keepDependencies>
   <properties>
@@ -51,7 +55,7 @@
         <hudson.model.StringParameterDefinition>
           <name>branch</name>
           <description>Choices include master and testing</description>
-          <defaultValue>tests-refactored</defaultValue>
+          <defaultValue>develop</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>dir</name>
@@ -75,6 +79,11 @@
           <name>password</name>
           <description></description>
           <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>port</name>
+          <description></description>
+          <defaultValue>4444</defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -100,11 +109,11 @@ git checkout $branch
 
 #Xvfb :0 -ac 2&gt; /dev/null &amp;
 
-sed -i &quot;s/ui-test-acct-00/$account/g&quot; selenium/KOALA/koala_log*
-sed -i &quot;s/admin/$user_name/g&quot; selenium/KOALA/koala_log*
-sed -i &quot;s/mypassword0/$password/g&quot; selenium/KOALA/koala_login.html
+sed -i &quot;s/ui-test-acct-00/$account/g&quot; selenium/tests/koala_log*
+sed -i &quot;s/admin/$user_name/g&quot; selenium/tests/koala_log*
+sed -i &quot;s/mypassword0/$password/g&quot; selenium/tests/koala_login.html
 
-export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar -Dorg.openqa.jetty.SocketListener.bufferSize=20480 -userExtensions &quot;selenium/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$console_url&quot; &quot;$dir&quot; &quot;key-pair-operations.html&quot; -trustAllSSLCertificates 
+export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar -Dorg.openqa.jetty.SocketListener.bufferSize=20480 -userExtensions &quot;selenium/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$console_url&quot; &quot;$dir&quot; &quot;key-pair-operations.html&quot; -trustAllSSLCertificates -port $port
  </command>
     </hudson.tasks.Shell>
   </builders>
@@ -113,6 +122,8 @@ export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalo
       <artifacts>eucaconsole/tests/key-pair-operations.html</artifacts>
       <latestOnly>false</latestOnly>
       <allowEmptyArchive>false</allowEmptyArchive>
+      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <defaultExcludes>true</defaultExcludes>
     </hudson.tasks.ArtifactArchiver>
   </publishers>
   <buildWrappers>
