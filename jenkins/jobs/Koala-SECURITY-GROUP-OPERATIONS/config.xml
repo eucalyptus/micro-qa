@@ -1,30 +1,33 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description>&lt;strong&gt; Selenium HTML tests for Koala&lt;/strong&gt;&#xd;
-&lt;table id=&quot;suiteTable&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot; border=&quot;1&quot; class=&quot;selenium&quot;&gt;&lt;tbody&gt;&#xd;
+  <description>&lt;table id=&quot;suiteTable&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot; border=&quot;1&quot; class=&quot;selenium&quot;&gt;&lt;tbody&gt;&#xd;
 &lt;tr&gt;&lt;td&gt;&lt;b&gt;Test Suite&lt;/b&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/koala_login.html&quot;&gt;koala_login&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set_all_to_list_view.html&quot;&gt;set_all_to_list_view&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-tag-data-short.html&quot;&gt;set-tag-data-short&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/SecurityGroups/create-s-group-from-lp-with-RDP-SSH-cTCP-to-default-1-tag.html&quot;&gt;create-s-group-from-lp-with-RDP-SSH-cTCP-to-default-1-tag&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/store-s-group-data-as-s_group_1.html&quot;&gt;store-s-group-data-as-s_group_1&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/SecurityGroups/verify-s-group-was-created.html&quot;&gt;verify-s-group-was-created&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/SecurityGroups/delete-s-group-from-landing-page.html&quot;&gt;delete-s-group-from-landing-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/SecurityGroups/verify-s-group-not-present-on-lp.html&quot;&gt;verify-s-group-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/SecurityGroups/create-s-group-from-dashboard-with-HTTP-HTTPS-cICMP-to-default-1-tag.html&quot;&gt;create-s-group-from-dashboard-with-HTTP-HTTPS-cICMP-to-default-1-tag&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/SecurityGroups/verify-s-group-was-created.html&quot;&gt;verify-s-group-was-created&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/store-s-group-data-as-s_group_helper.html&quot;&gt;store-s-group-data-as-s_group_helper&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/SecurityGroups/create-s-group-from-lp-with-no-rules-no-tags.html&quot;&gt;create-s-group-from-lp-with-no-rules-no-tags&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/SecurityGroups/verify-s-group-was-created.html&quot;&gt;verify-s-group-was-created&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/SecurityGroups/add-rules-to-s-group-MS_SQL-MySQL-POP3-LDAP.html&quot;&gt;add-rules-to-s-group-MS_SQL-MySQL-POP3-LDAP&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/SecurityGroups/delete-s-group-from-detail-page.html&quot;&gt;delete-s-group-from-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/SecurityGroups/verify-s-group-not-present-on-lp.html&quot;&gt;verify-s-group-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/StoreAndSet/set-s-group-data-to-s_group_helper.html&quot;&gt;set-s-group-data-to-s_group_helper&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/SecurityGroups/delete-s-group-from-detail-page.html&quot;&gt;delete-s-group-from-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/SecurityGroups/verify-s-group-not-present-on-lp.html&quot;&gt;verify-s-group-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
-&lt;tr&gt;&lt;td&gt;&lt;a href=&quot;KOALA/koala_logout.html&quot;&gt;koala_logout&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/koala_login.html&quot;&gt;koala_login&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/set_all_to_list_view.html&quot;&gt;set_all_to_list_view&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/set-tag-data-short.html&quot;&gt;set-tag-data-short&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/SecurityGroups/set-s-group-name-to-group-and-5randomchars.html&quot;&gt;set-s-group-name-to-group-and-5randomchars&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/SecurityGroups/set-s-group-description-short.html&quot;&gt;set-s-group-description-short&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/SecurityGroups/create-s-group-from-lp-with-RDP-SSH-cTCP-to-default-1-tag.html&quot;&gt;create-s-group-from-lp-with-RDP-SSH-cTCP-to-default-1-tag&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/SecurityGroups/verify-s-group-was-created.html&quot;&gt;verify-s-group-was-created&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/SecurityGroups/delete-s-group-from-landing-page.html&quot;&gt;delete-s-group-from-landing-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/SecurityGroups/verify-s-group-not-present-on-lp.html&quot;&gt;verify-s-group-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/SecurityGroups/set-s-group-name-to-group-and-5randomchars.html&quot;&gt;set-s-group-name-to-group-and-5randomchars&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/SecurityGroups/create-s-group-from-dashboard-with-HTTP-HTTPS-cICMP-to-default-1-tag.html&quot;&gt;create-s-group-from-dashboard-with-HTTP-HTTPS-cICMP-to-default-1-tag&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/SecurityGroups/verify-s-group-was-created.html&quot;&gt;verify-s-group-was-created&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/SecurityGroups/store-s-group-data-as-s_group_helper.html&quot;&gt;store-s-group-data-as-s_group_helper&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/SecurityGroups/set-s-group-name-to-group-and-5randomchars.html&quot;&gt;set-s-group-name-to-group-and-5randomchars&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/SecurityGroups/create-s-group-from-lp-with-no-rules-no-tags.html&quot;&gt;create-s-group-from-lp-with-no-rules-no-tags&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/SecurityGroups/verify-s-group-was-created.html&quot;&gt;verify-s-group-was-created&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/SecurityGroups/add-rules-to-s-group-MS_SQL-MySQL-POP3-LDAP.html&quot;&gt;add-rules-to-s-group-MS_SQL-MySQL-POP3-LDAP&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/SecurityGroups/delete-s-group-from-detail-page.html&quot;&gt;delete-s-group-from-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/SecurityGroups/verify-s-group-not-present-on-lp.html&quot;&gt;verify-s-group-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/StoreAndSet/SecurityGroups/set-s-group-data-to-s_group_helper.html&quot;&gt;set-s-group-data-to-s_group_helper&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/SecurityGroups/delete-s-group-from-detail-page.html&quot;&gt;delete-s-group-from-detail-page&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/SecurityGroups/verify-s-group-not-present-on-lp.html&quot;&gt;verify-s-group-not-present-on-lp&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
+&lt;tr&gt;&lt;td&gt;&lt;a &quot;tests/koala_logout.html&quot;&gt;koala_logout&lt;/a&gt;&lt;/td&gt;&lt;/tr&gt;&#xd;
 &lt;/tbody&gt;&lt;/table&gt;&#xd;
+&#xd;
 &#xd;
 &#xd;
 </description>
@@ -50,7 +53,7 @@
         <hudson.model.StringParameterDefinition>
           <name>branch</name>
           <description></description>
-          <defaultValue>tests-refactored</defaultValue>
+          <defaultValue>develop</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>dir</name>
@@ -74,6 +77,11 @@
           <name>password</name>
           <description>Eucalyptus user password</description>
           <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>port</name>
+          <description></description>
+          <defaultValue>4444</defaultValue>
         </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
@@ -99,12 +107,12 @@ git checkout $branch
 
 #Xvfb :0 -ac 2&gt; /dev/null &amp;
 
-sed -i &quot;s/ui-test-acct-00/$account/g&quot; selenium/KOALA/koala_log*
-sed -i &quot;s/admin/$user_name/g&quot; selenium/KOALA/koala_log*
-sed -i &quot;s/mypassword0/$password/g&quot; selenium/KOALA/koala_login.html
+sed -i &quot;s/ui-test-acct-00/$account/g&quot; selenium/tests/koala_log*
+sed -i &quot;s/admin/$user_name/g&quot; selenium/tests/koala_log*
+sed -i &quot;s/mypassword0/$password/g&quot; selenium/tests/koala_login.html
 
 
-export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar  -Dorg.openqa.jetty.SocketListener.bufferSize=20480 -userExtensions &quot;selenium/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$console_url&quot; &quot;$dir&quot; &quot;security-group-operations.html&quot; -trustAllSSLCertificates  -timeout 3600 -debug
+export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalone-2.39.0.jar  -Dorg.openqa.jetty.SocketListener.bufferSize=20480 -userExtensions &quot;selenium/Selenium_RC_Plugins/user-extensions.js&quot; -htmlSuite *firefox &quot;$console_url&quot; &quot;$dir&quot; &quot;security-group-operations.html&quot; -trustAllSSLCertificates  -timeout 3600 -debug -port $port
  </command>
     </hudson.tasks.Shell>
   </builders>
@@ -113,6 +121,8 @@ export DISPLAY=:0 &amp;&amp; java -jar /selenium-2.39.0/selenium-server-standalo
       <artifacts>eucaconsole/tests/security-group-operations.html</artifacts>
       <latestOnly>false</latestOnly>
       <allowEmptyArchive>false</allowEmptyArchive>
+      <onlyIfSuccessful>false</onlyIfSuccessful>
+      <defaultExcludes>true</defaultExcludes>
     </hudson.tasks.ArtifactArchiver>
   </publishers>
   <buildWrappers>
