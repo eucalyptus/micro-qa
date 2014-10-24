@@ -10,8 +10,10 @@
     <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
       <maxConcurrentPerNode>0</maxConcurrentPerNode>
       <maxConcurrentTotal>3</maxConcurrentTotal>
+      <categories/>
       <throttleEnabled>true</throttleEnabled>
       <throttleOption>category</throttleOption>
+      <configVersion>1</configVersion>
     </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
   </properties>
   <scm class="hudson.plugins.git.GitSCM" plugin="git@1.5.0">
@@ -56,8 +58,8 @@
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers>
-    <org.jenkinsci.plugins.ghprb.GhprbTrigger plugin="ghprb@1.9">
-      <spec>*/2 * * * *</spec>
+    <org.jenkinsci.plugins.ghprb.GhprbTrigger plugin="ghprb@1.11.2">
+      <spec>*/3 * * * *</spec>
       <adminlist>kyolee310
 dkavanagh
 kamalgill
@@ -65,15 +67,22 @@ aliceh
 gregdek
 neilsoman
 JMoLo
-</adminlist>
+dharmabumstead
+gholms
+tvo318</adminlist>
       <whitelist></whitelist>
       <orgslist></orgslist>
-      <cron>*/2 * * * *</cron>
+      <cron>*/3 * * * *</cron>
       <triggerPhrase></triggerPhrase>
       <onlyTriggerPhrase>false</onlyTriggerPhrase>
       <useGitHubHooks>false</useGitHubHooks>
       <permitAll>false</permitAll>
       <autoCloseFailedPullRequests>false</autoCloseFailedPullRequests>
+      <whiteListTargetBranches>
+        <org.jenkinsci.plugins.ghprb.GhprbBranch>
+          <branch></branch>
+        </org.jenkinsci.plugins.ghprb.GhprbBranch>
+      </whiteListTargetBranches>
     </org.jenkinsci.plugins.ghprb.GhprbTrigger>
   </triggers>
   <concurrentBuild>true</concurrentBuild>
@@ -114,7 +123,7 @@ JMoLo
   </builders>
   <publishers>
     <hudson.tasks.Mailer plugin="mailer@1.5">
-      <recipients>kyo.lee@eucalyptus.com alice@eucalyptus.com david.kavanagh@eucalyptus.com jenny.loza@eucalyptus.com kamal.gill@eucalyptus.com neil@eucalyptus.com</recipients>
+      <recipients>kyo.lee@eucalyptus.com alice@eucalyptus.com david.kavanagh@eucalyptus.com jenny.loza@eucalyptus.com kamal.gill@eucalyptus.com neil@eucalyptus.com thanhnguyet.vo@eucalyptus.com</recipients>
       <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
       <sendToIndividuals>false</sendToIndividuals>
     </hudson.tasks.Mailer>

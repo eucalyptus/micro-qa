@@ -170,7 +170,7 @@ def main():
 
     print
     print &quot;[qa_testname] &quot;, qa_testname
-    print &quot;[ghprbActualCommit] &quot;, &apos;ghprbActualCommit&apos;
+    print &quot;[ghprbActualCommit] &quot;, ghprbActualCommit
 
     retry_count = 3
     current_count = 0
@@ -246,7 +246,9 @@ def main():
     os.system(&quot;echo qa_testname_used=&quot; + qa_testname + &quot; &gt;&gt; ./test_env.txt&quot;)
     os.system(&quot;echo console_ip=&quot; + console_ip + &quot; &gt;&gt; ./test_env.txt&quot;)
     os.system(&quot;echo protocol=https &gt;&gt; ./test_env.txt&quot;)
+    os.system(&quot;echo console_url=http://&quot; + console_ip + &quot;:8888 &gt;&gt; ./test_env.txt&quot;)
     os.system(&quot;echo qa_test_uid=&quot; + unique_id + &quot; &gt;&gt; ./test_env.txt&quot;)
+    os.system(&quot;echo branch=&quot; + ghprbActualCommit + &quot; &gt;&gt; ./test_env.txt&quot;)
 
 if __name__ == &quot;__main__&quot;:
     main()
