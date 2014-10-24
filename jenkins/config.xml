@@ -3,8 +3,8 @@
   <disabledAdministrativeMonitors>
     <string>jenkins.security.RekeySecretAdminMonitor</string>
   </disabledAdministrativeMonitors>
-  <version>1.531</version>
-  <numExecutors>5</numExecutors>
+  <version>1.585</version>
+  <numExecutors>15</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
   <authorizationStrategy class="hudson.security.AuthorizationStrategy$Unsecured"/>
@@ -372,8 +372,43 @@ The will run once per minute and up to the number defined in the concurrent jobs
         </hudson.plugins.sectioned__view.ListViewSection>
       </sections>
     </hudson.plugins.sectioned__view.SectionedView>
+    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.9.1">
+      <owner class="hudson" reference="../../.."/>
+      <name>Eucaconsole Pull Request Monitor Jobs</name>
+      <description>Eucalyptus Console Pull Request Monitor Jobs</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>Build New Eucalyptus System and Eucalyptus Console</string>
+        <string>Eucalyptus Console Pull Request Monitor</string>
+        <string>Koala-SUITE</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <jenkins.plugins.extracolumns.BuildDescriptionColumn plugin="extra-columns@1.11"/>
+        <jenkins.plugins.extracolumns.LastBuildConsoleColumn plugin="extra-columns@1.11"/>
+      </columns>
+      <recurse>false</recurse>
+      <statusFilter>true</statusFilter>
+      <useCssStyle>true</useCssStyle>
+      <includeStdJobList>true</includeStdJobList>
+      <leftPortletWidth>50%</leftPortletWidth>
+      <rightPortletWidth>50%</rightPortletWidth>
+      <leftPortlets/>
+      <rightPortlets/>
+      <topPortlets/>
+      <bottomPortlets/>
+    </hudson.plugins.view.dashboard.Dashboard>
   </views>
-  <primaryView>Tests</primaryView>
+  <primaryView>Eucaconsole Pull Request Monitor Jobs</primaryView>
   <slaveAgentPort>0</slaveAgentPort>
   <label></label>
   <nodeProperties/>

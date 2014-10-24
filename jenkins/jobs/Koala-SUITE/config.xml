@@ -44,17 +44,17 @@
         <hudson.model.StringParameterDefinition>
           <name>account</name>
           <description></description>
-          <defaultValue></defaultValue>
+          <defaultValue>ui-test-acct-00</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>user_name</name>
           <description></description>
-          <defaultValue></defaultValue>
+          <defaultValue>admin</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>password</name>
           <description></description>
-          <defaultValue></defaultValue>
+          <defaultValue>mypassword0</defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>port</name>
