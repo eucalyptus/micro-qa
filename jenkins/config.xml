@@ -407,6 +407,35 @@ The will run once per minute and up to the number defined in the concurrent jobs
       <topPortlets/>
       <bottomPortlets/>
     </hudson.plugins.view.dashboard.Dashboard>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>UI-IAM</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>IAM-GROUPS</string>
+        <string>IAM-SUITE</string>
+        <string>IAM-USER</string>
+        <string>IAM-USER-AS-QUOTAS</string>
+        <string>IAM-USER-EC2-QUOTAS</string>
+        <string>IAM-USER-ELB-QUOTA</string>
+        <string>IAM-USER-POLICY</string>
+        <string>IAM-USER-S3-QUOTAS</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <recurse>false</recurse>
+    </listView>
   </views>
   <primaryView>Eucaconsole Pull Request Monitor Jobs</primaryView>
   <slaveAgentPort>0</slaveAgentPort>
