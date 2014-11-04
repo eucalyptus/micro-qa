@@ -31,7 +31,7 @@ Vagrant.configure("2") do |config|
                 Name: "Micro QA",
         }
     end
-    config.vm.network :forwarded_port, guest: 8081, host: 8081
+    config.vm.network :forwarded_port, guest: 8080, host: 8080
     config.vm.provider :vmware_fusion do |v, override|
         override.vm.network "public_network"
         if config.vm.box == "centos"
