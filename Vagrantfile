@@ -58,6 +58,7 @@ Vagrant.configure("2") do |config|
       chef.add_recipe "micro-qa::jenkins"
       chef.add_recipe "micro-qa::eutester"
       chef.add_recipe "micro-qa::console-tests"
+      chef.add_recipe "micro-qa::deploy"
       chef.json = {}
     end
 end

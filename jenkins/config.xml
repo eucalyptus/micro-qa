@@ -271,7 +271,7 @@ The will run once per minute and up to the number defined in the concurrent jobs
     </listView>
     <hudson.plugins.sectioned__view.SectionedView plugin="sectioned-view@1.18">
       <owner class="hudson" reference="../../.."/>
-      <name>Provisioning</name>
+      <name>Deploy Eucalyptus</name>
       <description>&lt;html&gt;&#xd;
 	&lt;head&gt;&#xd;
 		&lt;title&gt;&lt;/title&gt;&#xd;
@@ -293,8 +293,6 @@ The will run once per minute and up to the number defined in the concurrent jobs
 					&lt;font size=&quot;5&quot;&gt;Steps to deploy Eucalyptus&lt;/font&gt;&lt;/div&gt;&#xd;
 				&lt;ol&gt;&#xd;
 					&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
-						&lt;span style=&quot;font-size:16px;&quot;&gt;Upload your SSH keys or set the default password for the nodes you wish to run Eucalyptus on&lt;/span&gt;&lt;/li&gt;&#xd;
-					&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
 						&lt;span style=&quot;font-size:16px;&quot;&gt;Run the Deploy job&lt;/span&gt;&lt;/li&gt;&#xd;
 					&lt;li style=&quot;font-family: Verdana, Helvetica, &apos;sans serif&apos;; font-size: 11px; background-color: rgb(255, 255, 255);&quot;&gt;&#xd;
 						&lt;span style=&quot;font-size:16px;&quot;&gt;Rinse and repeat with the rebuild job&lt;/span&gt;&lt;/li&gt;&#xd;
@@ -315,26 +313,6 @@ The will run once per minute and up to the number defined in the concurrent jobs
         <hudson.plugins.sectioned__view.ListViewSection>
           <jobNames>
             <comparator class="hudson.util.CaseInsensitiveComparator"/>
-            <string>Set default password</string>
-            <string>Upload Host Keypair</string>
-          </jobNames>
-          <jobFilters/>
-          <name>Administrate</name>
-          <width>FULL</width>
-          <alignment>CENTER</alignment>
-          <columns>
-            <hudson.views.StatusColumn/>
-            <hudson.views.JobColumn/>
-            <hudson.views.LastSuccessColumn/>
-            <hudson.views.LastFailureColumn/>
-            <hudson.views.LastDurationColumn/>
-            <hudson.views.BuildButtonColumn/>
-            <jenkins.plugins.extracolumns.LastBuildConsoleColumn plugin="extra-columns@1.11"/>
-          </columns>
-        </hudson.plugins.sectioned__view.ListViewSection>
-        <hudson.plugins.sectioned__view.ListViewSection>
-          <jobNames>
-            <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../hudson.plugins.sectioned__view.ListViewSection/jobNames/comparator"/>
             <string>Deploy</string>
           </jobNames>
           <jobFilters/>
@@ -348,26 +326,7 @@ The will run once per minute and up to the number defined in the concurrent jobs
             <hudson.views.LastFailureColumn/>
             <hudson.views.LastDurationColumn/>
             <hudson.views.BuildButtonColumn/>
-            <jenkins.plugins.extracolumns.LastBuildConsoleColumn plugin="extra-columns@1.11"/>
-          </columns>
-        </hudson.plugins.sectioned__view.ListViewSection>
-        <hudson.plugins.sectioned__view.ListViewSection>
-          <jobNames>
-            <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../hudson.plugins.sectioned__view.ListViewSection/jobNames/comparator"/>
-            <string>Rebuild</string>
-          </jobNames>
-          <jobFilters/>
-          <name>Rebuild</name>
-          <width>FULL</width>
-          <alignment>CENTER</alignment>
-          <columns>
-            <hudson.views.StatusColumn/>
-            <hudson.views.JobColumn/>
-            <hudson.views.LastSuccessColumn/>
-            <hudson.views.LastFailureColumn/>
-            <hudson.views.LastDurationColumn/>
-            <hudson.views.BuildButtonColumn/>
-            <jenkins.plugins.extracolumns.LastBuildConsoleColumn plugin="extra-columns@1.11"/>
+            <jenkins.plugins.extracolumns.LastBuildConsoleColumn plugin="extra-columns@1.14"/>
           </columns>
         </hudson.plugins.sectioned__view.ListViewSection>
       </sections>
