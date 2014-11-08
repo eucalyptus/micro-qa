@@ -12,13 +12,13 @@ include_recipe "ntp"
 pip_options = ""
 if platform?("redhat", "centos", "fedora")
   # code for only redhat family systems.
-  %w{python-devel python-setuptools gcc make git unzip ant}.each do |package_name|
+  %w{python-devel python-setuptools gcc openssl openssl-devel make git unzip ant ipython}.each do |package_name|
     package package_name
   end
   pip_options = "--pre"
 elsif platform?("ubuntu", "debian") 
   # code for debian
-  %w{python-setuptools gcc python-dev git python-virtualenv
+  %w{python-setuptools gcc python-dev git python-virtualenv ipython
      git unzip ant}.each do |package_name|
     package package_name
   end
@@ -44,4 +44,3 @@ python_pip "eutester" do
   options pip_options
 end
 
-python_pip "ipython"

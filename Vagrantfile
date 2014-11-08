@@ -47,23 +47,18 @@ Vagrant.configure("2") do |config|
     end
     config.vm.provider :virtualbox do |v, override|
         override.vm.network "public_network"
-        if config.vm.box == "centos"
-          override.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-x86_64-v20130427.box"
-        elsif config.vm.box == "micro-qa"
+        if config.vm.box == "micro-qa"
           override.vm.box_url = "https://vagrantcloud.com/viglesiasce/micro-qa/version/1/provider/virtualbox.box"
-        else
-          override.vm.box_url = "http://grahamc.com/vagrant/ubuntu-12.04-omnibus-chef.box"
         end
         v.customize [ "modifyvm", :id, "--memory", options[:memory].to_i, "--cpus", options[:cores].to_i]
     end
     config.omnibus.chef_version = :latest
     config.berkshelf.enabled = true
     config.vm.provision :chef_solo do |chef|
-      chef.add_recipe "chef-server::default"
-      chef.add_recipe "micro-qa::deploy"
       chef.add_recipe "micro-qa::jenkins"
       chef.add_recipe "micro-qa::eutester"
       chef.add_recipe "micro-qa::console-tests"
+      chef.add_recipe "micro-qa::deploy"
       chef.json = {}
     end
 end

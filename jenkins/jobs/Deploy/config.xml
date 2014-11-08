@@ -27,64 +27,71 @@
   <properties>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
+        <hudson.model.BooleanParameterDefinition>
+          <name>nuke_before_deploy</name>
+          <description></description>
+          <defaultValue>false</defaultValue>
+        </hudson.model.BooleanParameterDefinition>
         <hudson.model.TextParameterDefinition>
-          <name>environment</name>
+          <name>config</name>
           <description>&lt;font size=&quot;3&quot; color=&quot;blue&quot;&gt;
-&lt;a href=&quot;https://github.com/eucalyptus/eucalyptus-cookbook/blob/master/environments/edge-nightly.json&quot;&gt;
-  Sample environment&lt;/a&gt;
+&lt;a href=&quot;https://github.com/eucalyptus/eucalyptus-cookbook/blob/testing/attributes/default.rb&quot;&gt;
+  For possible attributes that can be set look here.&lt;/a&gt;
 &lt;/font&gt;</description>
-          <defaultValue>{
-  &quot;name&quot;: &quot;edge-nightly&quot;,
-  &quot;description&quot;: &quot;4.0 Nightlies EDGE Testing&quot;,
-  &quot;json_class&quot;: &quot;Chef::Environment&quot;,
-  &quot;chef_type&quot;: &quot;environment&quot;,
-  &quot;default_attributes&quot;: {
-    &quot;eucalyptus&quot;: {
-      &quot;network&quot;: { &quot;public-ips&quot;: &quot;REQUIRED&quot;},
-       &quot;topology&quot;: {
-        &quot;clc-1&quot;: &quot;&lt;CLC-IP&gt;&quot;,
-        &quot;walrus&quot;: &quot;&lt;WALRUS-IP&gt;&quot;,
-        &quot;user-facing&quot;: [&quot;&lt;UFS-IP&gt;&quot;],
-        &quot;clusters&quot;: {
-          &quot;default&quot;: {
-            &quot;cc-1&quot;: &quot;&lt;CC-IP&gt;&quot;,
-            &quot;sc-1&quot;: &quot;&lt;SC-IP&gt;&quot;,
-            &quot;nodes&quot;: &quot;&lt;NC-IP&gt;&quot;
-          }
-        }
-      },
-      &quot;eucalyptus-repo&quot;: &quot;http://downloads.eucalyptus.com/software/eucalyptus/4.0/centos/6/x86_64/&quot;,
-      &quot;euca2ools-repo&quot;: &quot;http://downloads.eucalyptus.com/software/euca2ools/3.1/centos/6/x86_64/&quot;
-    }
-  }
-}
-</defaultValue>
-        </hudson.model.TextParameterDefinition>
-        <hudson.model.TextParameterDefinition>
-          <name>bootstrap</name>
-          <description>&lt;font size=&quot;3&quot; color=&quot;blue&quot;&gt;
-&lt;a href=&quot;https://github.com/eucalyptus/eucalyptus-cookbook/blob/master/bootstrap.json&quot;&gt;
-  Sample bootstrap&lt;/a&gt;
-&lt;/font&gt;</description>
-          <defaultValue>{
-  &quot;nodes&quot;: [
-    {
-      &quot;groups&quot;: [&quot;cloud::full&quot;,&quot;node::default&quot;],
-      &quot;hosts&quot;: [&quot;&lt;YOUR MACHINE IP&gt;&quot;]
-    }
-  ]
-}</defaultValue>
+          <defaultValue>---
+name: basic-config
+description: Basic Deployment
+default_attributes:
+  eucalyptus:
+    topology:
+      clc-1: &lt;ENTER-MACHINE-IP&gt;
+      walrus: &lt;ENTER-MACHINE-IP&gt;
+      user-facing:
+      - &lt;ENTER-MACHINE-IP&gt;
+      clusters:
+        one:
+          cc-1: &lt;ENTER-MACHINE-IP&gt;
+          sc-1: &lt;ENTER-MACHINE-IP&gt;
+         ### Node Controller list looks like: 192.168.0.1 192.168.0.2 192.168.0.3
+          nodes: &lt;ENTER-MACHINE-IPS-SPACE-SEPERATED-STRING&gt;
+    network:
+      public-ips: &lt;ENTER-PUBLIC-IPS-RANGE&gt;
+      public-interface: br0
+      private-interface: br0
+      ### Name of bridge to create on NCs
+      bridge-interface: br0
+      ### This is the interface on the NCs to attach the bridge to
+      bridged-nic: eth0</defaultValue>
         </hudson.model.TextParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
-    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.22">
+      <autoRebuild>false</autoRebuild>
+    </com.sonyericsson.rebuild.RebuildSettings>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.8.4">
       <maxConcurrentPerNode>0</maxConcurrentPerNode>
       <maxConcurrentTotal>0</maxConcurrentTotal>
       <throttleEnabled>false</throttleEnabled>
       <throttleOption>project</throttleOption>
     </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
+    <hudson.plugins.disk__usage.DiskUsageProperty plugin="disk-usage@0.24"/>
   </properties>
-  <scm class="hudson.scm.NullSCM"/>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@2.2.7">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/viglesiasce/euca-deploy.git</url>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/master</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
@@ -95,37 +102,37 @@
     <hudson.tasks.Shell>
       <command>#!/bin/bash
 
-cat &gt; environment.json &lt;&lt;EOF
-$environment
+cat &gt; config.yml &lt;&lt;EOF
+$config
 EOF
-cat &gt; bootstrap.json &lt;&lt;EOF
-$bootstrap
-EOF</command>
-    </hudson.tasks.Shell>
-    <hudson.tasks.Shell>
-      <command>#!/usr/bin/python
-import json
 
-environment = json.loads(open(&apos;environment.json&apos;).read())
-name = open(&apos;environment-name&apos;,&apos;w&apos;)
-name.write(environment[&apos;name&apos;])
-name.close()</command>
-    </hudson.tasks.Shell>
-    <hudson.tasks.Shell>
-      <command>#!/bin/bash
-source /etc/profile.d/rbenv.sh
-ENV_NAME=`cat environment-name`
-mb environment unlock $ENV_NAME
-mb environment destroy --force $ENV_NAME
-mb environment from environment.json
-mb eucalyptus bootstrap bootstrap.json -v -e $ENV_NAME -c /root/.mb/config.json</command>
+mkdir -p chef-repo
+pushd chef-repo
+
+if [ ! -d &quot;eucalyptus-cookbook&quot; ]; then
+    git clone https://github.com/eucalyptus/eucalyptus-cookbook.git -b testing
+fi
+pushd eucalyptus-cookbook
+berks vendor $WORKSPACE/chef-repo/cookbooks
+popd
+
+mkdir -p nodes
+mkdir -p environments
+popd
+
+if $nuke_before_deploy; then
+    $uninstall = &apos;uninstall&apos;
+fi
+
+fab $uninstall full_install --parallel --pool-size 20 -p foobar --show=everything</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
   <buildWrappers>
-    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.16">
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.24">
       <deleteDirs>false</deleteDirs>
       <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
     </hudson.plugins.ws__cleanup.PreBuildCleanup>
   </buildWrappers>
 </project>

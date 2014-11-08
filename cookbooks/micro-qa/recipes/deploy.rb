@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: cookbooks/micro-qa
-# Recipe:: deploy
+# Recipe:: eutester
 #
 # Copyright 2014, Eucalyptus Systems
 #
@@ -8,70 +8,38 @@
 #
 include_recipe "micro-qa"
 
-directory "/root/.chef"
-
-template "/root/.chef/knife.rb" do
-  source "knife.erb"
-end
-
-package "git"
-
-execute "Upload cookbooks to chef server" do
-  command <<-EOH
-      mkdir -p /root/cookbooks
-      cd /root/cookbooks
-      git init
-      echo "Chef Repo" >> README
-      git add .
-      git commit -a -m "Initial commit"
-      knife cookbook site install ntp
-      knife cookbook upload ntp
-      knife cookbook site install selinux
-      knife cookbook upload selinux
-      knife cookbook site install yum
-      knife cookbook upload yum
-      git clone https://github.com/eucalyptus/eucalyptus-cookbook eucalyptus
-      knife cookbook upload eucalyptus
-  EOH
-  not_if "ls /root/cookbooks/eucalyptus"
-end
-
-execute "Reupload eucalyptus cookbook" do
-  command <<-EOH
-    chef-server-ctl reconfigure
-    git pull
-    knife cookbook upload eucalyptus
-  EOH
-  cwd '/root/cookbooks/eucalyptus'
-  only_if "ls /root/cookbooks/eucalyptus"
-  retries 5
-end
-
+pip_options = ""
 if platform?("redhat", "centos", "fedora")
-    package "libxml2-devel"
-    package "libxslt-devel"
-  elsif platform?("ubuntu", "debian")
-    package "libxml2-dev"
-    package "libxslt1-dev"
+  # code for only redhat family systems.
+  %w{python-devel python-setuptools gcc git unzip wget}.each do |package_name|
+    package package_name
+  end
+  pip_options = "--pre"
+  chef_dk_url = 'https://opscode-omnibus-packages.s3.amazonaws.com/el/6/x86_64/chefdk-0.3.2-1.x86_64.rpm'
+  chef_dk_rpm = '/root/chef-dk.rpm'
+  remote_file chef_dk_rpm do
+    source chef_dk_url
+  end
+  yum_package "chef-dk" do
+    action :install
+    source chef_dk_rpm
+  end
+elsif platform?("ubuntu", "debian") 
+  # code for debian
+  %w{python-setuptools gcc python-dev git git wget}.each do |package_name|
+    package package_name
+  end
+  chef_dk_url = 'http://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.3.2-1_amd64.deb'
+  chef_dk_deb = '/root/chef-dk.deb'
+  remote_file chef_dk_deb do
+    source chef_dk_url
+  end
+  dpkg_package "chef-dk" do
+    action :install
+    source chef_dk_deb
+  end
 end
 
-include_recipe "rbenv::default"
-include_recipe "rbenv::ruby_build"
+python_pip "fabric"
+python_pip "PyYAML"
 
-mb_ruby_version = "2.1.2"
-
-rbenv_ruby mb_ruby_version do
-  global true
-  not_if "ls /opt/rbenv/versions/#{mb_ruby_version}"
-end
-
-rbenv_execute "gem install motherbrain" do
-  ruby_version mb_ruby_version
-  not_if "ls /opt/rbenv/versions/#{mb_ruby_version}/bin/mb"
-end
-
-directory "/root/.mb"
-
-template "/root/.mb/config.json" do
-  source "motherbrain.erb"
-end
