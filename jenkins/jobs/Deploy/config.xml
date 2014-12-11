@@ -121,7 +121,7 @@ mkdir -p environments
 popd
 
 if $nuke_before_deploy; then
-    $uninstall = &apos;uninstall&apos;
+    uninstall = &apos;uninstall&apos;
 fi
 
 fab $uninstall install --parallel --pool-size 20 -p foobar --show=everything</command>
