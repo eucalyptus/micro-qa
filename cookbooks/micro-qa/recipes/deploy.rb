@@ -15,7 +15,7 @@ if platform?("redhat", "centos", "fedora")
     package package_name
   end
   pip_options = "--pre"
-  chef_dk_url = 'https://opscode-omnibus-packages.s3.amazonaws.com/el/6/x86_64/chefdk-0.3.2-1.x86_64.rpm'
+  chef_dk_url = 'https://opscode-omnibus-packages.s3.amazonaws.com/el/6/x86_64/chefdk-0.4.0-1.x86_64.rpm'
   chef_dk_rpm = '/root/chef-dk.rpm'
   remote_file chef_dk_rpm do
     source chef_dk_url
@@ -24,12 +24,12 @@ if platform?("redhat", "centos", "fedora")
     action :install
     source chef_dk_rpm
   end
-elsif platform?("ubuntu", "debian") 
+elsif platform?("ubuntu", "debian")
   # code for debian
   %w{python-setuptools gcc python-dev git git wget}.each do |package_name|
     package package_name
   end
-  chef_dk_url = 'http://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.3.2-1_amd64.deb'
+  chef_dk_url = 'https://opscode-omnibus-packages.s3.amazonaws.com/ubuntu/12.04/x86_64/chefdk_0.4.0-1_amd64.deb'
   chef_dk_deb = '/root/chef-dk.deb'
   remote_file chef_dk_deb do
     source chef_dk_url
@@ -42,4 +42,3 @@ end
 
 python_pip "fabric"
 python_pip "PyYAML"
-
