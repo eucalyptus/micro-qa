@@ -59,4 +59,7 @@ Vagrant.configure("2") do |config|
       chef.add_recipe "micro-qa::deploy"
       chef.json = {}
     end
+    if Vagrant.has_plugin?("vagrant-cachier")
+      config.cache.scope = :box
+    end
 end
