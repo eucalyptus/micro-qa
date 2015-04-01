@@ -22,6 +22,10 @@ if platform?("redhat", "centos", "fedora")
     cwd '/tmp'
     not_if "ls /etc/yum.repos.d/epel*"
   end
+  execute "generate ssh keys" do
+    command "ssh-keygen -t rsa -q -f /root/.ssh/id_rsa -P \"\""
+    creates "/root/.ssh/id_rsa.pub"
+  end
 elsif platform?("ubuntu", "debian")
   # code for debian
 end
