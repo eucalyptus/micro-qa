@@ -8,6 +8,8 @@ Content-Transfer-Encoding: 7bit
 Content-Disposition: attachment; filename="script.sh"
 
 #!/bin/bash
+sed -i 's/Defaults.*requiretty/#Defaults requiretty/g' /etc/sudoers
+iptables -F
 SWAP_FILE=/tmp/swap
 dd if=/dev/zero of=$SWAP_FILE bs=1M count=2000
 mkswap $SWAP_FILE

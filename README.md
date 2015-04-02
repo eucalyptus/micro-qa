@@ -27,7 +27,7 @@ Self Contained Automated Test Environment
 
 2. Install the Vagrant plugins:
    ```
-	      vagrant plugin install vagrant-aws
+	vagrant plugin install vagrant-aws  --plugin-version '== 0.5.0'
         vagrant plugin install vagrant-berkshelf --plugin-version '>= 2.0.1'
         vagrant plugin install vagrant-omnibus
    ```
@@ -52,10 +52,6 @@ Self Contained Automated Test Environment
     override.ssh.private_key_path ="/Users/viglesias/.ssh/id_rsa"
     ```
 
-6. Install a "dummy" vagrant box file to allow override of the box with the ami/emi:
-   ```
-   vagrant box add centos https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box
-   ```
 6. Once inside the repository run "vagrant up --provider=aws". This will run a virtual machine, and install MicroQA in your cloud.
 
 7. Login to MicroQA on your browser by visiting: http://\<instance-ip\>:8080

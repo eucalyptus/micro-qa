@@ -10,7 +10,6 @@ Vagrant.configure('2') do |config|
     config.vm.synced_folder '.', '/vagrant', owner: 'root', group: 'root'
     config.vm.provider :aws do |aws, override|
         override.vm.box_url = 'https://github.com/mitchellh/vagrant-aws/raw/master/dummy.box'
-        override.ssh.pty = true
         override.ssh.private_key_path = '~/.ssh/id_rsa'
         aws.access_key_id = 'DWDWTCOBHXXXXXXXXXXXXX'
         aws.secret_access_key = 'D1eKhnWw2wUfeOvKNMVQYYYYYYYYYYYYYY'
