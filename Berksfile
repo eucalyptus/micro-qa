@@ -4,7 +4,5 @@ cookbook  'yum-epel'
 cookbook  'ntp'
 cookbook  'apt'
 cookbook  'python'
-cookbook  'chef-server'
 cookbook  'build-essential'
-cookbook  'rbenv'
 cookbook  'micro-qa', :path => "./cookbooks/micro-qa/"

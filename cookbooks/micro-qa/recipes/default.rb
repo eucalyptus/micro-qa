@@ -14,7 +14,18 @@ git "/vagrant" do
 end
 
 if platform?("redhat", "centos", "fedora")
-  # code for only redhat family systems.
-elsif platform?("ubuntu", "debian") 
+  remote_file "/tmp/epel-release.rpm" do
+    source "http://downloads.eucalyptus.com/software/eucalyptus/3.4/centos/6/x86_64/epel-release-6.noarch.rpm"
+    not_if "rpm -qa | grep 'epel-release'"
+  end
+  execute 'yum install -y *epel*.rpm' do
+    cwd '/tmp'
+    not_if "ls /etc/yum.repos.d/epel*"
+  end
+  execute "generate ssh keys" do
+    command "ssh-keygen -t rsa -q -f /root/.ssh/id_rsa -P \"\""
+    creates "/root/.ssh/id_rsa.pub"
+  end
+elsif platform?("ubuntu", "debian")
   # code for debian
 end

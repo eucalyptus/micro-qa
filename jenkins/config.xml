@@ -3,7 +3,7 @@
   <disabledAdministrativeMonitors>
     <string>jenkins.security.RekeySecretAdminMonitor</string>
   </disabledAdministrativeMonitors>
-  <version>1.585</version>
+  <version>1.607</version>
   <numExecutors>15</numExecutors>
   <mode>NORMAL</mode>
   <useSecurity>true</useSecurity>
@@ -20,17 +20,9 @@
   <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
   <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
   <clouds/>
-  <slaves/>
   <quietPeriod>5</quietPeriod>
   <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
   <views>
-    <hudson.model.AllView>
-      <owner class="hudson" reference="../../.."/>
-      <name>All</name>
-      <filterExecutors>false</filterExecutors>
-      <filterQueue>false</filterQueue>
-      <properties class="hudson.model.View$PropertyList"/>
-    </hudson.model.AllView>
     <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.9.1">
       <owner class="hudson" reference="../../.."/>
       <name>Debugging</name>
@@ -190,87 +182,6 @@ The will run once per minute and up to the number defined in the concurrent jobs
     </hudson.plugins.sectioned__view.SectionedView>
     <hudson.plugins.sectioned__view.SectionedView plugin="sectioned-view@1.18">
       <owner class="hudson" reference="../../.."/>
-      <name>Apps</name>
-      <description>&lt;h2&gt;What is it?&lt;/h2&gt;&#xd;
-&lt;p&gt;These &quot;apps&quot; are one touch jobs that usually leverage vagrant and/or chef to launch fully configured VMs.&lt;/p&gt;&#xd;
-&lt;h3&gt;ToDo&lt;/h3&gt;&#xd;
-&lt;li&gt;Create a job to import cloud credentials&lt;/li&gt;&#xd;
-&lt;li&gt;Add some apps such as: riak or cassandra&lt;/li&gt;</description>
-      <filterExecutors>false</filterExecutors>
-      <filterQueue>false</filterQueue>
-      <properties class="hudson.model.View$PropertyList"/>
-      <sections>
-        <hudson.plugins.sectioned__view.ListViewSection>
-          <jobNames>
-            <comparator class="hudson.util.CaseInsensitiveComparator"/>
-            <string>Riak Cluster</string>
-            <string>Riak CS install and configure</string>
-          </jobNames>
-          <jobFilters/>
-          <name>Riak Solutions</name>
-          <width>FULL</width>
-          <alignment>CENTER</alignment>
-          <columns>
-            <hudson.views.StatusColumn/>
-            <hudson.views.WeatherColumn/>
-            <hudson.views.JobColumn/>
-            <hudson.views.LastSuccessColumn/>
-            <hudson.views.LastFailureColumn/>
-            <hudson.views.LastDurationColumn/>
-            <hudson.views.BuildButtonColumn/>
-          </columns>
-        </hudson.plugins.sectioned__view.ListViewSection>
-        <hudson.plugins.sectioned__view.ListViewSection>
-          <jobNames>
-            <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../hudson.plugins.sectioned__view.ListViewSection/jobNames/comparator"/>
-          </jobNames>
-          <jobFilters/>
-          <name>Cassandra Solutions</name>
-          <width>FULL</width>
-          <alignment>CENTER</alignment>
-          <columns>
-            <hudson.views.StatusColumn/>
-            <hudson.views.WeatherColumn/>
-            <hudson.views.JobColumn/>
-            <hudson.views.LastSuccessColumn/>
-            <hudson.views.LastFailureColumn/>
-            <hudson.views.LastDurationColumn/>
-            <hudson.views.BuildButtonColumn/>
-          </columns>
-        </hudson.plugins.sectioned__view.ListViewSection>
-      </sections>
-    </hudson.plugins.sectioned__view.SectionedView>
-    <listView>
-      <owner class="hudson" reference="../../.."/>
-      <name>UI-Koala</name>
-      <filterExecutors>false</filterExecutors>
-      <filterQueue>false</filterQueue>
-      <properties class="hudson.model.View$PropertyList"/>
-      <jobNames>
-        <comparator class="hudson.util.CaseInsensitiveComparator"/>
-        <string>Koala-INSTANCE-OPERATIONS</string>
-        <string>Koala-IP-OPERATIONS</string>
-        <string>Koala-KEY-PAIR-OPERATIONS</string>
-        <string>Koala-SECURITY-GROUP-OPERATIONS</string>
-        <string>Koala-SNAPSHOT-OPERATIONS</string>
-        <string>Koala-SUITE</string>
-        <string>Koala-VOLUME-OPERATIONS</string>
-        <string>UI-Clean-UP-Koala</string>
-      </jobNames>
-      <jobFilters/>
-      <columns>
-        <hudson.views.StatusColumn/>
-        <hudson.views.WeatherColumn/>
-        <hudson.views.JobColumn/>
-        <hudson.views.LastSuccessColumn/>
-        <hudson.views.LastFailureColumn/>
-        <hudson.views.LastDurationColumn/>
-        <hudson.views.BuildButtonColumn/>
-      </columns>
-      <recurse>false</recurse>
-    </listView>
-    <hudson.plugins.sectioned__view.SectionedView plugin="sectioned-view@1.18">
-      <owner class="hudson" reference="../../.."/>
       <name>Deploy Eucalyptus</name>
       <description>&lt;html&gt;&#xd;
 	&lt;head&gt;&#xd;
@@ -326,49 +237,14 @@ The will run once per minute and up to the number defined in the concurrent jobs
             <hudson.views.LastFailureColumn/>
             <hudson.views.LastDurationColumn/>
             <hudson.views.BuildButtonColumn/>
-            <jenkins.plugins.extracolumns.LastBuildConsoleColumn plugin="extra-columns@1.14"/>
+            <jenkins.plugins.extracolumns.LastBuildConsoleColumn plugin="extra-columns@1.11"/>
           </columns>
         </hudson.plugins.sectioned__view.ListViewSection>
       </sections>
     </hudson.plugins.sectioned__view.SectionedView>
-    <hudson.plugins.view.dashboard.Dashboard plugin="dashboard-view@2.9.1">
-      <owner class="hudson" reference="../../.."/>
-      <name>Eucaconsole Pull Request Monitor Jobs</name>
-      <description>Eucalyptus Console Pull Request Monitor Jobs</description>
-      <filterExecutors>false</filterExecutors>
-      <filterQueue>false</filterQueue>
-      <properties class="hudson.model.View$PropertyList"/>
-      <jobNames>
-        <comparator class="hudson.util.CaseInsensitiveComparator"/>
-        <string>Build New Eucalyptus System and Eucalyptus Console</string>
-        <string>Eucalyptus Console Pull Request Monitor</string>
-        <string>Koala-SUITE</string>
-      </jobNames>
-      <jobFilters/>
-      <columns>
-        <hudson.views.StatusColumn/>
-        <hudson.views.WeatherColumn/>
-        <hudson.views.JobColumn/>
-        <hudson.views.LastSuccessColumn/>
-        <hudson.views.LastFailureColumn/>
-        <hudson.views.LastDurationColumn/>
-        <jenkins.plugins.extracolumns.BuildDescriptionColumn plugin="extra-columns@1.11"/>
-        <jenkins.plugins.extracolumns.LastBuildConsoleColumn plugin="extra-columns@1.11"/>
-      </columns>
-      <recurse>false</recurse>
-      <statusFilter>true</statusFilter>
-      <useCssStyle>true</useCssStyle>
-      <includeStdJobList>true</includeStdJobList>
-      <leftPortletWidth>50%</leftPortletWidth>
-      <rightPortletWidth>50%</rightPortletWidth>
-      <leftPortlets/>
-      <rightPortlets/>
-      <topPortlets/>
-      <bottomPortlets/>
-    </hudson.plugins.view.dashboard.Dashboard>
     <listView>
       <owner class="hudson" reference="../../.."/>
-      <name>UI-IAM</name>
+      <name>UI-Tests</name>
       <filterExecutors>false</filterExecutors>
       <filterQueue>false</filterQueue>
       <properties class="hudson.model.View$PropertyList"/>
