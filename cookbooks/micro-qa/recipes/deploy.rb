@@ -42,3 +42,4 @@ end
 
 python_pip "fabric"
 python_pip "PyYAML"
+python_pip "argparse"
