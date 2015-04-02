@@ -36,8 +36,6 @@ python_virtualenv eutester_venv_dir do
   action :delete
 end
 python_virtualenv eutester_venv_dir do
-  owner "root"
-  group "root"
   action :create
   only_if "ls /vagrant"
 end
