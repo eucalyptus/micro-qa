@@ -33,20 +33,12 @@ Vagrant.configure('2') do |config|
     config.vm.network :forwarded_port, guest: 8080, host: 8080
     config.vm.provider :vmware_fusion do |v, override|
         override.vm.network 'public_network'
-        if config.vm.box == 'centos'
-          override.vm.box_url = 'https://dl.dropbox.com/u/5721940/vagrant-boxes/vagrant-centos-6.4-x86_64-vmware_fusion.box'
-        else
-          override.vm.box_url = 'http://grahamc.com/vagrant/ubuntu-12.04.2-server-amd64-vmware-fusion.box'
-        end
         v.vmx['memsize'] = options[:memory].to_i
         v.vmx['numvcpus'] = options[:cores].to_i
         v.vmx['vhv.enable'] = 'true'
     end
     config.vm.provider :virtualbox do |v, override|
         override.vm.network 'public_network'
-        if config.vm.box == 'chef/centos-6.6'
-          override.vm.box_url = 'https://atlas.hashicorp.com/chef/boxes/centos-6.6'
-        end
         v.customize [ 'modifyvm', :id, '--memory', options[:memory].to_i, '--cpus', options[:cores].to_i]
     end
     config.omnibus.chef_version = :latest
