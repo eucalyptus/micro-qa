@@ -63,11 +63,19 @@ default_attributes:
       ### This is the interface on the NCs to attach the bridge to
       bridged-nic: eth0</defaultValue>
         </hudson.model.TextParameterDefinition>
-        <hudson.model.TextParameterDefinition>
+        <hudson.model.StringParameterDefinition>
           <name>branch</name>
-          <description></description>
+          <description>Eucalyptus cookbook branch to use:
+
+4.1 -&gt; euca-4.1
+4.2 -&gt; euca-4.2</description>
           <defaultValue>euca-4.1</defaultValue>
-        </hudson.model.TextParameterDefinition>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>password</name>
+          <description>Password for systems under test</description>
+          <defaultValue>foobar</defaultValue>
+        </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
     <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
@@ -132,9 +140,9 @@ EOF
 
 export PYTHONPATH=.:$PYTHONPATH
 echo &quot;Using cookbook version $branch&quot;
-./bin/euca-deploy prepare -b $branch -e environment.yml --debug
-./bin/euca-deploy bootstrap -b $branch -e environment.yml --debug
-./bin/euca-deploy provision -b $branch -e environment.yml --debug</command>
+./bin/euca-deploy prepare -b $branch -e environment.yml -p $password --debug
+./bin/euca-deploy bootstrap -b $branch -e environment.yml -p $password --debug
+./bin/euca-deploy provision -b $branch -e environment.yml -p $password --debug</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
