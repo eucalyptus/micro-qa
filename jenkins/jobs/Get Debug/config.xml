@@ -7,75 +7,67 @@
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
         <hudson.model.StringParameterDefinition>
-          <name>repo_url</name>
+          <name>UFS_IP</name>
           <description></description>
-          <defaultValue>git://github.com/eucalyptus/eutester.git</defaultValue>
+          <defaultValue>10.111.5.154</defaultValue>
         </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>script</name>
-          <description></description>
-          <defaultValue>testcases/cloud_admin/get_debug.py</defaultValue>
-        </hudson.model.StringParameterDefinition>
-        <hudson.model.ChoiceParameterDefinition>
-          <name>branch</name>
-          <description></description>
-          <choices class="java.util.Arrays$ArrayList">
-            <a class="string-array">
-              <string>master</string>
-              <string>testing</string>
-            </a>
-          </choices>
-        </hudson.model.ChoiceParameterDefinition>
-        <hudson.model.TextParameterDefinition>
-          <name>topology</name>
-          <description>Topology of eucalyptus components</description>
-          <defaultValue>10.111.1.65	CENTOS	6.3	64	BZR	[UI CLC WS]
-10.111.1.66	CENTOS	6.3	64	BZR	[CC00 SC00]
-10.111.1.67	CENTOS	6.3	64	BZR	[CC01 SC01]
-10.111.1.68	CENTOS	6.3	64	BZR	[NC00]
-10.111.1.69	CENTOS	6.3	64	BZR	[NC01]</defaultValue>
-        </hudson.model.TextParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>password</name>
           <description>Root password for the machines described in the topology above. If keys are synced between Jenkins and the cloud infrastrucure just leave the password as default.</description>
           <defaultValue>foobar</defaultValue>
         </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>report</name>
+          <description>ENTER COMMA SEP. CMDS TO BE RUN ON MACHINES(examples: brief, debug, &quot;ls, lsblk, free -m&quot;)</description>
+          <defaultValue>debug</defaultValue>
+        </hudson.model.StringParameterDefinition>
       </parameterDefinitions>
     </hudson.model.ParametersDefinitionProperty>
+    <hudson.plugins.throttleconcurrents.ThrottleJobProperty plugin="throttle-concurrents@1.7.2">
+      <maxConcurrentPerNode>0</maxConcurrentPerNode>
+      <maxConcurrentTotal>0</maxConcurrentTotal>
+      <throttleEnabled>false</throttleEnabled>
+      <throttleOption>project</throttleOption>
+    </hudson.plugins.throttleconcurrents.ThrottleJobProperty>
   </properties>
   <scm class="hudson.scm.NullSCM"/>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers class="vector"/>
+  <triggers/>
   <concurrentBuild>true</concurrentBuild>
   <customWorkspace>$BUILD_TAG</customWorkspace>
   <builders>
     <hudson.tasks.Shell>
       <command>### CLONE TEST REPO
-git clone $repo_url repo
-cd repo
-git checkout $branch
-cd ..
-mkdir input
-cat &gt; input/cloud.conf &lt;&lt;EOF
-$topology
-EOF
+git clone git://github.com/eucalyptus/eutester.git repo
 
 mkdir virtualenv/
-rsync -va /share/eutester-base/ virtualenv/ &gt;&gt; $WORKSPACE/install.log
+rsync -va /var/lib/jenkins/share/eutester-base/ virtualenv/ &gt;&gt; $WORKSPACE/install.log
+
+wget https://gist.githubusercontent.com/tbeckham/50263e410e0ddbd1f47d/raw/get_topo.py
+
+sed -i s/clcip/\&quot;$UFS_IP\&quot;/g get_topo.py
+sed -i s/clc_password/\&quot;$password\&quot;/g get_topo.py
+sed -i s/command_list/\&quot;$report\&quot;/g get_topo.py
 
 cd repo
 ../virtualenv/bin/python setup.py install  &gt;&gt; $WORKSPACE/install.log
 
-../virtualenv/bin/python $script --config ../input/cloud.conf --password $password</command>
+../virtualenv/bin/python ../get_topo.py
+</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers>
-    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.12">
+    <hudson.plugins.ws__cleanup.WsCleanup plugin="ws-cleanup@0.16">
       <deleteDirs>false</deleteDirs>
       <skipWhenFailed>false</skipWhenFailed>
+      <cleanWhenSuccess>true</cleanWhenSuccess>
+      <cleanWhenUnstable>true</cleanWhenUnstable>
+      <cleanWhenFailure>true</cleanWhenFailure>
+      <cleanWhenNotBuilt>true</cleanWhenNotBuilt>
+      <cleanWhenAborted>true</cleanWhenAborted>
       <notFailBuild>false</notFailBuild>
       <cleanupMatrixParent>false</cleanupMatrixParent>
     </hudson.plugins.ws__cleanup.WsCleanup>
